@@ -6,8 +6,13 @@ vlc_declare_plugin(filesystem);
 vlc_declare_plugin(mp4);
 vlc_declare_plugin(avi);
 vlc_declare_plugin(avcodec);
-vlc_declare_plugin(lpcm);
 vlc_declare_plugin(packetizer_copy);
+vlc_declare_plugin(converter_fixed);
+vlc_declare_plugin(audio_format);
+vlc_declare_plugin(mono);
+vlc_declare_plugin(float32_mixer);
+vlc_declare_plugin(trivial_mixer);
+vlc_declare_plugin(bandlimited_resampler);
 vlc_declare_plugin(audioqueue);
 
 const void *vlc_builtins_modules[] = {
@@ -16,8 +21,13 @@ const void *vlc_builtins_modules[] = {
     vlc_plugin(mp4),
     vlc_plugin(avi),
     vlc_plugin(avcodec),
-    vlc_plugin(lpcm),
     vlc_plugin(packetizer_copy),
+    vlc_plugin(converter_fixed),
+    vlc_plugin(audio_format),
+    vlc_plugin(mono),
+    vlc_plugin(float32_mixer),
+    vlc_plugin(trivial_mixer),
+    vlc_plugin(bandlimited_resampler),
     vlc_plugin(audioqueue),
     NULL
 };

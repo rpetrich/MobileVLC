@@ -7,7 +7,20 @@
 # Copyright 2010 __MyCompanyName__. All rights reserved.
 
 
-plugins="misc/dummy access/filesystem demux/mp4 demux/avi codec/avcodec codec/lpcm packetizer/packetizer_copy audio_output/audioqueue"
+plugins+="misc/dummy "
+plugins+="access/filesystem "
+plugins+="demux/mp4 "
+plugins+="demux/avi "
+plugins+="codec/avcodec "
+plugins+="packetizer/packetizer_copy "
+plugins+="audio_filter/converter_fixed "
+plugins+="audio_filter/audio_format "
+plugins+="audio_filter/mono "
+plugins+="audio_mixer/float32_mixer "
+plugins+="audio_mixer/trivial_mixer "
+plugins+="audio_filter/bandlimited_resampler "
+
+plugins+="audio_output/audioqueue "
 
 pushd `dirname $0`
 PROJECT_DIR=`pwd`
