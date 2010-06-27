@@ -7,6 +7,7 @@
 //
 
 #import <vlc/vlc.h>
+#import "vlc-plugins.h"
 
 #import "MobileVLCAppDelegate.h"
 
@@ -14,6 +15,10 @@
 #import "RootViewController.h"
 #import "DetailViewController.h"
 
+void __bzero(void *a, size_t c)
+{
+    return bzero(a, c);
+}
 
 @implementation MobileVLCAppDelegate
 
@@ -32,7 +37,7 @@
     [window makeKeyAndVisible];
 
     static const char * args[] = {
-        "-v",
+        "-vvv",
         "--ignore-config",
         "--no-media-library",
         "-I", "dummy",
@@ -43,19 +48,7 @@
 
     static const int argc = sizeof (args) / sizeof (args[0]);
 
-    //vlc_declare_plugin(avcodec);
-    vlc_declare_plugin(avi);
-    vlc_declare_plugin(dummy);
-    vlc_declare_plugin(filesystem);
-    vlc_declare_plugin(mp4);
-    const void *builtins[] = {
-        //vlc_plugin(avcodec),
-        vlc_plugin(avi),
-        vlc_plugin(dummy),
-        vlc_plugin(filesystem),
-        vlc_plugin(mp4), NULL };
-
-    libvlc_instance_t *vlc = libvlc_new_with_builtins(argc, args, builtins);
+    libvlc_instance_t *vlc = libvlc_new_with_builtins(argc, args, vlc_builtins_modules);
     NSAssert(vlc, @"Can't initialize vlc");
     libvlc_media_t *m = libvlc_media_new_path(vlc, "/Users/steg/Movies/7 Ans De Mariage.avi");
     libvlc_media_player_t *mp = libvlc_media_player_new(vlc);

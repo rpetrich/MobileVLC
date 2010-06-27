@@ -6,15 +6,20 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+
 VLC_DIR=$(PROJECT_DIR)/../vlc
 PLATFORM[sdk=iphonesimulator*]=Simulator
 PLATFORM[sdk=iphoneos*]=OS
+VLC_BUILD_DIR=$(VLC_DIR)/build-ios-$(PLATFORM)
 VLC_INSTALL_DIR=$(VLC_DIR)/install-ios-$(PLATFORM)
 
 OTHER_CFLAGS=-I$(VLC_INSTALL_DIR)/include
-M=$(VLC_INSTALL_DIR)/lib/vlc/plugins
+L=$(VLC_INSTALL_DIR)/lib
+M=$(L)/vlc/plugins
 
 CONTRIB[sdk=iphonesimulator*]=$(VLC_INSTALL_DIR)/extras/contrib/hosts/arm-apple-darwin10
 CONTRIB[sdk=iphoneos*]=$(VLC_INSTALL_DIR)/extras/contrib/hosts/i686-apple-darwin10
 
-OTHER_LDFLAGS= $(VLC_INSTALL_DIR)/lib/libvlc.a $(VLC_INSTALL_DIR)/lib/libvlccore.a -liconv -lz $(VLC_INSTALL_DIR)/lib/libvlccore.a $(M)/demux/libmp4_plugin.a $(M)/misc/libdummy_plugin.a $(M)/access/libfilesystem_plugin.a $(M)/misc/libdummy_plugin.a $(M)/demux/libavi_plugin.a
+#include "vlc-plugins.xcconfig"
+
+OTHER_LDFLAGS=$(L)/libvlc.a $(L)/libvlccore.a $(VLC_PLUGINS_LDFLAGS) -liconv -lm -lz
