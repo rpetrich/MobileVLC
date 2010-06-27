@@ -7,7 +7,8 @@ vlc_declare_plugin(mp4);
 vlc_declare_plugin(avi);
 vlc_declare_plugin(avcodec);
 vlc_declare_plugin(lpcm);
-vlc_declare_plugin(copy);
+vlc_declare_plugin(packetizer_copy);
+vlc_declare_plugin(audioqueue);
 
 const void *vlc_builtins_modules[] = {
     vlc_plugin(dummy),
@@ -16,7 +17,8 @@ const void *vlc_builtins_modules[] = {
     vlc_plugin(avi),
     vlc_plugin(avcodec),
     vlc_plugin(lpcm),
-    vlc_plugin(copy),
+    vlc_plugin(packetizer_copy),
+    vlc_plugin(audioqueue),
     NULL
 };
 

@@ -43,7 +43,6 @@ void __bzero(void *a, size_t c)
         "-I", "dummy",
         "--plugin-path=../modules",
         "--vout=dummy",
-        "--aout=dummy"
     };
 
     static const int argc = sizeof (args) / sizeof (args[0]);
