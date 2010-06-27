@@ -20,7 +20,12 @@ plugins+="audio_mixer/float32_mixer "
 plugins+="audio_mixer/trivial_mixer "
 plugins+="audio_filter/bandlimited_resampler "
 
+
+plugins+="video_chroma/i420_rgb "
+plugins+="mmx/i420_rgb_mmx "
+
 plugins+="audio_output/audioqueue "
+plugins+="video_output/vout_ios "
 
 pushd `dirname $0`
 PROJECT_DIR=`pwd`
@@ -35,8 +40,9 @@ AVCODEC_FLAGS=`PKG_CONFIG_PATH="$VLC_CONTRIB_DIR/lib/pkgconfig" $VLC_CONTRIB_DIR
 AVCODEC="$VLC_CONTRIB_DIR/lib/libavcodec.a $AVCODEC_FLAGS"
 
 AUDIOTOOLBOX="-framework AudioToolbox"
+OPENGLES="-framework OpenGLES -framework QuartzCore"
 
-LDFLAGS="$AVCODEC $AUDIOTOOLBOX "
+LDFLAGS="$AVCODEC $AUDIOTOOLBOX $OPENGLES "
 DEFINITION=""
 BUILTINS="const void *vlc_builtins_modules[] = {\n"
 for i in $plugins; do

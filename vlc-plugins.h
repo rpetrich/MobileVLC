@@ -13,7 +13,10 @@ vlc_declare_plugin(mono);
 vlc_declare_plugin(float32_mixer);
 vlc_declare_plugin(trivial_mixer);
 vlc_declare_plugin(bandlimited_resampler);
+vlc_declare_plugin(i420_rgb);
+vlc_declare_plugin(i420_rgb_mmx);
 vlc_declare_plugin(audioqueue);
+vlc_declare_plugin(vout_ios);
 
 const void *vlc_builtins_modules[] = {
     vlc_plugin(dummy),
@@ -28,7 +31,10 @@ const void *vlc_builtins_modules[] = {
     vlc_plugin(float32_mixer),
     vlc_plugin(trivial_mixer),
     vlc_plugin(bandlimited_resampler),
+    vlc_plugin(i420_rgb),
+    vlc_plugin(i420_rgb_mmx),
     vlc_plugin(audioqueue),
+    vlc_plugin(vout_ios),
     NULL
 };
 

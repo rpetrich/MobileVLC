@@ -41,8 +41,6 @@ void __bzero(void *a, size_t c)
         "--ignore-config",
         "--no-media-library",
         "-I", "dummy",
-        "--plugin-path=../modules",
-        "--vout=dummy",
     };
 
     static const int argc = sizeof (args) / sizeof (args[0]);
@@ -52,6 +50,7 @@ void __bzero(void *a, size_t c)
     libvlc_media_t *m = libvlc_media_new_path(vlc, "/Users/steg/Movies/7 Ans De Mariage.avi");
     libvlc_media_player_t *mp = libvlc_media_player_new(vlc);
     libvlc_media_player_set_media(mp, m);
+    libvlc_media_player_set_nsobject(mp, splitViewController.view);
     libvlc_media_player_play(mp);
 
     return YES;
