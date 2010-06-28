@@ -6,9 +6,6 @@
 //  Copyright __MyCompanyName__ 2010. All rights reserved.
 //
 
-#import <vlc/vlc.h>
-#import "vlc-plugins.h"
-
 #import "MobileVLCAppDelegate.h"
 
 
@@ -36,22 +33,15 @@ void __bzero(void *a, size_t c)
     [window addSubview:splitViewController.view];
     [window makeKeyAndVisible];
 
-    static const char * args[] = {
-        "-vvv",
-        "--ignore-config",
-        "--no-media-library",
-        "-I", "dummy",
-    };
 
-    static const int argc = sizeof (args) / sizeof (args[0]);
+    // start vlc.
+    [VLCLibrary sharedLibrary];
 
-    libvlc_instance_t *vlc = libvlc_new_with_builtins(argc, args, vlc_builtins_modules);
-    NSAssert(vlc, @"Can't initialize vlc");
-    libvlc_media_t *m = libvlc_media_new_path(vlc, "/Users/steg/Movies/7 Ans De Mariage.avi");
-    libvlc_media_player_t *mp = libvlc_media_player_new(vlc);
-    libvlc_media_player_set_media(mp, m);
-    libvlc_media_player_set_nsobject(mp, splitViewController.view);
-    libvlc_media_player_play(mp);
+
+    VLCMediaPlayer *mp = [[VLCMediaPlayer alloc] init];
+    [mp setMedia:[VLCMedia mediaWithURL:[NSURL fileURLWithPath:@"/Users/steg/Movies/7 Ans De Mariage.avi"]]];
+    [mp setDrawable:splitViewController.view];
+    [mp play];
 
     return YES;
 }

@@ -7,19 +7,4 @@
 //
 
 
-VLC_DIR=$(PROJECT_DIR)/../vlc
-PLATFORM[sdk=iphonesimulator*]=Simulator
-PLATFORM[sdk=iphoneos*]=OS
-VLC_BUILD_DIR=$(VLC_DIR)/build-ios-$(PLATFORM)
-VLC_INSTALL_DIR=$(VLC_DIR)/install-ios-$(PLATFORM)
-
-OTHER_CFLAGS=-I$(VLC_INSTALL_DIR)/include
-L=$(VLC_INSTALL_DIR)/lib
-M=$(L)/vlc/plugins
-
-CONTRIB[sdk=iphonesimulator*]=$(VLC_INSTALL_DIR)/extras/contrib/hosts/arm-apple-darwin10
-CONTRIB[sdk=iphoneos*]=$(VLC_INSTALL_DIR)/extras/contrib/hosts/i686-apple-darwin10
-
-#include "vlc-plugins.xcconfig"
-
-OTHER_LDFLAGS=$(L)/libvlc.a $(L)/libvlccore.a $(VLC_PLUGINS_LDFLAGS) -liconv -lm -lz
+OTHER_LDFLAGS=-framework MobileVLCKit -liconv -framework AudioToolbox -framework OpenGLEs -framework QuartzCore

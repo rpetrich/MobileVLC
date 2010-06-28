@@ -7,17 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MobileVLCKit/MobileVLCKit.h>
 
 
 @class RootViewController;
 @class DetailViewController;
 
 @interface MobileVLCAppDelegate : NSObject <UIApplicationDelegate> {
-    
+
     UIWindow *window;
-    
+
     UISplitViewController *splitViewController;
-    
+
     RootViewController *rootViewController;
     DetailViewController *detailViewController;
 }
