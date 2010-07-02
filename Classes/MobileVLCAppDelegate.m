@@ -12,11 +12,6 @@
 #import "RootViewController.h"
 #import "DetailViewController.h"
 
-void __bzero(void *a, size_t c)
-{
-    return bzero(a, c);
-}
-
 @implementation MobileVLCAppDelegate
 
 @synthesize window, splitViewController, rootViewController, detailViewController;
@@ -37,9 +32,10 @@ void __bzero(void *a, size_t c)
     // start vlc.
     [VLCLibrary sharedLibrary];
 
+	NSLog(@"Ha ha ha Blablabla !!");
 
     VLCMediaPlayer *mp = [[VLCMediaPlayer alloc] init];
-    [mp setMedia:[VLCMedia mediaWithURL:[NSURL fileURLWithPath:@"/Users/steg/Movies/7 Ans De Mariage.avi"]]];
+    [mp setMedia:[VLCMedia mediaWithURL:[NSURL URLWithString:@"http://192.168.0.3/~romain/99_F.divx.avi"]]];
     [mp setDrawable:splitViewController.view];
     [mp play];
 
