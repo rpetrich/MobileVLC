@@ -32,10 +32,16 @@
     // start vlc.
     [VLCLibrary sharedLibrary];
 
-	NSLog(@"Ha ha ha Blablabla !!");
-
     VLCMediaPlayer *mp = [[VLCMediaPlayer alloc] init];
-    [mp setMedia:[VLCMedia mediaWithURL:[NSURL URLWithString:@"http://192.168.0.3/~romain/99_F.divx.avi"]]];
+	
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString * documentsDirectory = [paths objectAtIndex:0];
+	
+	NSString * filePath = [documentsDirectory stringByAppendingPathComponent:@"test.avi"];
+	NSLog(@"Playing %@", filePath);
+	NSString * testFilePath = [documentsDirectory stringByAppendingPathComponent:@"test.txt"];
+	NSLog(@"Testing %@ = %@", testFilePath, [NSString stringWithContentsOfFile:testFilePath]);
+    [mp setMedia:[VLCMedia mediaWithPath:filePath]];
     [mp setDrawable:splitViewController.view];
     [mp play];
 
