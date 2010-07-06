@@ -13,6 +13,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	_mediaPlayer = [[VLCMediaPlayer alloc] init];
+	[_mediaPlayer setDelegate:self];
     [_mediaPlayer setDrawable:self.movieView];
 }
 
@@ -58,6 +59,20 @@
 
 - (IBAction)position:(id)sender {
 	[_mediaPlayer setPosition:self.positionSlider.value];
+}
+
+- (IBAction)goForward:(id)sender {
+	[_mediaPlayer mediumJumpForward];
+}
+
+- (IBAction)goBackward:(id)sender {
+	[_mediaPlayer mediumJumpBackward];
+}
+
+#pragma mark -
+#pragma mark VLCMediaPlayerDelegate
+- (void)mediaPlayerTimeChanged:(NSNotification *)aNotification {
+	self.positionSlider.value = [_mediaPlayer position];
 }
 
 @end

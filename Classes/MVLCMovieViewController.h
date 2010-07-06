@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MobileVLCKit/MobileVLCKit.h>
 
-@interface MVLCMovieViewController : UIViewController {
+@interface MVLCMovieViewController : UIViewController <VLCMediaPlayerDelegate> {
 	UIView *         _movieView;
 	UISlider *       _positionSlider;
 	VLCMediaPlayer * _mediaPlayer;
@@ -21,4 +21,6 @@
 - (IBAction)play:(id)sender;
 - (IBAction)pause:(id)sender;
 - (IBAction)position:(id)sender;
+- (IBAction)goForward:(id)sender;
+- (IBAction)goBackward:(id)sender;	
 @end
