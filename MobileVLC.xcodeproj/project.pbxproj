@@ -11,11 +11,7 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
-		2804200B108E984D000629CD /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28042008108E984D000629CD /* RootViewController.m */; };
-		2804200C108E984D000629CD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2804200A108E984D000629CD /* DetailViewController.m */; };
-		2804203C108E9BAB000629CD /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2804203B108E9BAB000629CD /* DetailView.xib */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
-		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		7A5ECA1911DE782F00F66AF3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECA1811DE782F00F66AF3 /* OpenGLES.framework */; };
 		7A5ECA1D11DE783500F66AF3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECA1C11DE783500F66AF3 /* AudioToolbox.framework */; };
 		7A5ECA2111DE783F00F66AF3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECA2011DE783F00F66AF3 /* QuartzCore.framework */; };
@@ -23,6 +19,9 @@
 		7A5ECB8011DE96CB00F66AF3 /* libMobileVLCKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECB7F11DE96C400F66AF3 /* libMobileVLCKit.a */; };
 		7A5ECBC011DE994500F66AF3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECBBF11DE994500F66AF3 /* libz.dylib */; };
 		7A5ECC1511DE9C6900F66AF3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECC1411DE9C6900F66AF3 /* libsqlite3.dylib */; };
+		7A87ECAC11E3A1DD007BE827 /* MVLCMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */; };
+		7A87ECD611E3A33E007BE827 /* MVLCMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */; };
+		7A87ECDA11E3A356007BE827 /* MVLCMovieView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A87ECD911E3A356007BE827 /* MVLCMovieView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,14 +30,8 @@
 		1D3623250D0F684500981E51 /* MobileVLCAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileVLCAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* MobileVLC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileVLC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		28042007108E984D000629CD /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		28042008108E984D000629CD /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		28042009108E984D000629CD /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		2804200A108E984D000629CD /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		2804203B108E9BAB000629CD /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* MobileVLC_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileVLC_Prefix.pch; sourceTree = "<group>"; };
-		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7A5ECA1811DE782F00F66AF3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		7A5ECA1C11DE783500F66AF3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -54,6 +47,10 @@
 		7A5ECBA211DE977A00F66AF3 /* MobileVLCKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileVLCKit.h; sourceTree = "<group>"; };
 		7A5ECBBF11DE994500F66AF3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		7A5ECC1411DE9C6900F66AF3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCMainWindow.xib; path = Resources/MVLCMainWindow.xib; sourceTree = "<group>"; };
+		7A87ECD411E3A33E007BE827 /* MVLCMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLCMovieViewController.h; sourceTree = "<group>"; };
+		7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLCMovieViewController.m; sourceTree = "<group>"; };
+		7A87ECD911E3A356007BE827 /* MVLCMovieView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCMovieView.xib; path = Resources/MVLCMovieView.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MobileVLC-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MobileVLC-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,10 +80,8 @@
 			children = (
 				1D3623240D0F684500981E51 /* MobileVLCAppDelegate.h */,
 				1D3623250D0F684500981E51 /* MobileVLCAppDelegate.m */,
-				28042007108E984D000629CD /* RootViewController.h */,
-				28042008108E984D000629CD /* RootViewController.m */,
-				28042009108E984D000629CD /* DetailViewController.h */,
-				2804200A108E984D000629CD /* DetailViewController.m */,
+				7A87ECD411E3A33E007BE827 /* MVLCMovieViewController.h */,
+				7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -126,8 +121,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
-				2804203B108E9BAB000629CD /* DetailView.xib */,
+				7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */,
+				7A87ECD911E3A356007BE827 /* MVLCMovieView.xib */,
 				8D1107310486CEB800E47090 /* MobileVLC-Info.plist */,
 			);
 			name = Resources;
@@ -235,8 +230,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
-				2804203C108E9BAB000629CD /* DetailView.xib in Resources */,
+				7A87ECAC11E3A1DD007BE827 /* MVLCMainWindow.xib in Resources */,
+				7A87ECDA11E3A356007BE827 /* MVLCMovieView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,8 +244,7 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* MobileVLCAppDelegate.m in Sources */,
-				2804200B108E984D000629CD /* RootViewController.m in Sources */,
-				2804200C108E984D000629CD /* DetailViewController.m in Sources */,
+				7A87ECD611E3A33E007BE827 /* MVLCMovieViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

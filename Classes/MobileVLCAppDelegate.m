@@ -7,43 +7,25 @@
 //
 
 #import "MobileVLCAppDelegate.h"
-
-
-#import "RootViewController.h"
-#import "DetailViewController.h"
+#import <MobileVLCKit/MobileVLCKit.h>
 
 @implementation MobileVLCAppDelegate
-
-@synthesize window, splitViewController, rootViewController, detailViewController;
-
+@synthesize window=_window, movieViewController=_movieViewController;
 
 #pragma mark -
 #pragma mark Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    // Override point for customization after app launch
-
-    // Add the split view controller's view to the window and display.
-    [window addSubview:splitViewController.view];
-    [window makeKeyAndVisible];
-
-
-    // start vlc.
     [VLCLibrary sharedLibrary];
 
-    VLCMediaPlayer *mp = [[VLCMediaPlayer alloc] init];
-	
+	[_window addSubview:self.movieViewController.view];
+    [_window makeKeyAndVisible];
+
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString * documentsDirectory = [paths objectAtIndex:0];
-	
 	NSString * filePath = [documentsDirectory stringByAppendingPathComponent:@"test.avi"];
-	NSLog(@"Playing %@", filePath);
-	NSString * testFilePath = [documentsDirectory stringByAppendingPathComponent:@"test.txt"];
-	NSLog(@"Testing %@ = %@", testFilePath, [NSString stringWithContentsOfFile:testFilePath]);
-    [mp setMedia:[VLCMedia mediaWithPath:filePath]];
-    [mp setDrawable:splitViewController.view];
-    [mp play];
+	self.movieViewController.media = [VLCMedia mediaWithPath:filePath];
 
     return YES;
 }
@@ -58,8 +40,7 @@
 #pragma mark Memory management
 
 - (void)dealloc {
-    [splitViewController release];
-    [window release];
+    [_window release];
     [super dealloc];
 }
 

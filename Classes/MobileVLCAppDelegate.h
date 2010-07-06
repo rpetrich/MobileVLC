@@ -7,26 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MobileVLCKit/MobileVLCKit.h>
-
-
-@class RootViewController;
-@class DetailViewController;
+#import "MVLCMovieViewController.h"
 
 @interface MobileVLCAppDelegate : NSObject <UIApplicationDelegate> {
-
-    UIWindow *window;
-
-    UISplitViewController *splitViewController;
-
-    RootViewController *rootViewController;
-    DetailViewController *detailViewController;
+    UIWindow *                _window;
+	MVLCMovieViewController * _movieViewController;
 }
-
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-
-@property (nonatomic, retain) IBOutlet UISplitViewController *splitViewController;
-@property (nonatomic, retain) IBOutlet RootViewController *rootViewController;
-@property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;
-
+@property (nonatomic, retain) IBOutlet UIWindow * window;
+@property (nonatomic, retain) IBOutlet MVLCMovieViewController * movieViewController;
 @end
