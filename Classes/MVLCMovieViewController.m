@@ -9,7 +9,7 @@
 #import "MVLCMovieViewController.h"
 
 @implementation MVLCMovieViewController
-@synthesize movieView=_movieView, media=_media, positionSlider=_positionSlider;
+@synthesize movieView=_movieView, media=_media, positionSlider=_positionSlider, playOrPauseButton=_playOrPauseButton;
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	_mediaPlayer = [[VLCMediaPlayer alloc] init];
@@ -29,9 +29,11 @@
 }
 
 - (void)dealloc {
+	[_playOrPauseButton release];
+	[_positionSlider release];
+	[_movieView release];
 	[_mediaPlayer release];
 	[_media release];
-	[_movieView release];
     [super dealloc];
 }
 
@@ -49,12 +51,14 @@
 
 #pragma mark -
 #pragma mark Actions
-- (IBAction)play:(id)sender {
-	[_mediaPlayer play];
-}
-
-- (IBAction)pause:(id)sender {
-	[_mediaPlayer pause];
+- (IBAction)togglePlayOrPause:(id)sender {
+	if ([_mediaPlayer isPlaying]) {
+		[self.playOrPauseButton setImage:[UIImage imageNamed:@"MVLCMovieViewHUDPlay.png"] forState:UIControlStateNormal];
+		[_mediaPlayer pause];
+	} else {
+		[self.playOrPauseButton setImage:[UIImage imageNamed:@"MVLCMovieViewHUDPause.png"] forState:UIControlStateNormal];
+		[_mediaPlayer play];
+	}
 }
 
 - (IBAction)position:(id)sender {

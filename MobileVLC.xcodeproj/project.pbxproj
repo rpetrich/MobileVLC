@@ -22,6 +22,11 @@
 		7A87ECAC11E3A1DD007BE827 /* MVLCMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */; };
 		7A87ECD611E3A33E007BE827 /* MVLCMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */; };
 		7A87ECDA11E3A356007BE827 /* MVLCMovieView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A87ECD911E3A356007BE827 /* MVLCMovieView.xib */; };
+		7AB2BD5311E48A81002E543F /* MVLCMovieViewHUDBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB2BD4F11E48A81002E543F /* MVLCMovieViewHUDBackground.png */; };
+		7AB2BD5411E48A81002E543F /* MVLCMovieViewHUDFastForward.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB2BD5011E48A81002E543F /* MVLCMovieViewHUDFastForward.png */; };
+		7AB2BD5511E48A81002E543F /* MVLCMovieViewHUDPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB2BD5111E48A81002E543F /* MVLCMovieViewHUDPlay.png */; };
+		7AB2BD5611E48A81002E543F /* MVLCMovieViewHUDRewind.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB2BD5211E48A81002E543F /* MVLCMovieViewHUDRewind.png */; };
+		7AB2BD6B11E48D80002E543F /* MVLCMovieViewHUDPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB2BD6A11E48D80002E543F /* MVLCMovieViewHUDPause.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +56,11 @@
 		7A87ECD411E3A33E007BE827 /* MVLCMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLCMovieViewController.h; sourceTree = "<group>"; };
 		7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLCMovieViewController.m; sourceTree = "<group>"; };
 		7A87ECD911E3A356007BE827 /* MVLCMovieView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCMovieView.xib; path = Resources/MVLCMovieView.xib; sourceTree = "<group>"; };
+		7AB2BD4F11E48A81002E543F /* MVLCMovieViewHUDBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieViewHUDBackground.png; path = Resources/MVLCMovieViewHUDBackground.png; sourceTree = "<group>"; };
+		7AB2BD5011E48A81002E543F /* MVLCMovieViewHUDFastForward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieViewHUDFastForward.png; path = Resources/MVLCMovieViewHUDFastForward.png; sourceTree = "<group>"; };
+		7AB2BD5111E48A81002E543F /* MVLCMovieViewHUDPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieViewHUDPlay.png; path = Resources/MVLCMovieViewHUDPlay.png; sourceTree = "<group>"; };
+		7AB2BD5211E48A81002E543F /* MVLCMovieViewHUDRewind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieViewHUDRewind.png; path = Resources/MVLCMovieViewHUDRewind.png; sourceTree = "<group>"; };
+		7AB2BD6A11E48D80002E543F /* MVLCMovieViewHUDPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieViewHUDPause.png; path = Resources/MVLCMovieViewHUDPause.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MobileVLC-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MobileVLC-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,8 +131,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */,
-				7A87ECD911E3A356007BE827 /* MVLCMovieView.xib */,
+				7AB2BD4C11E489A0002E543F /* XIB */,
+				7AB2BD4D11E489A6002E543F /* Pictures */,
 				8D1107310486CEB800E47090 /* MobileVLC-Info.plist */,
 			);
 			name = Resources;
@@ -181,6 +191,27 @@
 			path = MobileVLCKit;
 			sourceTree = "<group>";
 		};
+		7AB2BD4C11E489A0002E543F /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */,
+				7A87ECD911E3A356007BE827 /* MVLCMovieView.xib */,
+			);
+			name = XIB;
+			sourceTree = "<group>";
+		};
+		7AB2BD4D11E489A6002E543F /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				7AB2BD5211E48A81002E543F /* MVLCMovieViewHUDRewind.png */,
+				7AB2BD5111E48A81002E543F /* MVLCMovieViewHUDPlay.png */,
+				7AB2BD6A11E48D80002E543F /* MVLCMovieViewHUDPause.png */,
+				7AB2BD5011E48A81002E543F /* MVLCMovieViewHUDFastForward.png */,
+				7AB2BD4F11E48A81002E543F /* MVLCMovieViewHUDBackground.png */,
+			);
+			name = Pictures;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -232,6 +263,11 @@
 			files = (
 				7A87ECAC11E3A1DD007BE827 /* MVLCMainWindow.xib in Resources */,
 				7A87ECDA11E3A356007BE827 /* MVLCMovieView.xib in Resources */,
+				7AB2BD5311E48A81002E543F /* MVLCMovieViewHUDBackground.png in Resources */,
+				7AB2BD5411E48A81002E543F /* MVLCMovieViewHUDFastForward.png in Resources */,
+				7AB2BD5511E48A81002E543F /* MVLCMovieViewHUDPlay.png in Resources */,
+				7AB2BD5611E48A81002E543F /* MVLCMovieViewHUDRewind.png in Resources */,
+				7AB2BD6B11E48D80002E543F /* MVLCMovieViewHUDPause.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

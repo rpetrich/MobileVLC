@@ -10,16 +10,17 @@
 #import <MobileVLCKit/MobileVLCKit.h>
 
 @interface MVLCMovieViewController : UIViewController <VLCMediaPlayerDelegate> {
+	VLCMedia *       _media;
+	VLCMediaPlayer * _mediaPlayer;
 	UIView *         _movieView;
 	UISlider *       _positionSlider;
-	VLCMediaPlayer * _mediaPlayer;
-	VLCMedia *       _media;
+	UIButton *       _playOrPauseButton;
 }
+@property (nonatomic, retain) VLCMedia * media;
 @property (nonatomic, retain) IBOutlet UIView * movieView;
 @property (nonatomic, retain) IBOutlet UISlider * positionSlider;
-@property (nonatomic, retain) VLCMedia * media;
-- (IBAction)play:(id)sender;
-- (IBAction)pause:(id)sender;
+@property (nonatomic, retain) IBOutlet UIButton * playOrPauseButton;
+- (IBAction)togglePlayOrPause:(id)sender;
 - (IBAction)position:(id)sender;
 - (IBAction)goForward:(id)sender;
 - (IBAction)goBackward:(id)sender;	
