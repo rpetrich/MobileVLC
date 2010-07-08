@@ -9,7 +9,7 @@
 #import "MVLCMovieViewController.h"
 
 @implementation MVLCMovieViewController
-@synthesize movieView=_movieView, media=_media, positionSlider=_positionSlider, playOrPauseButton=_playOrPauseButton;
+@synthesize movieView=_movieView, media=_media, positionSlider=_positionSlider, playOrPauseButton=_playOrPauseButton, volumeSlider=_volumeSlider;
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	_mediaPlayer = [[VLCMediaPlayer alloc] init];
@@ -65,6 +65,12 @@
 	[_mediaPlayer setPosition:self.positionSlider.value];
 }
 
+- (IBAction)volume:(id)sender {
+	NSLog(@"_mediaPlayer.audio = %@", _mediaPlayer.audio);
+	NSLog(@"self.volumeSlider = %@", self.volumeSlider);
+	_mediaPlayer.audio.volume =  self.volumeSlider.value * 200.0f; // FIXME: This is equal to VOLUME_MAX, as defined in VLCAudio.m ...
+}
+
 - (IBAction)goForward:(id)sender {
 	[_mediaPlayer mediumJumpForward];
 }
@@ -77,6 +83,10 @@
 #pragma mark VLCMediaPlayerDelegate
 - (void)mediaPlayerTimeChanged:(NSNotification *)aNotification {
 	self.positionSlider.value = [_mediaPlayer position];
+}
+
+- (void)mediaPlayerStateChanged:(NSNotification *)aNotification {
+	// FIXME: Refresh the UI (change Play/Pause for instance)
 }
 
 @end

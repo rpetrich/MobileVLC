@@ -14,14 +14,17 @@
 	VLCMediaPlayer * _mediaPlayer;
 	UIView *         _movieView;
 	UISlider *       _positionSlider;
+	UISlider *       _volumeSlider;
 	UIButton *       _playOrPauseButton;
 }
 @property (nonatomic, retain) VLCMedia * media;
 @property (nonatomic, retain) IBOutlet UIView * movieView;
 @property (nonatomic, retain) IBOutlet UISlider * positionSlider;
+@property (nonatomic, retain) IBOutlet UISlider * volumeSlider;
 @property (nonatomic, retain) IBOutlet UIButton * playOrPauseButton;
 - (IBAction)togglePlayOrPause:(id)sender;
 - (IBAction)position:(id)sender;
+- (IBAction)volume:(id)sender;
 - (IBAction)goForward:(id)sender;
 - (IBAction)goBackward:(id)sender;	
 @end
