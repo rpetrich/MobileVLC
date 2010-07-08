@@ -88,10 +88,11 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7A3453A011E5FD9C00A141F2 /* Model */,
+				7A3453A111E5FDA200A141F2 /* View */,
+				7A3453A211E5FDA600A141F2 /* Controller */,
 				1D3623240D0F684500981E51 /* MobileVLCAppDelegate.h */,
 				1D3623250D0F684500981E51 /* MobileVLCAppDelegate.m */,
-				7A87ECD411E3A33E007BE827 /* MVLCMovieViewController.h */,
-				7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -150,6 +151,29 @@
 				7A5ECA2411DE784D00F66AF3 /* libiconv.dylib */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7A3453A011E5FD9C00A141F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7A3453A111E5FDA200A141F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		7A3453A211E5FDA600A141F2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7A87ECD411E3A33E007BE827 /* MVLCMovieViewController.h */,
+				7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		7A5ECB7611DE96C400F66AF3 /* External */ = {

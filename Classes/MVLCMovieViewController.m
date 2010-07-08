@@ -9,12 +9,17 @@
 #import "MVLCMovieViewController.h"
 
 @implementation MVLCMovieViewController
-@synthesize movieView=_movieView, media=_media, positionSlider=_positionSlider, playOrPauseButton=_playOrPauseButton, volumeSlider=_volumeSlider;
+@synthesize movieView=_movieView, media=_media, positionSlider=_positionSlider, playOrPauseButton=_playOrPauseButton, volumeSlider=_volumeSlider, HUDView=_HUDView;
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	_mediaPlayer = [[VLCMediaPlayer alloc] init];
 	[_mediaPlayer setDelegate:self];
     [_mediaPlayer setDrawable:self.movieView];
+	UITapGestureRecognizer * tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleHUDVisibility:)];
+	tapGestureRecognizer.numberOfTapsRequired = 1;
+	tapGestureRecognizer.numberOfTouchesRequired = 1;
+	[self.movieView addGestureRecognizer:tapGestureRecognizer];
+	[tapGestureRecognizer release];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -79,6 +84,10 @@
 	[_mediaPlayer mediumJumpBackward];
 }
 
+- (IBAction)toggleHUDVisibility:(id)sender {
+	self.HUDView.hidden = !self.HUDView.hidden;
+}
+
 #pragma mark -
 #pragma mark VLCMediaPlayerDelegate
 - (void)mediaPlayerTimeChanged:(NSNotification *)aNotification {
@@ -88,5 +97,4 @@
 - (void)mediaPlayerStateChanged:(NSNotification *)aNotification {
 	// FIXME: Refresh the UI (change Play/Pause for instance)
 }
-
 @end
