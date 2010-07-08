@@ -14,6 +14,8 @@
 	VLCMediaPlayer * _mediaPlayer;
 	UIView *         _movieView;
 	UIView *         _HUDView;
+	UIView *         _topView;
+	BOOL             _showInterface;
 	UISlider *       _positionSlider;
 	UISlider *       _volumeSlider;
 	UIButton *       _playOrPauseButton;
@@ -21,6 +23,7 @@
 @property (nonatomic, retain) VLCMedia * media;
 @property (nonatomic, retain) IBOutlet UIView * movieView;
 @property (nonatomic, retain) IBOutlet UIView * HUDView;
+@property (nonatomic, retain) IBOutlet UIView * topView;
 @property (nonatomic, retain) IBOutlet UISlider * positionSlider;
 @property (nonatomic, retain) IBOutlet UISlider * volumeSlider;
 @property (nonatomic, retain) IBOutlet UIButton * playOrPauseButton;

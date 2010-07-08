@@ -12,9 +12,10 @@ static NSString * MVLCMovieViewControllerHUDFadeInAnimation = @"MVLCMovieViewCon
 static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewControllerHUDFadeOutAnimation";
 
 @implementation MVLCMovieViewController
-@synthesize movieView=_movieView, media=_media, positionSlider=_positionSlider, playOrPauseButton=_playOrPauseButton, volumeSlider=_volumeSlider, HUDView=_HUDView;
+@synthesize movieView=_movieView, media=_media, positionSlider=_positionSlider, playOrPauseButton=_playOrPauseButton, volumeSlider=_volumeSlider, HUDView=_HUDView, topView=_topView;
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	_showInterface = YES;
 	_mediaPlayer = [[VLCMediaPlayer alloc] init];
 	[_mediaPlayer setDelegate:self];
     [_mediaPlayer setDrawable:self.movieView];
@@ -37,6 +38,8 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 }
 
 - (void)dealloc {
+	[_topView release];
+	[_HUDView release];
 	[_playOrPauseButton release];
 	[_positionSlider release];
 	[_movieView release];
@@ -88,12 +91,15 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 }
 
 - (IBAction)toggleHUDVisibility:(id)sender {
-	if (self.HUDView.hidden) {
-		[UIView beginAnimations:@"MVLCMovieViewControllerHUDFadeInAnimation" context:NULL];
+	_showInterface = !_showInterface;
+	if (_showInterface) {
+		[UIView beginAnimations:MVLCMovieViewControllerHUDFadeInAnimation context:NULL];
 		self.HUDView.alpha = 1.0f;
+		self.topView.alpha = 1.0f;
 	} else {
-		[UIView beginAnimations:@"MVLCMovieViewControllerHUDFadeOutAnimation" context:NULL];
+		[UIView beginAnimations:MVLCMovieViewControllerHUDFadeOutAnimation context:NULL];
 		self.HUDView.alpha = 0.0f;
+		self.topView.alpha = 0.0f;
 	}
 	[UIView setAnimationDelegate:self];
 	[UIView commitAnimations];
@@ -104,12 +110,14 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 - (void)animationWillStart:(NSString *)animationID context:(void *)context {
 	if ([animationID isEqualToString:MVLCMovieViewControllerHUDFadeInAnimation]) {
 		self.HUDView.hidden = NO;
+		self.topView.hidden = NO;
 	}
 }
 
 - (void)animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
-	if ([animationID isEqualToString:MVLCMovieViewControllerHUDFadeOutAnimation]) {
+	if ([animationID isEqualToString:MVLCMovieViewControllerHUDFadeOutAnimation] && [finished boolValue] == YES) {
 		self.HUDView.hidden = YES;
+		self.topView.hidden = YES;
 	}
 }
 
