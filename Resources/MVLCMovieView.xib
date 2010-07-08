@@ -12,6 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="3"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -46,7 +47,6 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{1024, 748}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC43NQA</bytes>
@@ -66,7 +66,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrameSize">{431, 90}</string>
 								<reference key="NSSuperview" ref="248075313"/>
-								<reference key="NSWindow"/>
 								<object class="NSColor" key="IBUIBackgroundColor" id="711731296">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MCAwAA</bytes>
@@ -84,7 +83,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{267, 12}, {37, 25}}</string>
 								<reference key="NSSuperview" ref="248075313"/>
-								<reference key="NSWindow"/>
 								<reference key="IBUIBackgroundColor" ref="711731296"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -118,7 +116,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{78, 57}, {274, 23}}</string>
 								<reference key="NSSuperview" ref="248075313"/>
-								<reference key="NSWindow"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -131,7 +128,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{202, 10}, {27, 30}}</string>
 								<reference key="NSSuperview" ref="248075313"/>
-								<reference key="NSWindow"/>
 								<reference key="IBUIBackgroundColor" ref="711731296"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -155,7 +151,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{123, 12}, {37, 25}}</string>
 								<reference key="NSSuperview" ref="248075313"/>
-								<reference key="NSWindow"/>
 								<reference key="IBUIBackgroundColor" ref="711731296"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -177,7 +172,6 @@
 						</object>
 						<string key="NSFrame">{{296, 563}, {431, 90}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="IBUIBackgroundColor" ref="711731296"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -190,9 +184,8 @@
 							<object class="IBUISlider" id="521528319">
 								<reference key="NSNextResponder" ref="604955437"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{18, 20}, {988, 23}}</string>
+								<string key="NSFrame">{{18, 7}, {988, 23}}</string>
 								<reference key="NSSuperview" ref="604955437"/>
-								<reference key="NSWindow"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -201,17 +194,18 @@
 								<bool key="IBUIContinuous">NO</bool>
 							</object>
 						</object>
-						<string key="NSFrameSize">{1024, 62}</string>
+						<string key="NSFrameSize">{1024, 35}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
-						<reference key="IBUIBackgroundColor" ref="711731296"/>
+						<object class="NSColor" key="IBUIBackgroundColor">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MCAwLjY1AA</bytes>
+						</object>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 					</object>
 				</object>
 				<string key="NSFrameSize">{1024, 748}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
