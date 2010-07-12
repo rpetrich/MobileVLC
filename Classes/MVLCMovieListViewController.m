@@ -7,17 +7,26 @@
 //
 
 #import "MVLCMovieListViewController.h"
-
+#import "MVLCMovieViewController.h"
+#import "MVLCMovieGridViewCell.h"
 
 @implementation MVLCMovieListViewController
 @synthesize gridView=_gridView;
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.gridView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+	
+	NSString * documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+	VLCMedia * test = [VLCMedia mediaWithPath:[documentsDirectory stringByAppendingPathComponent:@"test.avi"]];
+	VLCMedia * freebox = [VLCMedia mediaWithURL:[NSURL URLWithString:@"http://tv.freebox.fr/stream_france2"]];
+	
+	_allMedia = [[NSArray alloc] initWithObjects:test, freebox, nil];
+
 	[self.gridView reloadData];
 }
 
 - (void)dealloc {
+	[_allMedia release];
 	[_gridView release];
     [super dealloc];
 }
@@ -29,21 +38,26 @@
 #pragma mark -
 #pragma mark AQGridViewDataSource
 - (NSUInteger)numberOfItemsInGridView:(AQGridView *)gridView {
-	return 100;
+	return [_allMedia count];
 }
 
 - (AQGridViewCell *)gridView:(AQGridView *)gridView cellForItemAtIndex:(NSUInteger)index {
 	static NSString * MVLCMovieListGridCellIdentifier = @"MVLCMovieListGridCellIdentifier";
-	AQGridViewCell * cell = [gridView dequeueReusableCellWithIdentifier:MVLCMovieListGridCellIdentifier];
+	MVLCMovieGridViewCell * cell = (MVLCMovieGridViewCell *)[gridView dequeueReusableCellWithIdentifier:MVLCMovieListGridCellIdentifier];
 	if (cell == nil) {
-		cell = [[[AQGridViewCell alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 50.0f, 50.0f) reuseIdentifier:MVLCMovieListGridCellIdentifier] autorelease];
-		UIImageView * iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MVLCIcon.png"]];
-		[cell.contentView addSubview:iv];
-		[iv release];
+		cell = [[[MVLCMovieGridViewCell alloc] initWithReuseIdentifier:MVLCMovieListGridCellIdentifier] autorelease];
+		cell.media = [_allMedia objectAtIndex:index];
 	}
 	return cell; 
 }
 
-
+#pragma mark -
+#pragma mark AQGridViewDelegate
+- (void)gridView:(AQGridView *)gridView didSelectItemAtIndex:(NSUInteger)index {
+	MVLCMovieViewController * movieViewController = [[MVLCMovieViewController alloc] init];
+	movieViewController.media = [_allMedia objectAtIndex:index];
+	[self.navigationController pushViewController:movieViewController animated:YES];
+	[movieViewController release];
+}
 
 @end

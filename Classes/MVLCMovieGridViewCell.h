@@ -14,4 +14,5 @@
 	VLCMedia * _media;
 }
 @property (nonatomic, retain) VLCMedia * media;
+- (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;
 @end
