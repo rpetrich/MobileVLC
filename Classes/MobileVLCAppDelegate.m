@@ -10,7 +10,7 @@
 #import <MobileVLCKit/MobileVLCKit.h>
 
 @implementation MobileVLCAppDelegate
-@synthesize window=_window, movieViewController=_movieViewController, movieListViewController=_movieListViewController;
+@synthesize window=_window, navigationController=_navigationController;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -19,7 +19,7 @@
 
     [VLCLibrary sharedLibrary];
 
-	[_window addSubview:self.movieListViewController.view];
+	[_window addSubview:self.navigationController.view];
     [_window makeKeyAndVisible];
 
 //	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -32,22 +32,14 @@
     return YES;
 }
 
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Save data if appropriate
-}
-
-
 #pragma mark -
 #pragma mark Memory management
 
 - (void)dealloc {
-	[_movieListViewController release];
-	[_movieViewController release];
+	[_navigationController release];
     [_window release];
     [super dealloc];
 }
-
 
 @end
 

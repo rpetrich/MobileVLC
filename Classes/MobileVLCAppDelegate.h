@@ -7,15 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MVLCMovieListViewController.h"
-#import "MVLCMovieViewController.h"
 
 @interface MobileVLCAppDelegate : NSObject <UIApplicationDelegate> {
-    UIWindow *                    _window;
-	MVLCMovieViewController *     _movieViewController;
-	MVLCMovieListViewController * _movieListViewController;
+    UIWindow *               _window;
+	UINavigationController * _navigationController;
 }
-@property (nonatomic, retain) IBOutlet UIWindow *                    window;
-@property (nonatomic, retain) IBOutlet MVLCMovieViewController *     movieViewController;
-@property (nonatomic, retain) IBOutlet MVLCMovieListViewController * movieListViewController;
+@property (nonatomic, retain) IBOutlet UIWindow *               window;
+@property (nonatomic, retain) IBOutlet UINavigationController * navigationController;
 @end
