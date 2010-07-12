@@ -22,10 +22,19 @@
 	return self;
 }
 
+- (void)setMedia:(VLCMedia *)media {
+	if (media != _media) {
+		[_media release];
+		_media = [media retain];
+	}
+}
+
+- (VLCMedia *)media {
+	return _media;
+}
+
 - (void)dealloc {
 	[_media release];
     [super dealloc];
 }
-
-
 @end

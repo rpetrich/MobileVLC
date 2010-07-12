@@ -10,8 +10,8 @@
 #import "AQGridView.h"
 
 @interface MVLCMovieListViewController : UIViewController <AQGridViewDataSource, AQGridViewDelegate> {
-	AQGridView * _gridView;
-	NSArray *    _allMedia;
+	AQGridView *     _gridView;
+	NSMutableArray * _allMedia;
 }
 @property (nonatomic, retain) IBOutlet AQGridView * gridView;
 @end

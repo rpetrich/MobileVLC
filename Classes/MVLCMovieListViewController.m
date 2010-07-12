@@ -16,11 +16,14 @@
     [super viewDidLoad];
 	self.gridView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 	
+	_allMedia = [[NSMutableArray alloc] init];
 	NSString * documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-	VLCMedia * test = [VLCMedia mediaWithPath:[documentsDirectory stringByAppendingPathComponent:@"test.avi"]];
+	for (NSString * fileName in [[NSFileManager defaultManager] directoryContentsAtPath:documentsDirectory]) {
+		NSLog(@"filePath = %@", fileName);
+		[_allMedia addObject:[VLCMedia mediaWithPath:[documentsDirectory stringByAppendingPathComponent:fileName]]];
+	}
 	VLCMedia * freebox = [VLCMedia mediaWithURL:[NSURL URLWithString:@"http://tv.freebox.fr/stream_france2"]];
-	
-	_allMedia = [[NSArray alloc] initWithObjects:test, freebox, nil];
+	[_allMedia addObject:freebox];
 
 	[self.gridView reloadData];
 }

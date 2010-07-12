@@ -33,8 +33,9 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-	[self removeObserver:self forKeyPath:@"media"];
 	[super viewWillDisappear:animated];
+	[_mediaPlayer stop];
+	[self removeObserver:self forKeyPath:@"media"];
 }
 
 - (void)dealloc {
