@@ -12,6 +12,25 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		7A350A9B11EB7D7F00B80E7C /* MVLCMovieListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A350A9A11EB7D7F00B80E7C /* MVLCMovieListView.xib */; };
+		7A350AA211EB7E2300B80E7C /* MVLCMovieListBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A350AA111EB7E2300B80E7C /* MVLCMovieListBackground.jpg */; };
+		7A4BA0B211EB48AF0056579C /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4BA0B111EB48AF0056579C /* libstdc++.6.dylib */; };
+		7A4BA1F911EB73EC0056579C /* AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1D811EB737B0056579C /* AQGridView.m */; };
+		7A4BA1FA11EB73EC0056579C /* AQGridViewAnimatorItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1DA11EB737B0056579C /* AQGridViewAnimatorItem.m */; };
+		7A4BA1FB11EB73EC0056579C /* AQGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1DD11EB737B0056579C /* AQGridViewCell.m */; };
+		7A4BA1FC11EB73EC0056579C /* AQGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1DF11EB737B0056579C /* AQGridViewController.m */; };
+		7A4BA1FD11EB73EC0056579C /* AQGridViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1E111EB737B0056579C /* AQGridViewData.m */; };
+		7A4BA1FE11EB73EC0056579C /* AQGridViewUpdateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1E311EB737B0056579C /* AQGridViewUpdateInfo.m */; };
+		7A4BA1FF11EB73EC0056579C /* AQGridViewUpdateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1E511EB737B0056579C /* AQGridViewUpdateItem.m */; };
+		7A4BA20011EB73EC0056579C /* NSIndexSet+AQIndexesOutsideSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1E711EB737B0056579C /* NSIndexSet+AQIndexesOutsideSet.m */; };
+		7A4BA20111EB73EC0056579C /* NSIndexSet+AQIsSetContiguous.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1E911EB737B0056579C /* NSIndexSet+AQIsSetContiguous.m */; };
+		7A4BA20211EB73EC0056579C /* UIColor+AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1EB11EB737B0056579C /* UIColor+AQGridView.m */; };
+		7A4BA20311EB73F30056579C /* AQGridSelection.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4BA1ED11EB737B0056579C /* AQGridSelection.png */; };
+		7A4BA20411EB73F30056579C /* AQGridSelectionGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4BA1EE11EB737B0056579C /* AQGridSelectionGray.png */; };
+		7A4BA20511EB73F30056579C /* AQGridSelectionGrayBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4BA1EF11EB737B0056579C /* AQGridSelectionGrayBlue.png */; };
+		7A4BA20611EB73F30056579C /* AQGridSelectionGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4BA1F011EB737B0056579C /* AQGridSelectionGreen.png */; };
+		7A4BA20711EB73F30056579C /* AQGridSelectionRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4BA1F111EB737B0056579C /* AQGridSelectionRed.png */; };
+		7A4BA21911EB74810056579C /* MVLCMovieListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA21811EB74810056579C /* MVLCMovieListViewController.m */; };
 		7A5ECA1911DE782F00F66AF3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECA1811DE782F00F66AF3 /* OpenGLES.framework */; };
 		7A5ECA1D11DE783500F66AF3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECA1C11DE783500F66AF3 /* AudioToolbox.framework */; };
 		7A5ECA2111DE783F00F66AF3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECA2011DE783F00F66AF3 /* QuartzCore.framework */; };
@@ -39,6 +58,39 @@
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* MobileVLC_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileVLC_Prefix.pch; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7A350A9A11EB7D7F00B80E7C /* MVLCMovieListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCMovieListView.xib; path = Resources/MVLCMovieListView.xib; sourceTree = "<group>"; };
+		7A350AA111EB7E2300B80E7C /* MVLCMovieListBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = MVLCMovieListBackground.jpg; path = Resources/MVLCMovieListBackground.jpg; sourceTree = "<group>"; };
+		7A4BA0B111EB48AF0056579C /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
+		7A4BA1D511EB737B0056579C /* AQGridView+CellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLayout.h"; sourceTree = "<group>"; };
+		7A4BA1D611EB737B0056579C /* AQGridView+CellLocationDelegation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLocationDelegation.h"; sourceTree = "<group>"; };
+		7A4BA1D711EB737B0056579C /* AQGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridView.h; sourceTree = "<group>"; };
+		7A4BA1D811EB737B0056579C /* AQGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridView.m; sourceTree = "<group>"; };
+		7A4BA1D911EB737B0056579C /* AQGridViewAnimatorItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewAnimatorItem.h; sourceTree = "<group>"; };
+		7A4BA1DA11EB737B0056579C /* AQGridViewAnimatorItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewAnimatorItem.m; sourceTree = "<group>"; };
+		7A4BA1DB11EB737B0056579C /* AQGridViewCell+AQGridViewCellPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridViewCell+AQGridViewCellPrivate.h"; sourceTree = "<group>"; };
+		7A4BA1DC11EB737B0056579C /* AQGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewCell.h; sourceTree = "<group>"; };
+		7A4BA1DD11EB737B0056579C /* AQGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewCell.m; sourceTree = "<group>"; };
+		7A4BA1DE11EB737B0056579C /* AQGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewController.h; sourceTree = "<group>"; };
+		7A4BA1DF11EB737B0056579C /* AQGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewController.m; sourceTree = "<group>"; };
+		7A4BA1E011EB737B0056579C /* AQGridViewData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewData.h; sourceTree = "<group>"; };
+		7A4BA1E111EB737B0056579C /* AQGridViewData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewData.m; sourceTree = "<group>"; };
+		7A4BA1E211EB737B0056579C /* AQGridViewUpdateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewUpdateInfo.h; sourceTree = "<group>"; };
+		7A4BA1E311EB737B0056579C /* AQGridViewUpdateInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewUpdateInfo.m; sourceTree = "<group>"; };
+		7A4BA1E411EB737B0056579C /* AQGridViewUpdateItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridViewUpdateItem.h; sourceTree = "<group>"; };
+		7A4BA1E511EB737B0056579C /* AQGridViewUpdateItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQGridViewUpdateItem.m; sourceTree = "<group>"; };
+		7A4BA1E611EB737B0056579C /* NSIndexSet+AQIndexesOutsideSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+AQIndexesOutsideSet.h"; sourceTree = "<group>"; };
+		7A4BA1E711EB737B0056579C /* NSIndexSet+AQIndexesOutsideSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+AQIndexesOutsideSet.m"; sourceTree = "<group>"; };
+		7A4BA1E811EB737B0056579C /* NSIndexSet+AQIsSetContiguous.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexSet+AQIsSetContiguous.h"; sourceTree = "<group>"; };
+		7A4BA1E911EB737B0056579C /* NSIndexSet+AQIsSetContiguous.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexSet+AQIsSetContiguous.m"; sourceTree = "<group>"; };
+		7A4BA1EA11EB737B0056579C /* UIColor+AQGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AQGridView.h"; sourceTree = "<group>"; };
+		7A4BA1EB11EB737B0056579C /* UIColor+AQGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AQGridView.m"; sourceTree = "<group>"; };
+		7A4BA1ED11EB737B0056579C /* AQGridSelection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AQGridSelection.png; sourceTree = "<group>"; };
+		7A4BA1EE11EB737B0056579C /* AQGridSelectionGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AQGridSelectionGray.png; sourceTree = "<group>"; };
+		7A4BA1EF11EB737B0056579C /* AQGridSelectionGrayBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AQGridSelectionGrayBlue.png; sourceTree = "<group>"; };
+		7A4BA1F011EB737B0056579C /* AQGridSelectionGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AQGridSelectionGreen.png; sourceTree = "<group>"; };
+		7A4BA1F111EB737B0056579C /* AQGridSelectionRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AQGridSelectionRed.png; sourceTree = "<group>"; };
+		7A4BA21711EB74810056579C /* MVLCMovieListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLCMovieListViewController.h; sourceTree = "<group>"; };
+		7A4BA21811EB74810056579C /* MVLCMovieListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLCMovieListViewController.m; sourceTree = "<group>"; };
 		7A5ECA1811DE782F00F66AF3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		7A5ECA1C11DE783500F66AF3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		7A5ECA2011DE783F00F66AF3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -81,6 +133,7 @@
 				7A5ECA2511DE784D00F66AF3 /* libiconv.dylib in Frameworks */,
 				7A5ECBC011DE994500F66AF3 /* libz.dylib in Frameworks */,
 				7A5ECC1511DE9C6900F66AF3 /* libsqlite3.dylib in Frameworks */,
+				7A4BA0B211EB48AF0056579C /* libstdc++.6.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +204,7 @@
 				7A5ECA1C11DE783500F66AF3 /* AudioToolbox.framework */,
 				7A5ECA2011DE783F00F66AF3 /* QuartzCore.framework */,
 				7A5ECA2411DE784D00F66AF3 /* libiconv.dylib */,
+				7A4BA0B111EB48AF0056579C /* libstdc++.6.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -172,15 +226,89 @@
 		7A3453A211E5FDA600A141F2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7A4BA21711EB74810056579C /* MVLCMovieListViewController.h */,
+				7A4BA21811EB74810056579C /* MVLCMovieListViewController.m */,
 				7A87ECD411E3A33E007BE827 /* MVLCMovieViewController.h */,
 				7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		7A350A9F11EB7E1000B80E7C /* Movie view */ = {
+			isa = PBXGroup;
+			children = (
+				7AB2BD5211E48A81002E543F /* MVLCMovieViewHUDRewind.png */,
+				7AB2BD5111E48A81002E543F /* MVLCMovieViewHUDPlay.png */,
+				7AB2BD6A11E48D80002E543F /* MVLCMovieViewHUDPause.png */,
+				7AB2BD5011E48A81002E543F /* MVLCMovieViewHUDFastForward.png */,
+				7AB2BD4F11E48A81002E543F /* MVLCMovieViewHUDBackground.png */,
+			);
+			name = "Movie view";
+			sourceTree = "<group>";
+		};
+		7A350AA011EB7E1800B80E7C /* Movie list view */ = {
+			isa = PBXGroup;
+			children = (
+				7A350AA111EB7E2300B80E7C /* MVLCMovieListBackground.jpg */,
+			);
+			name = "Movie list view";
+			sourceTree = "<group>";
+		};
+		7A4BA1D311EB737B0056579C /* AQGridView */ = {
+			isa = PBXGroup;
+			children = (
+				7A4BA1D411EB737B0056579C /* Classes */,
+				7A4BA1EC11EB737B0056579C /* Resources */,
+			);
+			path = AQGridView;
+			sourceTree = "<group>";
+		};
+		7A4BA1D411EB737B0056579C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7A4BA1D511EB737B0056579C /* AQGridView+CellLayout.h */,
+				7A4BA1D611EB737B0056579C /* AQGridView+CellLocationDelegation.h */,
+				7A4BA1D711EB737B0056579C /* AQGridView.h */,
+				7A4BA1D811EB737B0056579C /* AQGridView.m */,
+				7A4BA1D911EB737B0056579C /* AQGridViewAnimatorItem.h */,
+				7A4BA1DA11EB737B0056579C /* AQGridViewAnimatorItem.m */,
+				7A4BA1DB11EB737B0056579C /* AQGridViewCell+AQGridViewCellPrivate.h */,
+				7A4BA1DC11EB737B0056579C /* AQGridViewCell.h */,
+				7A4BA1DD11EB737B0056579C /* AQGridViewCell.m */,
+				7A4BA1DE11EB737B0056579C /* AQGridViewController.h */,
+				7A4BA1DF11EB737B0056579C /* AQGridViewController.m */,
+				7A4BA1E011EB737B0056579C /* AQGridViewData.h */,
+				7A4BA1E111EB737B0056579C /* AQGridViewData.m */,
+				7A4BA1E211EB737B0056579C /* AQGridViewUpdateInfo.h */,
+				7A4BA1E311EB737B0056579C /* AQGridViewUpdateInfo.m */,
+				7A4BA1E411EB737B0056579C /* AQGridViewUpdateItem.h */,
+				7A4BA1E511EB737B0056579C /* AQGridViewUpdateItem.m */,
+				7A4BA1E611EB737B0056579C /* NSIndexSet+AQIndexesOutsideSet.h */,
+				7A4BA1E711EB737B0056579C /* NSIndexSet+AQIndexesOutsideSet.m */,
+				7A4BA1E811EB737B0056579C /* NSIndexSet+AQIsSetContiguous.h */,
+				7A4BA1E911EB737B0056579C /* NSIndexSet+AQIsSetContiguous.m */,
+				7A4BA1EA11EB737B0056579C /* UIColor+AQGridView.h */,
+				7A4BA1EB11EB737B0056579C /* UIColor+AQGridView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		7A4BA1EC11EB737B0056579C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7A4BA1ED11EB737B0056579C /* AQGridSelection.png */,
+				7A4BA1EE11EB737B0056579C /* AQGridSelectionGray.png */,
+				7A4BA1EF11EB737B0056579C /* AQGridSelectionGrayBlue.png */,
+				7A4BA1F011EB737B0056579C /* AQGridSelectionGreen.png */,
+				7A4BA1F111EB737B0056579C /* AQGridSelectionRed.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		7A5ECB7611DE96C400F66AF3 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				7A4BA1D311EB737B0056579C /* AQGridView */,
 				7A5ECB7711DE96C400F66AF3 /* MobileVLCKit */,
 			);
 			path = External;
@@ -221,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */,
+				7A350A9A11EB7D7F00B80E7C /* MVLCMovieListView.xib */,
 				7A87ECD911E3A356007BE827 /* MVLCMovieView.xib */,
 			);
 			name = XIB;
@@ -230,11 +359,8 @@
 			isa = PBXGroup;
 			children = (
 				7AF667D911E61BA300BC5F19 /* MVLCIcon.png */,
-				7AB2BD5211E48A81002E543F /* MVLCMovieViewHUDRewind.png */,
-				7AB2BD5111E48A81002E543F /* MVLCMovieViewHUDPlay.png */,
-				7AB2BD6A11E48D80002E543F /* MVLCMovieViewHUDPause.png */,
-				7AB2BD5011E48A81002E543F /* MVLCMovieViewHUDFastForward.png */,
-				7AB2BD4F11E48A81002E543F /* MVLCMovieViewHUDBackground.png */,
+				7A350AA011EB7E1800B80E7C /* Movie list view */,
+				7A350A9F11EB7E1000B80E7C /* Movie view */,
 			);
 			name = Pictures;
 			sourceTree = "<group>";
@@ -288,6 +414,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A4BA20311EB73F30056579C /* AQGridSelection.png in Resources */,
+				7A4BA20411EB73F30056579C /* AQGridSelectionGray.png in Resources */,
+				7A4BA20511EB73F30056579C /* AQGridSelectionGrayBlue.png in Resources */,
+				7A4BA20611EB73F30056579C /* AQGridSelectionGreen.png in Resources */,
+				7A4BA20711EB73F30056579C /* AQGridSelectionRed.png in Resources */,
 				7A87ECAC11E3A1DD007BE827 /* MVLCMainWindow.xib in Resources */,
 				7A87ECDA11E3A356007BE827 /* MVLCMovieView.xib in Resources */,
 				7AB2BD5311E48A81002E543F /* MVLCMovieViewHUDBackground.png in Resources */,
@@ -296,6 +427,8 @@
 				7AB2BD5611E48A81002E543F /* MVLCMovieViewHUDRewind.png in Resources */,
 				7AB2BD6B11E48D80002E543F /* MVLCMovieViewHUDPause.png in Resources */,
 				7AF667DA11E61BA300BC5F19 /* MVLCIcon.png in Resources */,
+				7A350A9B11EB7D7F00B80E7C /* MVLCMovieListView.xib in Resources */,
+				7A350AA211EB7E2300B80E7C /* MVLCMovieListBackground.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +442,17 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* MobileVLCAppDelegate.m in Sources */,
 				7A87ECD611E3A33E007BE827 /* MVLCMovieViewController.m in Sources */,
+				7A4BA1F911EB73EC0056579C /* AQGridView.m in Sources */,
+				7A4BA1FA11EB73EC0056579C /* AQGridViewAnimatorItem.m in Sources */,
+				7A4BA1FB11EB73EC0056579C /* AQGridViewCell.m in Sources */,
+				7A4BA1FC11EB73EC0056579C /* AQGridViewController.m in Sources */,
+				7A4BA1FD11EB73EC0056579C /* AQGridViewData.m in Sources */,
+				7A4BA1FE11EB73EC0056579C /* AQGridViewUpdateInfo.m in Sources */,
+				7A4BA1FF11EB73EC0056579C /* AQGridViewUpdateItem.m in Sources */,
+				7A4BA20011EB73EC0056579C /* NSIndexSet+AQIndexesOutsideSet.m in Sources */,
+				7A4BA20111EB73EC0056579C /* NSIndexSet+AQIsSetContiguous.m in Sources */,
+				7A4BA20211EB73EC0056579C /* UIColor+AQGridView.m in Sources */,
+				7A4BA21911EB74810056579C /* MVLCMovieListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
