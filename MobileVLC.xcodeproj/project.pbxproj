@@ -359,8 +359,8 @@
 			children = (
 				7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */,
 				7A350A9A11EB7D7F00B80E7C /* MVLCMovieListView.xib */,
-				7A87ECD911E3A356007BE827 /* MVLCMovieView.xib */,
 				7A3B2C2D11EC877000A01E01 /* MVLCMovieGridViewCell.xib */,
+				7A87ECD911E3A356007BE827 /* MVLCMovieView.xib */,
 			);
 			name = XIB;
 			sourceTree = "<group>";

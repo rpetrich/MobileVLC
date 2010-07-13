@@ -12,8 +12,17 @@
 
 @interface MVLCMovieGridViewCell : AQGridViewCell {
 	VLCMedia * _media;
+
+	UILabel *     _titleLabel;
+	UIImageView * _posterImageView;
 }
 + (CGSize)cellSize;
-- (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;
++ (MVLCMovieGridViewCell *)cellWithReuseIdentifier:(NSString *)reuseIdentifier;
 @property (nonatomic, retain) VLCMedia * media;
+@property (nonatomic, retain) IBOutlet UILabel *     titleLabel;
+@property (nonatomic, retain) IBOutlet UIImageView * posterImageView;
+@end
+
+@interface MVLCMovieGridViewCell (InterfaceBuilder)
+@property (nonatomic, retain) IBOutlet UIView * contentView;
 @end

@@ -47,7 +47,7 @@
 	static NSString * MVLCMovieListGridCellIdentifier = @"MVLCMovieListGridCellIdentifier";
 	MVLCMovieGridViewCell * cell = (MVLCMovieGridViewCell *)[gridView dequeueReusableCellWithIdentifier:MVLCMovieListGridCellIdentifier];
 	if (cell == nil) {
-		cell = [[[MVLCMovieGridViewCell alloc] initWithReuseIdentifier:MVLCMovieListGridCellIdentifier] autorelease];
+		cell = [MVLCMovieGridViewCell cellWithReuseIdentifier:MVLCMovieListGridCellIdentifier];
 	}
 	cell.media = [_allMedia objectAtIndex:index];
 	return cell; 
