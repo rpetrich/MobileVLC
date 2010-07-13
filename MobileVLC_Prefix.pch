@@ -7,6 +7,7 @@
 #warning "This project uses features only available in iPhone SDK 3.2 and later."
 #endif
 
+#import "MobileVLC.h"
 
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
