@@ -73,6 +73,7 @@
 - (void)_refreshFromMedia {
 	NSDictionary * metaDictionary = [self.media metaDictionary];
 	self.titleLabel.text = [metaDictionary objectForKey:VLCMetaInformationTitle];
+	self.posterImageView.image = [UIImage imageNamed:@"MVLCMovieGridViewCellPosterPlaceholder.png"];
 }
 @end
 
