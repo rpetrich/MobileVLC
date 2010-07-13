@@ -3,7 +3,7 @@
 //  MobileVLC
 //
 //  Created by Pierre d'Herbemont on 6/27/10.
-//  Copyright __MyCompanyName__ 2010. All rights reserved.
+//  Copyright Applidium 2010. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

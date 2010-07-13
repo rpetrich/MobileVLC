@@ -3,7 +3,7 @@
 //  MobileVLC
 //
 //  Created by Romain Goyet on 12/07/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Copyright 2010 Applidium. All rights reserved.
 //
 
 #import "MVLCMovieListViewController.h"
@@ -48,9 +48,15 @@
 	MVLCMovieGridViewCell * cell = (MVLCMovieGridViewCell *)[gridView dequeueReusableCellWithIdentifier:MVLCMovieListGridCellIdentifier];
 	if (cell == nil) {
 		cell = [[[MVLCMovieGridViewCell alloc] initWithReuseIdentifier:MVLCMovieListGridCellIdentifier] autorelease];
-		cell.media = [_allMedia objectAtIndex:index];
 	}
+	cell.media = [_allMedia objectAtIndex:index];
 	return cell; 
+}
+
+// all cells are placed in a logical 'grid cell', all of which are the same size. The default size is 96x128 (portrait).
+// The width/height values returned by this function will be rounded UP to the nearest denominator of the screen width.
+- (CGSize)portraitGridCellSizeForGridView:(AQGridView *)gridView {
+	return [MVLCMovieGridViewCell cellSize];
 }
 
 #pragma mark -

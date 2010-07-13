@@ -3,7 +3,7 @@
 //  MobileVLC
 //
 //  Created by Romain Goyet on 12/07/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Copyright 2010 Applidium. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -13,6 +13,7 @@
 @interface MVLCMovieGridViewCell : AQGridViewCell {
 	VLCMedia * _media;
 }
-@property (nonatomic, retain) VLCMedia * media;
++ (CGSize)cellSize;
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;
+@property (nonatomic, retain) VLCMedia * media;
 @end

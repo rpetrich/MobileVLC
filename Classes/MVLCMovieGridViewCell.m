@@ -3,21 +3,32 @@
 //  MobileVLC
 //
 //  Created by Romain Goyet on 12/07/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Copyright 2010 Applidium. All rights reserved.
 //
 
 #import "MVLCMovieGridViewCell.h"
 
+@interface MVLCMovieGridViewCell (Private)
++ (UIView *)_viewFromNib;
+@end
 
 @implementation MVLCMovieGridViewCell
 @synthesize media=_media;
 
++ (CGSize)cellSize {
+	static CGSize sSize = { 0.0f, 0.0f };
+	if (sSize.width == 0.0f && sSize.height == 0.0f) {
+		sSize = [[self _viewFromNib] frame].size;
+	}
+	return sSize;
+}
+
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithFrame:CGRectMake(0.0f, 0.0f, 200.0f, 200.0f) reuseIdentifier:reuseIdentifier];
+	UIView * view = [MVLCMovieGridViewCell _viewFromNib];
+
+    self = [super initWithFrame:view.frame reuseIdentifier:reuseIdentifier];
 	if (self != nil) {
-		UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MVLCIcon.png"]];
-		[self.contentView addSubview:imageView];
-		[imageView release];
+		[self.contentView addSubview:view];
 	}
 	return self;
 }
@@ -38,3 +49,13 @@
     [super dealloc];
 }
 @end
+			
+@implementation MVLCMovieGridViewCell (Private)
++ (UIView *)_viewFromNib {
+	NSArray * array = [[NSBundle mainBundle] loadNibNamed:@"MVLCMovieGridViewCell" owner:nil options:nil];
+	MVLCAssert([array count] == 1, @"Wrong number of objects in NIB file !");
+	MVLCAssert([[array lastObject] isKindOfClass:[UIView class]], @"Unexpected object in NIB file !");
+	return (UIView *)[array lastObject];
+}
+@end
+
