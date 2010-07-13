@@ -19,7 +19,6 @@
 	_allMedia = [[NSMutableArray alloc] init];
 	NSString * documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 	for (NSString * fileName in [[NSFileManager defaultManager] directoryContentsAtPath:documentsDirectory]) {
-		NSLog(@"filePath = %@", fileName);
 		[_allMedia addObject:[VLCMedia mediaWithPath:[documentsDirectory stringByAppendingPathComponent:fileName]]];
 	}
 	VLCMedia * freebox = [VLCMedia mediaWithURL:[NSURL URLWithString:@"http://tv.freebox.fr/stream_france2"]];

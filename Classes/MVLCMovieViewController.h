@@ -32,5 +32,6 @@
 - (IBAction)position:(id)sender;
 - (IBAction)volume:(id)sender;
 - (IBAction)goForward:(id)sender;
-- (IBAction)goBackward:(id)sender;	
+- (IBAction)goBackward:(id)sender;
+- (IBAction)dismiss:(id)sender;
 @end

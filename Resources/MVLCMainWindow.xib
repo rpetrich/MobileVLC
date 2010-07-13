@@ -55,7 +55,7 @@
 			</object>
 			<object class="IBUINavigationController" id="983837884">
 				<object class="IBUISimulatedNavigationBarMetrics" key="IBUISimulatedTopBarMetrics">
-					<int key="IBUIBarStyle">1</int>
+					<int key="IBUIBarStyle">2</int>
 					<bool key="IBUIPrompted">NO</bool>
 				</object>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
@@ -70,12 +70,17 @@
 					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<string key="NSFrame">{{0, -44}, {0, 44}}</string>
+					<object class="NSColor" key="IBUIBackgroundColor">
+						<int key="NSColorSpace">3</int>
+						<bytes key="NSWhite">MCAwAA</bytes>
+					</object>
+					<bool key="IBUIOpaque">NO</bool>
 					<bool key="IBUIClipsSubviews">YES</bool>
 					<bool key="IBUIMultipleTouchEnabled">YES</bool>
 					<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-					<int key="IBUIBarStyle">1</int>
+					<int key="IBUIBarStyle">2</int>
 				</object>
-				<array key="IBUIViewControllers">
+				<array class="NSMutableArray" key="IBUIViewControllers">
 					<object class="IBUIViewController" id="957993150">
 						<object class="IBUINavigationItem" key="IBUINavigationItem" id="786253432">
 							<reference key="IBUINavigationBar"/>

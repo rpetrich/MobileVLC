@@ -28,12 +28,14 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
+	[self.navigationController setNavigationBarHidden:YES animated:YES];
 	[self addObserver:self forKeyPath:@"media" options:0 context:nil];
 	[_mediaPlayer setMedia:self.media];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
+	[self.navigationController setNavigationBarHidden:NO animated:YES];
 	[_mediaPlayer stop];
 	[self removeObserver:self forKeyPath:@"media"];
 }
@@ -104,6 +106,10 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 	}
 	[UIView setAnimationDelegate:self];
 	[UIView commitAnimations];
+}
+
+- (IBAction)dismiss:(id)sender {
+	[self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark -
