@@ -20,6 +20,13 @@
 @implementation MVLCMovieGridViewCell
 @synthesize media=_media, titleLabel=_titleLabel, posterImageView=_posterImageView;
 
+- (void)awakeFromNib {
+	// Workaround a stupid piece of code in AQGridViewCell
+	UIColor * color = self.backgroundColor;
+	[super awakeFromNib];
+	self.backgroundColor = color;
+}
+
 + (CGSize)cellSize {
 	static CGSize sSize = { 0.0f, 0.0f };
 	if (sSize.width == 0.0f && sSize.height == 0.0f) {
