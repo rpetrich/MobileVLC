@@ -78,7 +78,8 @@
 #pragma mark AQGridViewDelegate
 - (void)gridView:(AQGridView *)gridView didSelectItemAtIndex:(NSUInteger)index {
 	MVLCMovieViewController * movieViewController = [[MVLCMovieViewController alloc] init];
-	movieViewController.media = [VLCMedia mediaWithURL:[[_allMedia objectAtIndex:index] valueForKey:@"url"]];
+    NSString *urlString = [[_allMedia objectAtIndex:index] valueForKey:@"url"];
+	movieViewController.media = [VLCMedia mediaWithURL:[NSURL URLWithString:urlString]];
 	[self.navigationController pushViewController:movieViewController animated:YES];
 	[movieViewController release];
 }
