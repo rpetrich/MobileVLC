@@ -63,7 +63,7 @@
     // Here we use the new provided setImageWithURL: method to load the web
     NSURL *url = [NSURL URLWithString:[[_allMedia objectAtIndex:index] valueForKey:@"artworkURL"]];
 
-    [cell.posterImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"MVLCMovieGridViewCellPosterPlaceholder"]];
+    [cell.posterImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"MVLCMovieGridViewCellPosterPlaceholder.png"]];
 
 	return cell;
 }

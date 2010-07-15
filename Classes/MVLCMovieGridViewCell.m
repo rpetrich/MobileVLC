@@ -61,7 +61,7 @@
     [super dealloc];
 }
 @end
-			
+
 @implementation MVLCMovieGridViewCell (Private)
 + (MVLCMovieGridViewCell *)_cellFromNib {
 	NSArray * array = [[NSBundle mainBundle] loadNibNamed:@"MVLCMovieGridViewCell" owner:nil options:nil];
