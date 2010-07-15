@@ -140,8 +140,7 @@
 		7A5ECC1411DE9C6900F66AF3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		7A840DF111EFB38000EAE5BE /* MLMediaLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMediaLibrary.h; sourceTree = "<group>"; };
 		7A840DF211EFB38000EAE5BE /* libMobileMediaLibraryKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobileMediaLibraryKit.a; sourceTree = "<group>"; };
-		7A840DF311EFB38000EAE5BE /* MediaLibrary.mom */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = MediaLibrary.mom; sourceTree = "<group>"; };
-		7A840DF411EFB38000EAE5BE /* MediaLibrary.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = MediaLibrary.xcdatamodel; sourceTree = "<group>"; };
+		7A840DF311EFB38000EAE5BE /* MediaLibrary.mom */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = MediaLibrary.mom; path = "../../../MediaLibraryKit/build/Release-iphoneos/MediaLibrary.mom"; sourceTree = "<group>"; };
 		7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCMainWindow.xib; path = Resources/MVLCMainWindow.xib; sourceTree = "<group>"; };
 		7A87ECD411E3A33E007BE827 /* MVLCMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLCMovieViewController.h; sourceTree = "<group>"; };
 		7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLCMovieViewController.m; sourceTree = "<group>"; };
@@ -540,7 +539,6 @@
 				7A840DEF11EFB38000EAE5BE /* include */,
 				7A840DF211EFB38000EAE5BE /* libMobileMediaLibraryKit.a */,
 				7A840DF311EFB38000EAE5BE /* MediaLibrary.mom */,
-				7A840DF411EFB38000EAE5BE /* MediaLibrary.xcdatamodel */,
 			);
 			path = MediaLibraryKit;
 			sourceTree = "<group>";
