@@ -11,6 +11,7 @@
 #import "MVLCMovieGridViewCell.h"
 #import <CoreData/CoreData.h>
 #import "MLMediaLibrary.h"
+#import "UIImageView+WebCache.h"
 
 @implementation MVLCMovieListViewController
 @synthesize gridView=_gridView;
@@ -69,7 +70,7 @@
     // Here we use the new provided setImageWithURL: method to load the web
     NSURL *url = [NSURL URLWithString:[[_allMedia objectAtIndex:index] valueForKey:@"artworkURL"]];
 
-    [cell.posterImageView setImageWithURL:url];
+    [cell.posterImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"MVLCMovieGridViewCellPosterPlaceholder"]];
 
 //    NSData *data = [NSData dataWithContentsOfURL:url];
 //    UIImage *image = [UIImage imageWithData:data];
@@ -86,10 +87,10 @@
 #pragma mark -
 #pragma mark AQGridViewDelegate
 - (void)gridView:(AQGridView *)gridView didSelectItemAtIndex:(NSUInteger)index {
-//	MVLCMovieViewController * movieViewController = [[MVLCMovieViewController alloc] init];
-//	movieViewController.media = [_allMedia objectAtIndex:index];
-//	[self.navigationController pushViewController:movieViewController animated:YES];
-//	[movieViewController release];
+	MVLCMovieViewController * movieViewController = [[MVLCMovieViewController alloc] init];
+	movieViewController.media = [VLCMedia mediaWithURL:[[_allMedia objectAtIndex:index] valueForKey:@"url"]];
+	[self.navigationController pushViewController:movieViewController animated:YES];
+	[movieViewController release];
 }
 
 @end
