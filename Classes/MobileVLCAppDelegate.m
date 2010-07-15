@@ -20,6 +20,8 @@
 
     [VLCLibrary sharedLibrary];
 
+#define PIERRE_LE_GROS_CRADE 0
+#if PIERRE_LE_GROS_CRADE
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *directoryPath = @"/Users/steg/Downloads";
     NSArray *fileNames = [fileManager contentsOfDirectoryAtPath:directoryPath error:nil];
@@ -29,8 +31,17 @@
             [filePaths addObject:[directoryPath stringByAppendingPathComponent:fileName]];
     }
     NSLog(@"%@", filePaths);
-
     [[MLMediaLibrary sharedMediaLibrary] addFilePaths:filePaths];
+#else
+    NSString *directoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSArray *fileNames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directoryPath error:nil];
+    NSMutableArray *filePaths = [NSMutableArray arrayWithCapacity:[fileNames count]];
+    for (NSString *fileName in fileNames) {
+		[filePaths addObject:[directoryPath stringByAppendingPathComponent:fileName]];
+    }
+    NSLog(@"%@", filePaths);
+    [[MLMediaLibrary sharedMediaLibrary] addFilePaths:filePaths];
+#endif
 	[_window addSubview:self.navigationController.view];
     [_window makeKeyAndVisible];
 
