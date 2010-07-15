@@ -34,7 +34,7 @@
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-	return (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight);
+	return YES; // We support all 4 possible orientations
 }
 
 #pragma mark -

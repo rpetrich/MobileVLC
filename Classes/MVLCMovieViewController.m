@@ -52,7 +52,7 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-	return (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight);
+	return YES; // We support all 4 orientations
 }
 
 #pragma mark -
