@@ -12,10 +12,8 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
-		631865E511EE3CD700AB038D /* libMobileMediaLibraryKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631865E411EE3CD700AB038D /* libMobileMediaLibraryKit.a */; };
 		631866CD11EE4D5100AB038D /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 631866CC11EE4D5100AB038D /* libxml2.dylib */; };
 		631866D111EE4D5B00AB038D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631866D011EE4D5B00AB038D /* CoreData.framework */; };
-		6318675A11EE50B000AB038D /* MediaLibrary.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 6318675911EE50B000AB038D /* MediaLibrary.xcdatamodel */; };
 		636E9D8411ED3E29002FE8A9 /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 636E9D8311ED3E29002FE8A9 /* libbz2.dylib */; };
 		63D66B6711EFACCC00673287 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 63D66B5B11EFACCC00673287 /* LICENSE */; };
 		63D66B6811EFACCC00673287 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 63D66B5C11EFACCC00673287 /* README.md */; };
@@ -52,6 +50,7 @@
 		7A5ECB8011DE96CB00F66AF3 /* libMobileVLCKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECB7F11DE96C400F66AF3 /* libMobileVLCKit.a */; };
 		7A5ECBC011DE994500F66AF3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECBBF11DE994500F66AF3 /* libz.dylib */; };
 		7A5ECC1511DE9C6900F66AF3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECC1411DE9C6900F66AF3 /* libsqlite3.dylib */; };
+		7A840DF511EFB38700EAE5BE /* libMobileMediaLibraryKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A840DF211EFB38000EAE5BE /* libMobileMediaLibraryKit.a */; };
 		7A87ECAC11E3A1DD007BE827 /* MVLCMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */; };
 		7A87ECD611E3A33E007BE827 /* MVLCMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */; };
 		7A87ECDA11E3A356007BE827 /* MVLCMovieView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A87ECD911E3A356007BE827 /* MVLCMovieView.xib */; };
@@ -72,11 +71,8 @@
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* MobileVLC_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileVLC_Prefix.pch; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		631865D511EE3CAA00AB038D /* MLMediaLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MLMediaLibrary.h; path = ../MediaLibraryKit/MLMediaLibrary.h; sourceTree = SOURCE_ROOT; };
-		631865E411EE3CD700AB038D /* libMobileMediaLibraryKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMobileMediaLibraryKit.a; path = "../../build/Debug-iphonesimulator/libMobileMediaLibraryKit.a"; sourceTree = SOURCE_ROOT; };
 		631866CC11EE4D5100AB038D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		631866D011EE4D5B00AB038D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		6318675911EE50B000AB038D /* MediaLibrary.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = MediaLibrary.xcdatamodel; path = ../MediaLibraryKit/MediaLibrary.xcdatamodel; sourceTree = SOURCE_ROOT; };
 		636E9D8311ED3E29002FE8A9 /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = usr/lib/libbz2.dylib; sourceTree = SDKROOT; };
 		63D66B5B11EFACCC00673287 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		63D66B5C11EFACCC00673287 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
@@ -142,6 +138,10 @@
 		7A5ECBA211DE977A00F66AF3 /* MobileVLCKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileVLCKit.h; sourceTree = "<group>"; };
 		7A5ECBBF11DE994500F66AF3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		7A5ECC1411DE9C6900F66AF3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		7A840DF111EFB38000EAE5BE /* MLMediaLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMediaLibrary.h; sourceTree = "<group>"; };
+		7A840DF211EFB38000EAE5BE /* libMobileMediaLibraryKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobileMediaLibraryKit.a; sourceTree = "<group>"; };
+		7A840DF311EFB38000EAE5BE /* MediaLibrary.mom */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = MediaLibrary.mom; sourceTree = "<group>"; };
+		7A840DF411EFB38000EAE5BE /* MediaLibrary.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = MediaLibrary.xcdatamodel; sourceTree = "<group>"; };
 		7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCMainWindow.xib; path = Resources/MVLCMainWindow.xib; sourceTree = "<group>"; };
 		7A87ECD411E3A33E007BE827 /* MVLCMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLCMovieViewController.h; sourceTree = "<group>"; };
 		7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLCMovieViewController.m; sourceTree = "<group>"; };
@@ -160,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A840DF511EFB38700EAE5BE /* libMobileMediaLibraryKit.a in Frameworks */,
 				7A5ECB8011DE96CB00F66AF3 /* libMobileVLCKit.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -172,7 +173,6 @@
 				7A5ECC1511DE9C6900F66AF3 /* libsqlite3.dylib in Frameworks */,
 				7A4BA0B211EB48AF0056579C /* libstdc++.6.dylib in Frameworks */,
 				636E9D8411ED3E29002FE8A9 /* libbz2.dylib in Frameworks */,
-				631865E511EE3CD700AB038D /* libMobileMediaLibraryKit.a in Frameworks */,
 				631866CD11EE4D5100AB038D /* libxml2.dylib in Frameworks */,
 				631866D111EE4D5B00AB038D /* CoreData.framework in Frameworks */,
 			);
@@ -252,16 +252,6 @@
 				7A4BA0B111EB48AF0056579C /* libstdc++.6.dylib */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		631865D911EE3CAD00AB038D /* MobileMediaLibraryKit */ = {
-			isa = PBXGroup;
-			children = (
-				6318675911EE50B000AB038D /* MediaLibrary.xcdatamodel */,
-				631865E411EE3CD700AB038D /* libMobileMediaLibraryKit.a */,
-				631865D511EE3CAA00AB038D /* MLMediaLibrary.h */,
-			);
-			name = MobileMediaLibraryKit;
 			sourceTree = "<group>";
 		};
 		63D66B4B11EFACCC00673287 /* SDWebImage */ = {
@@ -505,8 +495,8 @@
 		7A5ECB7611DE96C400F66AF3 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				7A840DEE11EFB38000EAE5BE /* MediaLibraryKit */,
 				63D66B4B11EFACCC00673287 /* SDWebImage */,
-				631865D911EE3CAD00AB038D /* MobileMediaLibraryKit */,
 				7A4BA1D311EB737B0056579C /* AQGridView */,
 				7A5ECB7711DE96C400F66AF3 /* MobileVLCKit */,
 			);
@@ -542,6 +532,33 @@
 				7A5ECB9A11DE973100F66AF3 /* VLCTime.h */,
 			);
 			path = MobileVLCKit;
+			sourceTree = "<group>";
+		};
+		7A840DEE11EFB38000EAE5BE /* MediaLibraryKit */ = {
+			isa = PBXGroup;
+			children = (
+				7A840DEF11EFB38000EAE5BE /* include */,
+				7A840DF211EFB38000EAE5BE /* libMobileMediaLibraryKit.a */,
+				7A840DF311EFB38000EAE5BE /* MediaLibrary.mom */,
+				7A840DF411EFB38000EAE5BE /* MediaLibrary.xcdatamodel */,
+			);
+			path = MediaLibraryKit;
+			sourceTree = "<group>";
+		};
+		7A840DEF11EFB38000EAE5BE /* include */ = {
+			isa = PBXGroup;
+			children = (
+				7A840DF011EFB38000EAE5BE /* MediaLibraryKit */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		7A840DF011EFB38000EAE5BE /* MediaLibraryKit */ = {
+			isa = PBXGroup;
+			children = (
+				7A840DF111EFB38000EAE5BE /* MLMediaLibrary.h */,
+			);
+			path = MediaLibraryKit;
 			sourceTree = "<group>";
 		};
 		7AB2BD4C11E489A0002E543F /* XIB */ = {
@@ -658,7 +675,6 @@
 				7A4BA20211EB73EC0056579C /* UIColor+AQGridView.m in Sources */,
 				7A4BA21911EB74810056579C /* MVLCMovieListViewController.m in Sources */,
 				7A350AFE11EB83B400B80E7C /* MVLCMovieGridViewCell.m in Sources */,
-				6318675A11EE50B000AB038D /* MediaLibrary.xcdatamodel in Sources */,
 				63D66B6911EFACCC00673287 /* SDImageCache.m in Sources */,
 				63D66B6A11EFACCC00673287 /* SDWebImageDownloader.m in Sources */,
 				63D66B6B11EFACCC00673287 /* SDWebImageManager.m in Sources */,
@@ -679,12 +695,15 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MobileVLC_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/External/MobileVLCKit/include";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/External/MobileVLCKit/include",
+					"$(SRCROOT)/External/MediaLibraryKit/include",
+				);
 				INFOPLIST_FILE = "MobileVLC-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/External/MobileVLCKit\"",
-					"\"$(SRCROOT)/../../build/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/External/MediaLibraryKit\"",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = VLC;
@@ -698,12 +717,15 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MobileVLC_Prefix.pch;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/External/MobileVLCKit/include";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/External/MobileVLCKit/include",
+					"$(SRCROOT)/External/MediaLibraryKit/include",
+				);
 				INFOPLIST_FILE = "MobileVLC-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/External/MobileVLCKit\"",
-					"\"$(SRCROOT)/../../build/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/External/MediaLibraryKit\"",
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = VLC;
