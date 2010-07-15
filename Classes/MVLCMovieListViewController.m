@@ -9,21 +9,36 @@
 #import "MVLCMovieListViewController.h"
 #import "MVLCMovieViewController.h"
 #import "MVLCMovieGridViewCell.h"
+#import <CoreData/CoreData.h>
+#import "MLMediaLibrary.h"
 
 @implementation MVLCMovieListViewController
 @synthesize gridView=_gridView;
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.gridView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-	
-	_allMedia = [[NSMutableArray alloc] init];
-	NSString * documentsDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-	for (NSString * fileName in [[NSFileManager defaultManager] directoryContentsAtPath:documentsDirectory]) {
-		[_allMedia addObject:[VLCMedia mediaWithPath:[documentsDirectory stringByAppendingPathComponent:fileName]]];
-	}
-	VLCMedia * freebox = [VLCMedia mediaWithURL:[NSURL URLWithString:@"http://tv.freebox.fr/stream_france2"]];
-	[_allMedia addObject:freebox];
 
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *moc = [[MLMediaLibrary sharedMediaLibrary] managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"File" inManagedObjectContext:moc];
+    [request setEntity:entity];
+
+    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:NO];
+    [request setSortDescriptors:[NSArray arrayWithObject:descriptor]];
+
+    [request setPredicate:[NSPredicate predicateWithFormat:@"type == %@", @"movie"]];
+
+    NSArray *movies = [moc executeFetchRequest:request error:nil];
+	[request release];
+
+    for (NSManagedObject *show in movies) {
+
+        NSLog(@"movies %@", [show valueForKey:@"url"]);
+
+    }
+    //NSLog(@"movies %@", movies);
+
+    _allMedia = [movies retain];
 	[self.gridView reloadData];
 }
 
@@ -49,8 +64,17 @@
 	if (cell == nil) {
 		cell = [MVLCMovieGridViewCell cellWithReuseIdentifier:MVLCMovieListGridCellIdentifier];
 	}
-	cell.media = [_allMedia objectAtIndex:index];
-	return cell; 
+	cell.titleLabel.text = [[_allMedia objectAtIndex:index] valueForKey:@"title"];
+
+    // Here we use the new provided setImageWithURL: method to load the web
+    NSURL *url = [NSURL URLWithString:[[_allMedia objectAtIndex:index] valueForKey:@"artworkURL"]];
+
+    [cell.posterImageView setImageWithURL:url];
+
+//    NSData *data = [NSData dataWithContentsOfURL:url];
+//    UIImage *image = [UIImage imageWithData:data];
+//    cell.posterImageView.image = image;
+	return cell;
 }
 
 // all cells are placed in a logical 'grid cell', all of which are the same size. The default size is 96x128 (portrait).
@@ -62,10 +86,10 @@
 #pragma mark -
 #pragma mark AQGridViewDelegate
 - (void)gridView:(AQGridView *)gridView didSelectItemAtIndex:(NSUInteger)index {
-	MVLCMovieViewController * movieViewController = [[MVLCMovieViewController alloc] init];
-	movieViewController.media = [_allMedia objectAtIndex:index];
-	[self.navigationController pushViewController:movieViewController animated:YES];
-	[movieViewController release];
+//	MVLCMovieViewController * movieViewController = [[MVLCMovieViewController alloc] init];
+//	movieViewController.media = [_allMedia objectAtIndex:index];
+//	[self.navigationController pushViewController:movieViewController animated:YES];
+//	[movieViewController release];
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "MobileVLCAppDelegate.h"
+#import "MLMediaLibrary.h"
 #import <MobileVLCKit/MobileVLCKit.h>
 
 @implementation MobileVLCAppDelegate
@@ -19,6 +20,17 @@
 
     [VLCLibrary sharedLibrary];
 
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *directoryPath = @"/Users/steg/Downloads";
+    NSArray *fileNames = [fileManager contentsOfDirectoryAtPath:directoryPath error:nil];
+    NSMutableArray *filePaths = [NSMutableArray arrayWithCapacity:[fileNames count]];
+    for (NSString *fileName in fileNames) {
+        if ([[fileName pathExtension] isEqualToString:@"avi"])
+            [filePaths addObject:[directoryPath stringByAppendingPathComponent:fileName]];
+    }
+    NSLog(@"%@", filePaths);
+
+    [[MLMediaLibrary sharedMediaLibrary] addFilePaths:filePaths];
 	[_window addSubview:self.navigationController.view];
     [_window makeKeyAndVisible];
 

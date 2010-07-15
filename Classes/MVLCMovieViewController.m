@@ -31,6 +31,7 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 	[self.navigationController setNavigationBarHidden:YES animated:YES];
 	[self addObserver:self forKeyPath:@"media" options:0 context:nil];
 	[_mediaPlayer setMedia:self.media];
+    [_mediaPlayer play];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

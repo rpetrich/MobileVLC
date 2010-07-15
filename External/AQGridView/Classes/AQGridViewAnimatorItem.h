@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface AQGridViewAnimatorItem : NSObject
-
+{
+    UIView * animatingView;
+    NSUInteger index;
+}
 + (AQGridViewAnimatorItem *) itemWithView: (UIView *) aView index: (NSUInteger) anIndex;
 
 @property (nonatomic, retain) UIView * animatingView;	// probably an AQGridViewCell, maybe a UIImageView
