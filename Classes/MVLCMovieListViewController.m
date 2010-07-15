@@ -32,13 +32,6 @@
     NSArray *movies = [moc executeFetchRequest:request error:nil];
 	[request release];
 
-    for (NSManagedObject *show in movies) {
-
-        NSLog(@"movies %@", [show valueForKey:@"url"]);
-
-    }
-    //NSLog(@"movies %@", movies);
-
     _allMedia = [movies retain];
 	[self.gridView reloadData];
 }
@@ -72,9 +65,6 @@
 
     [cell.posterImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"MVLCMovieGridViewCellPosterPlaceholder"]];
 
-//    NSData *data = [NSData dataWithContentsOfURL:url];
-//    UIImage *image = [UIImage imageWithData:data];
-//    cell.posterImageView.image = image;
 	return cell;
 }
 
