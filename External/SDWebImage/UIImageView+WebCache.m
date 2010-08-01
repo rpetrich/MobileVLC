@@ -111,6 +111,8 @@ static UIImage *scaleImage(UIImage *sourceImage, CGSize targetSize)
 
 - (void)webImageManagerDidFinishWithImage:(UIImage *)image atURL:(NSURL *)url
 {
+    if (!image)
+        return;
     [self setOriginalImage:image forURL:url];
 }
 
