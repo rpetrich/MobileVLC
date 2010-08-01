@@ -14,13 +14,16 @@
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		631866CD11EE4D5100AB038D /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 631866CC11EE4D5100AB038D /* libxml2.dylib */; };
 		631866D111EE4D5B00AB038D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631866D011EE4D5B00AB038D /* CoreData.framework */; };
+		6320373211F77236002861C2 /* libMobileMediaLibraryKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6320373111F77236002861C2 /* libMobileMediaLibraryKit.a */; };
 		636E9D8411ED3E29002FE8A9 /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 636E9D8311ED3E29002FE8A9 /* libbz2.dylib */; };
+		63C092EF11F77D0A00A824BC /* MediaLibrary.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 63C092EE11F77D0A00A824BC /* MediaLibrary.xcdatamodel */; };
 		63D66B6711EFACCC00673287 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 63D66B5B11EFACCC00673287 /* LICENSE */; };
 		63D66B6811EFACCC00673287 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 63D66B5C11EFACCC00673287 /* README.md */; };
 		63D66B6911EFACCC00673287 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D66B5E11EFACCC00673287 /* SDImageCache.m */; };
 		63D66B6A11EFACCC00673287 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D66B6011EFACCC00673287 /* SDWebImageDownloader.m */; };
 		63D66B6B11EFACCC00673287 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D66B6311EFACCC00673287 /* SDWebImageManager.m */; };
 		63D66B6C11EFACCC00673287 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D66B6611EFACCC00673287 /* UIImageView+WebCache.m */; };
+		63EBF65C120489C900E1AF74 /* MVLCITunesFileSharing.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBF65B120489C900E1AF74 /* MVLCITunesFileSharing.png */; };
 		7A350A9B11EB7D7F00B80E7C /* MVLCMovieListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A350A9A11EB7D7F00B80E7C /* MVLCMovieListView.xib */; };
 		7A350AA211EB7E2300B80E7C /* MVLCMovieListBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A350AA111EB7E2300B80E7C /* MVLCMovieListBackground.jpg */; };
 		7A350AFE11EB83B400B80E7C /* MVLCMovieGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A350AFD11EB83B400B80E7C /* MVLCMovieGridViewCell.m */; };
@@ -73,7 +76,14 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		631866CC11EE4D5100AB038D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		631866D011EE4D5B00AB038D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		6320373111F77236002861C2 /* libMobileMediaLibraryKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobileMediaLibraryKit.a; sourceTree = "<group>"; };
 		636E9D8311ED3E29002FE8A9 /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = usr/lib/libbz2.dylib; sourceTree = SDKROOT; };
+		63C0923911F7783100A824BC /* MLFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLFile.h; sourceTree = "<group>"; };
+		63C0923A11F7783100A824BC /* MLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLabel.h; sourceTree = "<group>"; };
+		63C0923B11F7783100A824BC /* MLMediaLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMediaLibrary.h; sourceTree = "<group>"; };
+		63C0923C11F7783100A824BC /* MLShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLShow.h; sourceTree = "<group>"; };
+		63C0923D11F7783100A824BC /* MLShowEpisode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLShowEpisode.h; sourceTree = "<group>"; };
+		63C092EE11F77D0A00A824BC /* MediaLibrary.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = MediaLibrary.xcdatamodel; path = ../MediaLibraryKit/MediaLibrary.xcdatamodel; sourceTree = SOURCE_ROOT; };
 		63D66B5B11EFACCC00673287 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		63D66B5C11EFACCC00673287 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		63D66B5D11EFACCC00673287 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
@@ -86,6 +96,7 @@
 		63D66B6411EFACCC00673287 /* SDWebImageManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManagerDelegate.h; sourceTree = "<group>"; };
 		63D66B6511EFACCC00673287 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		63D66B6611EFACCC00673287 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		63EBF65B120489C900E1AF74 /* MVLCITunesFileSharing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCITunesFileSharing.png; path = Resources/MVLCITunesFileSharing.png; sourceTree = "<group>"; };
 		7A350A9A11EB7D7F00B80E7C /* MVLCMovieListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCMovieListView.xib; path = Resources/MVLCMovieListView.xib; sourceTree = "<group>"; };
 		7A350AA111EB7E2300B80E7C /* MVLCMovieListBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = MVLCMovieListBackground.jpg; path = Resources/MVLCMovieListBackground.jpg; sourceTree = "<group>"; };
 		7A350AFC11EB83B400B80E7C /* MVLCMovieGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLCMovieGridViewCell.h; sourceTree = "<group>"; };
@@ -174,6 +185,7 @@
 				636E9D8411ED3E29002FE8A9 /* libbz2.dylib in Frameworks */,
 				631866CD11EE4D5100AB038D /* libxml2.dylib in Frameworks */,
 				631866D111EE4D5B00AB038D /* CoreData.framework in Frameworks */,
+				6320373211F77236002861C2 /* libMobileMediaLibraryKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,10 +265,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6320372A11F77236002861C2 /* MediaLibraryKit */ = {
+			isa = PBXGroup;
+			children = (
+				63C092EE11F77D0A00A824BC /* MediaLibrary.xcdatamodel */,
+				63C0923711F7783100A824BC /* include */,
+				6320373111F77236002861C2 /* libMobileMediaLibraryKit.a */,
+			);
+			path = MediaLibraryKit;
+			sourceTree = "<group>";
+		};
+		63C0923711F7783100A824BC /* include */ = {
+			isa = PBXGroup;
+			children = (
+				63C0923811F7783100A824BC /* MediaLibraryKit */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		63C0923811F7783100A824BC /* MediaLibraryKit */ = {
+			isa = PBXGroup;
+			children = (
+				63C0923911F7783100A824BC /* MLFile.h */,
+				63C0923A11F7783100A824BC /* MLLabel.h */,
+				63C0923B11F7783100A824BC /* MLMediaLibrary.h */,
+				63C0923C11F7783100A824BC /* MLShow.h */,
+				63C0923D11F7783100A824BC /* MLShowEpisode.h */,
+			);
+			path = MediaLibraryKit;
+			sourceTree = "<group>";
+		};
 		63D66B4B11EFACCC00673287 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
-				63D66B4C11EFACCC00673287 /* .git */,
 				63D66B5B11EFACCC00673287 /* LICENSE */,
 				63D66B5C11EFACCC00673287 /* README.md */,
 				63D66B5D11EFACCC00673287 /* SDImageCache.h */,
@@ -271,125 +312,6 @@
 				63D66B6611EFACCC00673287 /* UIImageView+WebCache.m */,
 			);
 			path = SDWebImage;
-			sourceTree = "<group>";
-		};
-		63D66B4C11EFACCC00673287 /* .git */ = {
-			isa = PBXGroup;
-			children = (
-				63D66B4D11EFACCC00673287 /* branches */,
-				63D66B4E11EFACCC00673287 /* hooks */,
-				63D66B4F11EFACCC00673287 /* info */,
-				63D66B5011EFACCC00673287 /* logs */,
-				63D66B5311EFACCC00673287 /* objects */,
-				63D66B5611EFACCC00673287 /* refs */,
-			);
-			path = .git;
-			sourceTree = "<group>";
-		};
-		63D66B4D11EFACCC00673287 /* branches */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = branches;
-			sourceTree = "<group>";
-		};
-		63D66B4E11EFACCC00673287 /* hooks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = hooks;
-			sourceTree = "<group>";
-		};
-		63D66B4F11EFACCC00673287 /* info */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = info;
-			sourceTree = "<group>";
-		};
-		63D66B5011EFACCC00673287 /* logs */ = {
-			isa = PBXGroup;
-			children = (
-				63D66B5111EFACCC00673287 /* refs */,
-			);
-			path = logs;
-			sourceTree = "<group>";
-		};
-		63D66B5111EFACCC00673287 /* refs */ = {
-			isa = PBXGroup;
-			children = (
-				63D66B5211EFACCC00673287 /* heads */,
-			);
-			path = refs;
-			sourceTree = "<group>";
-		};
-		63D66B5211EFACCC00673287 /* heads */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = heads;
-			sourceTree = "<group>";
-		};
-		63D66B5311EFACCC00673287 /* objects */ = {
-			isa = PBXGroup;
-			children = (
-				63D66B5411EFACCC00673287 /* info */,
-				63D66B5511EFACCC00673287 /* pack */,
-			);
-			path = objects;
-			sourceTree = "<group>";
-		};
-		63D66B5411EFACCC00673287 /* info */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = info;
-			sourceTree = "<group>";
-		};
-		63D66B5511EFACCC00673287 /* pack */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = pack;
-			sourceTree = "<group>";
-		};
-		63D66B5611EFACCC00673287 /* refs */ = {
-			isa = PBXGroup;
-			children = (
-				63D66B5711EFACCC00673287 /* heads */,
-				63D66B5811EFACCC00673287 /* remotes */,
-				63D66B5A11EFACCC00673287 /* tags */,
-			);
-			path = refs;
-			sourceTree = "<group>";
-		};
-		63D66B5711EFACCC00673287 /* heads */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = heads;
-			sourceTree = "<group>";
-		};
-		63D66B5811EFACCC00673287 /* remotes */ = {
-			isa = PBXGroup;
-			children = (
-				63D66B5911EFACCC00673287 /* origin */,
-			);
-			path = remotes;
-			sourceTree = "<group>";
-		};
-		63D66B5911EFACCC00673287 /* origin */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = origin;
-			sourceTree = "<group>";
-		};
-		63D66B5A11EFACCC00673287 /* tags */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = tags;
 			sourceTree = "<group>";
 		};
 		7A3453A011E5FD9C00A141F2 /* Model */ = {
@@ -434,6 +356,7 @@
 		7A350AA011EB7E1800B80E7C /* Movie list view */ = {
 			isa = PBXGroup;
 			children = (
+				63EBF65B120489C900E1AF74 /* MVLCITunesFileSharing.png */,
 				7A3B2D8311EC9DC400A01E01 /* MVLCMovieGridViewCellPosterPlaceholder.png */,
 				7A350AA111EB7E2300B80E7C /* MVLCMovieListBackground.jpg */,
 			);
@@ -494,7 +417,7 @@
 		7A5ECB7611DE96C400F66AF3 /* External */ = {
 			isa = PBXGroup;
 			children = (
-				7A840DEE11EFB38000EAE5BE /* MediaLibraryKit */,
+				6320372A11F77236002861C2 /* MediaLibraryKit */,
 				63D66B4B11EFACCC00673287 /* SDWebImage */,
 				7A4BA1D311EB737B0056579C /* AQGridView */,
 				7A5ECB7711DE96C400F66AF3 /* MobileVLCKit */,
@@ -648,6 +571,7 @@
 				7A3B2D8411EC9DC400A01E01 /* MVLCMovieGridViewCellPosterPlaceholder.png in Resources */,
 				63D66B6711EFACCC00673287 /* LICENSE in Resources */,
 				63D66B6811EFACCC00673287 /* README.md in Resources */,
+				63EBF65C120489C900E1AF74 /* MVLCITunesFileSharing.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,6 +601,7 @@
 				63D66B6A11EFACCC00673287 /* SDWebImageDownloader.m in Sources */,
 				63D66B6B11EFACCC00673287 /* SDWebImageManager.m in Sources */,
 				63D66B6C11EFACCC00673287 /* UIImageView+WebCache.m in Sources */,
+				63C092EF11F77D0A00A824BC /* MediaLibrary.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -701,6 +626,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/External/MobileVLCKit\"",
+					"\"$(SRCROOT)/../../build/Debug-iphonesimulator\"",
 					"\"$(SRCROOT)/External/MediaLibraryKit\"",
 				);
 				OTHER_LDFLAGS = "";
@@ -723,6 +649,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/External/MobileVLCKit\"",
+					"\"$(SRCROOT)/../../build/Debug-iphonesimulator\"",
 					"\"$(SRCROOT)/External/MediaLibraryKit\"",
 				);
 				OTHER_LDFLAGS = "";

@@ -12,10 +12,9 @@ static NSString * MVLCMovieViewControllerHUDFadeInAnimation = @"MVLCMovieViewCon
 static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewControllerHUDFadeOutAnimation";
 
 @implementation MVLCMovieViewController
-@synthesize movieView=_movieView, media=_media, positionSlider=_positionSlider, playOrPauseButton=_playOrPauseButton, volumeSlider=_volumeSlider, HUDView=_HUDView, topView=_topView;
+@synthesize movieView=_movieView, media=_media, positionSlider=_positionSlider, playOrPauseButton=_playOrPauseButton, volumeSlider=_volumeSlider, HUDView=_HUDView, topView=_topView, remainingTimeLabel=_remainingTimeLabel;
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	_showInterface = YES;
 	_mediaPlayer = [[VLCMediaPlayer alloc] init];
 	[_mediaPlayer setDelegate:self];
     [_mediaPlayer setDrawable:self.movieView];
@@ -24,21 +23,28 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 	tapGestureRecognizer.numberOfTouchesRequired = 1;
 	[self.movieView addGestureRecognizer:tapGestureRecognizer];
 	[tapGestureRecognizer release];
+    [self setHudVisibility:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	[self.navigationController setNavigationBarHidden:YES animated:YES];
+	[self.navigationController setNavigationBarHidden:YES animated:NO];
 	[self addObserver:self forKeyPath:@"media" options:0 context:nil];
 	[_mediaPlayer setMedia:self.media];
     [_mediaPlayer play];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-	[self.navigationController setNavigationBarHidden:NO animated:YES];
-	[_mediaPlayer stop];
+    [_mediaPlayer pause];
 	[self removeObserver:self forKeyPath:@"media"];
+
+	[super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+	[super viewDidDisappear:animated];
+	[_mediaPlayer stop];
 }
 
 - (void)dealloc {
@@ -68,10 +74,8 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 #pragma mark Actions
 - (IBAction)togglePlayOrPause:(id)sender {
 	if ([_mediaPlayer isPlaying]) {
-		[self.playOrPauseButton setImage:[UIImage imageNamed:@"MVLCMovieViewHUDPlay.png"] forState:UIControlStateNormal];
 		[_mediaPlayer pause];
 	} else {
-		[self.playOrPauseButton setImage:[UIImage imageNamed:@"MVLCMovieViewHUDPause.png"] forState:UIControlStateNormal];
 		[_mediaPlayer play];
 	}
 }
@@ -94,17 +98,48 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 	[_mediaPlayer mediumJumpBackward];
 }
 
-- (IBAction)toggleHUDVisibility:(id)sender {
-	_showInterface = !_showInterface;
-	if (_showInterface) {
-		[UIView beginAnimations:MVLCMovieViewControllerHUDFadeInAnimation context:NULL];
+@synthesize hudVisibility=_hudVisibility;
+
+- (void)setHudVisibility:(BOOL)visibility
+{
+	if (_hudVisibility) {
+        if (_hudVisibility != visibility)
+            [UIView beginAnimations:MVLCMovieViewControllerHUDFadeInAnimation context:NULL];
 		self.HUDView.alpha = 1.0f;
 		self.topView.alpha = 1.0f;
 	} else {
-		[UIView beginAnimations:MVLCMovieViewControllerHUDFadeOutAnimation context:NULL];
+        if (_hudVisibility != visibility)
+            [UIView beginAnimations:MVLCMovieViewControllerHUDFadeOutAnimation context:NULL];
 		self.HUDView.alpha = 0.0f;
 		self.topView.alpha = 0.0f;
 	}
+    _hudVisibility = visibility;
+    //[self resetHudAutoHide];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    //[self resetHudAutoHide];
+}
+
+- (void)resetHudAutoHide
+{
+    if (!_hudVisibility)
+        return;
+    // Hide the HUD after 5 secs
+    [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideHud) object:nil];
+    [self performSelector:@selector(hideHud) withObject:nil afterDelay:5];
+}
+
+- (void)hideHud
+{
+    [self setHudVisibility:NO];
+}
+
+- (IBAction)toggleHUDVisibility:(id)sender {
+    self.hudVisibility = !self.hudVisibility;
+
 	[UIView setAnimationDelegate:self];
 	[UIView commitAnimations];
 }
@@ -133,9 +168,17 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 #pragma mark VLCMediaPlayerDelegate
 - (void)mediaPlayerTimeChanged:(NSNotification *)aNotification {
 	self.positionSlider.value = [_mediaPlayer position];
+	self.remainingTimeLabel.title = [[_mediaPlayer remainingTime] stringValue];
 }
 
 - (void)mediaPlayerStateChanged:(NSNotification *)aNotification {
 	// FIXME: Refresh the UI (change Play/Pause for instance)
+    UIImage *playPauseImage;
+    if ([_mediaPlayer state] == VLCMediaPlayerStatePaused)
+        playPauseImage = [UIImage imageNamed:@"MVLCMovieViewHUDPlay.png"];
+    else
+        playPauseImage = [UIImage imageNamed:@"MVLCMovieViewHUDPause.png"];
+
+    [self.playOrPauseButton setImage:playPauseImage forState:UIControlStateNormal];
 }
 @end

@@ -15,18 +15,21 @@
 	UIView *         _movieView;
 	UIView *         _HUDView;
 	UIView *         _topView;
-	BOOL             _showInterface;
+	UIBarItem *_remainingTimeLabel;
 	UISlider *       _positionSlider;
 	UISlider *       _volumeSlider;
 	UIButton *       _playOrPauseButton;
+    BOOL             _hudVisibility;
 }
 @property (nonatomic, retain) VLCMedia * media;
 @property (nonatomic, retain) IBOutlet UIView * movieView;
 @property (nonatomic, retain) IBOutlet UIView * HUDView;
 @property (nonatomic, retain) IBOutlet UIView * topView;
+@property (nonatomic, retain) IBOutlet UIBarItem * remainingTimeLabel;
 @property (nonatomic, retain) IBOutlet UISlider * positionSlider;
 @property (nonatomic, retain) IBOutlet UISlider * volumeSlider;
 @property (nonatomic, retain) IBOutlet UIButton * playOrPauseButton;
+@property (nonatomic, assign) BOOL hudVisibility;
 - (IBAction)toggleHUDVisibility:(id)sender;
 - (IBAction)togglePlayOrPause:(id)sender;
 - (IBAction)position:(id)sender;

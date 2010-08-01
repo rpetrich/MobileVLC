@@ -111,6 +111,10 @@ static SDWebImageManager *instance;
             {
                 [delegate performSelector:@selector(webImageManager:didFinishWithImage:) withObject:self withObject:image];
             }
+            if (image && [delegate respondsToSelector:@selector(webImageManagerDidFinishWithImage:atURL:)])
+            {
+                [delegate performSelector:@selector(webImageManagerDidFinishWithImage:atURL:) withObject:image withObject:downloader.url];
+            }
 
             [downloaders removeObjectAtIndex:idx];
             [delegates removeObjectAtIndex:idx];
@@ -134,5 +138,47 @@ static SDWebImageManager *instance;
     [downloader release];
 }
 
+- (void)imageDownloader:(SDWebImageDownloader *)downloader didFailWithError:(NSError *)error
+{
+    [downloader retain];
+
+    // Notify all the delegates with this downloader
+    for (NSInteger idx = [downloaders count] - 1; idx >= 0; idx--)
+    {
+        SDWebImageDownloader *aDownloader = [downloaders objectAtIndex:idx];
+        if (aDownloader == downloader)
+        {
+            id<SDWebImageManagerDelegate> delegate = [delegates objectAtIndex:idx];
+
+            if (image && [delegate respondsToSelector:@selector(webImageManager:didFinishWithImage:)])
+            {
+                [delegate performSelector:@selector(webImageManager:didFinishWithImage:) withObject:self withObject:image];
+            }
+            if (image && [delegate respondsToSelector:@selector(webImageManager:didFailAtURL:)])
+            {
+                [delegate performSelector:@selector(webImageManager:didFailAtURL:) withObject:image withObject:downloader.url];
+            }
+
+            [downloaders removeObjectAtIndex:idx];
+            [delegates removeObjectAtIndex:idx];
+        }
+    }
+
+    if (image)
+    {
+        // Store the image in the cache
+        [[SDImageCache sharedImageCache] storeImage:image forKey:[downloader.url absoluteString]];
+    }
+    else
+    {
+        // The image can't be downloaded from this URL, mark the URL as failed so we won't try and fail again and again
+        [failedURLs addObject:downloader.url];
+    }
+
+
+    // Release the downloader
+    [downloaderForURL removeObjectForKey:downloader.url];
+    [downloader release];
+}
 
 @end

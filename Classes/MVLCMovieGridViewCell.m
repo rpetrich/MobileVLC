@@ -7,6 +7,9 @@
 //
 
 #import "MVLCMovieGridViewCell.h"
+#import "UIImageView+WebCache.h"
+#import "MLFile.h"
+#import "MLShowEpisode.h"
 
 @interface MVLCMovieGridViewCell (PrivateInSuper)
 @property (nonatomic, retain) NSString * reuseIdentifier;
@@ -14,17 +17,21 @@
 
 @interface MVLCMovieGridViewCell (Private)
 + (MVLCMovieGridViewCell *)_cellFromNib;
-- (void)_refreshFromMedia;
+- (void)_refreshFromFile;
 @end
 
 @implementation MVLCMovieGridViewCell
-@synthesize media=_media, titleLabel=_titleLabel, posterImageView=_posterImageView;
+@synthesize file=_file, titleLabel=_titleLabel, posterImageView=_posterImageView;
+@synthesize activityIndicator=_activityIndicator;
 
 - (void)awakeFromNib {
 	// Workaround a stupid piece of code in AQGridViewCell
 	UIColor * color = self.backgroundColor;
 	[super awakeFromNib];
 	self.backgroundColor = color;
+    self.selectionGlowColor = [UIColor colorWithWhite:1.0 alpha:0.2];
+    self.selectionGlowShadowRadius = 40;
+    self.selectionStyle = AQGridViewCellSelectionStyleGlow;
 }
 
 + (CGSize)cellSize {
@@ -41,23 +48,38 @@
 	return cell;
 }
 
-- (void)setMedia:(VLCMedia *)media {
-	if (media != _media) {
-		[_media release];
-		_media = [media retain];
-		[self _refreshFromMedia];
-	}
-	[self _refreshFromMedia];
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    [self _refreshFromFile];
 }
 
-- (VLCMedia *)media {
-	return _media;
+- (void)setFile:(MLFile *)file {
+	if (file != _file) {
+        [_file removeObserver:self forKeyPath:@"showEpisode.artworkURL"];
+        [_file removeObserver:self forKeyPath:@"computedThumbnail"];
+        [_file removeObserver:self forKeyPath:@"artworkURL"];
+		[_file release];
+		_file = [file retain];
+        [_file addObserver:self forKeyPath:@"showEpisode.artworkURL" options:0 context:nil];
+        [_file addObserver:self forKeyPath:@"artworkURL" options:0 context:nil];
+        [_file addObserver:self forKeyPath:@"computedThumbnail" options:0 context:nil];
+	}
+	[self _refreshFromFile];
+}
+
+- (MLFile *)file {
+	return _file;
 }
 
 - (void)dealloc {
+    // FIXME: We need to remove the observers at some point.
+    // We should use -viewWillDisapear
+    [self setFile:nil];
+
+	[_activityIndicator release];
 	[_posterImageView release];
 	[_titleLabel release];
-	[_media release];
+	[_file release];
     [super dealloc];
 }
 @end
@@ -70,10 +92,26 @@
 	return (MVLCMovieGridViewCell *)[array lastObject];
 }
 
-- (void)_refreshFromMedia {
-	NSDictionary * metaDictionary = [self.media metaDictionary];
-	self.titleLabel.text = [metaDictionary objectForKey:VLCMetaInformationTitle];
-	self.posterImageView.image = [UIImage imageNamed:@"MVLCMovieGridViewCellPosterPlaceholder.png"];
+- (void)_refreshFromFile
+{
+    MLFile *file = self.file;
+	self.titleLabel.text = [file title];
+
+    [self.activityIndicator stopAnimating];
+
+    NSURL *url = [NSURL URLWithString:file.showEpisode ? file.showEpisode.artworkURL : file.artworkURL];
+    [self.posterImageView cancelCurrentImageLoad];
+    NSLog(@"%@", [file title]);
+
+    if (url) {
+        NSLog(@"%@", url);
+        [self.posterImageView setImageWithURL:url];
+    } else if (file.computedThumbnail) {
+        [self.posterImageView setImage:[UIImage imageWithData:file.computedThumbnail]];
+    } else {
+        [self.activityIndicator startAnimating];
+        [self.posterImageView setImage:nil];
+    }
 }
 @end
 

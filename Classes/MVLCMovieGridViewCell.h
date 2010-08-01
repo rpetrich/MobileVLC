@@ -8,19 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "AQGridViewCell.h"
-#import "VLCMedia.h"
 
+@class MLFile;
 @interface MVLCMovieGridViewCell : AQGridViewCell {
-	VLCMedia * _media;
+	MLFile *_file;
 
 	UILabel *     _titleLabel;
 	UIImageView * _posterImageView;
+	UIActivityIndicatorView * _activityIndicator;
 }
 + (CGSize)cellSize;
 + (MVLCMovieGridViewCell *)cellWithReuseIdentifier:(NSString *)reuseIdentifier;
-@property (nonatomic, retain) VLCMedia * media;
+@property (nonatomic, retain) MLFile* file;
 @property (nonatomic, retain) IBOutlet UILabel *     titleLabel;
 @property (nonatomic, retain) IBOutlet UIImageView * posterImageView;
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView * activityIndicator;
 @end
 
 @interface MVLCMovieGridViewCell (InterfaceBuilder)

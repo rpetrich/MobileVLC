@@ -21,28 +21,30 @@
     [VLCLibrary sharedLibrary];
 
 #define PIERRE_LE_GROS_CRADE 0
-#if PIERRE_LE_GROS_CRADE
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *directoryPath = @"/Users/steg/Downloads";
+#if TARGET_IPHONE_SIMULATOR && PIERRE_LE_GROS_CRADE
+    NSString *directoryPath = @"/Users/steg/Movies";
+#else
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *directoryPath = [paths objectAtIndex:0];
+#endif
+    NSLog(@"Scanning %@", directoryPath);
     NSArray *fileNames = [fileManager contentsOfDirectoryAtPath:directoryPath error:nil];
     NSMutableArray *filePaths = [NSMutableArray arrayWithCapacity:[fileNames count]];
     for (NSString *fileName in fileNames) {
-        if ([[fileName pathExtension] isEqualToString:@"avi"])
+        NSString *extension = [fileName pathExtension];
+        if ([extension hasSuffix:@"avi"] ||
+            [extension hasSuffix:@"mkv"] ||
+            [extension hasSuffix:@"ts"]  ||
+            [extension hasSuffix:@"mov"] ||
+            [extension hasSuffix:@"m4v"] ||
+            [extension hasSuffix:@"mp4"])
+        {
             [filePaths addObject:[directoryPath stringByAppendingPathComponent:fileName]];
+        }
     }
-    NSLog(@"%@", filePaths);
+    
     [[MLMediaLibrary sharedMediaLibrary] addFilePaths:filePaths];
-#else
-    NSString *directoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSArray *fileNames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directoryPath error:nil];
-    NSMutableArray *filePaths = [NSMutableArray arrayWithCapacity:[fileNames count]];
-    for (NSString *fileName in fileNames) {
-		[filePaths addObject:[directoryPath stringByAppendingPathComponent:fileName]];
-    }
-    NSLog(@"%@", filePaths);
-    [[MLMediaLibrary sharedMediaLibrary] addFilePaths:filePaths];
-#endif
-	[_window addSubview:self.navigationController.view];
+    [_window addSubview:self.navigationController.view];
     [_window makeKeyAndVisible];
 
 //	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -53,6 +55,11 @@
 //	self.movieViewController.media = [VLCMedia mediaWithURL:[NSURL URLWithString:@"http://tv.freebox.fr/stream_france2"]];
 
     return YES;
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+    [[MLMediaLibrary sharedMediaLibrary] save];
 }
 
 #pragma mark -

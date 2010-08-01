@@ -13,5 +13,6 @@
 @optional
 
 - (void)webImageManager:(SDWebImageManager *)imageManager didFinishWithImage:(UIImage *)image;
+- (void)webImageManagerDidFinishWithImage:(UIImage *)image atURL:(NSURL *)url; // FIXME, pass imageManager as well
 
 @end
