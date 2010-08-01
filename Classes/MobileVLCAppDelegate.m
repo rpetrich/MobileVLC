@@ -28,7 +28,7 @@
     NSString *directoryPath = [paths objectAtIndex:0];
 #endif
     NSLog(@"Scanning %@", directoryPath);
-    NSArray *fileNames = [fileManager contentsOfDirectoryAtPath:directoryPath error:nil];
+    NSArray *fileNames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directoryPath error:nil];
     NSMutableArray *filePaths = [NSMutableArray arrayWithCapacity:[fileNames count]];
     for (NSString *fileName in fileNames) {
         NSString *extension = [fileName pathExtension];
@@ -42,7 +42,7 @@
             [filePaths addObject:[directoryPath stringByAppendingPathComponent:fileName]];
         }
     }
-    
+
     [[MLMediaLibrary sharedMediaLibrary] addFilePaths:filePaths];
     [_window addSubview:self.navigationController.view];
     [_window makeKeyAndVisible];
