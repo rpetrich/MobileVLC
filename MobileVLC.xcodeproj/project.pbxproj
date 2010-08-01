@@ -16,6 +16,7 @@
 		631866D111EE4D5B00AB038D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631866D011EE4D5B00AB038D /* CoreData.framework */; };
 		6320373211F77236002861C2 /* libMobileMediaLibraryKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6320373111F77236002861C2 /* libMobileMediaLibraryKit.a */; };
 		636E9D8411ED3E29002FE8A9 /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 636E9D8311ED3E29002FE8A9 /* libbz2.dylib */; };
+		6376443F1205C33C00E48F8B /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6376443E1205C33C00E48F8B /* CoreText.framework */; };
 		63C092EF11F77D0A00A824BC /* MediaLibrary.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 63C092EE11F77D0A00A824BC /* MediaLibrary.xcdatamodel */; };
 		63D66B6711EFACCC00673287 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 63D66B5B11EFACCC00673287 /* LICENSE */; };
 		63D66B6811EFACCC00673287 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 63D66B5C11EFACCC00673287 /* README.md */; };
@@ -78,6 +79,7 @@
 		631866D011EE4D5B00AB038D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6320373111F77236002861C2 /* libMobileMediaLibraryKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobileMediaLibraryKit.a; sourceTree = "<group>"; };
 		636E9D8311ED3E29002FE8A9 /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = usr/lib/libbz2.dylib; sourceTree = SDKROOT; };
+		6376443E1205C33C00E48F8B /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		63C0923911F7783100A824BC /* MLFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLFile.h; sourceTree = "<group>"; };
 		63C0923A11F7783100A824BC /* MLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLabel.h; sourceTree = "<group>"; };
 		63C0923B11F7783100A824BC /* MLMediaLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMediaLibrary.h; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				631866CD11EE4D5100AB038D /* libxml2.dylib in Frameworks */,
 				631866D111EE4D5B00AB038D /* CoreData.framework in Frameworks */,
 				6320373211F77236002861C2 /* libMobileMediaLibraryKit.a in Frameworks */,
+				6376443F1205C33C00E48F8B /* CoreText.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +264,7 @@
 				7A5ECA2011DE783F00F66AF3 /* QuartzCore.framework */,
 				7A5ECA2411DE784D00F66AF3 /* libiconv.dylib */,
 				7A4BA0B111EB48AF0056579C /* libstdc++.6.dylib */,
+				6376443E1205C33C00E48F8B /* CoreText.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
