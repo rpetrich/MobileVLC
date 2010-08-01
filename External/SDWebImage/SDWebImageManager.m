@@ -150,13 +150,13 @@ static SDWebImageManager *instance;
         {
             id<SDWebImageManagerDelegate> delegate = [delegates objectAtIndex:idx];
 
-            if (image && [delegate respondsToSelector:@selector(webImageManager:didFinishWithImage:)])
+            if ([delegate respondsToSelector:@selector(webImageManager:didFinishWithImage:)])
             {
-                [delegate performSelector:@selector(webImageManager:didFinishWithImage:) withObject:self withObject:image];
+                [delegate performSelector:@selector(webImageManager:didFinishWithImage:) withObject:self withObject:nil];
             }
-            if (image && [delegate respondsToSelector:@selector(webImageManager:didFailAtURL:)])
+            if ([delegate respondsToSelector:@selector(webImageManagerDidFinishWithImage:atURL:)])
             {
-                [delegate performSelector:@selector(webImageManager:didFailAtURL:) withObject:image withObject:downloader.url];
+                [delegate performSelector:@selector(webImageManagerDidFinishWithImage:atURL:) withObject:nil withObject:downloader.url];
             }
 
             [downloaders removeObjectAtIndex:idx];
@@ -164,16 +164,8 @@ static SDWebImageManager *instance;
         }
     }
 
-    if (image)
-    {
-        // Store the image in the cache
-        [[SDImageCache sharedImageCache] storeImage:image forKey:[downloader.url absoluteString]];
-    }
-    else
-    {
-        // The image can't be downloaded from this URL, mark the URL as failed so we won't try and fail again and again
-        [failedURLs addObject:downloader.url];
-    }
+    // The image can't be downloaded from this URL, mark the URL as failed so we won't try and fail again and again
+    [failedURLs addObject:downloader.url];
 
 
     // Release the downloader
