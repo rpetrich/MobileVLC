@@ -38,6 +38,9 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
     [_mediaPlayer pause];
 	[self removeObserver:self forKeyPath:@"media"];
 
+    // Make sure we unset this
+    [UIApplication sharedApplication].idleTimerDisabled = NO;
+
 	[super viewWillDisappear:animated];
 }
 
@@ -178,6 +181,11 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
         playPauseImage = [UIImage imageNamed:@"MVLCMovieViewHUDPlay.png"];
     else
         playPauseImage = [UIImage imageNamed:@"MVLCMovieViewHUDPause.png"];
+
+    if ([_mediaPlayer state] == VLCMediaPlayerStatePlaying)
+        [UIApplication sharedApplication].idleTimerDisabled = YES;
+    else
+        [UIApplication sharedApplication].idleTimerDisabled = NO;
 
     [self.playOrPauseButton setImage:playPauseImage forState:UIControlStateNormal];
 }
