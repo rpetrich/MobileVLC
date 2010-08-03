@@ -5,7 +5,7 @@ git clone ssh://git@dev.applidium.com/var/git/MediaLibraryKit.git
 git clone ssh://git@dev.applidium.com/var/git/MobileVLC.git
 
 pushd vlc
-pushd extra/package/ios
+pushd extras/package/ios
 ./build_for_iOS.sh
 popd
 pushd projects/macosx/framework
