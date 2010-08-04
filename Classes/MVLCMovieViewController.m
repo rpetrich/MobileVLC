@@ -34,7 +34,7 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 	[self addObserver:self forKeyPath:@"file" options:0 context:nil];
 	[_mediaPlayer setMedia:[VLCMedia mediaWithURL:[NSURL URLWithString:self.file.url]]];
     [_mediaPlayer play];
-    if (self.file.lastPosition)
+    if (self.file.lastPosition && [self.file.lastPosition floatValue] < 0.99)
         [_mediaPlayer setPosition:[self.file.lastPosition floatValue]];
 }
 
