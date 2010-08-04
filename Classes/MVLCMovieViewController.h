@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <MobileVLCKit/MobileVLCKit.h>
 
+@class MLFile;
+
 @interface MVLCMovieViewController : UIViewController <VLCMediaPlayerDelegate> {
-	VLCMedia *       _media;
+	MLFile *         _file;
 	VLCMediaPlayer * _mediaPlayer;
 	UIView *         _movieView;
 	UIView *         _HUDView;
@@ -21,7 +23,7 @@
 	UIButton *       _playOrPauseButton;
     BOOL             _hudVisibility;
 }
-@property (nonatomic, retain) VLCMedia * media;
+@property (nonatomic, retain) MLFile * file;
 @property (nonatomic, retain) IBOutlet UIView * movieView;
 @property (nonatomic, retain) IBOutlet UIView * HUDView;
 @property (nonatomic, retain) IBOutlet UIView * topView;

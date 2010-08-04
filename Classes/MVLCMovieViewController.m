@@ -6,13 +6,15 @@
 //  Copyright 2010 Applidium. All rights reserved.
 //
 
+#import <MediaLibraryKit/MLFile.h>
+
 #import "MVLCMovieViewController.h"
 
 static NSString * MVLCMovieViewControllerHUDFadeInAnimation = @"MVLCMovieViewControllerHUDFadeInAnimation";
 static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewControllerHUDFadeOutAnimation";
 
 @implementation MVLCMovieViewController
-@synthesize movieView=_movieView, media=_media, positionSlider=_positionSlider, playOrPauseButton=_playOrPauseButton, volumeSlider=_volumeSlider, HUDView=_HUDView, topView=_topView, remainingTimeLabel=_remainingTimeLabel;
+@synthesize movieView=_movieView, file=_file, positionSlider=_positionSlider, playOrPauseButton=_playOrPauseButton, volumeSlider=_volumeSlider, HUDView=_HUDView, topView=_topView, remainingTimeLabel=_remainingTimeLabel;
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	_mediaPlayer = [[VLCMediaPlayer alloc] init];
@@ -29,14 +31,16 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	[self.navigationController setNavigationBarHidden:YES animated:NO];
-	[self addObserver:self forKeyPath:@"media" options:0 context:nil];
-	[_mediaPlayer setMedia:self.media];
+	[self addObserver:self forKeyPath:@"file" options:0 context:nil];
+	[_mediaPlayer setMedia:[VLCMedia mediaWithURL:[NSURL URLWithString:self.file.url]]];
     [_mediaPlayer play];
+    if (self.file.lastPosition)
+        [_mediaPlayer setPosition:[self.file.lastPosition floatValue]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [_mediaPlayer pause];
-	[self removeObserver:self forKeyPath:@"media"];
+	[self removeObserver:self forKeyPath:@"file"];
 
     // Make sure we unset this
     [UIApplication sharedApplication].idleTimerDisabled = NO;
@@ -44,9 +48,11 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 	[super viewWillDisappear:animated];
 }
 
+
 - (void)viewDidDisappear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
 	[super viewDidDisappear:animated];
+    self.file.lastPosition = [NSNumber numberWithFloat:[_mediaPlayer position]];
 	[_mediaPlayer stop];
 }
 
@@ -57,7 +63,7 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 	[_positionSlider release];
 	[_movieView release];
 	[_mediaPlayer release];
-	[_media release];
+	[_file release];
     [super dealloc];
 }
 
@@ -68,8 +74,8 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 #pragma mark -
 #pragma mark Key-Value Observing
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-	if (object == self && [keyPath isEqualToString:@"media"]) {
-		[_mediaPlayer setMedia:self.media];
+	if (object == self && [keyPath isEqualToString:@"file"]) {
+        [_mediaPlayer setMedia:[VLCMedia mediaWithURL:[NSURL URLWithString:self.file.url]]];
 	}
 }
 

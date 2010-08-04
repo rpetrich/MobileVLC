@@ -82,8 +82,7 @@
 - (void)gridView:(AQGridView *)gridView didSelectItemAtIndex:(NSUInteger)index {
 	MVLCMovieViewController * movieViewController = [[MVLCMovieViewController alloc] init];
     MLFile *file = [_allMedia objectAtIndex:index];
-    NSString *urlString = file.url;
-	movieViewController.media = [VLCMedia mediaWithURL:[NSURL URLWithString:urlString]];
+	movieViewController.file = file;
 	[self.navigationController pushViewController:movieViewController animated:YES];
 	[movieViewController release];
 }
