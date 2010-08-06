@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MVLCCircularProgressView : UIView {
-	double _progress;
+@interface MVLCCircularProgressView : UIProgressView {
 }
-@property(nonatomic) double progress;
 @end
