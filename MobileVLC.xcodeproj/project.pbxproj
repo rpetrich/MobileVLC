@@ -599,7 +599,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/External/MobileVLCKit\"",
-					"\"$(SRCROOT)/../../build/Debug-iphonesimulator\"",
 					"\"$(SRCROOT)/External/MediaLibraryKit\"",
 				);
 				OTHER_LDFLAGS = "";
@@ -622,7 +621,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/External/MobileVLCKit\"",
-					"\"$(SRCROOT)/../../build/Debug-iphonesimulator\"",
 					"\"$(SRCROOT)/External/MediaLibraryKit\"",
 				);
 				OTHER_LDFLAGS = "";
