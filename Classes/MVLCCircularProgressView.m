@@ -22,16 +22,20 @@
 	double lineWidth = 1.0f*scalingRatio;
 
 	CGContextSetStrokeColorWithColor(context, color);
-	CGContextSetFillColorWithColor(context, color);
 	CGContextSetLineWidth(context, lineWidth);
-
-	CGContextStrokeEllipseInRect(context, CGRectMake(-1.0f+(lineWidth/2.0f), -1.0f+(lineWidth/2.0f), 2.0f-lineWidth, 2.0f-lineWidth));
+	
+	CGRect outerCircleRect = CGRectMake(-1.0f+(lineWidth/2.0f), -1.0f+(lineWidth/2.0f), 2.0f-lineWidth, 2.0f-lineWidth);
+	static const CGFloat transparentBlackColor[4] = { 0.0f, 0.0f, 0.0f, 0.2f };
+	CGContextSetFillColor(context, transparentBlackColor);
+	CGContextFillEllipseInRect(context, outerCircleRect);
+	CGContextStrokeEllipseInRect(context, outerCircleRect);
 
 	CGContextBeginPath(context);
 	CGContextMoveToPoint(context, 0.0f, 0.0f);
 	CGContextAddArc(context, 0.0f, 0.0f, 1.0f - 2*lineWidth, -M_PI/2.0f, -M_PI/2.0f + -2*M_PI*self.progress, true);
 	CGContextMoveToPoint(context, 0.0f, 0.0f);
 	CGContextClosePath(context);
+	CGContextSetFillColorWithColor(context, color);
 	CGContextFillPath(context);
 }
 @end
