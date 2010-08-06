@@ -22,7 +22,7 @@
 @end
 
 @implementation MVLCMovieGridViewCell
-@synthesize file=_file, titleLabel=_titleLabel, posterImageView=_posterImageView;
+@synthesize file=_file, titleLabel=_titleLabel, subtitleLabel=_subtitleLabel, posterImageView=_posterImageView, progressView=_progressView;
 @synthesize activityIndicator=_activityIndicator;
 
 - (void)awakeFromNib {
@@ -77,8 +77,10 @@
     // We should use -viewWillDisapear
     [self setFile:nil];
 
+	[_progressView release];
 	[_activityIndicator release];
 	[_posterImageView release];
+	[_subtitleLabel release];
 	[_titleLabel release];
 	[_file release];
     [super dealloc];
@@ -113,6 +115,9 @@
         [self.activityIndicator startAnimating];
         [self.posterImageView setImage:nil];
     }
+	float lastPosition = [[file lastPosition] floatValue];
+	self.progressView.progress = lastPosition;
+	self.progressView.hidden = (lastPosition < 0.1f);
 }
 
 - (UIImage *)_framedImageFromImage:(UIImage *)sourceImage {
