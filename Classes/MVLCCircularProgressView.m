@@ -29,7 +29,7 @@
 
 	CGContextBeginPath(context);
 	CGContextMoveToPoint(context, 0.0f, 0.0f);
-	CGContextAddArc(context, 0.0f, 0.0f, 1.0f - 2*lineWidth, 0.0, -2*M_PI*self.progress, true);
+	CGContextAddArc(context, 0.0f, 0.0f, 1.0f - 2*lineWidth, -M_PI/2.0f, -M_PI/2.0f + -2*M_PI*self.progress, true);
 	CGContextMoveToPoint(context, 0.0f, 0.0f);
 	CGContextClosePath(context);
 	CGContextFillPath(context);
