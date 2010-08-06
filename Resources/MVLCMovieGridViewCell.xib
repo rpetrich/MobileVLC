@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="10"/>
+			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -50,11 +50,20 @@
 							<object class="IBUIImageView" id="179502382">
 								<reference key="NSNextResponder" ref="191373211"/>
 								<int key="NSvFlags">274</int>
-								<string key="NSFrame">{{26, 20}, {252, 164}}</string>
+								<string key="NSFrame">{{20, 20}, {252, 161}}</string>
 								<reference key="NSSuperview" ref="191373211"/>
-								<int key="IBUIContentMode">1</int>
+								<object class="NSColor" key="IBUIBackgroundColor" id="410789891">
+									<int key="NSColorSpace">3</int>
+									<bytes key="NSWhite">MCAwAA</bytes>
+								</object>
+								<bool key="IBUIOpaque">NO</bool>
+								<int key="IBUIContentMode">9</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">MVLCMovieGridViewCellImageMask.png</string>
+								</object>
 							</object>
 							<object class="IBUIActivityIndicatorView" id="274282016">
 								<reference key="NSNextResponder" ref="191373211"/>
@@ -97,18 +106,30 @@
 								<int key="IBUINumberOfLines">3</int>
 								<int key="IBUITextAlignment">1</int>
 							</object>
+							<object class="IBUIImageView" id="826897635">
+								<reference key="NSNextResponder" ref="191373211"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{18, 20}, {256, 165}}</string>
+								<reference key="NSSuperview" ref="191373211"/>
+								<reference key="IBUIBackgroundColor" ref="410789891"/>
+								<bool key="IBUIOpaque">NO</bool>
+								<int key="IBUIContentMode">9</int>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">MVLCMovieGridViewCellImageOverlay.png</string>
+								</object>
+							</object>
 						</object>
 						<string key="NSFrame">{{20, 20}, {299, 270}}</string>
 						<reference key="NSSuperview" ref="1022297159"/>
-						<object class="NSColor" key="IBUIBackgroundColor" id="410789891">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MCAwAA</bytes>
-						</object>
+						<reference key="IBUIBackgroundColor" ref="410789891"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 					</object>
 				</object>
-				<string key="NSFrame">{{-20, 20}, {299, 270}}</string>
+				<string key="NSFrameSize">{299, 270}</string>
 				<reference key="NSSuperview"/>
 				<reference key="IBUIBackgroundColor" ref="410789891"/>
 				<bool key="IBUIOpaque">NO</bool>
@@ -185,9 +206,10 @@
 						<reference key="object" ref="191373211"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="179502382"/>
 							<reference ref="274282016"/>
 							<reference ref="972177036"/>
+							<reference ref="826897635"/>
+							<reference ref="179502382"/>
 						</object>
 						<reference key="parent" ref="1022297159"/>
 						<string key="objectName">Content View</string>
@@ -207,6 +229,11 @@
 						<reference key="object" ref="972177036"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">18</int>
+						<reference key="object" ref="826897635"/>
+						<reference key="parent" ref="191373211"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -220,6 +247,7 @@
 					<string>10.IBEditorWindowLastContentRect</string>
 					<string>10.IBPluginDependency</string>
 					<string>16.IBPluginDependency</string>
+					<string>18.IBPluginDependency</string>
 					<string>8.IBPluginDependency</string>
 					<string>9.IBPluginDependency</string>
 				</object>
@@ -230,6 +258,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>MVLCMovieGridViewCell</string>
 					<string>{{453, 486}, {299, 270}}</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -252,7 +281,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">17</int>
+			<int key="maxID">18</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -528,6 +557,19 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<string key="IBDocument.LastKnownRelativeProjectPath">../MobileVLC.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<bool key="EncodedWithXMLCoder">YES</bool>
+			<object class="NSArray" key="dict.sortedKeys">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>MVLCMovieGridViewCellImageMask.png</string>
+				<string>MVLCMovieGridViewCellImageOverlay.png</string>
+			</object>
+			<object class="NSMutableArray" key="dict.values">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>{252, 161}</string>
+				<string>{256, 165}</string>
+			</object>
+		</object>
 		<string key="IBCocoaTouchPluginVersion">117</string>
 	</data>
 </archive>
