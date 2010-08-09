@@ -57,12 +57,12 @@
 									<bytes key="NSWhite">MCAwAA</bytes>
 								</object>
 								<bool key="IBUIOpaque">NO</bool>
-								<int key="IBUIContentMode">9</int>
+								<int key="IBUIContentMode">2</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">MVLCMovieGridViewCellImageMask.png</string>
+									<string key="NSResourceName">MVLCMovieGridViewCellPosterPlaceholder.png</string>
 								</object>
 							</object>
 							<object class="IBUIImageView" id="645519780">
@@ -654,13 +654,13 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>MVLCMovieGridViewCellImageMask.png</string>
 				<string>MVLCMovieGridViewCellImageOverlay.png</string>
+				<string>MVLCMovieGridViewCellPosterPlaceholder.png</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{252, 161}</string>
 				<string>{256, 165}</string>
+				<string>{101, 92}</string>
 			</object>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">117</string>

@@ -33,6 +33,7 @@
     self.selectionGlowColor = [UIColor colorWithWhite:1.0 alpha:0.2];
     self.selectionGlowShadowRadius = 40;
     self.selectionStyle = AQGridViewCellSelectionStyleGlow;
+    [self.posterImageView setClipsToBounds:YES];
 }
 
 + (CGSize)cellSize {
@@ -59,11 +60,15 @@
         [_file removeObserver:self forKeyPath:@"showEpisode.artworkURL"];
         [_file removeObserver:self forKeyPath:@"computedThumbnail"];
         [_file removeObserver:self forKeyPath:@"artworkURL"];
+        [_file removeObserver:self forKeyPath:@"lastPosition"];
+        [_file didHide];
 		[_file release];
 		_file = [file retain];
         [_file addObserver:self forKeyPath:@"showEpisode.artworkURL" options:0 context:nil];
-        [_file addObserver:self forKeyPath:@"artworkURL" options:0 context:nil];
         [_file addObserver:self forKeyPath:@"computedThumbnail" options:0 context:nil];
+        [_file addObserver:self forKeyPath:@"artworkURL" options:0 context:nil];
+        [_file addObserver:self forKeyPath:@"lastPosition" options:0 context:nil];
+        [_file willDisplay];
 	}
 	[self _refreshFromFile];
 }
@@ -122,11 +127,11 @@
 
 - (UIImage *)_framedImageFromImage:(UIImage *)sourceImage {
 
-	UIImage * maskImage = [UIImage imageNamed:@"MVLCMovieGridViewCellImageMask.png"];	
+	UIImage * maskImage = [UIImage imageNamed:@"MVLCMovieGridViewCellImageMask.png"];
 	CGContextRef context = NULL;
 
 	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-	context = CGBitmapContextCreate (NULL, maskImage.size.width, maskImage.size.height, 8, 0, colorSpace, kCGImageAlphaPremultipliedLast);	
+	context = CGBitmapContextCreate (NULL, maskImage.size.width, maskImage.size.height, 8, 0, colorSpace, kCGImageAlphaPremultipliedLast);
 	CGColorSpaceRelease(colorSpace);
 
 	CGImageRef maskImageRef = [maskImage CGImage];
@@ -138,7 +143,7 @@
 
 	UIImage * framedImage = [UIImage imageWithCGImage:framedImageRef];
 	CGImageRelease(framedImageRef);
-	
+
 	return framedImage;
 }
 
