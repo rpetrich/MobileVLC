@@ -10,6 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "MLFile.h"
 #import "MLShowEpisode.h"
+#import <MobileVLCKit/MobileVLCKit.h>
 
 @interface MVLCMovieGridViewCell (PrivateInSuper)
 @property (nonatomic, retain) NSString * reuseIdentifier;
@@ -61,6 +62,8 @@
         [_file removeObserver:self forKeyPath:@"computedThumbnail"];
         [_file removeObserver:self forKeyPath:@"artworkURL"];
         [_file removeObserver:self forKeyPath:@"lastPosition"];
+        [_file removeObserver:self forKeyPath:@"tracks"];
+        [_file removeObserver:self forKeyPath:@"duration"];
         [_file didHide];
 		[_file release];
 		_file = [file retain];
@@ -68,6 +71,8 @@
         [_file addObserver:self forKeyPath:@"computedThumbnail" options:0 context:nil];
         [_file addObserver:self forKeyPath:@"artworkURL" options:0 context:nil];
         [_file addObserver:self forKeyPath:@"lastPosition" options:0 context:nil];
+        [_file addObserver:self forKeyPath:@"tracks" options:0 context:nil];
+        [_file addObserver:self forKeyPath:@"duration" options:0 context:nil];
         [_file willDisplay];
 	}
 	[self _refreshFromFile];
@@ -109,10 +114,8 @@
 
     NSURL *url = [NSURL URLWithString:file.showEpisode ? file.showEpisode.artworkURL : file.artworkURL];
     [self.posterImageView cancelCurrentImageLoad];
-    NSLog(@"%@", [file title]);
 
     if (url) {
-        NSLog(@"%@", url);
         [self.posterImageView setImageWithURL:url];
     } else if (file.computedThumbnail) {
         [self.posterImageView setImage:[self _framedImageFromImage:[UIImage imageWithData:file.computedThumbnail]]];
@@ -123,6 +126,19 @@
 	float lastPosition = [[file lastPosition] floatValue];
 	self.progressView.progress = lastPosition;
 	self.progressView.hidden = (lastPosition < 0.1f);
+
+    NSManagedObject *videoTrack = [file videoTrack];
+    NSString *videoSizeString = nil;
+    if (videoTrack) {
+        videoSizeString = [NSString stringWithFormat:@"%@x%@",
+                     [videoTrack valueForKey:@"width"], [videoTrack valueForKey:@"height"]];
+
+    }
+    self.subtitleLabel.text = [NSString stringWithFormat:@"%@ - %.01fMB%s%@",
+                          [VLCTime timeWithNumber:[file duration]],
+                          (float)([file fileSizeInBytes] / 1e6), // FIXME - a formatter to play nicely with KB, GB...
+                          videoSizeString ? " - " : "",
+                          videoSizeString];
 }
 
 - (UIImage *)_framedImageFromImage:(UIImage *)sourceImage {
