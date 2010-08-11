@@ -414,15 +414,16 @@ NSString * const AQGridViewSelectionDidChangeNotification = @"AQGridViewSelectio
 	{
 		offset.y = MAX(0.0, self.contentSize.height - self.bounds.size.height);
 	}
-	else if ( !CGPointEqualToPoint(oldOffset, CGPointZero) )	// stick-to-top takes precedence
+	else if ( (self.layoutDirection == AQGridViewLayoutDirectionVertical && oldOffset.y < _gridData.topPadding)
+			 || (self.layoutDirection == AQGridViewLayoutDirectionHorizontal && oldOffset.x < _gridData.rightPadding))	// stick-to-top takes precedence
 	{
 		if ( [_gridData pointIsInLastRow: oldMaxLocation] )
 		{
 			// we were scrolled to the bottom-- stay there as our height decreases
 			if ( self.layoutDirection == AQGridViewLayoutDirectionVertical )
-				offset.y = MAX(0.0, self.contentSize.height - self.bounds.size.height);
+				offset.y = MAX(0.0, self.contentSize.height - self.bounds.size.height - _gridData.bottomPadding);
 			else
-				offset.x = MAX(0.0, self.contentSize.width - self.bounds.size.width);
+				offset.x = MAX(0.0, self.contentSize.width - self.bounds.size.width - _gridData.leftPadding);
 		}
 	}
 	
