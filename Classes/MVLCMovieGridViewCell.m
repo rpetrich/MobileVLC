@@ -166,15 +166,14 @@
     NSManagedObject *videoTrack = [file videoTrack];
     NSString *videoSizeString = nil;
     if (videoTrack) {
-        videoSizeString = [NSString stringWithFormat:@"%@x%@",
+        videoSizeString = [NSString stringWithFormat:@"- %@x%@",
                      [videoTrack valueForKey:@"width"], [videoTrack valueForKey:@"height"]];
 
     }
-    self.subtitleLabel.text = [NSString stringWithFormat:@"%@ - %.01fMB%s%@",
+    self.subtitleLabel.text = [NSString stringWithFormat:@"%@ - %.01fMB%@",
                           [VLCTime timeWithNumber:[file duration]],
                           (float)([file fileSizeInBytes] / 1e6), // FIXME - a formatter to play nicely with KB, GB...
-                          videoSizeString ? " - " : "",
-                          videoSizeString];
+                          videoSizeString ? videoSizeString : @""];
 }
 @end
 
