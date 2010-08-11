@@ -18,7 +18,6 @@
 @interface MVLCMovieGridViewCell (Private)
 + (MVLCMovieGridViewCell *)_cellFromNib;
 - (void)_refreshFromFile;
-- (UIImage *)_framedImageFromImage:(UIImage *)sourceImage;
 @end
 
 @implementation MVLCMovieGridViewCell
@@ -110,7 +109,7 @@
         NSLog(@"%@", url);
         [self.posterImageView setImageWithURL:url];
     } else if (file.computedThumbnail) {
-        [self.posterImageView setImage:[self _framedImageFromImage:[UIImage imageWithData:file.computedThumbnail]]];
+        [self.posterImageView setImage:[UIImage imageWithData:file.computedThumbnail]];
     } else {
         [self.activityIndicator startAnimating];
         [self.posterImageView setImage:nil];
@@ -119,28 +118,5 @@
 	self.progressView.progress = lastPosition;
 	self.progressView.hidden = (lastPosition < 0.1f);
 }
-
-- (UIImage *)_framedImageFromImage:(UIImage *)sourceImage {
-
-	UIImage * maskImage = [UIImage imageNamed:@"MVLCMovieGridViewCellImageMask.png"];	
-	CGContextRef context = NULL;
-
-	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-	context = CGBitmapContextCreate (NULL, maskImage.size.width, maskImage.size.height, 8, 0, colorSpace, kCGImageAlphaPremultipliedLast);	
-	CGColorSpaceRelease(colorSpace);
-
-	CGImageRef maskImageRef = [maskImage CGImage];
-	CGContextClipToMask(context, CGRectMake(0, 0, maskImage.size.width, maskImage.size.height), maskImageRef);
-	CGContextDrawImage(context, CGRectMake(0.0, 0.0, maskImage.size.width, maskImage.size.height), sourceImage.CGImage);
-
-	CGImageRef framedImageRef = CGBitmapContextCreateImage(context);
-	CGContextRelease(context);
-
-	UIImage * framedImage = [UIImage imageWithCGImage:framedImageRef];
-	CGImageRelease(framedImageRef);
-	
-	return framedImage;
-}
-
 @end
 
