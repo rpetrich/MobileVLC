@@ -21,7 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
+
+	self.gridView.alwaysBounceVertical = YES; // Allow the "bounce" animation even though the list is small (no scroll is really needed, but the animation looks and feels great)
+
 	[self.gridView setLeftContentInset:47.0f];
 	[self.gridView setRightContentInset:47.0f];
 	
