@@ -19,6 +19,7 @@
 @interface MVLCMovieGridViewCell (Private)
 + (MVLCMovieGridViewCell *)_cellFromNib;
 - (void)_refreshFromFile;
++ (UIImage *)imageFromFile:(MLFile *)file;
 @end
 
 @implementation MVLCMovieGridViewCell
@@ -97,6 +98,42 @@
 @end
 
 @implementation MVLCMovieGridViewCell (Private)
++ (UIImage *)imageFromFile:(MLFile *)file {
+#define MVLC_MOVIE_GRID_IMAGE_CACHE_SIZE 32
+#if MVLC_MOVIE_GRID_USE_IMAGE_CACHE > 0
+    // This does UIImage caching as it appears that loading the PNG files is what slows down the app (up to 75% CPU in ImageIO/libz)
+    static NSMutableDictionary * sImageCache = nil;
+    static NSMutableArray *      sImageCacheExpirationQueue = nil;
+    if (sImageCache == nil) {
+        sImageCache = [[NSMutableDictionary alloc] initWithCapacity:MVLC_MOVIE_GRID_IMAGE_CACHE_SIZE];
+    }
+    if (sImageCacheExpirationQueue == nil) {
+        sImageCacheExpirationQueue = [[NSMutableArray alloc] initWithCapacity:MVLC_MOVIE_GRID_IMAGE_CACHE_SIZE];
+    }
+    UIImage * cachedImage = [sImageCache objectForKey:file.objectID];
+    if (cachedImage == nil) {
+        MVLCLog(@"Cache MISS for %@", file.objectID);
+        if ([sImageCacheExpirationQueue count] >= MVLC_MOVIE_GRID_IMAGE_CACHE_SIZE) {
+            [sImageCache removeObjectForKey:[sImageCacheExpirationQueue lastObject]];
+            [sImageCacheExpirationQueue removeLastObject];
+        }
+        cachedImage = [UIImage imageWithData:file.computedThumbnail];
+        [sImageCache setObject:cachedImage forKey:file.objectID];
+        [sImageCacheExpirationQueue insertObject:file.objectID atIndex:0];
+        NSLog(@"Queue = %@", sImageCacheExpirationQueue);
+        NSLog(@"Cache = %@", sImageCache);
+    } else {
+        MVLCLog(@"Cache HIT for %@", file.objectID.URIRepresentation);
+        // Bring the current image up in the deletion queue
+        [sImageCacheExpirationQueue removeObject:file.objectID];
+        [sImageCacheExpirationQueue insertObject:file.objectID atIndex:0];
+    }
+    return cachedImage;
+#else
+    return [UIImage imageWithData:file.computedThumbnail];
+#endif
+}
+
 + (MVLCMovieGridViewCell *)_cellFromNib {
 	NSArray * array = [[NSBundle mainBundle] loadNibNamed:@"MVLCMovieGridViewCell" owner:nil options:nil];
 	MVLCAssert([array count] == 1, @"Wrong number of objects in NIB file !");
@@ -117,7 +154,7 @@
     if (url) {
         [self.posterImageView setImageWithURL:url];
     } else if (file.computedThumbnail) {
-        [self.posterImageView setImage:[UIImage imageWithData:file.computedThumbnail]];
+        [self.posterImageView setImage:[MVLCMovieGridViewCell imageFromFile:file]];
     } else {
         [self.activityIndicator startAnimating];
         [self.posterImageView setImage:nil];
