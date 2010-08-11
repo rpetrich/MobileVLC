@@ -11,9 +11,7 @@
 
 @interface MVLCMovieListViewController : UIViewController <AQGridViewDataSource, AQGridViewDelegate> {
 	AQGridView *     _gridView;
-	UIView *     _noItemView;
 	NSMutableArray * _allMedia;
 }
 @property (nonatomic, retain) IBOutlet AQGridView *gridView;
-@property (nonatomic, retain) IBOutlet UIView *noItemView;
 @end

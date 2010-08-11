@@ -14,24 +14,44 @@
 #import "MLMediaLibrary.h"
 #import "UIImageView+WebCache.h"
 
+#define MVLC_INSET_BACKGROUND_HEIGHT 600.0f
+
 @implementation MVLCMovieListViewController
 @synthesize gridView=_gridView;
-@synthesize noItemView=_noItemView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	[self.gridView setLeftContentInset:47.0f];
+	[self.gridView setRightContentInset:47.0f];
+	
+
+	UIView * backgroundView = [[UIView alloc] initWithFrame:self.gridView.bounds];
+	backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCMovieListBackground.png"]];
+	self.gridView.separatorStyle = AQGridViewCellSeparatorStyleNone;
+	self.gridView.backgroundView = backgroundView;
+	[backgroundView release];
+	
 	self.gridView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 
-    _allMedia = [[NSMutableArray arrayWithArray:[MLFile allFiles]] retain];
-	[self.gridView reloadData];
+	UIView * headerInsetView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, MVLC_INSET_BACKGROUND_HEIGHT)];
+	headerInsetView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+	headerInsetView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCMovieListBackgroundPattern.png"]];
+	self.gridView.gridHeaderView = headerInsetView;
+	[headerInsetView release];
+	UIView * footerInsetView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, MVLC_INSET_BACKGROUND_HEIGHT)];
+	footerInsetView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+	footerInsetView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCMovieListBackgroundPattern.png"]];
+	self.gridView.gridFooterView = footerInsetView;
+	[footerInsetView release];
+	self.gridView.contentInset = UIEdgeInsetsMake(-MVLC_INSET_BACKGROUND_HEIGHT, 0.0f, -MVLC_INSET_BACKGROUND_HEIGHT, 0.0f);
 
-    // FIXME: Find a better place
-    [_noItemView setHidden:([_allMedia count] != 0)];
+    _allMedia = [[NSMutableArray arrayWithArray:[MLFile allFiles]] retain];
+	[self.gridView reloadData];	
 }
 
 - (void)dealloc {
 	[_allMedia release];
-    [_noItemView release];
 	[_gridView release];
     [super dealloc];
 }

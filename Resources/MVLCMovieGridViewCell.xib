@@ -49,26 +49,22 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUIImageView" id="179502382">
 								<reference key="NSNextResponder" ref="191373211"/>
-								<int key="NSvFlags">274</int>
-								<string key="NSFrame">{{22, 20}, {252, 161}}</string>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{20, 14}, {269, 175}}</string>
 								<reference key="NSSuperview" ref="191373211"/>
 								<object class="NSColor" key="IBUIBackgroundColor" id="410789891">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MCAwAA</bytes>
 								</object>
-								<bool key="IBUIOpaque">NO</bool>
-								<int key="IBUIContentMode">9</int>
+								<bool key="IBUIClipsSubviews">YES</bool>
+								<int key="IBUIContentMode">2</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">MVLCMovieGridViewCellImageMask.png</string>
-								</object>
 							</object>
 							<object class="IBUIImageView" id="645519780">
 								<reference key="NSNextResponder" ref="191373211"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{20, 20}, {256, 165}}</string>
+								<string key="NSFrame">{{8, 9}, {293, 260}}</string>
 								<reference key="NSSuperview" ref="191373211"/>
 								<reference key="IBUIBackgroundColor" ref="410789891"/>
 								<bool key="IBUIOpaque">NO</bool>
@@ -83,7 +79,7 @@
 							<object class="IBUIActivityIndicatorView" id="274282016">
 								<reference key="NSNextResponder" ref="191373211"/>
 								<int key="NSvFlags">-2147483347</int>
-								<string key="NSFrame">{{130, 82}, {37, 37}}</string>
+								<string key="NSFrame">{{152, 82}, {37, 37}}</string>
 								<reference key="NSSuperview" ref="191373211"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -92,7 +88,7 @@
 							<object class="IBUILabel" id="972177036">
 								<reference key="NSNextResponder" ref="191373211"/>
 								<int key="NSvFlags">266</int>
-								<string key="NSFrame">{{22, 180}, {252, 45}}</string>
+								<string key="NSFrame">{{47, 205}, {205, 45}}</string>
 								<reference key="NSSuperview" ref="191373211"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -114,7 +110,6 @@
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MAA</bytes>
 								</object>
-								<string key="IBUIShadowOffset">{0, 1}</string>
 								<int key="IBUIBaselineAdjustment">1</int>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 								<float key="IBUIMinimumFontSize">10</float>
@@ -124,7 +119,7 @@
 							<object class="IBUILabel" id="78506040">
 								<reference key="NSNextResponder" ref="191373211"/>
 								<int key="NSvFlags">266</int>
-								<string key="NSFrame">{{20, 224}, {252, 16}}</string>
+								<string key="NSFrame">{{47, 248}, {205, 16}}</string>
 								<reference key="NSSuperview" ref="191373211"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -140,7 +135,6 @@
 								<reference key="IBUITextColor" ref="33568905"/>
 								<nil key="IBUIHighlightedColor"/>
 								<reference key="IBUIShadowColor" ref="994279759"/>
-								<string key="IBUIShadowOffset">{0, 1}</string>
 								<int key="IBUIBaselineAdjustment">1</int>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 								<float key="IBUIMinimumFontSize">10</float>
@@ -150,21 +144,21 @@
 							<object class="IBUIView" id="533957601">
 								<reference key="NSNextResponder" ref="191373211"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{245, 151}, {21, 21}}</string>
+								<string key="NSFrame">{{258, 158}, {21, 21}}</string>
 								<reference key="NSSuperview" ref="191373211"/>
 								<reference key="IBUIBackgroundColor" ref="410789891"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 							</object>
 						</object>
-						<string key="NSFrameSize">{292, 260}</string>
+						<string key="NSFrameSize">{310, 320}</string>
 						<reference key="NSSuperview" ref="1022297159"/>
 						<reference key="IBUIBackgroundColor" ref="410789891"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 					</object>
 				</object>
-				<string key="NSFrameSize">{292, 260}</string>
+				<string key="NSFrameSize">{310, 320}</string>
 				<reference key="NSSuperview"/>
 				<reference key="IBUIBackgroundColor" ref="410789891"/>
 				<bool key="IBUIOpaque">NO</bool>
@@ -250,11 +244,11 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="274282016"/>
+							<reference ref="533957601"/>
+							<reference ref="78506040"/>
+							<reference ref="972177036"/>
 							<reference ref="179502382"/>
 							<reference ref="645519780"/>
-							<reference ref="972177036"/>
-							<reference ref="78506040"/>
-							<reference ref="533957601"/>
 						</object>
 						<reference key="parent" ref="1022297159"/>
 						<string key="objectName">Content View</string>
@@ -317,7 +311,7 @@
 					<string>{{972, 848}, {440, 209}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>MVLCMovieGridViewCell</string>
-					<string>{{453, 496}, {292, 260}}</string>
+					<string>{{453, 436}, {310, 320}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -651,17 +645,8 @@
 		<string key="IBDocument.LastKnownRelativeProjectPath">../MobileVLC.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<bool key="EncodedWithXMLCoder">YES</bool>
-			<object class="NSArray" key="dict.sortedKeys">
-				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>MVLCMovieGridViewCellImageMask.png</string>
-				<string>MVLCMovieGridViewCellImageOverlay.png</string>
-			</object>
-			<object class="NSMutableArray" key="dict.values">
-				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{252, 161}</string>
-				<string>{256, 165}</string>
-			</object>
+			<string key="NS.key.0">MVLCMovieGridViewCellImageOverlay.png</string>
+			<string key="NS.object.0">{293, 260}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">117</string>
 	</data>
