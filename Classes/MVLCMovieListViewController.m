@@ -16,6 +16,10 @@
 
 #define MVLC_INSET_BACKGROUND_HEIGHT 600.0f
 
+@interface MVLCMovieListViewController (Private)
+- (void)_setBackgroundForOrientation:(UIInterfaceOrientation)orientation;
+@end
+
 @implementation MVLCMovieListViewController
 @synthesize gridView=_gridView;
 
@@ -28,12 +32,13 @@
 	[self.gridView setRightContentInset:47.0f];
 	
 
-	UIView * backgroundView = [[UIView alloc] initWithFrame:self.gridView.bounds];
-	backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCMovieListBackground.png"]];
 	self.gridView.separatorStyle = AQGridViewCellSeparatorStyleNone;
+
+	UIView * backgroundView = [[UIView alloc] initWithFrame:self.gridView.bounds];
+	backgroundView.backgroundColor = [UIColor clearColor];
 	self.gridView.backgroundView = backgroundView;
 	[backgroundView release];
-	
+	[self _setBackgroundForOrientation:self.interfaceOrientation];
 	self.gridView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
 
 	UIView * headerInsetView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, MVLC_INSET_BACKGROUND_HEIGHT)];
@@ -56,6 +61,10 @@
 	[_allMedia release];
 	[_gridView release];
     [super dealloc];
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+	[self _setBackgroundForOrientation:toInterfaceOrientation];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -108,5 +117,19 @@
 	[self.navigationController pushViewController:movieViewController animated:YES];
 	[movieViewController release];
 }
+@end
 
+@implementation MVLCMovieListViewController (Private)
+- (void)_setBackgroundForOrientation:(UIInterfaceOrientation)orientation {
+	switch (orientation) {
+		case UIInterfaceOrientationPortrait:
+		case UIInterfaceOrientationPortraitUpsideDown:
+			self.gridView.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCMovieListBackgroundPortrait.png"]];
+			break;
+		case UIInterfaceOrientationLandscapeLeft:
+		case UIInterfaceOrientationLandscapeRight:
+			self.gridView.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCMovieListBackgroundLandscape.png"]];
+			break;
+	}
+}
 @end

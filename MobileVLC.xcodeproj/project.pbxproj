@@ -54,6 +54,8 @@
 		7A5ECB8011DE96CB00F66AF3 /* libMobileVLCKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECB7F11DE96C400F66AF3 /* libMobileVLCKit.a */; };
 		7A5ECBC011DE994500F66AF3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECBBF11DE994500F66AF3 /* libz.dylib */; };
 		7A5ECC1511DE9C6900F66AF3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECC1411DE9C6900F66AF3 /* libsqlite3.dylib */; };
+		7A6B8414121411A200CEE18F /* MVLCMovieListBackgroundLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A6B8412121411A200CEE18F /* MVLCMovieListBackgroundLandscape.png */; };
+		7A6B8415121411A200CEE18F /* MVLCMovieListBackgroundPortrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A6B8413121411A200CEE18F /* MVLCMovieListBackgroundPortrait.png */; };
 		7A87ECAC11E3A1DD007BE827 /* MVLCMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */; };
 		7A87ECD611E3A33E007BE827 /* MVLCMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */; };
 		7A87ECDA11E3A356007BE827 /* MVLCMovieView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A87ECD911E3A356007BE827 /* MVLCMovieView.xib */; };
@@ -67,7 +69,6 @@
 		7AB797001212E02000A3204A /* MVLCNavigationBarShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB796FF1212E02000A3204A /* MVLCNavigationBarShadow.png */; };
 		7ACAD5371212ECE10035D1BA /* MVLCMovieListBackgroundPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ACAD5361212ECE10035D1BA /* MVLCMovieListBackgroundPattern.png */; };
 		7AEB2931120C1CD700E9D74D /* MVLCMovieGridViewCellImageOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AEB2930120C1CD700E9D74D /* MVLCMovieGridViewCellImageOverlay.png */; };
-		7AF621DA12118D8D00E76AC3 /* MVLCMovieListBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF621D912118D8D00E76AC3 /* MVLCMovieListBackground.png */; };
 		7AF667DA11E61BA300BC5F19 /* MVLCIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF667D911E61BA300BC5F19 /* MVLCIcon.png */; };
 /* End PBXBuildFile section */
 
@@ -157,6 +158,8 @@
 		7A5ECBA211DE977A00F66AF3 /* MobileVLCKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileVLCKit.h; sourceTree = "<group>"; };
 		7A5ECBBF11DE994500F66AF3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		7A5ECC1411DE9C6900F66AF3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		7A6B8412121411A200CEE18F /* MVLCMovieListBackgroundLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieListBackgroundLandscape.png; path = Resources/MVLCMovieListBackgroundLandscape.png; sourceTree = "<group>"; };
+		7A6B8413121411A200CEE18F /* MVLCMovieListBackgroundPortrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieListBackgroundPortrait.png; path = Resources/MVLCMovieListBackgroundPortrait.png; sourceTree = "<group>"; };
 		7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCMainWindow.xib; path = Resources/MVLCMainWindow.xib; sourceTree = "<group>"; };
 		7A87ECD411E3A33E007BE827 /* MVLCMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLCMovieViewController.h; sourceTree = "<group>"; };
 		7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLCMovieViewController.m; sourceTree = "<group>"; };
@@ -172,7 +175,6 @@
 		7AB796FF1212E02000A3204A /* MVLCNavigationBarShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCNavigationBarShadow.png; path = Resources/MVLCNavigationBarShadow.png; sourceTree = "<group>"; };
 		7ACAD5361212ECE10035D1BA /* MVLCMovieListBackgroundPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieListBackgroundPattern.png; path = Resources/MVLCMovieListBackgroundPattern.png; sourceTree = "<group>"; };
 		7AEB2930120C1CD700E9D74D /* MVLCMovieGridViewCellImageOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieGridViewCellImageOverlay.png; path = Resources/MVLCMovieGridViewCellImageOverlay.png; sourceTree = "<group>"; };
-		7AF621D912118D8D00E76AC3 /* MVLCMovieListBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieListBackground.png; path = Resources/MVLCMovieListBackground.png; sourceTree = "<group>"; };
 		7AF667D911E61BA300BC5F19 /* MVLCIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCIcon.png; path = Resources/MVLCIcon.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MobileVLC-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MobileVLC-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -373,13 +375,14 @@
 		7A350AA011EB7E1800B80E7C /* Movie list view */ = {
 			isa = PBXGroup;
 			children = (
+				7A6B8412121411A200CEE18F /* MVLCMovieListBackgroundLandscape.png */,
+				7A6B8413121411A200CEE18F /* MVLCMovieListBackgroundPortrait.png */,
 				7AB796FF1212E02000A3204A /* MVLCNavigationBarShadow.png */,
 				7AB796C31212DC8800A3204A /* MVLCNavigationBarBackground.png */,
 				7ACAD5361212ECE10035D1BA /* MVLCMovieListBackgroundPattern.png */,
 				7AEB2930120C1CD700E9D74D /* MVLCMovieGridViewCellImageOverlay.png */,
 				63EBF65B120489C900E1AF74 /* MVLCITunesFileSharing.png */,
 				7A3B2D8311EC9DC400A01E01 /* MVLCMovieGridViewCellPosterPlaceholder.png */,
-				7AF621D912118D8D00E76AC3 /* MVLCMovieListBackground.png */,
 			);
 			name = "Movie list view";
 			sourceTree = "<group>";
@@ -567,10 +570,11 @@
 				63D66B6811EFACCC00673287 /* README.md in Resources */,
 				63EBF65C120489C900E1AF74 /* MVLCITunesFileSharing.png in Resources */,
 				7AEB2931120C1CD700E9D74D /* MVLCMovieGridViewCellImageOverlay.png in Resources */,
-				7AF621DA12118D8D00E76AC3 /* MVLCMovieListBackground.png in Resources */,
 				7AB796C41212DC8800A3204A /* MVLCNavigationBarBackground.png in Resources */,
 				7AB797001212E02000A3204A /* MVLCNavigationBarShadow.png in Resources */,
 				7ACAD5371212ECE10035D1BA /* MVLCMovieListBackgroundPattern.png in Resources */,
+				7A6B8414121411A200CEE18F /* MVLCMovieListBackgroundLandscape.png in Resources */,
+				7A6B8415121411A200CEE18F /* MVLCMovieListBackgroundPortrait.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
