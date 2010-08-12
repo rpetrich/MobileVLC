@@ -18,6 +18,7 @@
 
 @interface MVLCMovieListViewController (Private)
 - (void)_setBackgroundForOrientation:(UIInterfaceOrientation)orientation;
+- (MVLCMovieGridViewCellStyle)_styleForCellAtIndex:(NSUInteger)index inGridView:(AQGridView *)gridView;
 @end
 
 @implementation MVLCMovieListViewController
@@ -63,8 +64,18 @@
     [super dealloc];
 }
 
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
 	[self _setBackgroundForOrientation:toInterfaceOrientation];
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+	NSIndexSet * visibleCellIndices = self.gridView.visibleCellIndices;
+	AQGridView * gridView = self.gridView;
+	for (NSUInteger index = [visibleCellIndices firstIndex]; index != NSNotFound; index = [visibleCellIndices indexGreaterThanIndex:index]) {
+		MVLCMovieGridViewCell * cell = (MVLCMovieGridViewCell *)[gridView cellForItemAtIndex:index];
+		MVLCAssert([cell isKindOfClass:[MVLCMovieGridViewCell class]], @"Unexpected cell class !");
+		cell.style = [self _styleForCellAtIndex:index inGridView:gridView];
+	}
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -86,6 +97,8 @@
 	}
     MLFile *file = [_allMedia objectAtIndex:index];
 
+//	MVLCLog(@"%d columns, index=%d, style = %d", gridView.numberOfColumns, index, cell.style);
+	cell.style = [self _styleForCellAtIndex:index inGridView:gridView];
     cell.file = file;
 	return cell;
 }
@@ -120,6 +133,16 @@
 @end
 
 @implementation MVLCMovieListViewController (Private)
+- (MVLCMovieGridViewCellStyle)_styleForCellAtIndex:(NSUInteger)index inGridView:(AQGridView *)gridView {
+	switch (gridView.numberOfColumns) {
+		case 2:
+			return 2*(index%2);
+		case 3:
+			return index%3;
+	}
+	return MVLCMovieGridViewCellStyleNone;
+}
+
 - (void)_setBackgroundForOrientation:(UIInterfaceOrientation)orientation {
 	switch (orientation) {
 		case UIInterfaceOrientationPortrait:
