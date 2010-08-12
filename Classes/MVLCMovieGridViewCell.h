@@ -10,10 +10,19 @@
 #import "AQGridViewCell.h"
 #import "MVLCCircularProgressView.h"
 
+typedef enum {
+	MVLCMovieGridViewCellStyleLeft   = 0,
+	MVLCMovieGridViewCellStyleCenter = 1,
+	MVLCMovieGridViewCellStyleRight  = 2,
+	MVLCMovieGridViewCellStyleNone   = 3
+} MVLCMovieGridViewCellStyle;
+
 @class MLFile;
 @interface MVLCMovieGridViewCell : AQGridViewCell {
 	MLFile *_file;
+	MVLCMovieGridViewCellStyle _style;
 
+	UIImageView * _overlayImageView;
 	UILabel *     _titleLabel;
 	UILabel *     _subtitleLabel;
 	UIImageView * _posterImageView;
@@ -23,6 +32,8 @@
 + (CGSize)cellSize;
 + (MVLCMovieGridViewCell *)cellWithReuseIdentifier:(NSString *)reuseIdentifier;
 @property (nonatomic, retain) MLFile * file;
+@property (nonatomic, assign) MVLCMovieGridViewCellStyle style;
+@property (nonatomic, retain) IBOutlet UIImageView * overlayImageView;
 @property (nonatomic, retain) IBOutlet UILabel * titleLabel;
 @property (nonatomic, retain) IBOutlet UILabel * subtitleLabel;
 @property (nonatomic, retain) IBOutlet UIImageView * posterImageView;

@@ -23,7 +23,7 @@
 @end
 
 @implementation MVLCMovieGridViewCell
-@synthesize file=_file, titleLabel=_titleLabel, subtitleLabel=_subtitleLabel, posterImageView=_posterImageView, progressView=_progressView;
+@synthesize file=_file, style=_style, titleLabel=_titleLabel, subtitleLabel=_subtitleLabel, overlayImageView=_overlayImageView, posterImageView=_posterImageView, progressView=_progressView;
 @synthesize activityIndicator=_activityIndicator;
 
 - (void)awakeFromNib {
@@ -35,6 +35,7 @@
     self.selectionGlowShadowRadius = 40;
     self.selectionStyle = AQGridViewCellSelectionStyleGlow;
     [self.posterImageView setClipsToBounds:YES];
+	self.style = MVLCMovieGridViewCellStyleNone;
 }
 
 + (CGSize)cellSize {
@@ -54,6 +55,30 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     [self _refreshFromFile];
+}
+
+- (void)setStyle:(MVLCMovieGridViewCellStyle)style {
+	if (style != _style) {
+		_style = style;
+		switch (style) {
+			case MVLCMovieGridViewCellStyleLeft:
+				self.overlayImageView.image = [UIImage imageNamed:@"MVLCMovieGridViewCellOverlayLeft.png"];
+				break;
+			case MVLCMovieGridViewCellStyleCenter:
+				self.overlayImageView.image = [UIImage imageNamed:@"MVLCMovieGridViewCellOverlayCenter.png"];
+				break;
+			case MVLCMovieGridViewCellStyleRight:
+				self.overlayImageView.image = [UIImage imageNamed:@"MVLCMovieGridViewCellOverlayRight.png"];
+				break;
+			case MVLCMovieGridViewCellStyleNone:
+				self.overlayImageView.image = nil;
+				break;
+			default:
+				MVLCLog(@"Style = %d", style);
+				MVLCAssert(FALSE, @"Unexpected style");
+				break;
+		}
+	}
 }
 
 - (void)setFile:(MLFile *)file {
@@ -92,6 +117,7 @@
 	[_posterImageView release];
 	[_subtitleLabel release];
 	[_titleLabel release];
+	[_overlayImageView release];
 	[_file release];
     [super dealloc];
 }
