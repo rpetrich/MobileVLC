@@ -10,8 +10,9 @@
 #import "AQGridView.h"
 
 @interface MVLCMovieListViewController : UIViewController <AQGridViewDataSource, AQGridViewDelegate> {
-	AQGridView *     _gridView;
-	NSMutableArray * _allMedia;
+	AQGridView *      _gridView;
+	NSMutableArray *  _allMedia;
+	CGAffineTransform _lastTransform; // This is needed because the grid view has trouble laying itself out if its parent transform isn't the identity
 }
 @property (nonatomic, retain) IBOutlet AQGridView *gridView;
 @end
