@@ -65,6 +65,8 @@
 		7AB24C6E1215899B0078E739 /* MVLCAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB24C6C1215899B0078E739 /* MVLCAboutViewController.m */; };
 		7AB24C79121589D30078E739 /* MVLCAboutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AB24C78121589D30078E739 /* MVLCAboutView.xib */; };
 		7AB24CA912158D1A0078E739 /* MVLCBackgroundPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB24CA812158D1A0078E739 /* MVLCBackgroundPattern.png */; };
+		7AB24CEA121598980078E739 /* MVLCAboutIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB24CE9121598980078E739 /* MVLCAboutIcon.png */; };
+		7AB24D2112159B140078E739 /* MVLCAboutContent.html in Resources */ = {isa = PBXBuildFile; fileRef = 7AB24D2012159B140078E739 /* MVLCAboutContent.html */; };
 		7AB2BD5311E48A81002E543F /* MVLCMovieViewHUDBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB2BD4F11E48A81002E543F /* MVLCMovieViewHUDBackground.png */; };
 		7AB2BD5411E48A81002E543F /* MVLCMovieViewHUDFastForward.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB2BD5011E48A81002E543F /* MVLCMovieViewHUDFastForward.png */; };
 		7AB2BD5511E48A81002E543F /* MVLCMovieViewHUDPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB2BD5111E48A81002E543F /* MVLCMovieViewHUDPlay.png */; };
@@ -175,6 +177,8 @@
 		7AB24C6C1215899B0078E739 /* MVLCAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLCAboutViewController.m; sourceTree = "<group>"; };
 		7AB24C78121589D30078E739 /* MVLCAboutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCAboutView.xib; path = Resources/MVLCAboutView.xib; sourceTree = "<group>"; };
 		7AB24CA812158D1A0078E739 /* MVLCBackgroundPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCBackgroundPattern.png; path = Resources/MVLCBackgroundPattern.png; sourceTree = "<group>"; };
+		7AB24CE9121598980078E739 /* MVLCAboutIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCAboutIcon.png; path = Resources/MVLCAboutIcon.png; sourceTree = "<group>"; };
+		7AB24D2012159B140078E739 /* MVLCAboutContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = MVLCAboutContent.html; path = Resources/MVLCAboutContent.html; sourceTree = "<group>"; };
 		7AB2BD4F11E48A81002E543F /* MVLCMovieViewHUDBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieViewHUDBackground.png; path = Resources/MVLCMovieViewHUDBackground.png; sourceTree = "<group>"; };
 		7AB2BD5011E48A81002E543F /* MVLCMovieViewHUDFastForward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieViewHUDFastForward.png; path = Resources/MVLCMovieViewHUDFastForward.png; sourceTree = "<group>"; };
 		7AB2BD5111E48A81002E543F /* MVLCMovieViewHUDPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieViewHUDPlay.png; path = Resources/MVLCMovieViewHUDPlay.png; sourceTree = "<group>"; };
@@ -268,6 +272,7 @@
 			children = (
 				7AB2BD4C11E489A0002E543F /* XIB */,
 				7AB2BD4D11E489A6002E543F /* Pictures */,
+				7AB24D2012159B140078E739 /* MVLCAboutContent.html */,
 				8D1107310486CEB800E47090 /* MobileVLC-Info.plist */,
 			);
 			name = Resources;
@@ -500,6 +505,14 @@
 			name = "Movie cell";
 			sourceTree = "<group>";
 		};
+		7AB24CE81215988A0078E739 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				7AB24CE9121598980078E739 /* MVLCAboutIcon.png */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
 		7AB2BD4C11E489A0002E543F /* XIB */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,6 +532,7 @@
 				7AF667D911E61BA300BC5F19 /* MVLCIcon.png */,
 				7A350AA011EB7E1800B80E7C /* Movie list view */,
 				7A350A9F11EB7E1000B80E7C /* Movie view */,
+				7AB24CE81215988A0078E739 /* About */,
 			);
 			name = Pictures;
 			sourceTree = "<group>";
@@ -600,6 +614,8 @@
 				7A6B84281214148300CEE18F /* MVLCMovieGridViewCellOverlayRight.png in Resources */,
 				7AB24C79121589D30078E739 /* MVLCAboutView.xib in Resources */,
 				7AB24CA912158D1A0078E739 /* MVLCBackgroundPattern.png in Resources */,
+				7AB24CEA121598980078E739 /* MVLCAboutIcon.png in Resources */,
+				7AB24D2112159B140078E739 /* MVLCAboutContent.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
