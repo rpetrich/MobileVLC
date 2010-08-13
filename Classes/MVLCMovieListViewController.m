@@ -13,6 +13,7 @@
 #import "MLFile.h"
 #import "MLMediaLibrary.h"
 #import "UIImageView+WebCache.h"
+#import "MVLCAboutViewController.h"
 
 #define MVLC_INSET_BACKGROUND_HEIGHT 600.0f
 #define MVLC_MOVIE_LIST_ANIMATION_DURATION 0.50f
@@ -28,6 +29,8 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 @implementation MVLCMovieListViewController
 @synthesize gridView=_gridView;
 
+#pragma mark -
+#pragma mark Creation / deletion
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -50,12 +53,12 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 
 	UIView * headerInsetView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, MVLC_INSET_BACKGROUND_HEIGHT)];
 	headerInsetView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	headerInsetView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCMovieListBackgroundPattern.png"]];
+	headerInsetView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCBackgroundPattern.png"]];
 	self.gridView.gridHeaderView = headerInsetView;
 	[headerInsetView release];
 	UIView * footerInsetView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, MVLC_INSET_BACKGROUND_HEIGHT)];
 	footerInsetView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	footerInsetView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCMovieListBackgroundPattern.png"]];
+	footerInsetView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCBackgroundPattern.png"]];
 	self.gridView.gridFooterView = footerInsetView;
 	[footerInsetView release];
 	self.gridView.contentInset = UIEdgeInsetsMake(-MVLC_INSET_BACKGROUND_HEIGHT, 0.0f, -MVLC_INSET_BACKGROUND_HEIGHT, 0.0f);
@@ -68,6 +71,14 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 	[_allMedia release];
 	[_gridView release];
     [super dealloc];
+}
+
+#pragma mark -
+#pragma mark Actions
+- (IBAction)showAboutScreen:(id)sender {
+	MVLCAboutViewController * aboutViewController = [[MVLCAboutViewController alloc] initWithNibName:@"MVLCAboutView" bundle:nil];
+	[self.navigationController pushViewController:aboutViewController animated:YES];
+	[aboutViewController release];
 }
 
 #pragma mark -

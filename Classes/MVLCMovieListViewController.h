@@ -14,5 +14,6 @@
 	NSMutableArray *  _allMedia;
 	CGAffineTransform _lastTransform;
 }
-@property (nonatomic, retain) IBOutlet AQGridView *gridView;
+@property (nonatomic, retain) IBOutlet AQGridView * gridView;
+- (IBAction)showAboutScreen:(id)sender;
 @end
