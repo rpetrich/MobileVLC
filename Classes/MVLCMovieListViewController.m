@@ -15,11 +15,12 @@
 #import "UIImageView+WebCache.h"
 
 #define MVLC_INSET_BACKGROUND_HEIGHT 600.0f
-#define MVLC_MOVIE_LIST_ANIMATION_DURATION 0.25f
+#define MVLC_MOVIE_LIST_ANIMATION_DURATION 0.50f
 
 static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMovieListViewControllerMovieSelectionAnimation";
 
 @interface MVLCMovieListViewController (Private)
+@property (readonly) UIView * _animatedView;
 - (void)_setBackgroundForOrientation:(UIInterfaceOrientation)orientation;
 - (MVLCMovieGridViewCellStyle)_styleForCellAtIndex:(NSUInteger)index inGridView:(AQGridView *)gridView;
 @end
@@ -73,8 +74,8 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 #pragma mark View life cycle
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
-	_lastTransform = self.view.transform;
-	self.view.transform = CGAffineTransformIdentity;
+	_lastTransform = self._animatedView.transform;
+	self._animatedView.transform = CGAffineTransformIdentity;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -82,20 +83,20 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
     [super viewDidAppear:animated];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-	[super viewWillAppear:animated];
+- (void)viewDidAppear:(BOOL)animated {
+	[[MLMediaLibrary sharedMediaLibrary] libraryDidAppear];
 
 	// Let's start the "zoom-out" animation
-	self.view.transform = _lastTransform;
+	self._animatedView.transform = _lastTransform;
 	NSUInteger lastSelectionIndex = self.gridView.indexOfSelectedItem;
 	[self.gridView deselectItemAtIndex:lastSelectionIndex animated:animated]; // Let's also enforce the de-selection
 	[self.gridView.delegate gridView:self.gridView didDeselectItemAtIndex:lastSelectionIndex]; // For some reason, AQGridView doesn't do this
+
+	[super viewDidAppear:animated];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-	[[MLMediaLibrary sharedMediaLibrary] libraryDidAppear];
-    [super viewDidAppear:animated];
-}
+#pragma mark -
+#pragma mark Interface orientation
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
 	[self _setBackgroundForOrientation:toInterfaceOrientation];
@@ -117,8 +118,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 
 #pragma mark -
 #pragma mark AQGridViewDataSource
-- (NSUInteger)numberOfItemsInGridView:(AQGridView *)gridView
-{
+- (NSUInteger)numberOfItemsInGridView:(AQGridView *)gridView {
 	return [_allMedia count];
 }
 
@@ -158,14 +158,17 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 	[UIView setAnimationDelegate:self];
 
 	CGAffineTransform transform = CGAffineTransformIdentity;
+
+	CGPoint transformationTargetCenter = [cell convertPoint:cell.posterImageView.center toView:self._animatedView];
+	
 	transform = CGAffineTransformScale(transform, 4.0f, 4.0f);
-	transform = CGAffineTransformTranslate(transform, cell.bounds.size.width/2.0f - cell.posterImageView.center.x, cell.bounds.size.height/2.0f - cell.posterImageView.center.y);
-	transform = CGAffineTransformTranslate(transform, self.view.bounds.size.width/2.0f - (cell.center.x-gridView.contentOffset.x), self.view.bounds.size.height/2.0f - (cell.center.y - gridView.contentOffset.y + 44.0f)); // 44.f = account for the UINavigationBar's height
+	transform = CGAffineTransformTranslate(transform, self._animatedView.bounds.size.width/2.0f - transformationTargetCenter.x, self._animatedView.bounds.size.height/2.0f - transformationTargetCenter.y);
 
 	cell.contentView.backgroundColor = [UIColor blackColor];
 	cell.overlayImageView.alpha = 0.0f;
 	cell.posterImageView.alpha = 0.0f;
-	self.view.transform = transform;
+	cell.progressView.alpha = 0.0f;
+	self._animatedView.transform = transform;
 
 	[UIView commitAnimations];
 }
@@ -175,6 +178,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 	MVLCAssert(cell == nil || [cell isKindOfClass:[MVLCMovieGridViewCell class]], @"Unexpected cell class !");
 
 	[UIView beginAnimations:nil context:NULL];
+//	[UIView setAnimationBeginsFromCurrentState:YES];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	[UIView setAnimationDuration:MVLC_MOVIE_LIST_ANIMATION_DURATION];
 
@@ -182,9 +186,10 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 		cell.contentView.backgroundColor = [UIColor clearColor];
 		cell.overlayImageView.alpha = 1.0f;
 		cell.posterImageView.alpha = 1.0f;
+		cell.progressView.alpha = 1.0f;
 	}
 
-	self.view.transform = CGAffineTransformIdentity;
+	self._animatedView.transform = CGAffineTransformIdentity;
 
 	[UIView commitAnimations];
 }
@@ -212,6 +217,9 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 @end
 
 @implementation MVLCMovieListViewController (Private)
+- (UIView *)_animatedView {
+	return self.view.window;
+}
 - (MVLCMovieGridViewCellStyle)_styleForCellAtIndex:(NSUInteger)index inGridView:(AQGridView *)gridView {
 	switch (gridView.numberOfColumns) {
 		case 2:
