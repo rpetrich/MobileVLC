@@ -14,6 +14,15 @@
 	if (self != nil) {
 		[self setTintColor:[UIColor colorWithRed:236.0/255.0 green:106.0/255.0 blue:28.0/255.0 alpha:0.2]];
 	}
+
+	UIImageView * dropShadowView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MVLCNavigationBarShadow.png"]];
+	dropShadowView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+	[self addSubview:dropShadowView];
+	dropShadowView.frame = CGRectMake(0.0f, 44.0f, self.bounds.size.width, 10.0f);
+	[dropShadowView release];
+
+	self.clipsToBounds = NO;
+
 	return self;
 }
 
