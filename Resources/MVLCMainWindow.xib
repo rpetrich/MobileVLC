@@ -63,7 +63,7 @@
 					<object class="IBUIViewController" id="993804984">
 						<object class="IBUINavigationItem" key="IBUINavigationItem" id="139923803">
 							<reference key="IBUINavigationBar"/>
-							<string key="IBUITitle">Root View Controller</string>
+							<string key="IBUITitle">VLC</string>
 							<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="1031709597">
 								<string key="IBUITitle">About</string>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
