@@ -35,5 +35,7 @@
 	</array>
 	<key>UIFileSharingEnabled</key>
 	<true/>
+	<key>UILaunchImageFile</key>
+	<string>MVLCDefault</string>
 </dict>
 </plist>
