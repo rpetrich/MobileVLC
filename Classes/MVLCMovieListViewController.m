@@ -83,6 +83,10 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 
 #pragma mark -
 #pragma mark View life cycle
+- (void)viewWillAppear:(BOOL)animated {
+	[self _setBackgroundForOrientation:self.interfaceOrientation];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
 	_lastTransform = self._animatedView.transform;
