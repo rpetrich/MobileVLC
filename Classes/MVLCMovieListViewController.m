@@ -16,7 +16,7 @@
 #import "MVLCAboutViewController.h"
 
 #define MVLC_INSET_BACKGROUND_HEIGHT 600.0f
-#define MVLC_MOVIE_LIST_ANIMATION_DURATION 0.50f
+#define MVLC_MOVIE_LIST_ANIMATION_DURATION 0.30f
 
 static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMovieListViewControllerMovieSelectionAnimation";
 
