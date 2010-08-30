@@ -86,7 +86,7 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 	[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
 }
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-	[[UIApplication sharedApplication] setStatusBarHidden:self.hudVisibility withAnimation:UIStatusBarAnimationNone];
+	[[UIApplication sharedApplication] setStatusBarHidden:!self.hudVisibility withAnimation:UIStatusBarAnimationNone];
 }
 #endif
 
@@ -128,50 +128,28 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 
 @synthesize hudVisibility=_hudVisibility;
 
-- (void)setHudVisibility:(BOOL)visibility
-{
-	if (_hudVisibility) {
-        if (_hudVisibility != visibility)
+- (void)setHudVisibility:(BOOL)targetvisibility {
+	if (targetvisibility) {
+        if (targetvisibility != _hudVisibility) {
             [UIView beginAnimations:MVLCMovieViewControllerHUDFadeInAnimation context:NULL];
+		}
 		self.HUDView.alpha = 1.0f;
 		self.topView.alpha = 1.0f;
-		[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
 	} else {
-        if (_hudVisibility != visibility)
+        if (targetvisibility != _hudVisibility) {
             [UIView beginAnimations:MVLCMovieViewControllerHUDFadeOutAnimation context:NULL];
+		}
 		self.HUDView.alpha = 0.0f;
 		self.topView.alpha = 0.0f;
-		[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 	}
-    _hudVisibility = visibility;
-    //[self resetHudAutoHide];
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [super touchesBegan:touches withEvent:event];
-    //[self resetHudAutoHide];
-}
-
-- (void)resetHudAutoHide
-{
-    if (!_hudVisibility)
-        return;
-    // Hide the HUD after 5 secs
-    [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideHud) object:nil];
-    [self performSelector:@selector(hideHud) withObject:nil afterDelay:5];
-}
-
-- (void)hideHud
-{
-    [self setHudVisibility:NO];
+	[[UIApplication sharedApplication] setStatusBarHidden:!targetvisibility withAnimation:UIStatusBarAnimationFade];
+	_hudVisibility = targetvisibility;
+	[UIView setAnimationDelegate:self];
+	[UIView commitAnimations];
 }
 
 - (IBAction)toggleHUDVisibility:(id)sender {
     self.hudVisibility = !self.hudVisibility;
-
-	[UIView setAnimationDelegate:self];
-	[UIView commitAnimations];
 }
 
 - (IBAction)dismiss:(id)sender {
