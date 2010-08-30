@@ -8,6 +8,8 @@
 
 #import <MediaLibraryKit/MLFile.h>
 
+#define MVLC_MOVIE_VIEW_WORKAROUND_NON_TRANSPARENT_UISTATUSBAR 1
+
 #import "MVLCMovieViewController.h"
 
 static NSString * MVLCMovieViewControllerHUDFadeInAnimation = @"MVLCMovieViewControllerHUDFadeInAnimation";
@@ -17,6 +19,9 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 @synthesize movieView=_movieView, file=_file, positionSlider=_positionSlider, playOrPauseButton=_playOrPauseButton, volumeSlider=_volumeSlider, HUDView=_HUDView, topView=_topView, remainingTimeLabel=_remainingTimeLabel;
 - (void)viewDidLoad {
 	[super viewDidLoad];
+#if MVLC_MOVIE_VIEW_WORKAROUND_NON_TRANSPARENT_UISTATUSBAR
+	self.topView.frame = CGRectMake(0.0f, 20.0f, self.topView.frame.size.width, self.topView.frame.size.height);
+#endif
 	_mediaPlayer = [[VLCMediaPlayer alloc] init];
 	[_mediaPlayer setDelegate:self];
     [_mediaPlayer setDrawable:self.movieView];
@@ -32,6 +37,7 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 	[super viewWillAppear:animated];
 	_navigationController = [self.navigationController retain]; // Working around an UIKit bug - if we're poped non-animated, self.navigationController will be nil in viewWillDisappear
 	[_navigationController setNavigationBarHidden:YES animated:animated];
+	[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
 	[self addObserver:self forKeyPath:@"file" options:0 context:nil];
 	[_mediaPlayer setMedia:[VLCMedia mediaWithURL:[NSURL URLWithString:self.file.url]]];
     [_mediaPlayer play];
@@ -46,6 +52,7 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
     // Make sure we unset this
     [UIApplication sharedApplication].idleTimerDisabled = NO;
 
+	[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
 	[_navigationController setNavigationBarHidden:NO animated:animated];
 	[_navigationController release];
 	[super viewWillDisappear:animated];
@@ -72,6 +79,15 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
 	return YES; // We support all 4 orientations
 }
+
+#if MVLC_MOVIE_VIEW_WORKAROUND_NON_TRANSPARENT_UISTATUSBAR
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+	[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+}
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+	[[UIApplication sharedApplication] setStatusBarHidden:self.hudVisibility withAnimation:UIStatusBarAnimationNone];
+}
+#endif
 
 #pragma mark -
 #pragma mark Key-Value Observing
@@ -118,11 +134,13 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
             [UIView beginAnimations:MVLCMovieViewControllerHUDFadeInAnimation context:NULL];
 		self.HUDView.alpha = 1.0f;
 		self.topView.alpha = 1.0f;
+		[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
 	} else {
         if (_hudVisibility != visibility)
             [UIView beginAnimations:MVLCMovieViewControllerHUDFadeOutAnimation context:NULL];
 		self.HUDView.alpha = 0.0f;
 		self.topView.alpha = 0.0f;
+		[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 	}
     _hudVisibility = visibility;
     //[self resetHudAutoHide];
