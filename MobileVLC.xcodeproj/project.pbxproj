@@ -61,6 +61,7 @@
 		7A6B84261214148300CEE18F /* MVLCMovieGridViewCellOverlayCenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A6B84231214148300CEE18F /* MVLCMovieGridViewCellOverlayCenter.png */; };
 		7A6B84271214148300CEE18F /* MVLCMovieGridViewCellOverlayLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A6B84241214148300CEE18F /* MVLCMovieGridViewCellOverlayLeft.png */; };
 		7A6B84281214148300CEE18F /* MVLCMovieGridViewCellOverlayRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A6B84251214148300CEE18F /* MVLCMovieGridViewCellOverlayRight.png */; };
+		7A79DF11122BBF8700845971 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A79DF10122BBF8700845971 /* MediaPlayer.framework */; };
 		7A87ECAC11E3A1DD007BE827 /* MVLCMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */; };
 		7A87ECD611E3A33E007BE827 /* MVLCMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */; };
 		7A87ECDA11E3A356007BE827 /* MVLCMovieView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A87ECD911E3A356007BE827 /* MVLCMovieView.xib */; };
@@ -173,6 +174,7 @@
 		7A6B84231214148300CEE18F /* MVLCMovieGridViewCellOverlayCenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieGridViewCellOverlayCenter.png; path = Resources/MVLCMovieGridViewCellOverlayCenter.png; sourceTree = "<group>"; };
 		7A6B84241214148300CEE18F /* MVLCMovieGridViewCellOverlayLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieGridViewCellOverlayLeft.png; path = Resources/MVLCMovieGridViewCellOverlayLeft.png; sourceTree = "<group>"; };
 		7A6B84251214148300CEE18F /* MVLCMovieGridViewCellOverlayRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieGridViewCellOverlayRight.png; path = Resources/MVLCMovieGridViewCellOverlayRight.png; sourceTree = "<group>"; };
+		7A79DF10122BBF8700845971 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCMainWindow.xib; path = Resources/MVLCMainWindow.xib; sourceTree = "<group>"; };
 		7A87ECD411E3A33E007BE827 /* MVLCMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLCMovieViewController.h; sourceTree = "<group>"; };
 		7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLCMovieViewController.m; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				631866D111EE4D5B00AB038D /* CoreData.framework in Frameworks */,
 				6320373211F77236002861C2 /* libMobileMediaLibraryKit.a in Frameworks */,
 				6376443F1205C33C00E48F8B /* CoreText.framework in Frameworks */,
+				7A79DF11122BBF8700845971 /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,9 +294,10 @@
 				7A5ECA1811DE782F00F66AF3 /* OpenGLES.framework */,
 				7A5ECA1C11DE783500F66AF3 /* AudioToolbox.framework */,
 				7A5ECA2011DE783F00F66AF3 /* QuartzCore.framework */,
+				6376443E1205C33C00E48F8B /* CoreText.framework */,
+				7A79DF10122BBF8700845971 /* MediaPlayer.framework */,
 				7A5ECA2411DE784D00F66AF3 /* libiconv.dylib */,
 				7A4BA0B111EB48AF0056579C /* libstdc++.6.dylib */,
-				6376443E1205C33C00E48F8B /* CoreText.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
