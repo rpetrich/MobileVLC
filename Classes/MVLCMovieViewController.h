@@ -22,6 +22,7 @@
 	UISlider *       _volumeSlider;
 	UIButton *       _playOrPauseButton;
     BOOL             _hudVisibility;
+	UINavigationController * _navigationController;
 }
 @property (nonatomic, retain) MLFile * file;
 @property (nonatomic, retain) IBOutlet UIView * movieView;

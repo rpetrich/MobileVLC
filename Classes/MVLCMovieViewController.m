@@ -30,7 +30,8 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	[self.navigationController setNavigationBarHidden:YES animated:NO];
+	_navigationController = [self.navigationController retain]; // Working around an UIKit bug - if we're poped non-animated, self.navigationController will be nil in viewWillDisappear
+	[_navigationController setNavigationBarHidden:YES animated:animated];
 	[self addObserver:self forKeyPath:@"file" options:0 context:nil];
 	[_mediaPlayer setMedia:[VLCMedia mediaWithURL:[NSURL URLWithString:self.file.url]]];
     [_mediaPlayer play];
@@ -45,12 +46,13 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
     // Make sure we unset this
     [UIApplication sharedApplication].idleTimerDisabled = NO;
 
+	[_navigationController setNavigationBarHidden:NO animated:animated];
+	[_navigationController release];
 	[super viewWillDisappear:animated];
 }
 
 
 - (void)viewDidDisappear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
 	[super viewDidDisappear:animated];
     self.file.lastPosition = [NSNumber numberWithFloat:[_mediaPlayer position]];
 	[_mediaPlayer stop];
