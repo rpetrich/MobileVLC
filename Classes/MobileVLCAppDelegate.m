@@ -27,7 +27,7 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *directoryPath = [paths objectAtIndex:0];
 #endif
-    NSLog(@"Scanning %@", directoryPath);
+    MVLCLog(@"Scanning %@", directoryPath);
     NSArray *fileNames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directoryPath error:nil];
     NSMutableArray *filePaths = [NSMutableArray arrayWithCapacity:[fileNames count]];
     for (NSString *fileName in fileNames) {
