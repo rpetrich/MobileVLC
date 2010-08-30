@@ -14,8 +14,10 @@
 #import "MLMediaLibrary.h"
 #import "UIImageView+WebCache.h"
 #import "MVLCAboutViewController.h"
+#import "MVLCNoMediaViewController.h"
 
-#define MVLC_INSET_BACKGROUND_HEIGHT 600.0f
+// The height should be "max screen height x 2", because an empty screen can be scrolled
+#define MVLC_INSET_BACKGROUND_HEIGHT 2048.0f
 #define MVLC_MOVIE_LIST_ANIMATION_DURATION 0.30f
 
 static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMovieListViewControllerMovieSelectionAnimation";
@@ -64,7 +66,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 	self.gridView.contentInset = UIEdgeInsetsMake(-MVLC_INSET_BACKGROUND_HEIGHT, 0.0f, -MVLC_INSET_BACKGROUND_HEIGHT, 0.0f);
 
     _allMedia = [[NSMutableArray arrayWithArray:[MLFile allFiles]] retain];
-	[self.gridView reloadData];	
+	[self.gridView reloadData];
 }
 
 - (void)dealloc {
@@ -85,6 +87,11 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 #pragma mark View life cycle
 - (void)viewWillAppear:(BOOL)animated {
 	[self _setBackgroundForOrientation:self.interfaceOrientation];
+	if ([_allMedia count] == 0) {
+		MVLCNoMediaViewController * noMediaViewController = [[MVLCNoMediaViewController alloc] initWithNibName:@"MVLCNoMediaView" bundle:nil];
+		[self presentModalViewController:noMediaViewController animated:NO];
+		[noMediaViewController release];
+	}
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

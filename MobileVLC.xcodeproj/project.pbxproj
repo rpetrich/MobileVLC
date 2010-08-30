@@ -62,6 +62,9 @@
 		7A6B84271214148300CEE18F /* MVLCMovieGridViewCellOverlayLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A6B84241214148300CEE18F /* MVLCMovieGridViewCellOverlayLeft.png */; };
 		7A6B84281214148300CEE18F /* MVLCMovieGridViewCellOverlayRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A6B84251214148300CEE18F /* MVLCMovieGridViewCellOverlayRight.png */; };
 		7A79DF11122BBF8700845971 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A79DF10122BBF8700845971 /* MediaPlayer.framework */; };
+		7A79E096122C11FC00845971 /* MVLCNoMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A79E095122C11FC00845971 /* MVLCNoMediaViewController.m */; };
+		7A79E099122C122200845971 /* MVLCNoMediaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A79E098122C122200845971 /* MVLCNoMediaView.xib */; };
+		7A79E09C122C127500845971 /* MVLCNoMediaImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A79E09B122C127500845971 /* MVLCNoMediaImage.png */; };
 		7A87ECAC11E3A1DD007BE827 /* MVLCMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */; };
 		7A87ECD611E3A33E007BE827 /* MVLCMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */; };
 		7A87ECDA11E3A356007BE827 /* MVLCMovieView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A87ECD911E3A356007BE827 /* MVLCMovieView.xib */; };
@@ -175,6 +178,10 @@
 		7A6B84241214148300CEE18F /* MVLCMovieGridViewCellOverlayLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieGridViewCellOverlayLeft.png; path = Resources/MVLCMovieGridViewCellOverlayLeft.png; sourceTree = "<group>"; };
 		7A6B84251214148300CEE18F /* MVLCMovieGridViewCellOverlayRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieGridViewCellOverlayRight.png; path = Resources/MVLCMovieGridViewCellOverlayRight.png; sourceTree = "<group>"; };
 		7A79DF10122BBF8700845971 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		7A79E094122C11FC00845971 /* MVLCNoMediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLCNoMediaViewController.h; sourceTree = "<group>"; };
+		7A79E095122C11FC00845971 /* MVLCNoMediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLCNoMediaViewController.m; sourceTree = "<group>"; };
+		7A79E098122C122200845971 /* MVLCNoMediaView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCNoMediaView.xib; path = Resources/MVLCNoMediaView.xib; sourceTree = "<group>"; };
+		7A79E09B122C127500845971 /* MVLCNoMediaImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCNoMediaImage.png; path = Resources/MVLCNoMediaImage.png; sourceTree = "<group>"; };
 		7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCMainWindow.xib; path = Resources/MVLCMainWindow.xib; sourceTree = "<group>"; };
 		7A87ECD411E3A33E007BE827 /* MVLCMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLCMovieViewController.h; sourceTree = "<group>"; };
 		7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLCMovieViewController.m; sourceTree = "<group>"; };
@@ -380,6 +387,8 @@
 				7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */,
 				7AB24C6B1215899B0078E739 /* MVLCAboutViewController.h */,
 				7AB24C6C1215899B0078E739 /* MVLCAboutViewController.m */,
+				7A79E094122C11FC00845971 /* MVLCNoMediaViewController.h */,
+				7A79E095122C11FC00845971 /* MVLCNoMediaViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -406,6 +415,7 @@
 				7AB796C31212DC8800A3204A /* MVLCNavigationBarBackground.png */,
 				63EBF65B120489C900E1AF74 /* MVLCITunesFileSharing.png */,
 				7A3B2D8311EC9DC400A01E01 /* MVLCMovieGridViewCellPosterPlaceholder.png */,
+				7A79E09B122C127500845971 /* MVLCNoMediaImage.png */,
 			);
 			name = "Movie list view";
 			sourceTree = "<group>";
@@ -526,6 +536,7 @@
 			children = (
 				7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */,
 				7A350A9A11EB7D7F00B80E7C /* MVLCMovieListView.xib */,
+				7A79E098122C122200845971 /* MVLCNoMediaView.xib */,
 				7A3B2C2D11EC877000A01E01 /* MVLCMovieGridViewCell.xib */,
 				7A87ECD911E3A356007BE827 /* MVLCMovieView.xib */,
 				7AB24C78121589D30078E739 /* MVLCAboutView.xib */,
@@ -628,6 +639,8 @@
 				7AB24D2112159B140078E739 /* MVLCAboutContent.html in Resources */,
 				7A4FEA1E1223D41800C93740 /* MVLCDefault-Landscape.png in Resources */,
 				7A4FEA1F1223D41800C93740 /* MVLCDefault-Portrait.png in Resources */,
+				7A79E099122C122200845971 /* MVLCNoMediaView.xib in Resources */,
+				7A79E09C122C127500845971 /* MVLCNoMediaImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +674,7 @@
 				7A396EA3120C06FD009B1800 /* MVLCCircularProgressView.m in Sources */,
 				7AB796A31212DB0C00A3204A /* MVLCNavigationBar.m in Sources */,
 				7AB24C6E1215899B0078E739 /* MVLCAboutViewController.m in Sources */,
+				7A79E096122C11FC00845971 /* MVLCNoMediaViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
