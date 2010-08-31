@@ -10,8 +10,13 @@
 #import "MLMediaLibrary.h"
 #import <MobileVLCKit/MobileVLCKit.h>
 
+@interface MobileVLCAppDelegate (Private)
+- (void)_updateMediaLibrary;
+@end
+
+
 @implementation MobileVLCAppDelegate
-@synthesize window=_window, navigationController=_navigationController;
+@synthesize window=_window, navigationController=_navigationController, movieListViewController=_movieListViewController;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -19,7 +24,35 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     [VLCLibrary sharedLibrary];
+	[self _updateMediaLibrary];
+    [_window addSubview:self.navigationController.view];
+    [_window makeKeyAndVisible];
 
+    return YES;
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+	// The application becomes active after a sync (i.e., file upload)
+	[self _updateMediaLibrary];
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    [[MLMediaLibrary sharedMediaLibrary] save];
+}
+
+#pragma mark -
+#pragma mark Memory management
+
+- (void)dealloc {
+	[_movieListViewController release];
+	[_navigationController release];
+    [_window release];
+    [super dealloc];
+}
+@end
+
+@implementation MobileVLCAppDelegate (Private)
+- (void)_updateMediaLibrary {
 #define PIERRE_LE_GROS_CRADE 0
 #if TARGET_IPHONE_SIMULATOR && PIERRE_LE_GROS_CRADE
     NSString *directoryPath = @"/Users/steg/Movies";
@@ -30,46 +63,17 @@
     MVLCLog(@"Scanning %@", directoryPath);
     NSArray *fileNames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directoryPath error:nil];
     NSMutableArray *filePaths = [NSMutableArray arrayWithCapacity:[fileNames count]];
-    for (NSString *fileName in fileNames) {
-        NSString *extension = [fileName pathExtension];
-        if ([extension hasSuffix:@"avi"] ||
-            [extension hasSuffix:@"mkv"] ||
-            [extension hasSuffix:@"ts"]  ||
-            [extension hasSuffix:@"mov"] ||
-            [extension hasSuffix:@"m4v"] ||
-            [extension hasSuffix:@"mp4"])
-        {
+    for (NSString * fileName in fileNames) {
+		if ([fileName rangeOfString:@"\\.(avi|mkv|ts|mov|mp4|m4v)$" options:NSRegularExpressionSearch|NSCaseInsensitiveSearch].length != 0) {
+			MVLCLog(@"Adding file %@ to library !");
             [filePaths addObject:[directoryPath stringByAppendingPathComponent:fileName]];
         }
     }
-
-    [[MLMediaLibrary sharedMediaLibrary] addFilePaths:filePaths];
-    [_window addSubview:self.navigationController.view];
-    [_window makeKeyAndVisible];
-
-//	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//	NSString * documentsDirectory = [paths objectAtIndex:0];
-//	NSString * filePath = [documentsDirectory stringByAppendingPathComponent:@"test.avi"];
-////	self.movieViewController.media = [VLCMedia mediaWithPath:filePath];
-//	self.movieViewController.media = [VLCMedia mediaWithURL:[NSURL URLWithString:@"rtsp://mafreebox.freebox.fr/fbxtv_pub/stream?namespace=1&service=201&flavour=ld"]];
-//	self.movieViewController.media = [VLCMedia mediaWithURL:[NSURL URLWithString:@"http://tv.freebox.fr/stream_france2"]];
-
-    return YES;
+	MLMediaLibrary * mediaLibrary = [MLMediaLibrary sharedMediaLibrary];
+    [mediaLibrary addFilePaths:filePaths];
+	[mediaLibrary updateDatabase];
+	[self.movieListViewController reloadMedia];
 }
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    [[MLMediaLibrary sharedMediaLibrary] save];
-}
-
-#pragma mark -
-#pragma mark Memory management
-
-- (void)dealloc {
-	[_navigationController release];
-    [_window release];
-    [super dealloc];
-}
-
 @end
+
 
