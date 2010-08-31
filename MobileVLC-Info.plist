@@ -37,5 +37,7 @@
 	<true/>
 	<key>UILaunchImageFile</key>
 	<string>MVLCDefault</string>
+	<key>UIPrerenderedIcon</key>
+	<true/>
 </dict>
 </plist>
