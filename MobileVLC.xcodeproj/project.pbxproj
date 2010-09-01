@@ -18,18 +18,10 @@
 		636E9D8411ED3E29002FE8A9 /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 636E9D8311ED3E29002FE8A9 /* libbz2.dylib */; };
 		6376443F1205C33C00E48F8B /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6376443E1205C33C00E48F8B /* CoreText.framework */; };
 		63C092EF11F77D0A00A824BC /* MediaLibrary.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 63C092EE11F77D0A00A824BC /* MediaLibrary.xcdatamodel */; };
-		63D66B6711EFACCC00673287 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 63D66B5B11EFACCC00673287 /* LICENSE */; };
-		63D66B6811EFACCC00673287 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 63D66B5C11EFACCC00673287 /* README.md */; };
-		63D66B6911EFACCC00673287 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D66B5E11EFACCC00673287 /* SDImageCache.m */; };
-		63D66B6A11EFACCC00673287 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D66B6011EFACCC00673287 /* SDWebImageDownloader.m */; };
-		63D66B6B11EFACCC00673287 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D66B6311EFACCC00673287 /* SDWebImageManager.m */; };
-		63D66B6C11EFACCC00673287 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D66B6611EFACCC00673287 /* UIImageView+WebCache.m */; };
-		63EBF65C120489C900E1AF74 /* MVLCITunesFileSharing.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EBF65B120489C900E1AF74 /* MVLCITunesFileSharing.png */; };
 		7A350A9B11EB7D7F00B80E7C /* MVLCMovieListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A350A9A11EB7D7F00B80E7C /* MVLCMovieListView.xib */; };
 		7A350AFE11EB83B400B80E7C /* MVLCMovieGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A350AFD11EB83B400B80E7C /* MVLCMovieGridViewCell.m */; };
 		7A396EA3120C06FD009B1800 /* MVLCCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A396EA2120C06FD009B1800 /* MVLCCircularProgressView.m */; };
 		7A3B2C2E11EC877000A01E01 /* MVLCMovieGridViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A3B2C2D11EC877000A01E01 /* MVLCMovieGridViewCell.xib */; };
-		7A3B2D8411EC9DC400A01E01 /* MVLCMovieGridViewCellPosterPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3B2D8311EC9DC400A01E01 /* MVLCMovieGridViewCellPosterPlaceholder.png */; };
 		7A4BA0B211EB48AF0056579C /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4BA0B111EB48AF0056579C /* libstdc++.6.dylib */; };
 		7A4BA1F911EB73EC0056579C /* AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1D811EB737B0056579C /* AQGridView.m */; };
 		7A4BA1FA11EB73EC0056579C /* AQGridViewAnimatorItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1DA11EB737B0056579C /* AQGridViewAnimatorItem.m */; };
@@ -107,19 +99,6 @@
 		63C0923C11F7783100A824BC /* MLShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLShow.h; sourceTree = "<group>"; };
 		63C0923D11F7783100A824BC /* MLShowEpisode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLShowEpisode.h; sourceTree = "<group>"; };
 		63C092EE11F77D0A00A824BC /* MediaLibrary.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = MediaLibrary.xcdatamodel; path = ../MediaLibraryKit/MediaLibrary.xcdatamodel; sourceTree = SOURCE_ROOT; };
-		63D66B5B11EFACCC00673287 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		63D66B5C11EFACCC00673287 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		63D66B5D11EFACCC00673287 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
-		63D66B5E11EFACCC00673287 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
-		63D66B5F11EFACCC00673287 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloader.h; sourceTree = "<group>"; };
-		63D66B6011EFACCC00673287 /* SDWebImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloader.m; sourceTree = "<group>"; };
-		63D66B6111EFACCC00673287 /* SDWebImageDownloaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloaderDelegate.h; sourceTree = "<group>"; };
-		63D66B6211EFACCC00673287 /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
-		63D66B6311EFACCC00673287 /* SDWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageManager.m; sourceTree = "<group>"; };
-		63D66B6411EFACCC00673287 /* SDWebImageManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManagerDelegate.h; sourceTree = "<group>"; };
-		63D66B6511EFACCC00673287 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
-		63D66B6611EFACCC00673287 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
-		63EBF65B120489C900E1AF74 /* MVLCITunesFileSharing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCITunesFileSharing.png; path = Resources/MVLCITunesFileSharing.png; sourceTree = "<group>"; };
 		7A350A9A11EB7D7F00B80E7C /* MVLCMovieListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCMovieListView.xib; path = Resources/MVLCMovieListView.xib; sourceTree = "<group>"; };
 		7A350AFC11EB83B400B80E7C /* MVLCMovieGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLCMovieGridViewCell.h; sourceTree = "<group>"; };
 		7A350AFD11EB83B400B80E7C /* MVLCMovieGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLCMovieGridViewCell.m; sourceTree = "<group>"; };
@@ -127,7 +106,6 @@
 		7A396EA2120C06FD009B1800 /* MVLCCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLCCircularProgressView.m; sourceTree = "<group>"; };
 		7A3B2C2D11EC877000A01E01 /* MVLCMovieGridViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCMovieGridViewCell.xib; path = Resources/MVLCMovieGridViewCell.xib; sourceTree = "<group>"; };
 		7A3B2C4C11EC882B00A01E01 /* MobileVLC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileVLC.h; sourceTree = "<group>"; };
-		7A3B2D8311EC9DC400A01E01 /* MVLCMovieGridViewCellPosterPlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieGridViewCellPosterPlaceholder.png; path = Resources/MVLCMovieGridViewCellPosterPlaceholder.png; sourceTree = "<group>"; };
 		7A4BA0B111EB48AF0056579C /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		7A4BA1D511EB737B0056579C /* AQGridView+CellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLayout.h"; sourceTree = "<group>"; };
 		7A4BA1D611EB737B0056579C /* AQGridView+CellLocationDelegation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLocationDelegation.h"; sourceTree = "<group>"; };
@@ -346,25 +324,6 @@
 			path = MediaLibraryKit;
 			sourceTree = "<group>";
 		};
-		63D66B4B11EFACCC00673287 /* SDWebImage */ = {
-			isa = PBXGroup;
-			children = (
-				63D66B5B11EFACCC00673287 /* LICENSE */,
-				63D66B5C11EFACCC00673287 /* README.md */,
-				63D66B5D11EFACCC00673287 /* SDImageCache.h */,
-				63D66B5E11EFACCC00673287 /* SDImageCache.m */,
-				63D66B5F11EFACCC00673287 /* SDWebImageDownloader.h */,
-				63D66B6011EFACCC00673287 /* SDWebImageDownloader.m */,
-				63D66B6111EFACCC00673287 /* SDWebImageDownloaderDelegate.h */,
-				63D66B6211EFACCC00673287 /* SDWebImageManager.h */,
-				63D66B6311EFACCC00673287 /* SDWebImageManager.m */,
-				63D66B6411EFACCC00673287 /* SDWebImageManagerDelegate.h */,
-				63D66B6511EFACCC00673287 /* UIImageView+WebCache.h */,
-				63D66B6611EFACCC00673287 /* UIImageView+WebCache.m */,
-			);
-			path = SDWebImage;
-			sourceTree = "<group>";
-		};
 		7A3453A011E5FD9C00A141F2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,8 +381,6 @@
 				7A6B8413121411A200CEE18F /* MVLCMovieListBackgroundPortrait.png */,
 				7AB796FF1212E02000A3204A /* MVLCNavigationBarShadow.png */,
 				7AB796C31212DC8800A3204A /* MVLCNavigationBarBackground.png */,
-				63EBF65B120489C900E1AF74 /* MVLCITunesFileSharing.png */,
-				7A3B2D8311EC9DC400A01E01 /* MVLCMovieGridViewCellPosterPlaceholder.png */,
 				7A79E09B122C127500845971 /* MVLCNoMediaImage.png */,
 			);
 			name = "Movie list view";
@@ -484,7 +441,6 @@
 			isa = PBXGroup;
 			children = (
 				6320372A11F77236002861C2 /* MediaLibraryKit */,
-				63D66B4B11EFACCC00673287 /* SDWebImage */,
 				7A4BA1D311EB737B0056579C /* AQGridView */,
 				7A5ECB7711DE96C400F66AF3 /* MobileVLCKit */,
 			);
@@ -633,10 +589,6 @@
 				7AF667DA11E61BA300BC5F19 /* MVLCIcon.png in Resources */,
 				7A350A9B11EB7D7F00B80E7C /* MVLCMovieListView.xib in Resources */,
 				7A3B2C2E11EC877000A01E01 /* MVLCMovieGridViewCell.xib in Resources */,
-				7A3B2D8411EC9DC400A01E01 /* MVLCMovieGridViewCellPosterPlaceholder.png in Resources */,
-				63D66B6711EFACCC00673287 /* LICENSE in Resources */,
-				63D66B6811EFACCC00673287 /* README.md in Resources */,
-				63EBF65C120489C900E1AF74 /* MVLCITunesFileSharing.png in Resources */,
 				7AB796C41212DC8800A3204A /* MVLCNavigationBarBackground.png in Resources */,
 				7AB797001212E02000A3204A /* MVLCNavigationBarShadow.png in Resources */,
 				7A6B8414121411A200CEE18F /* MVLCMovieListBackgroundLandscape.png in Resources */,
@@ -679,10 +631,6 @@
 				7A4BA20211EB73EC0056579C /* UIColor+AQGridView.m in Sources */,
 				7A4BA21911EB74810056579C /* MVLCMovieListViewController.m in Sources */,
 				7A350AFE11EB83B400B80E7C /* MVLCMovieGridViewCell.m in Sources */,
-				63D66B6911EFACCC00673287 /* SDImageCache.m in Sources */,
-				63D66B6A11EFACCC00673287 /* SDWebImageDownloader.m in Sources */,
-				63D66B6B11EFACCC00673287 /* SDWebImageManager.m in Sources */,
-				63D66B6C11EFACCC00673287 /* UIImageView+WebCache.m in Sources */,
 				63C092EF11F77D0A00A824BC /* MediaLibrary.xcdatamodel in Sources */,
 				7A396EA3120C06FD009B1800 /* MVLCCircularProgressView.m in Sources */,
 				7AB796A31212DB0C00A3204A /* MVLCNavigationBar.m in Sources */,

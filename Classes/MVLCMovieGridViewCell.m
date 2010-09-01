@@ -7,7 +7,6 @@
 //
 
 #import "MVLCMovieGridViewCell.h"
-#import "UIImageView+WebCache.h"
 #import "MLFile.h"
 #import "MLShowEpisode.h"
 #import <MobileVLCKit/MobileVLCKit.h>
@@ -181,12 +180,7 @@
 
     [self.activityIndicator stopAnimating];
 
-    NSURL *url = [NSURL URLWithString:file.showEpisode ? file.showEpisode.artworkURL : file.artworkURL];
-    [self.posterImageView cancelCurrentImageLoad];
-
-    if (url) {
-        [self.posterImageView setImageWithURL:url];
-    } else if (file.computedThumbnail) {
+	if (file.computedThumbnail) {
         [self.posterImageView setImage:[MVLCMovieGridViewCell imageFromFile:file]];
     } else {
         [self.activityIndicator startAnimating];

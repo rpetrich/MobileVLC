@@ -12,7 +12,6 @@
 #import <CoreData/CoreData.h>
 #import "MLFile.h"
 #import "MLMediaLibrary.h"
-#import "UIImageView+WebCache.h"
 #import "MVLCAboutViewController.h"
 
 // The height should be "max screen height x 2", because an empty screen can be scrolled
