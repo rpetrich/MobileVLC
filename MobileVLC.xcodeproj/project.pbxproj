@@ -82,6 +82,7 @@
 		7AB796C41212DC8800A3204A /* MVLCNavigationBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB796C31212DC8800A3204A /* MVLCNavigationBarBackground.png */; };
 		7AB797001212E02000A3204A /* MVLCNavigationBarShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB796FF1212E02000A3204A /* MVLCNavigationBarShadow.png */; };
 		7AF667DA11E61BA300BC5F19 /* MVLCIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF667D911E61BA300BC5F19 /* MVLCIcon.png */; };
+		7AF81730122E651400DAE803 /* MLFile+HD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF8172F122E651400DAE803 /* MLFile+HD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -202,6 +203,8 @@
 		7AB796C31212DC8800A3204A /* MVLCNavigationBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCNavigationBarBackground.png; path = Resources/MVLCNavigationBarBackground.png; sourceTree = "<group>"; };
 		7AB796FF1212E02000A3204A /* MVLCNavigationBarShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCNavigationBarShadow.png; path = Resources/MVLCNavigationBarShadow.png; sourceTree = "<group>"; };
 		7AF667D911E61BA300BC5F19 /* MVLCIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCIcon.png; path = Resources/MVLCIcon.png; sourceTree = "<group>"; };
+		7AF8172E122E651400DAE803 /* MLFile+HD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MLFile+HD.h"; sourceTree = "<group>"; };
+		7AF8172F122E651400DAE803 /* MLFile+HD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MLFile+HD.m"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MobileVLC-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MobileVLC-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -361,6 +364,8 @@
 		7A3453A011E5FD9C00A141F2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7AF8172E122E651400DAE803 /* MLFile+HD.h */,
+				7AF8172F122E651400DAE803 /* MLFile+HD.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -675,6 +680,7 @@
 				7AB796A31212DB0C00A3204A /* MVLCNavigationBar.m in Sources */,
 				7AB24C6E1215899B0078E739 /* MVLCAboutViewController.m in Sources */,
 				7A79E096122C11FC00845971 /* MVLCNoMediaViewController.m in Sources */,
+				7AF81730122E651400DAE803 /* MLFile+HD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
