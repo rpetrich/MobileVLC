@@ -13,4 +13,5 @@
 }
 @property (nonatomic, retain) IBOutlet UIWebView * webView;
 - (IBAction)dismiss:(id)sender;
+- (IBAction)visitApplidium:(id)sender;
 @end

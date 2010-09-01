@@ -44,12 +44,22 @@ void MVLCAboutViewControllerHideChildUIImageView(UIView * view) {
 	[super dealloc];
 }
 
+#pragma mark -
+#pragma mark UIViewController
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return YES;
+}
+
+#pragma mark -
+#pragma mark Actions
 - (IBAction)dismiss:(id)sender {
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
+- (IBAction)visitApplidium:(id)sender {
+	// Shameless advertising :-p
+	// Honestly, we spent a *lot* of time working on this, we think we deserve this little link :-)
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://applidium.com"]];
 }
 
 @end

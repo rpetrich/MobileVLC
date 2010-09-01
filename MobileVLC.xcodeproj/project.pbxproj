@@ -84,6 +84,7 @@
 		7AF667DA11E61BA300BC5F19 /* MVLCIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF667D911E61BA300BC5F19 /* MVLCIcon.png */; };
 		7AF81730122E651400DAE803 /* MLFile+HD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF8172F122E651400DAE803 /* MLFile+HD.m */; };
 		7AF81764122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF81763122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png */; };
+		7AF8177B122E6D2200DAE803 /* MVLCAboutApplidiumLink.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF8177A122E6D2200DAE803 /* MVLCAboutApplidiumLink.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -207,6 +208,7 @@
 		7AF8172E122E651400DAE803 /* MLFile+HD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MLFile+HD.h"; sourceTree = "<group>"; };
 		7AF8172F122E651400DAE803 /* MLFile+HD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MLFile+HD.m"; sourceTree = "<group>"; };
 		7AF81763122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieGridViewCellHDBanner.png; path = Resources/MVLCMovieGridViewCellHDBanner.png; sourceTree = "<group>"; };
+		7AF8177A122E6D2200DAE803 /* MVLCAboutApplidiumLink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCAboutApplidiumLink.png; path = Resources/MVLCAboutApplidiumLink.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MobileVLC-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MobileVLC-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -535,6 +537,7 @@
 			isa = PBXGroup;
 			children = (
 				7AB24CE9121598980078E739 /* MVLCAboutIcon.png */,
+				7AF8177A122E6D2200DAE803 /* MVLCAboutApplidiumLink.png */,
 			);
 			name = About;
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 				7A79E099122C122200845971 /* MVLCNoMediaView.xib in Resources */,
 				7A79E09C122C127500845971 /* MVLCNoMediaImage.png in Resources */,
 				7AF81764122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png in Resources */,
+				7AF8177B122E6D2200DAE803 /* MVLCAboutApplidiumLink.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
