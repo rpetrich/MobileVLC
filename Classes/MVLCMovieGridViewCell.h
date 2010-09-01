@@ -26,6 +26,7 @@ typedef enum {
 	UILabel *     _titleLabel;
 	UILabel *     _subtitleLabel;
 	UIImageView * _posterImageView;
+	UIImageView * _hdBannerImageView;
 	UIActivityIndicatorView * _activityIndicator;
 	MVLCCircularProgressView * _progressView;
 }
@@ -37,6 +38,7 @@ typedef enum {
 @property (nonatomic, retain) IBOutlet UILabel * titleLabel;
 @property (nonatomic, retain) IBOutlet UILabel * subtitleLabel;
 @property (nonatomic, retain) IBOutlet UIImageView * posterImageView;
+@property (nonatomic, retain) IBOutlet UIImageView * hdBannerImageView;
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView * activityIndicator;
 @property (nonatomic, retain) IBOutlet MVLCCircularProgressView * progressView;
 @end

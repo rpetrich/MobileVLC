@@ -11,6 +11,7 @@
 #import "MLFile.h"
 #import "MLShowEpisode.h"
 #import <MobileVLCKit/MobileVLCKit.h>
+#import "MLFile+HD.h"
 
 @interface MVLCMovieGridViewCell (PrivateInSuper)
 @property (nonatomic, retain) NSString * reuseIdentifier;
@@ -23,7 +24,7 @@
 @end
 
 @implementation MVLCMovieGridViewCell
-@synthesize file=_file, style=_style, titleLabel=_titleLabel, subtitleLabel=_subtitleLabel, overlayImageView=_overlayImageView, posterImageView=_posterImageView, progressView=_progressView;
+@synthesize file=_file, style=_style, titleLabel=_titleLabel, subtitleLabel=_subtitleLabel, overlayImageView=_overlayImageView, posterImageView=_posterImageView, hdBannerImageView=_hdBannerImageView, progressView=_progressView;
 @synthesize activityIndicator=_activityIndicator;
 
 - (void)awakeFromNib {
@@ -120,6 +121,7 @@
 
 	[_progressView release];
 	[_activityIndicator release];
+	[_hdBannerImageView release];
 	[_posterImageView release];
 	[_subtitleLabel release];
 	[_titleLabel release];
@@ -207,6 +209,8 @@
 	self.subtitleLabel.text = subtitle;
 
 	[subtitle release];
+
+	self.hdBannerImageView.hidden = !self.file.isHD;
 }
 @end
 
