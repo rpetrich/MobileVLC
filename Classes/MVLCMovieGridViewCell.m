@@ -63,12 +63,18 @@
 		switch (style) {
 			case MVLCMovieGridViewCellStyleLeft:
 				self.overlayImageView.image = [UIImage imageNamed:@"MVLCMovieGridViewCellOverlayLeft.png"];
+				self.titleLabel.frame = CGRectMake(43.0f, self.titleLabel.frame.origin.y, self.titleLabel.frame.size.width, self.titleLabel.frame.size.height);
+				self.subtitleLabel.frame = CGRectMake(43.0f, self.subtitleLabel.frame.origin.y, self.subtitleLabel.frame.size.width, self.subtitleLabel.frame.size.height);
 				break;
 			case MVLCMovieGridViewCellStyleCenter:
 				self.overlayImageView.image = [UIImage imageNamed:@"MVLCMovieGridViewCellOverlayCenter.png"];
+				self.titleLabel.frame = CGRectMake(47.0f, self.titleLabel.frame.origin.y, self.titleLabel.frame.size.width, self.titleLabel.frame.size.height);
+				self.subtitleLabel.frame = CGRectMake(47.0f, self.subtitleLabel.frame.origin.y, self.subtitleLabel.frame.size.width, self.subtitleLabel.frame.size.height);
 				break;
 			case MVLCMovieGridViewCellStyleRight:
 				self.overlayImageView.image = [UIImage imageNamed:@"MVLCMovieGridViewCellOverlayRight.png"];
+				self.titleLabel.frame = CGRectMake(51.0f, self.titleLabel.frame.origin.y, self.titleLabel.frame.size.width, self.titleLabel.frame.size.height);
+				self.subtitleLabel.frame = CGRectMake(51.0f, self.subtitleLabel.frame.origin.y, self.subtitleLabel.frame.size.width, self.subtitleLabel.frame.size.height);
 				break;
 			case MVLCMovieGridViewCellStyleNone:
 				self.overlayImageView.image = nil;
@@ -167,8 +173,7 @@
 	return (MVLCMovieGridViewCell *)[array lastObject];
 }
 
-- (void)_refreshFromFile
-{
+- (void)_refreshFromFile {
     MLFile *file = self.file;
 	self.titleLabel.text = [file title];
 
@@ -189,17 +194,19 @@
 	self.progressView.progress = lastPosition;
 	self.progressView.hidden = (lastPosition < 0.1f);
 
-    NSManagedObject *videoTrack = [file videoTrack];
-    NSString *videoSizeString = nil;
-    if (videoTrack) {
-        videoSizeString = [NSString stringWithFormat:@"- %@x%@",
-                     [videoTrack valueForKey:@"width"], [videoTrack valueForKey:@"height"]];
+	NSMutableString * subtitle = [[NSMutableString alloc] init];
 
+	if (file.duration) {
+		[subtitle appendFormat:@"%@ - ", [VLCTime timeWithNumber:[file duration]]];
+	}
+	[subtitle appendFormat:@"%.01fMB", (float)([file fileSizeInBytes] / 1e6)]; // FIXME - a formatter to play nicely with KB, GB...
+    if ([file videoTrack]) {
+        [subtitle appendFormat:@" - %@x%@", [[file videoTrack] valueForKey:@"width"], [[file videoTrack] valueForKey:@"height"]];
     }
-    self.subtitleLabel.text = [NSString stringWithFormat:@"%@ - %.01fMB%@",
-                          [VLCTime timeWithNumber:[file duration]],
-                          (float)([file fileSizeInBytes] / 1e6), // FIXME - a formatter to play nicely with KB, GB...
-                          videoSizeString ? videoSizeString : @""];
+
+	self.subtitleLabel.text = subtitle;
+
+	[subtitle release];
 }
 @end
 

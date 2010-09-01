@@ -87,7 +87,7 @@
 							<object class="IBUILabel" id="972177036">
 								<reference key="NSNextResponder" ref="191373211"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{47, 205}, {205, 45}}</string>
+								<string key="NSFrame">{{47, 203}, {215, 48}}</string>
 								<reference key="NSSuperview" ref="191373211"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -118,7 +118,7 @@
 							<object class="IBUILabel" id="78506040">
 								<reference key="NSNextResponder" ref="191373211"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{47, 248}, {205, 16}}</string>
+								<string key="NSFrame">{{47, 248}, {215, 17}}</string>
 								<reference key="NSSuperview" ref="191373211"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -139,6 +139,7 @@
 								<float key="IBUIMinimumFontSize">10</float>
 								<int key="IBUINumberOfLines">3</int>
 								<int key="IBUITextAlignment">1</int>
+								<int key="IBUILineBreakMode">5</int>
 							</object>
 							<object class="IBUIView" id="533957601">
 								<reference key="NSNextResponder" ref="191373211"/>
