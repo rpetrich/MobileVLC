@@ -7,6 +7,7 @@
 //
 
 #import <MediaLibraryKit/MLFile.h>
+#import "MLFile+HD.h"
 
 #define MVLC_MOVIE_VIEW_WORKAROUND_NON_TRANSPARENT_UISTATUSBAR 1
 
@@ -41,7 +42,13 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 	[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
 	[self addObserver:self forKeyPath:@"file" options:0 context:nil];
 	[_mediaPlayer setMedia:[VLCMedia mediaWithURL:[NSURL URLWithString:self.file.url]]];
-    [_mediaPlayer play];
+	if (self.file.isHD) {
+		UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Your iPad is probably too slow to play this movie correctly." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Try anyway", nil];
+		[alertView show];
+		[alertView release];
+	} else {
+		[_mediaPlayer play];
+	}
     if (self.file.lastPosition && [self.file.lastPosition floatValue] < 0.99) {
         [_mediaPlayer setPosition:[self.file.lastPosition floatValue]];
 	}
@@ -194,5 +201,15 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
         [UIApplication sharedApplication].idleTimerDisabled = NO;
 
     [self.playOrPauseButton setImage:playPauseImage forState:UIControlStateNormal];
+}
+
+#pragma mark -
+#pragma mark UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	if (buttonIndex == 0) { // "Cancel" button
+		[self dismiss:self];
+	} else { // "Try anyway" button
+		[_mediaPlayer play];
+	}
 }
 @end

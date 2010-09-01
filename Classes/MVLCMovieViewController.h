@@ -11,7 +11,7 @@
 
 @class MLFile;
 
-@interface MVLCMovieViewController : UIViewController <VLCMediaPlayerDelegate> {
+@interface MVLCMovieViewController : UIViewController <VLCMediaPlayerDelegate, UIAlertViewDelegate> {
 	MLFile *         _file;
 	VLCMediaPlayer * _mediaPlayer;
 	UIView *         _movieView;
