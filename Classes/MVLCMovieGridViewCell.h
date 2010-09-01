@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AQGridViewCell.h"
 #import "MVLCCircularProgressView.h"
+#import <MediaLibraryKit/MLFile.h>
 
 typedef enum {
 	MVLCMovieGridViewCellStyleLeft   = 0,
@@ -17,7 +18,6 @@ typedef enum {
 	MVLCMovieGridViewCellStyleNone   = 3
 } MVLCMovieGridViewCellStyle;
 
-@class MLFile;
 @interface MVLCMovieGridViewCell : AQGridViewCell {
 	MLFile *_file;
 	MVLCMovieGridViewCellStyle _style;
