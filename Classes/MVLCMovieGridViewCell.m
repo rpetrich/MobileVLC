@@ -7,7 +7,6 @@
 //
 
 #import "MVLCMovieGridViewCell.h"
-#import "MLFile.h"
 #import "MLShowEpisode.h"
 #import <MobileVLCKit/MobileVLCKit.h>
 #import "MLFile+HD.h"

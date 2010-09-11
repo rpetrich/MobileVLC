@@ -65,7 +65,6 @@
     NSMutableArray *filePaths = [NSMutableArray arrayWithCapacity:[fileNames count]];
     for (NSString * fileName in fileNames) {
 		if ([fileName rangeOfString:@"\\.(avi|mkv|ts|mov|mp4|m4v)$" options:NSRegularExpressionSearch|NSCaseInsensitiveSearch].length != 0) {
-			MVLCLog(@"Adding file %@ to library !");
             [filePaths addObject:[directoryPath stringByAppendingPathComponent:fileName]];
         }
     }

@@ -10,8 +10,7 @@
 #import "MVLCMovieViewController.h"
 #import "MVLCMovieGridViewCell.h"
 #import <CoreData/CoreData.h>
-#import "MLFile.h"
-#import "MLMediaLibrary.h"
+#import <MediaLibraryKit/MLMediaLibrary.h>
 #import "MVLCAboutViewController.h"
 
 // The height should be "max screen height x 2", because an empty screen can be scrolled
@@ -40,7 +39,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 
 	[self.gridView setLeftContentInset:47.0f];
 	[self.gridView setRightContentInset:47.0f];
-	
+
 
 	self.gridView.separatorStyle = AQGridViewCellSeparatorStyleNone;
 
@@ -186,7 +185,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 	CGAffineTransform transform = CGAffineTransformIdentity;
 
 	CGPoint transformationTargetCenter = [cell convertPoint:cell.posterImageView.center toView:self._animatedView];
-	
+
 	transform = CGAffineTransformScale(transform, 4.0f, 4.0f);
 	transform = CGAffineTransformTranslate(transform, self._animatedView.bounds.size.width/2.0f - transformationTargetCenter.x, self._animatedView.bounds.size.height/2.0f - transformationTargetCenter.y);
 
@@ -223,7 +222,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 #pragma mark -
 #pragma mark UIViewAnimationDelegate
 - (void)animationWillStart:(NSString *)animationID context:(void *)context {
-	
+
 }
 
 - (void)animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
