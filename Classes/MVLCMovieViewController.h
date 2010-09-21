@@ -22,6 +22,7 @@
 	UISlider *       _volumeSlider;
 	UIButton *       _playOrPauseButton;
     BOOL             _hudVisibility;
+	BOOL             _wasPushedAnimated;
 	UINavigationController * _navigationController;
 }
 @property (nonatomic, retain) MLFile * file;

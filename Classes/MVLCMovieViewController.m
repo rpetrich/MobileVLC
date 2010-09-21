@@ -9,8 +9,6 @@
 #import <MediaLibraryKit/MLFile.h>
 #import "MLFile+HD.h"
 
-#define MVLC_MOVIE_VIEW_WORKAROUND_NON_TRANSPARENT_UISTATUSBAR 1
-
 #import "MVLCMovieViewController.h"
 
 static NSString * MVLCMovieViewControllerHUDFadeInAnimation = @"MVLCMovieViewControllerHUDFadeInAnimation";
@@ -20,9 +18,6 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 @synthesize movieView=_movieView, file=_file, positionSlider=_positionSlider, playOrPauseButton=_playOrPauseButton, volumeSlider=_volumeSlider, HUDView=_HUDView, topView=_topView, remainingTimeLabel=_remainingTimeLabel;
 - (void)viewDidLoad {
 	[super viewDidLoad];
-#if MVLC_MOVIE_VIEW_WORKAROUND_NON_TRANSPARENT_UISTATUSBAR
-	self.topView.frame = CGRectMake(0.0f, 20.0f, self.topView.frame.size.width, self.topView.frame.size.height);
-#endif
 	_mediaPlayer = [[VLCMediaPlayer alloc] init];
 	[_mediaPlayer setDelegate:self];
     [_mediaPlayer setDrawable:self.movieView];
@@ -31,15 +26,18 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 	tapGestureRecognizer.numberOfTouchesRequired = 1;
 	[self.movieView addGestureRecognizer:tapGestureRecognizer];
 	[tapGestureRecognizer release];
-    [self setHudVisibility:NO];
+//    [self setHudVisibility:NO]; // This triggers a bug in the transition animation on the iPhone
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	[_navigationController release];
-	_navigationController = [self.navigationController retain]; // Working around an UIKit bug - if we're poped non-animated, self.navigationController will be nil in viewWillDisappear
+	_wasPushedAnimated = animated;
+	if (_navigationController != self.navigationController) {
+		[_navigationController release];
+		_navigationController = [self.navigationController retain]; // Working around an UIKit bug - if we're poped non-animated, self.navigationController will be nil in viewWillDisappear
+	}
 	[_navigationController setNavigationBarHidden:YES animated:animated];
-	[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+//	[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
 	[self addObserver:self forKeyPath:@"file" options:0 context:nil];
 	[_mediaPlayer setMedia:[VLCMedia mediaWithURL:[NSURL URLWithString:self.file.url]]];
 	if (self.file.isHD) {
@@ -89,14 +87,15 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 	return YES; // We support all 4 orientations
 }
 
-#if MVLC_MOVIE_VIEW_WORKAROUND_NON_TRANSPARENT_UISTATUSBAR
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-	[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation duration:(NSTimeInterval)duration {
+	// Let's work around the "rotate + statusbar = weird re-layout"
+	if ([UIApplication sharedApplication].statusBarHidden) {
+		// If the status bar isn't here, let's "save the spot"
+		self.topView.frame = CGRectMake(0.0f, 20.0f, self.topView.frame.size.width, self.topView.frame.size.height);
+	} else {
+		self.topView.frame = CGRectMake(0.0f, 0.0f, self.topView.frame.size.width, self.topView.frame.size.height);
+	}
 }
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-	[[UIApplication sharedApplication] setStatusBarHidden:!self.hudVisibility withAnimation:UIStatusBarAnimationNone];
-}
-#endif
 
 #pragma mark -
 #pragma mark Key-Value Observing
@@ -161,7 +160,7 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 }
 
 - (IBAction)dismiss:(id)sender {
-	[self.navigationController popViewControllerAnimated:NO];
+	[self.navigationController popViewControllerAnimated:_wasPushedAnimated];
 }
 
 #pragma mark -
