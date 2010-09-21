@@ -26,41 +26,55 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 @end
 
 @implementation MVLCMovieListViewController
-@synthesize gridView=_gridView, noMediaViewController=_noMediaViewController;
+@synthesize noMediaViewController=_noMediaViewController;
 
 #pragma mark -
 #pragma mark Creation / deletion
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		_tableView = nil;
+		_gridView = [[AQGridView alloc] initWithFrame:self.view.bounds];
+		_gridView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+		_gridView.dataSource = self;
+		_gridView.delegate = self;
+		[self.view addSubview:_gridView];
+
+		_gridView.alwaysBounceVertical = YES; // Allow the "bounce" animation even though the list is small (no scroll is really needed, but the animation looks and feels great)
+		_gridView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+		_gridView.separatorStyle = AQGridViewCellSeparatorStyleNone;
+		[_gridView setLeftContentInset:47.0f];
+		[_gridView setRightContentInset:47.0f];
+
+		UIView * backgroundView = [[UIView alloc] initWithFrame:_gridView.bounds];
+		backgroundView.backgroundColor = [UIColor clearColor];
+		_gridView.backgroundView = backgroundView;
+		[backgroundView release];
+		[self _setBackgroundForOrientation:self.interfaceOrientation];
+		
+		UIView * headerInsetView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, MVLC_INSET_BACKGROUND_HEIGHT)];
+		headerInsetView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+		headerInsetView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCBackgroundPattern.png"]];
+		_gridView.gridHeaderView = headerInsetView;
+		[headerInsetView release];
+		UIView * footerInsetView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, MVLC_INSET_BACKGROUND_HEIGHT)];
+		footerInsetView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+		footerInsetView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCBackgroundPattern.png"]];
+		_gridView.gridFooterView = footerInsetView;
+		[footerInsetView release];
+		_gridView.contentInset = UIEdgeInsetsMake(-MVLC_INSET_BACKGROUND_HEIGHT, 0.0f, -MVLC_INSET_BACKGROUND_HEIGHT, 0.0f);
+	} else {
+		_gridView = nil;
+		_tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+		_tableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+		_tableView.dataSource = self;
+		_tableView.delegate = self;
+		[self.view addSubview:_tableView];
+	}
+
 	_lastTransform = CGAffineTransformIdentity;
 
-	self.gridView.alwaysBounceVertical = YES; // Allow the "bounce" animation even though the list is small (no scroll is really needed, but the animation looks and feels great)
-
-	[self.gridView setLeftContentInset:47.0f];
-	[self.gridView setRightContentInset:47.0f];
-
-
-	self.gridView.separatorStyle = AQGridViewCellSeparatorStyleNone;
-
-	UIView * backgroundView = [[UIView alloc] initWithFrame:self.gridView.bounds];
-	backgroundView.backgroundColor = [UIColor clearColor];
-	self.gridView.backgroundView = backgroundView;
-	[backgroundView release];
-	[self _setBackgroundForOrientation:self.interfaceOrientation];
-	self.gridView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-
-	UIView * headerInsetView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, MVLC_INSET_BACKGROUND_HEIGHT)];
-	headerInsetView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	headerInsetView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCBackgroundPattern.png"]];
-	self.gridView.gridHeaderView = headerInsetView;
-	[headerInsetView release];
-	UIView * footerInsetView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, MVLC_INSET_BACKGROUND_HEIGHT)];
-	footerInsetView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	footerInsetView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCBackgroundPattern.png"]];
-	self.gridView.gridFooterView = footerInsetView;
-	[footerInsetView release];
-	self.gridView.contentInset = UIEdgeInsetsMake(-MVLC_INSET_BACKGROUND_HEIGHT, 0.0f, -MVLC_INSET_BACKGROUND_HEIGHT, 0.0f);
 	[self reloadMedia];
 }
 
@@ -68,13 +82,14 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 	[_noMediaViewController release];
 	[_allMedia release];
 	[_gridView release];
+	[_tableView release];
     [super dealloc];
 }
 
 - (void)reloadMedia {
 	[_allMedia release];
 	_allMedia = [[NSMutableArray arrayWithArray:[MLFile allFiles]] retain];
-	[self.gridView reloadData];
+	[_gridView reloadData];
 
 	if ([_allMedia count] == 0 && self.noMediaViewController) { // Checking for self.noMediaViewController is important because on load it might be nil
 		[self presentModalViewController:self.noMediaViewController animated:NO];
@@ -113,9 +128,9 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 
 	// Let's start the "zoom-out" animation
 	self._animatedView.transform = _lastTransform;
-	NSUInteger lastSelectionIndex = self.gridView.indexOfSelectedItem;
-	[self.gridView deselectItemAtIndex:lastSelectionIndex animated:animated]; // Let's also enforce the de-selection
-	[self.gridView.delegate gridView:self.gridView didDeselectItemAtIndex:lastSelectionIndex]; // For some reason, AQGridView doesn't do this
+	NSUInteger lastSelectionIndex = _gridView.indexOfSelectedItem;
+	[_gridView deselectItemAtIndex:lastSelectionIndex animated:animated]; // Let's also enforce the de-selection
+	[_gridView.delegate gridView:_gridView didDeselectItemAtIndex:lastSelectionIndex]; // For some reason, AQGridView doesn't do this
 
 	[super viewDidAppear:animated];
 }
@@ -128,8 +143,8 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-	NSIndexSet * visibleCellIndices = self.gridView.visibleCellIndices;
-	AQGridView * gridView = self.gridView;
+	NSIndexSet * visibleCellIndices = _gridView.visibleCellIndices;
+	AQGridView * gridView = _gridView;
 	for (NSUInteger index = [visibleCellIndices firstIndex]; index != NSNotFound; index = [visibleCellIndices indexGreaterThanIndex:index]) {
 		MVLCMovieGridViewCell * cell = (MVLCMovieGridViewCell *)[gridView cellForItemAtIndex:index];
 		MVLCAssert([cell isKindOfClass:[MVLCMovieGridViewCell class]], @"Unexpected cell class !");
@@ -220,6 +235,44 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 }
 
 #pragma mark -
+#pragma mark UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section {
+	if (section == 0) {
+		return [_allMedia count];
+	} else {
+		return 0;
+	}
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	static NSString * MVLCMovieListTableViewCellIdentifier = @"MVLCMovieListTableViewCellIdentifier";
+	UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:MVLCMovieListTableViewCellIdentifier];
+	if (cell == nil) {
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:MVLCMovieListTableViewCellIdentifier];
+	}
+    MLFile *file = [_allMedia objectAtIndex:[indexPath row]];
+
+	cell.textLabel.text = [file title];
+	cell.imageView.image = [UIImage imageWithData:file.computedThumbnail];
+	
+//	cell.style = [self _styleForCellAtIndex:index inGridView:gridView];
+//    cell.file = file;
+	return cell;
+}
+
+#pragma mark -
+#pragma mark UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	MLFile * file = [_allMedia objectAtIndex:[indexPath row]];
+	MVLCMovieViewController * movieViewController = [[MVLCMovieViewController alloc] init];
+	movieViewController.file = file;
+	[self.navigationController pushViewController:movieViewController animated:YES];
+	//				[movieViewController release]; // FIXME: VLCKit bug
+}
+
+
+
+#pragma mark -
 #pragma mark UIViewAnimationDelegate
 - (void)animationWillStart:(NSString *)animationID context:(void *)context {
 
@@ -234,7 +287,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 				MVLCMovieViewController * movieViewController = [[MVLCMovieViewController alloc] init];
 				movieViewController.file = file;
 				[self.navigationController pushViewController:movieViewController animated:NO];
-//				[movieViewController release]; // FIXME : VLCKit bug
+//				[movieViewController release]; // FIXME: VLCKit bug
 			}
 		}
 	}
@@ -243,8 +296,13 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 
 @implementation MVLCMovieListViewController (Private)
 - (UIView *)_animatedView {
-	return self.view.window;
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		return self.view.window;
+	} else {
+		return nil; // No zooming animation on the iPhone / iPod
+	}
 }
+
 - (MVLCMovieGridViewCellStyle)_styleForCellAtIndex:(NSUInteger)index inGridView:(AQGridView *)gridView {
 	switch (gridView.numberOfColumns) {
 		case 2:
@@ -259,11 +317,11 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 	switch (orientation) {
 		case UIInterfaceOrientationPortrait:
 		case UIInterfaceOrientationPortraitUpsideDown:
-			self.gridView.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCMovieListBackgroundPortrait.png"]];
+			_gridView.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCMovieListBackgroundPortrait.png"]];
 			break;
 		case UIInterfaceOrientationLandscapeLeft:
 		case UIInterfaceOrientationLandscapeRight:
-			self.gridView.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCMovieListBackgroundLandscape.png"]];
+			_gridView.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCMovieListBackgroundLandscape.png"]];
 			break;
 	}
 }

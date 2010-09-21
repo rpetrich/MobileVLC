@@ -10,12 +10,12 @@
 #import "AQGridView.h"
 #import "MVLCNoMediaViewController.h"
 
-@interface MVLCMovieListViewController : UIViewController <AQGridViewDataSource, AQGridViewDelegate> {
-	AQGridView *      _gridView;
+@interface MVLCMovieListViewController : UIViewController <AQGridViewDataSource, AQGridViewDelegate, UITableViewDataSource, UITableViewDelegate> {
+	AQGridView *      _gridView;  // Used on the iPad
+	UITableView *     _tableView; // Used on the iPhone
 	NSMutableArray *  _allMedia;
 	CGAffineTransform _lastTransform;
 }
-@property (nonatomic, retain) IBOutlet AQGridView * gridView;
 @property (nonatomic, retain) IBOutlet MVLCNoMediaViewController * noMediaViewController;
 - (IBAction)showAboutScreen:(id)sender;
 - (void)reloadMedia;
