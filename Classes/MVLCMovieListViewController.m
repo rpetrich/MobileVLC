@@ -121,6 +121,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 #pragma mark View life cycle
 - (void)viewWillAppear:(BOOL)animated {
 	[self _setBackgroundForOrientation:self.interfaceOrientation];
+	[_tableView deselectRowAtIndexPath:[_tableView indexPathForSelectedRow] animated:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

@@ -83,6 +83,9 @@
 	cell.backgroundView = [[[UIView alloc] initWithFrame:cell.bounds] autorelease];
 	cell.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCMovieTableViewCellBackground.png"]];
 	cell.backgroundView.opaque = NO;
+	cell.selectedBackgroundView = [[[UIView alloc] initWithFrame:cell.bounds] autorelease];
+	cell.selectedBackgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCMovieTableViewCellSelectedBackground.png"]];
+	cell.selectedBackgroundView.opaque = NO;
 	return cell;
 }
 
