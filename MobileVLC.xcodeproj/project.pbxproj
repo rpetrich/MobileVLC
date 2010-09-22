@@ -18,6 +18,9 @@
 		636E9D8411ED3E29002FE8A9 /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 636E9D8311ED3E29002FE8A9 /* libbz2.dylib */; };
 		6376443F1205C33C00E48F8B /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6376443E1205C33C00E48F8B /* CoreText.framework */; };
 		63C092EF11F77D0A00A824BC /* MediaLibrary.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 63C092EE11F77D0A00A824BC /* MediaLibrary.xcdatamodel */; };
+		7A03822D1249F1B300A4F404 /* MVLCMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A03822C1249F1B300A4F404 /* MVLCMovieTableViewCell.m */; };
+		7A038291124A021200A4F404 /* MVLCMovieTableViewCellBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A038290124A021200A4F404 /* MVLCMovieTableViewCellBackground.png */; };
+		7A03833D124A0ECC00A4F404 /* MVLCMovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A03833C124A0ECC00A4F404 /* MVLCMovieTableViewCell.xib */; };
 		7A350A9B11EB7D7F00B80E7C /* MVLCMovieListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A350A9A11EB7D7F00B80E7C /* MVLCMovieListView.xib */; };
 		7A350AFE11EB83B400B80E7C /* MVLCMovieGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A350AFD11EB83B400B80E7C /* MVLCMovieGridViewCell.m */; };
 		7A396EA3120C06FD009B1800 /* MVLCCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A396EA2120C06FD009B1800 /* MVLCCircularProgressView.m */; };
@@ -99,6 +102,10 @@
 		63C0923C11F7783100A824BC /* MLShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLShow.h; sourceTree = "<group>"; };
 		63C0923D11F7783100A824BC /* MLShowEpisode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLShowEpisode.h; sourceTree = "<group>"; };
 		63C092EE11F77D0A00A824BC /* MediaLibrary.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = MediaLibrary.xcdatamodel; path = ../MediaLibraryKit/MediaLibrary.xcdatamodel; sourceTree = SOURCE_ROOT; };
+		7A03822B1249F1B300A4F404 /* MVLCMovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLCMovieTableViewCell.h; sourceTree = "<group>"; };
+		7A03822C1249F1B300A4F404 /* MVLCMovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLCMovieTableViewCell.m; sourceTree = "<group>"; };
+		7A038290124A021200A4F404 /* MVLCMovieTableViewCellBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieTableViewCellBackground.png; path = Resources/MVLCMovieTableViewCellBackground.png; sourceTree = "<group>"; };
+		7A03833C124A0ECC00A4F404 /* MVLCMovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCMovieTableViewCell.xib; path = Resources/MVLCMovieTableViewCell.xib; sourceTree = "<group>"; };
 		7A350A9A11EB7D7F00B80E7C /* MVLCMovieListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCMovieListView.xib; path = Resources/MVLCMovieListView.xib; sourceTree = "<group>"; };
 		7A350AFC11EB83B400B80E7C /* MVLCMovieGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLCMovieGridViewCell.h; sourceTree = "<group>"; };
 		7A350AFD11EB83B400B80E7C /* MVLCMovieGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLCMovieGridViewCell.m; sourceTree = "<group>"; };
@@ -342,6 +349,8 @@
 				7A396EA2120C06FD009B1800 /* MVLCCircularProgressView.m */,
 				7A350AFC11EB83B400B80E7C /* MVLCMovieGridViewCell.h */,
 				7A350AFD11EB83B400B80E7C /* MVLCMovieGridViewCell.m */,
+				7A03822B1249F1B300A4F404 /* MVLCMovieTableViewCell.h */,
+				7A03822C1249F1B300A4F404 /* MVLCMovieTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -376,7 +385,8 @@
 		7A350AA011EB7E1800B80E7C /* Movie list view */ = {
 			isa = PBXGroup;
 			children = (
-				7A6B84221214147600CEE18F /* Movie cell */,
+				7A038290124A021200A4F404 /* MVLCMovieTableViewCellBackground.png */,
+				7A6B84221214147600CEE18F /* Movie grid view cell */,
 				7A6B8412121411A200CEE18F /* MVLCMovieListBackgroundLandscape.png */,
 				7A6B8413121411A200CEE18F /* MVLCMovieListBackgroundPortrait.png */,
 				7AB796FF1212E02000A3204A /* MVLCNavigationBarShadow.png */,
@@ -478,7 +488,7 @@
 			path = MobileVLCKit;
 			sourceTree = "<group>";
 		};
-		7A6B84221214147600CEE18F /* Movie cell */ = {
+		7A6B84221214147600CEE18F /* Movie grid view cell */ = {
 			isa = PBXGroup;
 			children = (
 				7AF81763122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png */,
@@ -486,7 +496,7 @@
 				7A6B84231214148300CEE18F /* MVLCMovieGridViewCellOverlayCenter.png */,
 				7A6B84251214148300CEE18F /* MVLCMovieGridViewCellOverlayRight.png */,
 			);
-			name = "Movie cell";
+			name = "Movie grid view cell";
 			sourceTree = "<group>";
 		};
 		7AB24CE81215988A0078E739 /* About */ = {
@@ -505,6 +515,7 @@
 				7A350A9A11EB7D7F00B80E7C /* MVLCMovieListView.xib */,
 				7A79E098122C122200845971 /* MVLCNoMediaView.xib */,
 				7A3B2C2D11EC877000A01E01 /* MVLCMovieGridViewCell.xib */,
+				7A03833C124A0ECC00A4F404 /* MVLCMovieTableViewCell.xib */,
 				7A87ECD911E3A356007BE827 /* MVLCMovieView.xib */,
 				7AB24C78121589D30078E739 /* MVLCAboutView.xib */,
 			);
@@ -607,6 +618,8 @@
 				7A79E09C122C127500845971 /* MVLCNoMediaImage.png in Resources */,
 				7AF81764122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png in Resources */,
 				7AF8177B122E6D2200DAE803 /* MVLCAboutApplidiumLink.png in Resources */,
+				7A038291124A021200A4F404 /* MVLCMovieTableViewCellBackground.png in Resources */,
+				7A03833D124A0ECC00A4F404 /* MVLCMovieTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,6 +651,7 @@
 				7AB24C6E1215899B0078E739 /* MVLCAboutViewController.m in Sources */,
 				7A79E096122C11FC00845971 /* MVLCNoMediaViewController.m in Sources */,
 				7AF81730122E651400DAE803 /* MLFile+HD.m in Sources */,
+				7A03822D1249F1B300A4F404 /* MVLCMovieTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

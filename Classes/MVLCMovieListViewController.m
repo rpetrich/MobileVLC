@@ -9,6 +9,7 @@
 #import "MVLCMovieListViewController.h"
 #import "MVLCMovieViewController.h"
 #import "MVLCMovieGridViewCell.h"
+#import "MVLCMovieTableViewCell.h"
 #import <CoreData/CoreData.h>
 #import <MediaLibraryKit/MLMediaLibrary.h>
 #import "MVLCAboutViewController.h"
@@ -68,8 +69,18 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 		_gridView = nil;
 		_tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
 		_tableView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+		_tableView.rowHeight = [MVLCMovieTableViewCell cellHeight];
 		_tableView.dataSource = self;
 		_tableView.delegate = self;
+		_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+		_tableView.backgroundColor = [UIColor clearColor];
+		_tableView.opaque = NO;
+
+		UIView * backgroundView = [[UIView alloc] initWithFrame:_tableView.bounds];
+		backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCBackgroundPattern.png"]];
+		_tableView.backgroundView = backgroundView;
+		[backgroundView release];
+
 		[self.view addSubview:_tableView];
 	}
 
@@ -143,12 +154,13 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-	NSIndexSet * visibleCellIndices = _gridView.visibleCellIndices;
-	AQGridView * gridView = _gridView;
-	for (NSUInteger index = [visibleCellIndices firstIndex]; index != NSNotFound; index = [visibleCellIndices indexGreaterThanIndex:index]) {
-		MVLCMovieGridViewCell * cell = (MVLCMovieGridViewCell *)[gridView cellForItemAtIndex:index];
-		MVLCAssert([cell isKindOfClass:[MVLCMovieGridViewCell class]], @"Unexpected cell class !");
-		cell.style = [self _styleForCellAtIndex:index inGridView:gridView];
+	if (_gridView) {
+		NSIndexSet * visibleCellIndices = _gridView.visibleCellIndices;
+		for (NSUInteger index = [visibleCellIndices firstIndex]; index != NSNotFound; index = [visibleCellIndices indexGreaterThanIndex:index]) {
+			MVLCMovieGridViewCell * cell = (MVLCMovieGridViewCell *)[_gridView cellForItemAtIndex:index];
+			MVLCAssert([cell isKindOfClass:[MVLCMovieGridViewCell class]], @"Unexpected cell class !");
+			cell.style = [self _styleForCellAtIndex:index inGridView:_gridView];
+		}
 	}
 }
 
@@ -245,23 +257,22 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	static NSString * MVLCMovieListTableViewCellIdentifier = @"MVLCMovieListTableViewCellIdentifier";
-	UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:MVLCMovieListTableViewCellIdentifier];
+	static NSString * MVLCMovieListTableCellIdentifier = @"MVLCMovieListTableCellIdentifier";
+	MVLCMovieTableViewCell * cell = (MVLCMovieTableViewCell *)[tableView dequeueReusableCellWithIdentifier:MVLCMovieListTableCellIdentifier];
 	if (cell == nil) {
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:MVLCMovieListTableViewCellIdentifier];
+		cell = [MVLCMovieTableViewCell cellWithReuseIdentifier:MVLCMovieListTableCellIdentifier];
 	}
-    MLFile *file = [_allMedia objectAtIndex:[indexPath row]];
-
-	cell.textLabel.text = [file title];
-	cell.imageView.image = [UIImage imageWithData:file.computedThumbnail];
-	
-//	cell.style = [self _styleForCellAtIndex:index inGridView:gridView];
-//    cell.file = file;
+    MLFile * file = [_allMedia objectAtIndex:[indexPath row]];
+	cell.file = file;
 	return cell;
 }
 
 #pragma mark -
 #pragma mark UITableViewDelegate
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+	MVLCMovieTableViewCell * movieCell = (MVLCMovieTableViewCell *)cell;
+	[movieCell setEven:([indexPath row]%2 == 0)];
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	MLFile * file = [_allMedia objectAtIndex:[indexPath row]];
 	MVLCMovieViewController * movieViewController = [[MVLCMovieViewController alloc] init];
