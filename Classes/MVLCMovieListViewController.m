@@ -14,8 +14,6 @@
 #import <MediaLibraryKit/MLMediaLibrary.h>
 #import "MVLCAboutViewController.h"
 
-// The height should be "max screen height x 2", because an empty screen can be scrolled
-#define MVLC_INSET_BACKGROUND_HEIGHT 2048.0f
 #define MVLC_MOVIE_LIST_ANIMATION_DURATION 0.30f
 
 static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMovieListViewControllerMovieSelectionAnimation";
@@ -53,18 +51,20 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 		_gridView.backgroundView = backgroundView;
 		[backgroundView release];
 		[self _setBackgroundForOrientation:self.interfaceOrientation];
-		
-		UIView * headerInsetView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, MVLC_INSET_BACKGROUND_HEIGHT)];
+
+		// Let's add _inset_ header and footer views (i.e. header and footers that aren't in the grid view's "content") 
+		CGFloat insetBackgroundHeight = 2.0f * MAX(self.view.bounds.size.width, self.view.bounds.size.height); // The height should be "max screen height x 2", because an empty screen can be scrolled
+		UIView * headerInsetView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, insetBackgroundHeight)];
 		headerInsetView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 		headerInsetView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCBackgroundPattern.png"]];
 		_gridView.gridHeaderView = headerInsetView;
 		[headerInsetView release];
-		UIView * footerInsetView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, MVLC_INSET_BACKGROUND_HEIGHT)];
+		UIView * footerInsetView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, insetBackgroundHeight)];
 		footerInsetView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 		footerInsetView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCBackgroundPattern.png"]];
 		_gridView.gridFooterView = footerInsetView;
 		[footerInsetView release];
-		_gridView.contentInset = UIEdgeInsetsMake(-MVLC_INSET_BACKGROUND_HEIGHT, 0.0f, -MVLC_INSET_BACKGROUND_HEIGHT, 0.0f);
+		_gridView.contentInset = UIEdgeInsetsMake(-insetBackgroundHeight, 0.0f, -insetBackgroundHeight, 0.0f);
 	} else {
 		_gridView = nil;
 		_tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
@@ -73,13 +73,22 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 		_tableView.dataSource = self;
 		_tableView.delegate = self;
 		_tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-		_tableView.backgroundColor = [UIColor clearColor];
+		_tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCBackgroundPattern.png"]];
 		_tableView.opaque = NO;
 
-		UIView * backgroundView = [[UIView alloc] initWithFrame:_tableView.bounds];
-		backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCBackgroundPattern.png"]];
-		_tableView.backgroundView = backgroundView;
-		[backgroundView release];
+		// Let's add _inset_ header and footer views (i.e. header and footers that aren't in the table view's "content") 
+		CGFloat insetBackgroundHeight = 2.0f * MAX(self.view.bounds.size.width, self.view.bounds.size.height); // The height should be "max screen height x 2", because an empty screen can be scrolled
+		UIView * headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, insetBackgroundHeight)];
+		headerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+		headerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCBackgroundPattern.png"]];
+		_tableView.tableHeaderView = headerView;
+		[headerView release];
+		UIView * footerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.bounds.size.width, insetBackgroundHeight)];
+		footerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+		footerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCBackgroundPattern.png"]];
+		_tableView.tableFooterView = footerView;
+		[footerView release];
+		_tableView.contentInset = UIEdgeInsetsMake(-insetBackgroundHeight, 0.0f, -insetBackgroundHeight, 0.0f);
 
 		[self.view addSubview:_tableView];
 	}
