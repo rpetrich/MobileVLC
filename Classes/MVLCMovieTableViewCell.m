@@ -70,7 +70,7 @@
 }
 
 - (void)setEven:(BOOL)even {
-	self.backgroundView.hidden = even;
+	self.backgroundView.hidden = !even;
 }
 @end
 
