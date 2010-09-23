@@ -23,8 +23,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [VLCLibrary sharedLibrary];
-	[self _updateMediaLibrary];
     [_window addSubview:self.navigationController.view];
     [_window makeKeyAndVisible];
 
@@ -37,7 +35,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [[MLMediaLibrary sharedMediaLibrary] save];
+    [[MLMediaLibrary sharedMediaLibrary] applicationWillExit];
 }
 
 #pragma mark -
@@ -69,8 +67,8 @@
         }
     }
 	MLMediaLibrary * mediaLibrary = [MLMediaLibrary sharedMediaLibrary];
+    [mediaLibrary updateDatabase];
     [mediaLibrary addFilePaths:filePaths];
-	[mediaLibrary updateDatabase];
 	[self.movieListViewController reloadMedia];
 }
 @end
