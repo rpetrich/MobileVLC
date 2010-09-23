@@ -22,10 +22,12 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 @property (readonly) UIView * _animatedView;
 - (void)_setBackgroundForOrientation:(UIInterfaceOrientation)orientation;
 - (MVLCMovieGridViewCellStyle)_styleForCellAtIndex:(NSUInteger)index inGridView:(AQGridView *)gridView;
+- (void)_setEditMode:(BOOL)editMode;
+- (BOOL)_isInEditMode;
 @end
 
 @implementation MVLCMovieListViewController
-@synthesize noMediaViewController=_noMediaViewController;
+@synthesize noMediaViewController=_noMediaViewController, editBarButtonItem=_editBarButtonItem;
 
 #pragma mark -
 #pragma mark Creation / deletion
@@ -92,6 +94,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 
 		[self.view addSubview:_tableView];
 	}
+	[self _setEditMode:NO];
 
 	_lastTransform = CGAffineTransformIdentity;
 
@@ -124,6 +127,10 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 	MVLCAboutViewController * aboutViewController = [[MVLCAboutViewController alloc] initWithNibName:@"MVLCAboutView" bundle:nil];
 	[self.navigationController pushViewController:aboutViewController animated:YES];
 	[aboutViewController release];
+}
+
+- (IBAction)toggleEditMode:(id)sender {
+	[self _setEditMode:![self _isInEditMode]];
 }
 
 #pragma mark -
@@ -291,6 +298,9 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 	//				[movieViewController release]; // FIXME: VLCKit bug
 }
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+	return UITableViewCellEditingStyleDelete;
+}
 
 
 #pragma mark -
@@ -345,5 +355,20 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 			_gridView.backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCMovieListBackgroundLandscape.png"]];
 			break;
 	}
+}
+
+- (void)_setEditMode:(BOOL)editMode {
+	[_tableView setEditing:editMode animated:YES];
+	if (editMode) {
+		self.editBarButtonItem.style = UIBarButtonItemStyleDone;
+		self.editBarButtonItem.title = @"Done";
+	} else {
+		self.editBarButtonItem.style = UIBarButtonItemStylePlain;
+		self.editBarButtonItem.title = @"Edit";
+	}
+}
+
+- (BOOL)_isInEditMode {
+	return (self.editBarButtonItem.style == UIBarButtonItemStyleDone);
 }
 @end
