@@ -30,6 +30,7 @@
 		7A3E16F0124CB29400FD354F /* MVLCIcon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3E16ED124CB29400FD354F /* MVLCIcon_57.png */; };
 		7A3E16F1124CB29400FD354F /* MVLCIcon_72.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3E16EE124CB29400FD354F /* MVLCIcon_72.png */; };
 		7A3E16F2124CB29400FD354F /* MVLCIcon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3E16EF124CB29400FD354F /* MVLCIcon_114.png */; };
+		7A3E17CB124D20AD00FD354F /* MVLCMovieGridViewCellDelete.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3E17CA124D20AD00FD354F /* MVLCMovieGridViewCellDelete.png */; };
 		7A4BA0B211EB48AF0056579C /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4BA0B111EB48AF0056579C /* libstdc++.6.dylib */; };
 		7A4BA1F911EB73EC0056579C /* AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1D811EB737B0056579C /* AQGridView.m */; };
 		7A4BA1FA11EB73EC0056579C /* AQGridViewAnimatorItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1DA11EB737B0056579C /* AQGridViewAnimatorItem.m */; };
@@ -122,6 +123,7 @@
 		7A3E16ED124CB29400FD354F /* MVLCIcon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCIcon_57.png; path = Resources/MVLCIcon_57.png; sourceTree = "<group>"; };
 		7A3E16EE124CB29400FD354F /* MVLCIcon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCIcon_72.png; path = Resources/MVLCIcon_72.png; sourceTree = "<group>"; };
 		7A3E16EF124CB29400FD354F /* MVLCIcon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCIcon_114.png; path = Resources/MVLCIcon_114.png; sourceTree = "<group>"; };
+		7A3E17CA124D20AD00FD354F /* MVLCMovieGridViewCellDelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieGridViewCellDelete.png; path = Resources/MVLCMovieGridViewCellDelete.png; sourceTree = "<group>"; };
 		7A4BA0B111EB48AF0056579C /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		7A4BA1D511EB737B0056579C /* AQGridView+CellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLayout.h"; sourceTree = "<group>"; };
 		7A4BA1D611EB737B0056579C /* AQGridView+CellLocationDelegation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLocationDelegation.h"; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 		7A6B84221214147600CEE18F /* Movie grid view cell */ = {
 			isa = PBXGroup;
 			children = (
+				7A3E17CA124D20AD00FD354F /* MVLCMovieGridViewCellDelete.png */,
 				63A0656C124C0CA90001E110 /* MVLCMovieGridViewCellBomb.png */,
 				7AF81763122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png */,
 				7A6B84241214148300CEE18F /* MVLCMovieGridViewCellOverlayLeft.png */,
@@ -636,6 +639,7 @@
 				7A3E16F1124CB29400FD354F /* MVLCIcon_72.png in Resources */,
 				7A3E16F2124CB29400FD354F /* MVLCIcon_114.png in Resources */,
 				63A0656D124C0CA90001E110 /* MVLCMovieGridViewCellBomb.png in Resources */,
+				7A3E17CB124D20AD00FD354F /* MVLCMovieGridViewCellDelete.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,7 +737,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos3.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Distribution;
@@ -772,7 +776,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos3.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -788,7 +792,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos3.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
