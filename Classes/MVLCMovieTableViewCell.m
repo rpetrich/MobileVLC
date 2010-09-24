@@ -91,8 +91,12 @@
 
 - (void)_refreshFromFile {
 	self.titleLabel.text = self.file.title;
-	
-	if (self.file.computedThumbnail) {
+
+	if (!self.file.isSafe) {
+        [self.activityIndicator stopAnimating];
+        self.posterImageView.image = [UIImage imageNamed:@"MVLCMovieGridViewCellBomb.png"];
+    }
+    else if (self.file.computedThumbnail){
 		[self.activityIndicator stopAnimating];
         self.posterImageView.image = [UIImage imageWithData:self.file.computedThumbnail];
     } else {
@@ -102,7 +106,7 @@
 	float lastPosition = [[self.file lastPosition] floatValue];
 	self.progressView.progress = lastPosition;
 	self.progressView.hidden = (lastPosition < 0.1f);
-	
+
 	NSMutableString * subtitle = [[NSMutableString alloc] init];
 	if (self.file.duration) {
 		[subtitle appendFormat:@"%@ - ", [VLCTime timeWithNumber:[self.file duration]]];
@@ -111,9 +115,9 @@
     if ([self.file videoTrack]) {
         [subtitle appendFormat:@" - %@x%@", [[self.file videoTrack] valueForKey:@"width"], [[self.file videoTrack] valueForKey:@"height"]];
     }
-	
+
 	self.subtitleLabel.text = subtitle;
-	
+
 	[subtitle release];
 }
 @end
