@@ -22,6 +22,8 @@
 #pragma mark Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // This will mark crashy files
+    [[MLMediaLibrary sharedMediaLibrary] applicationWillStart];
 
     [_window addSubview:self.navigationController.view];
     [_window makeKeyAndVisible];
