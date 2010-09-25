@@ -36,7 +36,7 @@ static NSString * MVLCMovieGridViewCellEditModeOutAnimation = @"MVLCMovieGridVie
 	self.backgroundColor = color;
     self.selectionGlowColor = [UIColor colorWithWhite:1.0 alpha:0.2];
     self.selectionGlowShadowRadius = 40;
-    self.selectionStyle = AQGridViewCellSelectionStyleGlow;
+    self.selectionStyle = AQGridViewCellSeparatorStyleNone;
     [self.posterImageView setClipsToBounds:YES];
 	self.style = MVLCMovieGridViewCellStyleNone;
     self.editMode = NO;
