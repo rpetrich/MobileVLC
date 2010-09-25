@@ -18,9 +18,10 @@ typedef enum {
 	MVLCMovieGridViewCellStyleNone   = 3
 } MVLCMovieGridViewCellStyle;
 
-@interface MVLCMovieGridViewCell : AQGridViewCell {
+@interface MVLCMovieGridViewCell : AQGridViewCell <UIAlertViewDelegate> {
 	MLFile *_file;
 	MVLCMovieGridViewCellStyle _style;
+    BOOL _editMode;
 
 	UIImageView * _overlayImageView;
 	UILabel *     _titleLabel;
@@ -29,11 +30,13 @@ typedef enum {
 	UIImageView * _hdBannerImageView;
 	UIActivityIndicatorView * _activityIndicator;
 	MVLCCircularProgressView * _progressView;
+    UIButton *    _deleteButton;
 }
 + (CGSize)cellSize;
 + (MVLCMovieGridViewCell *)cellWithReuseIdentifier:(NSString *)reuseIdentifier;
 @property (nonatomic, retain) MLFile * file;
 @property (nonatomic, assign) MVLCMovieGridViewCellStyle style;
+@property (nonatomic, assign) BOOL editMode;
 @property (nonatomic, retain) IBOutlet UIImageView * overlayImageView;
 @property (nonatomic, retain) IBOutlet UILabel * titleLabel;
 @property (nonatomic, retain) IBOutlet UILabel * subtitleLabel;
@@ -41,6 +44,8 @@ typedef enum {
 @property (nonatomic, retain) IBOutlet UIImageView * hdBannerImageView;
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView * activityIndicator;
 @property (nonatomic, retain) IBOutlet MVLCCircularProgressView * progressView;
+@property (nonatomic, retain) IBOutlet UIButton * deleteButton;
+- (IBAction)deleteFile:(id)sender;
 @end
 
 @interface MVLCMovieGridViewCell (InterfaceBuilder)

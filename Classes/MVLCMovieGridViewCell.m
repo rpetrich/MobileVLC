@@ -10,6 +10,10 @@
 #import "MLShowEpisode.h"
 #import <MobileVLCKit/MobileVLCKit.h>
 #import "MLFile+HD.h"
+#import "AQGridView.h"
+#import "MVLCMovieListViewController.h"
+
+static NSString * MVLCMovieGridViewCellEditModeOutAnimation = @"MVLCMovieGridViewCellEditModeOutAnimation";
 
 @interface MVLCMovieGridViewCell (PrivateInSuper)
 @property (nonatomic, retain) NSString * reuseIdentifier;
@@ -22,7 +26,7 @@
 @end
 
 @implementation MVLCMovieGridViewCell
-@synthesize file=_file, style=_style, titleLabel=_titleLabel, subtitleLabel=_subtitleLabel, overlayImageView=_overlayImageView, posterImageView=_posterImageView, hdBannerImageView=_hdBannerImageView, progressView=_progressView;
+@synthesize file=_file, style=_style, titleLabel=_titleLabel, subtitleLabel=_subtitleLabel, overlayImageView=_overlayImageView, posterImageView=_posterImageView, hdBannerImageView=_hdBannerImageView, progressView=_progressView, deleteButton=_deleteButton;
 @synthesize activityIndicator=_activityIndicator;
 
 - (void)awakeFromNib {
@@ -32,9 +36,10 @@
 	self.backgroundColor = color;
     self.selectionGlowColor = [UIColor colorWithWhite:1.0 alpha:0.2];
     self.selectionGlowShadowRadius = 40;
-    self.selectionStyle = AQGridViewCellSelectionStyleGlow;
+    self.selectionStyle = AQGridViewCellSeparatorStyleNone;
     [self.posterImageView setClipsToBounds:YES];
 	self.style = MVLCMovieGridViewCellStyleNone;
+    self.editMode = NO;
 }
 
 + (CGSize)cellSize {
@@ -116,6 +121,43 @@
 	return _file;
 }
 
+- (void)setEditMode:(BOOL)editMode {
+    _editMode = editMode;
+    if (self.editMode) {
+        self.deleteButton.hidden = NO;
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        self.deleteButton.alpha = 1.0f;
+        [UIView commitAnimations];
+    } else {
+        [UIView beginAnimations:MVLCMovieGridViewCellEditModeOutAnimation context:NULL];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        self.deleteButton.alpha = 0.0f;
+        [UIView commitAnimations];
+    }
+}
+
+- (BOOL)editMode {
+    return _editMode;
+}
+
+- (IBAction)deleteFile:(id)sender {
+    UIAlertView * deletionAlertView = [[UIAlertView alloc] initWithTitle:@"Delete video"
+                                                                 message:[NSString stringWithFormat:@"Are you sure you want to delete \"%@\"?", self.file.title]
+                                                                delegate:self
+                                                       cancelButtonTitle:@"Delete"
+                                                       otherButtonTitles:@"Cancel", nil];
+    [deletionAlertView show];
+    [deletionAlertView release];
+}
+
+- (void)animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
+	if ([animationID isEqualToString:MVLCMovieGridViewCellEditModeOutAnimation] && [finished boolValue]) {
+        self.deleteButton.hidden = YES;
+	}
+}
+
+
 - (void)dealloc {
     // FIXME: We need to remove the observers at some point.
     // We should use -viewWillDisapear
@@ -131,6 +173,20 @@
 	[_file release];
     [super dealloc];
 }
+
+#pragma mark -
+#pragma mark UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) { // "Delete" button was pressed
+        if ([[self superview] isKindOfClass:[AQGridView class]]) {
+            if ([[(AQGridView *)[self superview] dataSource] isKindOfClass:[MVLCMovieListViewController class]]) {
+                MVLCMovieListViewController * mlvController = (MVLCMovieListViewController *)[(AQGridView *)[self superview] dataSource];
+                [mlvController deleteFile:self.file];
+            }
+        }
+    }
+}
+
 @end
 
 @implementation MVLCMovieGridViewCell (Private)

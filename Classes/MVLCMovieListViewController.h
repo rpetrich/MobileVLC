@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "AQGridView.h"
 #import "MVLCNoMediaViewController.h"
+#import <MediaLibraryKit/MLFile.h>
 
 @interface MVLCMovieListViewController : UIViewController <AQGridViewDataSource, AQGridViewDelegate, UITableViewDataSource, UITableViewDelegate> {
 	AQGridView *      _gridView;  // Used on the iPad
-	UITableView *     _tableView; // Used on the iPhone
+	UITableView *     _tableView; // Used on the iPhone / iPod
 	NSMutableArray *  _allMedia;
 	CGAffineTransform _lastTransform;
 	MVLCNoMediaViewController * _noMediaViewController;
@@ -23,4 +24,5 @@
 - (IBAction)showAboutScreen:(id)sender;
 - (IBAction)toggleEditMode:(id)sender;
 - (void)reloadMedia;
+- (void)deleteFile:(MLFile *)file;
 @end

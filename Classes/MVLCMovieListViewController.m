@@ -110,9 +110,12 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 }
 
 - (void)reloadMedia {
+    [[MLMediaLibrary sharedMediaLibrary] updateDatabase];
+
 	[_allMedia release];
 	_allMedia = [[NSMutableArray arrayWithArray:[MLFile allFiles]] retain];
 	[_gridView reloadData];
+    [_tableView reloadData];
 
 	if ([_allMedia count] == 0 && self.noMediaViewController) { // Checking for self.noMediaViewController is important because on load it might be nil
 		[self presentModalViewController:self.noMediaViewController animated:NO];
@@ -131,6 +134,22 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 
 - (IBAction)toggleEditMode:(id)sender {
 	[self _setEditMode:![self _isInEditMode]];
+}
+
+- (void)deleteFile:(MLFile *)file {
+    MVLCLog(@"Deleting file %@", file);
+    NSInteger indexOfFile = [_allMedia indexOfObject:file];
+
+    [[NSFileManager defaultManager] removeItemAtPath:[[NSURL URLWithString:file.url] path] error:nil];
+    [_allMedia removeObjectAtIndex:indexOfFile];
+
+    [_tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:indexOfFile inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+    [_gridView deleteItemsAtIndices:[NSIndexSet indexSetWithIndex:indexOfFile] withAnimation:AQGridViewItemAnimationFade];
+
+    // When deleting a file, we have to update other cell's 'parity' so that they get the right background
+    for (NSInteger cellIndex=indexOfFile; cellIndex < [_allMedia count]; cellIndex++) {
+        [(MVLCMovieTableViewCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:cellIndex inSection:0]] setEven:((cellIndex%2) == 0)];
+    }
 }
 
 #pragma mark -
@@ -215,7 +234,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 #pragma mark AQGridViewDelegate
 - (void)gridView:(AQGridView *)gridView didSelectItemAtIndex:(NSUInteger)index {
 	MVLCMovieGridViewCell * cell = (MVLCMovieGridViewCell *)[gridView cellForItemAtIndex:index];
-	if (cell == nil) {
+	if (cell == nil || cell.editMode) {
 		return;
 	}
 	MVLCAssert([cell isKindOfClass:[MVLCMovieGridViewCell class]], @"Unexpected cell class !");
@@ -295,13 +314,18 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 	MVLCMovieViewController * movieViewController = [[MVLCMovieViewController alloc] init];
 	movieViewController.file = file;
 	[self.navigationController pushViewController:movieViewController animated:YES];
-	//				[movieViewController release]; // FIXME: VLCKit bug
+    [movieViewController release];
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
 	return UITableViewCellEditingStyleDelete;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete && tableView == _tableView) {
+        [self deleteFile:[_allMedia objectAtIndex:[indexPath row]]];
+    }
+}
 
 #pragma mark -
 #pragma mark UIViewAnimationDelegate
@@ -318,7 +342,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 				MVLCMovieViewController * movieViewController = [[MVLCMovieViewController alloc] init];
 				movieViewController.file = file;
 				[self.navigationController pushViewController:movieViewController animated:NO];
-//				[movieViewController release]; // FIXME: VLCKit bug
+				[movieViewController release];
 			}
 		}
 	}
@@ -359,6 +383,11 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 
 - (void)_setEditMode:(BOOL)editMode {
 	[_tableView setEditing:editMode animated:YES];
+    if (_gridView) {
+        for (NSUInteger i = 0; i < [_allMedia count]; i++) {
+            [(MVLCMovieGridViewCell *)[_gridView cellForItemAtIndex:i] setEditMode:editMode];
+        }
+    }
 	if (editMode) {
 		self.editBarButtonItem.style = UIBarButtonItemStyleDone;
 		self.editBarButtonItem.title = @"Done";

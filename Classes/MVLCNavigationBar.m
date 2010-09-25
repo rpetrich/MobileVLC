@@ -16,10 +16,9 @@
 	}
 
 	UIImageView * dropShadowView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MVLCNavigationBarShadow.png"]];
-	dropShadowView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+	dropShadowView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
 	[self addSubview:dropShadowView];
 	dropShadowView.frame = CGRectMake(0.0f, 44.0f, self.bounds.size.width, 10.0f);
-	dropShadowView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
 	[dropShadowView release];
 
 	self.clipsToBounds = NO;
