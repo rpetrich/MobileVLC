@@ -136,6 +136,18 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 
 - (void)deleteFile:(MLFile *)file {
     MVLCLog(@"Deleting file %@", file);
+    NSInteger indexOfFile = [_allMedia indexOfObject:file];
+
+    // FIXME: Temporary HACK
+    [_allMedia removeObjectAtIndex:indexOfFile]; // Should be [self reloadMedia];
+
+    [_tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:indexOfFile inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+    [_gridView deleteItemsAtIndices:[NSIndexSet indexSetWithIndex:indexOfFile] withAnimation:AQGridViewItemAnimationFade];
+
+    // When deleting a file, we have to update other cell's 'parity' so that they get the right background
+    for (NSInteger cellIndex=indexOfFile; cellIndex < [_allMedia count]; cellIndex++) {
+        [(MVLCMovieTableViewCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:cellIndex inSection:0]] setEven:((cellIndex%2) == 0)];
+    }
 }
 
 #pragma mark -
