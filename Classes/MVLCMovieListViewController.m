@@ -312,7 +312,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 	MVLCMovieViewController * movieViewController = [[MVLCMovieViewController alloc] init];
 	movieViewController.file = file;
 	[self.navigationController pushViewController:movieViewController animated:YES];
-	//				[movieViewController release]; // FIXME: VLCKit bug
+    [movieViewController release];
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -340,7 +340,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 				MVLCMovieViewController * movieViewController = [[MVLCMovieViewController alloc] init];
 				movieViewController.file = file;
 				[self.navigationController pushViewController:movieViewController animated:NO];
-//				[movieViewController release]; // FIXME: VLCKit bug
+				[movieViewController release];
 			}
 		}
 	}
