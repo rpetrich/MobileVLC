@@ -140,12 +140,13 @@ static NSString * MVLCMovieGridViewCellEditModeOutAnimation = @"MVLCMovieGridVie
 }
 
 - (IBAction)deleteFile:(id)sender {
-    if ([[self superview] isKindOfClass:[AQGridView class]]) {
-        if ([[(AQGridView *)[self superview] dataSource] isKindOfClass:[MVLCMovieListViewController class]]) {
-            MVLCMovieListViewController * mlvController = (MVLCMovieListViewController *)[(AQGridView *)[self superview] dataSource];
-            [mlvController deleteFile:self.file];
-        }
-    }
+    UIAlertView * deletionAlertView = [[UIAlertView alloc] initWithTitle:@"Delete video"
+                                                                 message:[NSString stringWithFormat:@"Are you sure you want to delete \"%@\"?", self.file.title]
+                                                                delegate:self
+                                                       cancelButtonTitle:@"Delete"
+                                                       otherButtonTitles:@"Cancel", nil];
+    [deletionAlertView show];
+    [deletionAlertView release];
 }
 
 - (void)animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
@@ -170,6 +171,20 @@ static NSString * MVLCMovieGridViewCellEditModeOutAnimation = @"MVLCMovieGridVie
 	[_file release];
     [super dealloc];
 }
+
+#pragma mark -
+#pragma mark UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) { // "Delete" button was pressed
+        if ([[self superview] isKindOfClass:[AQGridView class]]) {
+            if ([[(AQGridView *)[self superview] dataSource] isKindOfClass:[MVLCMovieListViewController class]]) {
+                MVLCMovieListViewController * mlvController = (MVLCMovieListViewController *)[(AQGridView *)[self superview] dataSource];
+                [mlvController deleteFile:self.file];
+            }
+        }
+    }
+}
+
 @end
 
 @implementation MVLCMovieGridViewCell (Private)

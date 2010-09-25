@@ -18,7 +18,7 @@ typedef enum {
 	MVLCMovieGridViewCellStyleNone   = 3
 } MVLCMovieGridViewCellStyle;
 
-@interface MVLCMovieGridViewCell : AQGridViewCell {
+@interface MVLCMovieGridViewCell : AQGridViewCell <UIAlertViewDelegate> {
 	MLFile *_file;
 	MVLCMovieGridViewCellStyle _style;
     BOOL _editMode;
