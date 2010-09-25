@@ -66,9 +66,7 @@
             [filePaths addObject:[directoryPath stringByAppendingPathComponent:fileName]];
         }
     }
-	MLMediaLibrary * mediaLibrary = [MLMediaLibrary sharedMediaLibrary];
-    [mediaLibrary updateDatabase];
-    [mediaLibrary addFilePaths:filePaths];
+    [[MLMediaLibrary sharedMediaLibrary] addFilePaths:filePaths];
 	[self.movieListViewController reloadMedia];
 }
 @end

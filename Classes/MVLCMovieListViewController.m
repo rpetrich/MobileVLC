@@ -110,6 +110,8 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 }
 
 - (void)reloadMedia {
+    [[MLMediaLibrary sharedMediaLibrary] updateDatabase];
+
 	[_allMedia release];
 	_allMedia = [[NSMutableArray arrayWithArray:[MLFile allFiles]] retain];
 	[_gridView reloadData];
@@ -138,8 +140,8 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
     MVLCLog(@"Deleting file %@", file);
     NSInteger indexOfFile = [_allMedia indexOfObject:file];
 
-    // FIXME: Temporary HACK
-    [_allMedia removeObjectAtIndex:indexOfFile]; // Should be [self reloadMedia];
+    [[NSFileManager defaultManager] removeItemAtPath:[[NSURL URLWithString:file.url] path] error:nil];
+    [_allMedia removeObjectAtIndex:indexOfFile];
 
     [_tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:indexOfFile inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
     [_gridView deleteItemsAtIndices:[NSIndexSet indexSetWithIndex:indexOfFile] withAnimation:AQGridViewItemAnimationFade];
