@@ -133,6 +133,10 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 	[self _setEditMode:![self _isInEditMode]];
 }
 
+- (void)deleteFile:(MLFile *)file {
+    MVLCLog(@"Deleting file %@", file);
+}
+
 #pragma mark -
 #pragma mark View life cycle
 - (void)viewWillAppear:(BOOL)animated {
@@ -302,6 +306,11 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 	return UITableViewCellEditingStyleDelete;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete && tableView == _tableView) {
+        [self deleteFile:[_allMedia objectAtIndex:[indexPath row]]];
+    }
+}
 
 #pragma mark -
 #pragma mark UIViewAnimationDelegate
@@ -359,6 +368,11 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 
 - (void)_setEditMode:(BOOL)editMode {
 	[_tableView setEditing:editMode animated:YES];
+    if (_gridView) {
+        for (NSUInteger i = 0; i < [_allMedia count]; i++) {
+            [(MVLCMovieGridViewCell *)[_gridView cellForItemAtIndex:i] setEditMode:editMode];
+        }
+    }
 	if (editMode) {
 		self.editBarButtonItem.style = UIBarButtonItemStyleDone;
 		self.editBarButtonItem.title = @"Done";

@@ -10,6 +10,10 @@
 #import "MLShowEpisode.h"
 #import <MobileVLCKit/MobileVLCKit.h>
 #import "MLFile+HD.h"
+#import "AQGridView.h"
+#import "MVLCMovieListViewController.h"
+
+static NSString * MVLCMovieGridViewCellEditModeOutAnimation = @"MVLCMovieGridViewCellEditModeOutAnimation";
 
 @interface MVLCMovieGridViewCell (PrivateInSuper)
 @property (nonatomic, retain) NSString * reuseIdentifier;
@@ -22,7 +26,7 @@
 @end
 
 @implementation MVLCMovieGridViewCell
-@synthesize file=_file, style=_style, titleLabel=_titleLabel, subtitleLabel=_subtitleLabel, overlayImageView=_overlayImageView, posterImageView=_posterImageView, hdBannerImageView=_hdBannerImageView, progressView=_progressView;
+@synthesize file=_file, style=_style, titleLabel=_titleLabel, subtitleLabel=_subtitleLabel, overlayImageView=_overlayImageView, posterImageView=_posterImageView, hdBannerImageView=_hdBannerImageView, progressView=_progressView, deleteButton=_deleteButton;
 @synthesize activityIndicator=_activityIndicator;
 
 - (void)awakeFromNib {
@@ -35,6 +39,7 @@
     self.selectionStyle = AQGridViewCellSelectionStyleGlow;
     [self.posterImageView setClipsToBounds:YES];
 	self.style = MVLCMovieGridViewCellStyleNone;
+    self.editMode = NO;
 }
 
 + (CGSize)cellSize {
@@ -113,6 +118,42 @@
 - (MLFile *)file {
 	return _file;
 }
+
+- (void)setEditMode:(BOOL)editMode {
+    _editMode = editMode;
+    if (self.editMode) {
+        self.deleteButton.hidden = NO;
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        self.deleteButton.alpha = 1.0f;
+        [UIView commitAnimations];
+    } else {
+        [UIView beginAnimations:MVLCMovieGridViewCellEditModeOutAnimation context:NULL];
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        self.deleteButton.alpha = 0.0f;
+        [UIView commitAnimations];
+    }
+}
+
+- (BOOL)editMode {
+    return _editMode;
+}
+
+- (IBAction)deleteFile:(id)sender {
+    if ([[self superview] isKindOfClass:[AQGridView class]]) {
+        if ([[(AQGridView *)[self superview] dataSource] isKindOfClass:[MVLCMovieListViewController class]]) {
+            MVLCMovieListViewController * mlvController = (MVLCMovieListViewController *)[(AQGridView *)[self superview] dataSource];
+            [mlvController deleteFile:self.file];
+        }
+    }
+}
+
+- (void)animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
+	if ([animationID isEqualToString:MVLCMovieGridViewCellEditModeOutAnimation] && [finished boolValue]) {
+        self.deleteButton.hidden = YES;
+	}
+}
+
 
 - (void)dealloc {
     // FIXME: We need to remove the observers at some point.
