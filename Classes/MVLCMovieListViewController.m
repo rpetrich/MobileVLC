@@ -219,7 +219,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 #pragma mark AQGridViewDelegate
 - (void)gridView:(AQGridView *)gridView didSelectItemAtIndex:(NSUInteger)index {
 	MVLCMovieGridViewCell * cell = (MVLCMovieGridViewCell *)[gridView cellForItemAtIndex:index];
-	if (cell == nil) {
+	if (cell == nil || cell.editMode) {
 		return;
 	}
 	MVLCAssert([cell isKindOfClass:[MVLCMovieGridViewCell class]], @"Unexpected cell class !");
