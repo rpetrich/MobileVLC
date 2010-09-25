@@ -113,6 +113,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 	[_allMedia release];
 	_allMedia = [[NSMutableArray arrayWithArray:[MLFile allFiles]] retain];
 	[_gridView reloadData];
+    [_tableView reloadData];
 
 	if ([_allMedia count] == 0 && self.noMediaViewController) { // Checking for self.noMediaViewController is important because on load it might be nil
 		[self presentModalViewController:self.noMediaViewController animated:NO];
