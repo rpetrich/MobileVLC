@@ -92,7 +92,7 @@
 - (void)_refreshFromFile {
 	self.titleLabel.text = self.file.title;
 
-	if (!self.file.isSafe) {
+	if (!self.file.isSafe || self.file.thumbnailTimeouted) {
         [self.activityIndicator stopAnimating];
         self.posterImageView.image = [UIImage imageNamed:@"MVLCMovieGridViewCellBomb.png"];
     }

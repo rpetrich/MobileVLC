@@ -95,6 +95,7 @@
         [_file removeObserver:self forKeyPath:@"tracks"];
         [_file removeObserver:self forKeyPath:@"duration"];
         [_file removeObserver:self forKeyPath:@"isSafe"];
+        [_file removeObserver:self forKeyPath:@"thumbnailTimeouted"];
         [_file didHide];
 		[_file release];
 		_file = [file retain];
@@ -105,6 +106,7 @@
         [_file addObserver:self forKeyPath:@"tracks" options:0 context:nil];
         [_file addObserver:self forKeyPath:@"duration" options:0 context:nil];
         [_file addObserver:self forKeyPath:@"isSafe" options:0 context:nil];
+        [_file addObserver:self forKeyPath:@"thumbnailTimeouted" options:0 context:nil];
         [_file willDisplay];
 	}
 	[self _refreshFromFile];
@@ -181,7 +183,7 @@
 
     [self.activityIndicator stopAnimating];
 
-    if (!self.file.isSafe) {
+    if (!self.file.isSafe || self.file.thumbnailTimeouted) {
         self.posterImageView.image = [UIImage imageNamed:@"MVLCMovieGridViewCellBomb.png"];
     }
 	else if (file.computedThumbnail) {
