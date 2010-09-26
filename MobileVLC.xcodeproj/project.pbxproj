@@ -82,6 +82,7 @@
 		7AB796A31212DB0C00A3204A /* MVLCNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB796A21212DB0C00A3204A /* MVLCNavigationBar.m */; };
 		7AB796C41212DC8800A3204A /* MVLCNavigationBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB796C31212DC8800A3204A /* MVLCNavigationBarBackground.png */; };
 		7AB797001212E02000A3204A /* MVLCNavigationBarShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB796FF1212E02000A3204A /* MVLCNavigationBarShadow.png */; };
+		7AEE2AF8124F65110067F0ED /* MVLCDocumentIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AEE2AF7124F65110067F0ED /* MVLCDocumentIcon.png */; };
 		7AF81730122E651400DAE803 /* MLFile+HD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF8172F122E651400DAE803 /* MLFile+HD.m */; };
 		7AF81764122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF81763122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png */; };
 		7AF8177B122E6D2200DAE803 /* MVLCAboutApplidiumLink.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF8177A122E6D2200DAE803 /* MVLCAboutApplidiumLink.png */; };
@@ -200,6 +201,7 @@
 		7AB796A21212DB0C00A3204A /* MVLCNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLCNavigationBar.m; sourceTree = "<group>"; };
 		7AB796C31212DC8800A3204A /* MVLCNavigationBarBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCNavigationBarBackground.png; path = Resources/MVLCNavigationBarBackground.png; sourceTree = "<group>"; };
 		7AB796FF1212E02000A3204A /* MVLCNavigationBarShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCNavigationBarShadow.png; path = Resources/MVLCNavigationBarShadow.png; sourceTree = "<group>"; };
+		7AEE2AF7124F65110067F0ED /* MVLCDocumentIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCDocumentIcon.png; path = Resources/MVLCDocumentIcon.png; sourceTree = "<group>"; };
 		7AF8172E122E651400DAE803 /* MLFile+HD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MLFile+HD.h"; sourceTree = "<group>"; };
 		7AF8172F122E651400DAE803 /* MLFile+HD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MLFile+HD.m"; sourceTree = "<group>"; };
 		7AF81763122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieGridViewCellHDBanner.png; path = Resources/MVLCMovieGridViewCellHDBanner.png; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 				7A3E16ED124CB29400FD354F /* MVLCIcon_57.png */,
 				7A3E16EE124CB29400FD354F /* MVLCIcon_72.png */,
 				7A3E16EF124CB29400FD354F /* MVLCIcon_114.png */,
+				7AEE2AF7124F65110067F0ED /* MVLCDocumentIcon.png */,
 				7A4FEA1C1223D41800C93740 /* MVLCDefault-Landscape.png */,
 				7A4FEA1D1223D41800C93740 /* MVLCDefault-Portrait.png */,
 				7AB24CA812158D1A0078E739 /* MVLCBackgroundPattern.png */,
@@ -640,6 +643,7 @@
 				7A3E16F2124CB29400FD354F /* MVLCIcon_114.png in Resources */,
 				63A0656D124C0CA90001E110 /* MVLCMovieGridViewCellBomb.png in Resources */,
 				7A3E17CB124D20AD00FD354F /* MVLCMovieGridViewCellDelete.png in Resources */,
+				7AEE2AF8124F65110067F0ED /* MVLCDocumentIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

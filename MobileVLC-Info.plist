@@ -47,5 +47,28 @@
 	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleBlackOpaque</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>Video file</string>
+			<key>CFBundleTypeIconFiles</key>
+			<array>
+				<string>MVLCDocumentIcon.png</string>
+			</array>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.microsoft.advanced-systems-format</string>
+				<string>com.microsoft.windows-media-wmv</string>
+				<string>public.3gpp</string>
+				<string>public.mpeg-4</string>
+				<string>com.microsoft.windows-media-wm</string>
+				<string>com.microsoft.windows-media-wmv</string>
+				<string>com.real.realmedia</string>
+				<string>com.apple.quicktime-movie</string>
+				<string>public.avi</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
