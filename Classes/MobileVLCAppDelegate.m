@@ -9,6 +9,7 @@
 #import "MobileVLCAppDelegate.h"
 #import "MLMediaLibrary.h"
 #import <MobileVLCKit/MobileVLCKit.h>
+#import "MVLCMovieViewController.h"
 
 @interface MobileVLCAppDelegate (Private)
 - (void)_updateMediaLibrary;
@@ -27,6 +28,16 @@
 
     [_window addSubview:self.navigationController.view];
     [_window makeKeyAndVisible];
+
+    NSURL * urlToOpen = [launchOptions objectForKey:UIApplicationLaunchOptionsURLKey];
+    if (urlToOpen != nil) {
+        // We were started to open a given URL
+        MVLCLog(@"Opening URL %@", urlToOpen);
+        MVLCMovieViewController * movieViewController = [[MVLCMovieViewController alloc] init];
+        movieViewController.url = urlToOpen;
+        [self.navigationController presentModalViewController:movieViewController animated:YES];
+        [movieViewController release];
+    }
 
     return YES;
 }
