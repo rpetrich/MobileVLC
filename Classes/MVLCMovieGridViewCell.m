@@ -192,7 +192,7 @@ static NSString * MVLCMovieGridViewCellEditModeOutAnimation = @"MVLCMovieGridVie
 @implementation MVLCMovieGridViewCell (Private)
 + (UIImage *)imageFromFile:(MLFile *)file {
 #define MVLC_MOVIE_GRID_IMAGE_CACHE_SIZE 32
-#if MVLC_MOVIE_GRID_USE_IMAGE_CACHE > 0
+#if MVLC_MOVIE_GRID_IMAGE_CACHE_SIZE > 0
     // This does UIImage caching as it appears that loading the PNG files is what slows down the app (up to 75% CPU in ImageIO/libz)
     static NSMutableDictionary * sImageCache = nil;
     static NSMutableArray *      sImageCacheExpirationQueue = nil;
