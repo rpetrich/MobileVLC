@@ -13,6 +13,8 @@
 
 @interface MVLCMovieViewController : UIViewController <VLCMediaPlayerDelegate, UIAlertViewDelegate> {
 	MLFile *         _file;
+    NSURL *          _url; // Either one file *or* one url should be specified
+
 	VLCMediaPlayer * _mediaPlayer;
 	UIView *         _movieView;
 	UIView *         _HUDView;
@@ -26,6 +28,7 @@
 	UINavigationController * _navigationController;
 }
 @property (nonatomic, retain) MLFile * file;
+@property (nonatomic, retain) NSURL * url;
 @property (nonatomic, retain) IBOutlet UIView * movieView;
 @property (nonatomic, retain) IBOutlet UIView * HUDView;
 @property (nonatomic, retain) IBOutlet UIView * topView;

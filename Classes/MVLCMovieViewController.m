@@ -15,7 +15,7 @@ static NSString * MVLCMovieViewControllerHUDFadeInAnimation = @"MVLCMovieViewCon
 static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewControllerHUDFadeOutAnimation";
 
 @implementation MVLCMovieViewController
-@synthesize movieView=_movieView, file=_file, positionSlider=_positionSlider, playOrPauseButton=_playOrPauseButton, volumeSlider=_volumeSlider, HUDView=_HUDView, topView=_topView, remainingTimeLabel=_remainingTimeLabel;
+@synthesize movieView=_movieView, file=_file, url=_url, positionSlider=_positionSlider, playOrPauseButton=_playOrPauseButton, volumeSlider=_volumeSlider, HUDView=_HUDView, topView=_topView, remainingTimeLabel=_remainingTimeLabel;
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	_mediaPlayer = [[VLCMediaPlayer alloc] init];
@@ -39,15 +39,19 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 	[_navigationController setNavigationBarHidden:YES animated:animated];
 //	[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
 	[self addObserver:self forKeyPath:@"file" options:0 context:nil];
-	[_mediaPlayer setMedia:[VLCMedia mediaWithURL:[NSURL URLWithString:self.file.url]]];
-	if (self.file.isHD) {
+    if (self.file) {
+        [_mediaPlayer setMedia:[VLCMedia mediaWithURL:[NSURL URLWithString:self.file.url]]];
+    } else if (self.url) {
+        [_mediaPlayer setMedia:[VLCMedia mediaWithURL:self.url]];
+    }
+	if (self.file && self.file.isHD) {
 		UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Your iPad is probably too slow to play this movie correctly." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Try anyway", nil];
 		[alertView show];
 		[alertView release];
 	} else {
 		[_mediaPlayer play];
 	}
-    if (self.file.lastPosition && [self.file.lastPosition floatValue] < 0.99) {
+    if (self.file && self.file.lastPosition && [self.file.lastPosition floatValue] < 0.99) {
         [_mediaPlayer setPosition:[self.file.lastPosition floatValue]];
 	}
 }
@@ -68,7 +72,9 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 
 - (void)viewDidDisappear:(BOOL)animated {
 	[super viewDidDisappear:animated];
-    self.file.lastPosition = [NSNumber numberWithFloat:[_mediaPlayer position]];
+    if (self.file) {
+        self.file.lastPosition = [NSNumber numberWithFloat:[_mediaPlayer position]];
+    }
 	[_mediaPlayer stop];
 }
 
@@ -79,6 +85,7 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 	[_positionSlider release];
 	[_movieView release];
 	[_mediaPlayer release];
+    [_url release];
 	[_file release];
     [super dealloc];
 }
@@ -160,7 +167,11 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 }
 
 - (IBAction)dismiss:(id)sender {
-	[self.navigationController popViewControllerAnimated:_wasPushedAnimated];
+    if (self.navigationController) {
+        [self.navigationController popViewControllerAnimated:_wasPushedAnimated];
+    } else {
+        [self.parentViewController dismissModalViewControllerAnimated:YES];
+    }
 }
 
 #pragma mark -
