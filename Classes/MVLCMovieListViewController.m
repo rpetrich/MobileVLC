@@ -161,8 +161,10 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 
 - (void)viewWillDisappear:(BOOL)animated {
 	[super viewWillDisappear:animated];
-	_lastTransform = self._animatedView.transform;
-	self._animatedView.transform = CGAffineTransformIdentity;
+    if (! animated) { // Don't do custom animation if one is already going on
+        _lastTransform = self._animatedView.transform;
+        self._animatedView.transform = CGAffineTransformIdentity;
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -173,8 +175,11 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 - (void)viewDidAppear:(BOOL)animated {
 	[[MLMediaLibrary sharedMediaLibrary] libraryDidAppear];
 
-	// Let's start the "zoom-out" animation
-	self._animatedView.transform = _lastTransform;
+    if (! animated) {
+        // Let's start the "zoom-out" animation
+        // Unless there's already an animation going on
+        self._animatedView.transform = _lastTransform;
+    }
 	NSUInteger lastSelectionIndex = _gridView.indexOfSelectedItem;
 	[_gridView deselectItemAtIndex:lastSelectionIndex animated:animated]; // Let's also enforce the de-selection
 	[_gridView.delegate gridView:_gridView didDeselectItemAtIndex:lastSelectionIndex]; // For some reason, AQGridView doesn't do this
