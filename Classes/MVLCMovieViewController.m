@@ -45,7 +45,11 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
         [_mediaPlayer setMedia:[VLCMedia mediaWithURL:self.url]];
     }
 	if (self.file && self.file.isHD) {
-		UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"Your iPad is probably too slow to play this movie correctly." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Try anyway", nil];
+		UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"Warning"
+															 message:[@"Your __MVLC_DEVICE__ is probably too slow to play this movie correctly." stringByReplacingOccurrencesOfString:@"__MVLC_DEVICE__" withString:[UIDevice currentDevice].model]
+															delegate:self
+												   cancelButtonTitle:@"Cancel"
+												   otherButtonTitles:@"Try anyway", nil];
 		[alertView show];
 		[alertView release];
 	} else {
