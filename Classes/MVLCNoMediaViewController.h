@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MVLCNoMediaViewController : UIViewController {
+	UILabel * _explanationLabel;
 }
+@property (nonatomic, retain) IBOutlet UILabel * explanationLabel;
 @end

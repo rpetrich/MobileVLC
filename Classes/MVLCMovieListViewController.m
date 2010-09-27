@@ -1,4 +1,4 @@
-    //
+//
 //  MVLCMovieListViewController.m
 //  MobileVLC
 //
@@ -27,7 +27,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 @end
 
 @implementation MVLCMovieListViewController
-@synthesize noMediaViewController=_noMediaViewController, editBarButtonItem=_editBarButtonItem;
+@synthesize editBarButtonItem=_editBarButtonItem;
 
 #pragma mark -
 #pragma mark Creation / deletion
@@ -98,6 +98,12 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 
 	_lastTransform = CGAffineTransformIdentity;
 
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		_noMediaViewController = [[MVLCNoMediaViewController alloc] initWithNibName:@"MVLCNoMediaView_iPad" bundle:nil];
+	} else {
+		_noMediaViewController = [[MVLCNoMediaViewController alloc] initWithNibName:@"MVLCNoMediaView_iPhone" bundle:nil];
+	}
+
 	[self reloadMedia];
 }
 
@@ -117,8 +123,8 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 	[_gridView reloadData];
     [_tableView reloadData];
 
-	if ([_allMedia count] == 0 && self.noMediaViewController) { // Checking for self.noMediaViewController is important because on load it might be nil
-		[self presentModalViewController:self.noMediaViewController animated:NO];
+	if ([_allMedia count] == 0 && _noMediaViewController) { // Checking for _noMediaViewController is important because on load it might be nil
+		[self presentModalViewController:_noMediaViewController animated:NO];
 	} else {
 		[self dismissModalViewControllerAnimated:NO];
 	}

@@ -19,7 +19,6 @@
 	MVLCNoMediaViewController * _noMediaViewController;
 	UIBarButtonItem * _editBarButtonItem;
 }
-@property (nonatomic, retain) IBOutlet MVLCNoMediaViewController * noMediaViewController;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem * editBarButtonItem;
 - (IBAction)showAboutScreen:(id)sender;
 - (IBAction)toggleEditMode:(id)sender;

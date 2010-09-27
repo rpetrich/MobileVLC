@@ -57,6 +57,8 @@
 		7A5ECB8011DE96CB00F66AF3 /* libMobileVLCKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECB7F11DE96C400F66AF3 /* libMobileVLCKit.a */; };
 		7A5ECBC011DE994500F66AF3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECBBF11DE994500F66AF3 /* libz.dylib */; };
 		7A5ECC1511DE9C6900F66AF3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECC1411DE9C6900F66AF3 /* libsqlite3.dylib */; };
+		7A69488112510C2800EF1627 /* MVLCNoMediaView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A69488012510C2800EF1627 /* MVLCNoMediaView_iPad.xib */; };
+		7A69488412510C5E00EF1627 /* MVLCNoMediaView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A69488312510C5E00EF1627 /* MVLCNoMediaView_iPhone.xib */; };
 		7A6B8414121411A200CEE18F /* MVLCMovieListBackgroundLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A6B8412121411A200CEE18F /* MVLCMovieListBackgroundLandscape.png */; };
 		7A6B8415121411A200CEE18F /* MVLCMovieListBackgroundPortrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A6B8413121411A200CEE18F /* MVLCMovieListBackgroundPortrait.png */; };
 		7A6B84261214148300CEE18F /* MVLCMovieGridViewCellOverlayCenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A6B84231214148300CEE18F /* MVLCMovieGridViewCellOverlayCenter.png */; };
@@ -64,7 +66,6 @@
 		7A6B84281214148300CEE18F /* MVLCMovieGridViewCellOverlayRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A6B84251214148300CEE18F /* MVLCMovieGridViewCellOverlayRight.png */; };
 		7A79DF11122BBF8700845971 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A79DF10122BBF8700845971 /* MediaPlayer.framework */; };
 		7A79E096122C11FC00845971 /* MVLCNoMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A79E095122C11FC00845971 /* MVLCNoMediaViewController.m */; };
-		7A79E099122C122200845971 /* MVLCNoMediaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A79E098122C122200845971 /* MVLCNoMediaView.xib */; };
 		7A79E09C122C127500845971 /* MVLCNoMediaImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A79E09B122C127500845971 /* MVLCNoMediaImage.png */; };
 		7A87ECAC11E3A1DD007BE827 /* MVLCMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */; };
 		7A87ECD611E3A33E007BE827 /* MVLCMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */; };
@@ -172,6 +173,8 @@
 		7A5ECBA211DE977A00F66AF3 /* MobileVLCKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileVLCKit.h; sourceTree = "<group>"; };
 		7A5ECBBF11DE994500F66AF3 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		7A5ECC1411DE9C6900F66AF3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		7A69488012510C2800EF1627 /* MVLCNoMediaView_iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCNoMediaView_iPad.xib; path = Resources/MVLCNoMediaView_iPad.xib; sourceTree = "<group>"; };
+		7A69488312510C5E00EF1627 /* MVLCNoMediaView_iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCNoMediaView_iPhone.xib; path = Resources/MVLCNoMediaView_iPhone.xib; sourceTree = "<group>"; };
 		7A6B8412121411A200CEE18F /* MVLCMovieListBackgroundLandscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieListBackgroundLandscape.png; path = Resources/MVLCMovieListBackgroundLandscape.png; sourceTree = "<group>"; };
 		7A6B8413121411A200CEE18F /* MVLCMovieListBackgroundPortrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieListBackgroundPortrait.png; path = Resources/MVLCMovieListBackgroundPortrait.png; sourceTree = "<group>"; };
 		7A6B84231214148300CEE18F /* MVLCMovieGridViewCellOverlayCenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieGridViewCellOverlayCenter.png; path = Resources/MVLCMovieGridViewCellOverlayCenter.png; sourceTree = "<group>"; };
@@ -180,7 +183,6 @@
 		7A79DF10122BBF8700845971 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		7A79E094122C11FC00845971 /* MVLCNoMediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLCNoMediaViewController.h; sourceTree = "<group>"; };
 		7A79E095122C11FC00845971 /* MVLCNoMediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLCNoMediaViewController.m; sourceTree = "<group>"; };
-		7A79E098122C122200845971 /* MVLCNoMediaView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCNoMediaView.xib; path = Resources/MVLCNoMediaView.xib; sourceTree = "<group>"; };
 		7A79E09B122C127500845971 /* MVLCNoMediaImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCNoMediaImage.png; path = Resources/MVLCNoMediaImage.png; sourceTree = "<group>"; };
 		7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MVLCMainWindow.xib; path = Resources/MVLCMainWindow.xib; sourceTree = "<group>"; };
 		7A87ECD411E3A33E007BE827 /* MVLCMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLCMovieViewController.h; sourceTree = "<group>"; };
@@ -528,8 +530,9 @@
 			children = (
 				7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */,
 				7A350A9A11EB7D7F00B80E7C /* MVLCMovieListView.xib */,
-				7A79E098122C122200845971 /* MVLCNoMediaView.xib */,
 				7A3B2C2D11EC877000A01E01 /* MVLCMovieGridViewCell.xib */,
+				7A69488012510C2800EF1627 /* MVLCNoMediaView_iPad.xib */,
+				7A69488312510C5E00EF1627 /* MVLCNoMediaView_iPhone.xib */,
 				7A03833C124A0ECC00A4F404 /* MVLCMovieTableViewCell.xib */,
 				7A87ECD911E3A356007BE827 /* MVLCMovieView.xib */,
 				7AB24C78121589D30078E739 /* MVLCAboutView.xib */,
@@ -631,7 +634,6 @@
 				7AB24D2112159B140078E739 /* MVLCAboutContent.html in Resources */,
 				7A4FEA1E1223D41800C93740 /* MVLCDefault-Landscape.png in Resources */,
 				7A4FEA1F1223D41800C93740 /* MVLCDefault-Portrait.png in Resources */,
-				7A79E099122C122200845971 /* MVLCNoMediaView.xib in Resources */,
 				7A79E09C122C127500845971 /* MVLCNoMediaImage.png in Resources */,
 				7AF81764122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png in Resources */,
 				7AF8177B122E6D2200DAE803 /* MVLCAboutApplidiumLink.png in Resources */,
@@ -644,6 +646,8 @@
 				63A0656D124C0CA90001E110 /* MVLCMovieGridViewCellBomb.png in Resources */,
 				7A3E17CB124D20AD00FD354F /* MVLCMovieGridViewCellDelete.png in Resources */,
 				7AEE2AF8124F65110067F0ED /* MVLCDocumentIcon.png in Resources */,
+				7A69488112510C2800EF1627 /* MVLCNoMediaView_iPad.xib in Resources */,
+				7A69488412510C5E00EF1627 /* MVLCNoMediaView_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
