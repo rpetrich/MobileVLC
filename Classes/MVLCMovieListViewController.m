@@ -133,7 +133,13 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 #pragma mark -
 #pragma mark Actions
 - (IBAction)showAboutScreen:(id)sender {
-	MVLCAboutViewController * aboutViewController = [[MVLCAboutViewController alloc] initWithNibName:@"MVLCAboutView" bundle:nil];
+	MVLCAboutViewController * aboutViewController = nil;
+
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		aboutViewController = [[MVLCAboutViewController alloc] initWithNibName:@"MVLCAboutView_iPad" bundle:nil];
+	} else {
+		aboutViewController = [[MVLCAboutViewController alloc] initWithNibName:@"MVLCAboutView_iPhone" bundle:nil];
+	}
 	[self.navigationController pushViewController:aboutViewController animated:YES];
 	[aboutViewController release];
 }
