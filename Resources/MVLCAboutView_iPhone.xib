@@ -57,13 +57,11 @@
 					</object>
 					<object class="IBUINavigationBar" id="757973439">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">290</int>
+						<int key="NSvFlags">266</int>
 						<string key="NSFrame">{{0, 372}, {320, 44}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<object class="NSArray" key="IBUIItems">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-						</object>
+						<reference key="IBUIItems" ref="0"/>
 					</object>
 					<object class="IBUIButton" id="769939611">
 						<reference key="NSNextResponder" ref="191373211"/>
