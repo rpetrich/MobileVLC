@@ -24,6 +24,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 - (MVLCMovieGridViewCellStyle)_styleForCellAtIndex:(NSUInteger)index inGridView:(AQGridView *)gridView;
 - (void)_setEditMode:(BOOL)editMode;
 - (BOOL)_isInEditMode;
+- (void)_presentNoMediaViewControllerIfNeeded;
 @end
 
 @implementation MVLCMovieListViewController
@@ -123,11 +124,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 	[_gridView reloadData];
     [_tableView reloadData];
 
-	if ([_allMedia count] == 0 && _noMediaViewController) { // Checking for _noMediaViewController is important because on load it might be nil
-		[self presentModalViewController:_noMediaViewController animated:NO];
-	} else {
-		[self dismissModalViewControllerAnimated:NO];
-	}
+    [self _presentNoMediaViewControllerIfNeeded];
 }
 
 #pragma mark -
@@ -162,6 +159,8 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
     for (NSInteger cellIndex=indexOfFile; cellIndex < [_allMedia count]; cellIndex++) {
         [(MVLCMovieTableViewCell *)[_tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:cellIndex inSection:0]] setEven:((cellIndex%2) == 0)];
     }
+
+    [self _presentNoMediaViewControllerIfNeeded];
 }
 
 #pragma mark -
@@ -416,5 +415,13 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 
 - (BOOL)_isInEditMode {
 	return (self.editBarButtonItem.style == UIBarButtonItemStyleDone);
+}
+
+- (void)_presentNoMediaViewControllerIfNeeded {
+	if ([_allMedia count] == 0 && _noMediaViewController) { // Checking for _noMediaViewController is important because on load it might be nil
+		[self presentModalViewController:_noMediaViewController animated:NO];
+	} else {
+		[self dismissModalViewControllerAnimated:NO];
+	}
 }
 @end
