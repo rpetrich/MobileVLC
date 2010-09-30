@@ -16,6 +16,16 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 
 @implementation MVLCMovieViewController
 @synthesize movieView=_movieView, file=_file, url=_url, positionSlider=_positionSlider, playOrPauseButton=_playOrPauseButton, volumeSlider=_volumeSlider, HUDView=_HUDView, topView=_topView, remainingTimeLabel=_remainingTimeLabel;
+
+- (id)init {
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		self = [super initWithNibName:@"MVLCMovieView_iPad" bundle:nil];
+	} else {
+		self = [super initWithNibName:@"MVLCMovieView_iPhone" bundle:nil];
+	}
+	return self;
+}
+
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	_mediaPlayer = [[VLCMediaPlayer alloc] init];
@@ -203,16 +213,26 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 
 - (void)mediaPlayerStateChanged:(NSNotification *)aNotification {
 	// FIXME: Refresh the UI (change Play/Pause for instance)
-    UIImage *playPauseImage;
-    if ([_mediaPlayer state] == VLCMediaPlayerStatePaused)
-        playPauseImage = [UIImage imageNamed:@"MVLCMovieViewHUDPlay.png"];
-    else
-        playPauseImage = [UIImage imageNamed:@"MVLCMovieViewHUDPause.png"];
+    UIImage *playPauseImage = nil;
+    if ([_mediaPlayer state] == VLCMediaPlayerStatePaused) {
+		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+			playPauseImage = [UIImage imageNamed:@"MVLCMovieViewHUDPlay_iPad.png"];
+		} else {
+			playPauseImage = [UIImage imageNamed:@"MVLCMovieViewHUDPlay_iPhone.png"];
+		}
+	} else {
+		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+			playPauseImage = [UIImage imageNamed:@"MVLCMovieViewHUDPause_iPad.png"];
+		} else {
+			playPauseImage = [UIImage imageNamed:@"MVLCMovieViewHUDPause_iPhone.png"];
+		}
+	}
 
-    if ([_mediaPlayer state] == VLCMediaPlayerStatePlaying)
+    if ([_mediaPlayer state] == VLCMediaPlayerStatePlaying) {
         [UIApplication sharedApplication].idleTimerDisabled = YES;
-    else
+	} else {
         [UIApplication sharedApplication].idleTimerDisabled = NO;
+	}
 
     [self.playOrPauseButton setImage:playPauseImage forState:UIControlStateNormal];
 }
