@@ -233,10 +233,9 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 		cell = [MVLCMovieGridViewCell cellWithReuseIdentifier:MVLCMovieListGridCellIdentifier];
 	}
     MLFile *file = [_allMedia objectAtIndex:index];
-
-//	MVLCLog(@"%d columns, index=%d, style = %d", gridView.numberOfColumns, index, cell.style);
 	cell.style = [self _styleForCellAtIndex:index inGridView:gridView];
     cell.file = file;
+	cell.editMode = [self _isInEditMode];
 	return cell;
 }
 
