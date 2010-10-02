@@ -98,7 +98,7 @@
     }
     else if (self.file.computedThumbnail){
 		[self.activityIndicator stopAnimating];
-        self.posterImageView.image = [UIImage imageWithData:self.file.computedThumbnail];
+        self.posterImageView.image = self.file.computedThumbnail;
     } else {
         [self.activityIndicator startAnimating];
         self.posterImageView.image = nil;
