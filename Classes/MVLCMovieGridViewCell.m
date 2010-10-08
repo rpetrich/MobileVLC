@@ -209,7 +209,7 @@ static NSString * MVLCMovieGridViewCellEditModeOutAnimation = @"MVLCMovieGridVie
             [sImageCache removeObjectForKey:[sImageCacheExpirationQueue lastObject]];
             [sImageCacheExpirationQueue removeLastObject];
         }
-        cachedImage = [UIImage imageWithData:file.computedThumbnail];
+        cachedImage = file.computedThumbnail;
         [sImageCache setObject:cachedImage forKey:file.objectID];
         [sImageCacheExpirationQueue insertObject:file.objectID atIndex:0];
         NSLog(@"Queue = %@", sImageCacheExpirationQueue);
@@ -222,7 +222,7 @@ static NSString * MVLCMovieGridViewCellEditModeOutAnimation = @"MVLCMovieGridVie
     }
     return cachedImage;
 #else
-    return [UIImage imageWithData:file.computedThumbnail];
+    return file.computedThumbnail;
 #endif
 }
 
