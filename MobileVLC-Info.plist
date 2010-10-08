@@ -56,15 +56,20 @@
 			</array>
 			<key>LSItemContentTypes</key>
 			<array>
+				<string>public.audiovisual-content</string>
+				<string>public.movie</string>
+				<string>public.video</string>
+				<string>public.avi</string>
 				<string>com.microsoft.advanced-systems-format</string>
 				<string>com.microsoft.windows-media-wmv</string>
 				<string>public.3gpp</string>
+				<string>public.3gpp2</string>
 				<string>public.mpeg-4</string>
+				<string>public.mpeg</string>
 				<string>com.microsoft.windows-media-wm</string>
 				<string>com.microsoft.windows-media-wmv</string>
 				<string>com.real.realmedia</string>
 				<string>com.apple.quicktime-movie</string>
-				<string>public.avi</string>
 			</array>
 		</dict>
 	</array>
@@ -85,6 +90,68 @@
 			<array>
 				<string>mms</string>
 			</array>
+		</dict>
+	</array>
+	<key>UTImportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.avi</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>com.divx.divx</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>divx</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>video/x-divx</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.movie</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>org.matroska.mkv</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>mkv</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>video/x-matroska</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.movie</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>com.adobe.flash-video</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>flv</string>
+					<string>f4v</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>video/x-flv</string>
+					<string>flv-application/octet-stream</string>
+				</array>
+			</dict>
 		</dict>
 	</array>
 </dict>
