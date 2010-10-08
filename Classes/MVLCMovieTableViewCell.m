@@ -31,6 +31,10 @@
 	return cell;
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    [self _refreshFromFile];
+}
+
 - (void)dealloc {
 	self.file = nil;
 	[_activityIndicator release];
@@ -45,21 +49,21 @@
 #pragma mark Accessors
 - (void)setFile:(MLFile *)file {
 	if (file != _file) {
-//        [_file removeObserver:self forKeyPath:@"showEpisode.artworkURL"];
-//        [_file removeObserver:self forKeyPath:@"computedThumbnail"];
-//        [_file removeObserver:self forKeyPath:@"artworkURL"];
-//        [_file removeObserver:self forKeyPath:@"lastPosition"];
-//        [_file removeObserver:self forKeyPath:@"tracks"];
-//        [_file removeObserver:self forKeyPath:@"duration"];
+        [_file removeObserver:self forKeyPath:@"showEpisode.artworkURL"];
+        [_file removeObserver:self forKeyPath:@"computedThumbnail"];
+        [_file removeObserver:self forKeyPath:@"artworkURL"];
+        [_file removeObserver:self forKeyPath:@"lastPosition"];
+        [_file removeObserver:self forKeyPath:@"tracks"];
+        [_file removeObserver:self forKeyPath:@"duration"];
         [_file didHide];
 		[_file release];
 		_file = [file retain];
-//        [_file addObserver:self forKeyPath:@"showEpisode.artworkURL" options:0 context:nil];
-//        [_file addObserver:self forKeyPath:@"computedThumbnail" options:0 context:nil];
-//        [_file addObserver:self forKeyPath:@"artworkURL" options:0 context:nil];
-//        [_file addObserver:self forKeyPath:@"lastPosition" options:0 context:nil];
-//        [_file addObserver:self forKeyPath:@"tracks" options:0 context:nil];
-//        [_file addObserver:self forKeyPath:@"duration" options:0 context:nil];
+        [_file addObserver:self forKeyPath:@"showEpisode.artworkURL" options:0 context:nil];
+        [_file addObserver:self forKeyPath:@"computedThumbnail" options:0 context:nil];
+        [_file addObserver:self forKeyPath:@"artworkURL" options:0 context:nil];
+        [_file addObserver:self forKeyPath:@"lastPosition" options:0 context:nil];
+        [_file addObserver:self forKeyPath:@"tracks" options:0 context:nil];
+        [_file addObserver:self forKeyPath:@"duration" options:0 context:nil];
         [_file willDisplay];
 	}
 	[self _refreshFromFile];
@@ -94,7 +98,7 @@
 
 	if (!self.file.isSafe || self.file.thumbnailTimeouted) {
         [self.activityIndicator stopAnimating];
-        self.posterImageView.image = [UIImage imageNamed:@"MVLCMovieGridViewCellBomb.png"];
+        self.posterImageView.image = nil;
     }
     else if (self.file.computedThumbnail){
 		[self.activityIndicator stopAnimating];
