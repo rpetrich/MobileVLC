@@ -36,6 +36,8 @@ static NSString * MVLCMovieViewControllerHUDFadeOutAnimation = @"MVLCMovieViewCo
 	tapGestureRecognizer.numberOfTouchesRequired = 1;
 	[self.movieView addGestureRecognizer:tapGestureRecognizer];
 	[tapGestureRecognizer release];
+
+	_hudVisibility = YES;
 //    [self setHudVisibility:NO]; // This triggers a bug in the transition animation on the iPhone
 }
 
