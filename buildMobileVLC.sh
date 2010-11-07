@@ -51,7 +51,7 @@ git clone git://git.videolan.org/MobileVLC.git
 
 spushd vlc
 spushd extras/package/ios
-./build_for_iOS.sh $(TARGET)
+./build.sh $(TARGET)
 spopd
 spushd projects/macosx/framework
 xcodebuild -project MobileVLCKit.xcodeproj -target "Aggregate static plugins" -configuration "Release"
