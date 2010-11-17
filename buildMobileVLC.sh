@@ -22,6 +22,7 @@ spopd()
      popd 2>&1> /dev/null
 }
 
+TARGET=
 while getopts "ht:d:b:i:" OPTION
 do
      case $OPTION in
@@ -44,14 +45,20 @@ if [ "x$1" != "x" ]; then
     usage
     exit 1
 fi
-   
+
+mkdir -p ImportedSources
+
+spushd ImportedSources 
+if ! [ -e vlc ]; then
 git clone git://git.videolan.org/vlc.git
+fi
+if ! [ -e MediaLibraryKit ]; then
 git clone git://github.com/pdherbemont/MediaLibraryKit.git
-git clone git://git.videolan.org/MobileVLC.git
+fi
 
 spushd vlc
 spushd extras/package/ios
-./build.sh $(TARGET)
+./build.sh ${TARGET}
 spopd
 spushd projects/macosx/framework
 xcodebuild -project MobileVLCKit.xcodeproj -target "Aggregate static plugins" -configuration "Release"
@@ -64,7 +71,12 @@ ln -s ../../vlc/projects/macosx/framework/build/Release-iphoneos External/Mobile
 xcodebuild -project MobileMediaLibraryKit.xcodeproj -configuration "Release"
 spopd
 
-spushd MobileVLC
-ln -s ../../vlc/projects/macosx/framework/build/Release-iphoneos External/MobileVLCKit
-ln -s ../../MediaLibraryKit/build/Release-iphoneos External/MediaLibraryKit
+# Pop external
+spopd
+
+ln -s ../../ImportedSources/vlc/projects/macosx/framework/build/Release-iphoneos External/MobileVLCKit
+ln -s ../../ImportedSources/MediaLibraryKit/build/Release-iphoneos External/MediaLibraryKit
+
+# Build Mobile VLC now
+xcodebuild -project MobileVLC.xcodeproj -configuration "Release"
 spopd
