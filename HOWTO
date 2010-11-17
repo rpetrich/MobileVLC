@@ -1,0 +1,46 @@
+==============================
+==== Building VLC for iOS ====
+==============================
+
+
+1. BACKGROUND
+
+MobileVLC is the end user application.
+
+It has dependancies on:
+- MobileVLCKit (hosted in vlc.git)
+- MediaLibraryKit (in MediaLibraryKit)
+
+
+2. STEPS
+
+$ git clone git://git.videolan.org/MobileVLC.git
+$ cd MobileVLC
+$ ./buildMobileVLC.sh
+
+Voilà!
+
+
+3. WHAT IS HAPPENING
+
+buildMobileVLC.sh will download vlc.git, MediaLibraryKit.git
+in "ImportedSources" folder, and make sure we are correctly
+linking them by adding links in "External".
+
+Then it builds vlc and MobileVLCKit, MediaLibraryKit, and
+then MobileVLC.
+
+You can build each target manually by doing:
+1. vlc
+Run
+ $ cd ImportedSources/vlc; ./extras/package/ios/build.sh
+
+2. MobileVLCKit
+ $ open ImportedSources/vlc/projects/macosx/framework/MobileVLCKit.xcodeproj
+
+3. MediaLibraryKit
+ $ open ImportedSources/MediaLibraryKit/MobileMediaLibraryKit.xcodeproj
+
+4. MobileVLC
+ $ open MobileVLC.xcodeproj
+
