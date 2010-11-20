@@ -1,13 +1,19 @@
-#!/bin/bash
+#!/bin/sh
 
 set -e
+
+PLATFORM=OS
+SDK=iphoneos3.2
+VERBOSE=no
 
 usage()
 {
 cat << EOF
-usage: $0 [-s]
+usage: $0 [-s] [-v] [-k sdk]
 
 OPTIONS
+   -k       Specify which sdk to use (see 'xcodebuild -showsdks', current: ${SDK})
+   -v       Be more verbose
    -s       Build for simulator
 EOF
 }
@@ -22,16 +28,44 @@ spopd()
      popd 2>&1> /dev/null
 }
 
-TARGET=
-while getopts "ht:d:b:i:" OPTION
+info()
+{
+     local green="\033[1;32m"
+     local normal="\033[0m"
+     echo "[${green}info${normal}] $1"
+}
+
+buildxcodeproj()
+{
+    local target="$2"
+    if [ "x$target" = "x" ]; then
+        target="$1"
+    fi
+
+    info "Building $1 ($target)"
+
+    xcodebuild -project "$1.xcodeproj" \
+               -target "$target" \
+               -sdk $SDK \
+               -configuration "Release" > ${out}
+}
+
+while getopts "hvsk:" OPTION
 do
      case $OPTION in
          h)
              usage
              exit 1
              ;;
+         v)
+             VERBOSE=yes
+             ;;
          s)
-             TARGET=Simulator
+             PLATFORM=Simulator
+             SDK=iphonesimulator3.2
+             ;;
+         k)
+             SDK=$OPTARG
              ;;
          ?)
              usage
@@ -41,14 +75,27 @@ do
 done
 shift $(($OPTIND - 1))
 
+out="/dev/null"
+if [ "$VERBOSE" = "yes" ]; then
+   out="/dev/stdout"
+fi
+
 if [ "x$1" != "x" ]; then
     usage
     exit 1
 fi
 
+# Get root dir
+spushd .
+mvlc_root_dir=`pwd`
+spopd
+
+info "Preparing build dirs"
+
 mkdir -p ImportedSources
 
-spushd ImportedSources 
+spushd ImportedSources
+
 if ! [ -e vlc ]; then
 git clone git://git.videolan.org/vlc.git
 fi
@@ -56,27 +103,51 @@ if ! [ -e MediaLibraryKit ]; then
 git clone git://github.com/pdherbemont/MediaLibraryKit.git
 fi
 
-spushd vlc
-spushd extras/package/ios
-./build.sh ${TARGET}
+framework_build="${mvlc_root_dir}/ImportedSources/vlc/projects/macosx/framework/build/Release-iphoneos"
+mlkit_build="${mvlc_root_dir}/ImportedSources/MediaLibraryKit/build/Release-iphoneos"
+
+spushd MediaLibraryKit
+ln -sf ${framework_build} External/MobileVLCKit
 spopd
-spushd projects/macosx/framework
-xcodebuild -project MobileVLCKit.xcodeproj -target "Aggregate static plugins" -configuration "Release"
-xcodebuild -project MobileVLCKit.xcodeproj -target "MobileVLCKit" -configuration "Release"
+
+spopd #ImportedSources
+
+ln -sf ${framework_build} External/MobileVLCKit
+ln -sf ${mlkit_build} External/MediaLibraryKit
+
+#
+# Build time
+#
+
+info "Building"
+
+spushd ImportedSources
+
+spushd vlc/extras/package/ios
+info "Building vlc"
+args=""
+if [ "$PLATFORM" = "Simulator" ]; then
+    args="${args} -s"
+fi
+if [ "$VERBOSE" = "yes" ]; then
+    args="${args} -v"
+fi
+./build.sh ${args} -k "${SDK}"
 spopd
+
+spushd vlc/projects/macosx/framework
+buildxcodeproj MobileVLCKit "Aggregate static plugins"
+buildxcodeproj MobileVLCKit "MobileVLCKit"
 spopd
 
 spushd MediaLibraryKit
-ln -s ../../vlc/projects/macosx/framework/build/Release-iphoneos External/MobileVLCKit
-xcodebuild -project MobileMediaLibraryKit.xcodeproj -configuration "Release"
+buildxcodeproj MobileMediaLibraryKit
 spopd
 
-# Pop external
-spopd
+spopd # ImportedSources
 
-ln -s ../../ImportedSources/vlc/projects/macosx/framework/build/Release-iphoneos External/MobileVLCKit
-ln -s ../../ImportedSources/MediaLibraryKit/build/Release-iphoneos External/MediaLibraryKit
 
 # Build Mobile VLC now
-xcodebuild -project MobileVLC.xcodeproj -configuration "Release"
-spopd
+buildxcodeproj MobileVLC
+
+info "Build completed"
