@@ -44,10 +44,15 @@ buildxcodeproj()
 
     info "Building $1 ($target)"
 
+    local extra=""
+    if [ "$PLATFORM" = "Simulator" ]; then
+        extra="ARCHS=i386"
+    fi
+
     xcodebuild -project "$1.xcodeproj" \
                -target "$target" \
                -sdk $SDK \
-               -configuration "Release" > ${out}
+               -configuration "Release" ${extra} > ${out}
 }
 
 while getopts "hvsk:" OPTION
@@ -103,15 +108,23 @@ if ! [ -e MediaLibraryKit ]; then
 git clone git://github.com/pdherbemont/MediaLibraryKit.git
 fi
 
-framework_build="${mvlc_root_dir}/ImportedSources/vlc/projects/macosx/framework/build/Release-iphoneos"
-mlkit_build="${mvlc_root_dir}/ImportedSources/MediaLibraryKit/build/Release-iphoneos"
+if [ "$PLATFORM" = "Simulator" ]; then
+    xcbuilddir="build/Release-iphonesimulator"
+else
+    xcbuilddir="build/Release-iphoneos"
+fi
+framework_build="${mvlc_root_dir}/ImportedSources/vlc/projects/macosx/framework/${xcbuilddir}"
+mlkit_build="${mvlc_root_dir}/ImportedSources/MediaLibraryKit/${xcbuilddir}"
 
 spushd MediaLibraryKit
+rm External/MobileVLCKit
 ln -sf ${framework_build} External/MobileVLCKit
 spopd
 
 spopd #ImportedSources
 
+rm External/MobileVLCKit
+rm External/MediaLibraryKit
 ln -sf ${framework_build} External/MobileVLCKit
 ln -sf ${mlkit_build} External/MediaLibraryKit
 
