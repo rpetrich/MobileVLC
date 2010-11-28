@@ -117,14 +117,14 @@ framework_build="${mvlc_root_dir}/ImportedSources/vlc/projects/macosx/framework/
 mlkit_build="${mvlc_root_dir}/ImportedSources/MediaLibraryKit/${xcbuilddir}"
 
 spushd MediaLibraryKit
-rm External/MobileVLCKit
+rm -f External/MobileVLCKit
 ln -sf ${framework_build} External/MobileVLCKit
 spopd
 
 spopd #ImportedSources
 
-rm External/MobileVLCKit
-rm External/MediaLibraryKit
+rm -f External/MobileVLCKit
+rm -f External/MediaLibraryKit
 ln -sf ${framework_build} External/MobileVLCKit
 ln -sf ${mlkit_build} External/MediaLibraryKit
 
