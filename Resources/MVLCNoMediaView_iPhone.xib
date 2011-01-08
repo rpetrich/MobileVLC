@@ -102,8 +102,8 @@
 						<string type="base64-UTF8" key="IBUIText">WW91IGN1cnJlbnRseSBkb27igJl0IGhhdmUgYW55IHZpZGVvIGluIHlvdXIgVkxDIGxpYnJhcnkuIFRv
 IGFkZCBzb21lIHZpZGVvcyBmb3IgcGxheWJhY2sgOg0NICAtIEluc3RhbGwgT3BlblNTSCB2aWEgQ3lk
 aWENICAtIENvbm5lY3QgdXNpbmcgeW91ciBmYXZvcml0ZSBTRlRQIGNsaWVudA0gIC0gQnJvd3NlIHRv
-IC92YXIvbW9iaWxlL0RvY3VtZW50cw0gIC0gVXBsb2FkIHlvdXIgdmlkZW9zDSAgLSBDbG9zZSBhbmQg
-cmVvcGVuIFZMQw</string>
+IC92YXIvbW9iaWxlL01lZGlhDSAgLSBVcGxvYWQgeW91ciB2aWRlb3MNICAtIENsb3NlIGFuZCByZW9w
+ZW4gVkxDA</string>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Helvetica</string>
 							<double key="NSSize">14</double>

@@ -69,8 +69,9 @@
 #if TARGET_IPHONE_SIMULATOR && PIERRE_LE_GROS_CRADE
     NSString *directoryPath = @"/Users/steg/Movies";
 #else
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *directoryPath = [paths objectAtIndex:0];
+    /*NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *directoryPath = [paths objectAtIndex:0];*/
+	NSString *directoryPath = @"/var/mobile/Media";
 #endif
     MVLCLog(@"Scanning %@", directoryPath);
     NSArray *fileNames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directoryPath error:nil];
