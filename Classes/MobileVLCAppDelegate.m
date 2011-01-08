@@ -8,6 +8,7 @@
 
 #import "MobileVLCAppDelegate.h"
 #import "MLMediaLibrary.h"
+#import "JailbreakMediaLibrary.h"
 #import <MobileVLCKit/MobileVLCKit.h>
 #import "MVLCMovieViewController.h"
 
@@ -24,7 +25,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // This will mark crashy files
-    [[MLMediaLibrary sharedMediaLibrary] applicationWillStart];
+    [[JailbreakMediaLibrary sharedMediaLibrary] applicationWillStart];
 
     [_window addSubview:self.navigationController.view];
     [_window makeKeyAndVisible];
@@ -48,7 +49,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [[MLMediaLibrary sharedMediaLibrary] applicationWillExit];
+    [[JailbreakMediaLibrary sharedMediaLibrary] applicationWillExit];
 }
 
 #pragma mark -
@@ -79,7 +80,7 @@
             [filePaths addObject:[directoryPath stringByAppendingPathComponent:fileName]];
         }
     }
-    [[MLMediaLibrary sharedMediaLibrary] addFilePaths:filePaths];
+    [[JailbreakMediaLibrary sharedMediaLibrary] addFilePaths:filePaths];
 	[self.movieListViewController reloadMedia];
 }
 @end

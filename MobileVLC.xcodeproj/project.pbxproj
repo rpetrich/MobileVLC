@@ -102,6 +102,8 @@
 		7AF81764122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF81763122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png */; };
 		9447FFA312D87F6600FC66E3 /* libMobileMediaLibraryKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9447FF8B12D87EEB00FC66E3 /* libMobileMediaLibraryKit.a */; };
 		9447FFB712D87FDF00FC66E3 /* libMobileVLCKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9447FFB212D87FBE00FC66E3 /* libMobileVLCKit.a */; };
+		9447FFCF12D881FD00FC66E3 /* JailbreakMediaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 9447FFCE12D881FD00FC66E3 /* JailbreakMediaLibrary.m */; };
+		9447FFE512D883B000FC66E3 /* MediaLibrary.xcdatamodel in Resources */ = {isa = PBXBuildFile; fileRef = 63C092EE11F77D0A00A824BC /* MediaLibrary.xcdatamodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -270,6 +272,8 @@
 		8D1107310486CEB800E47090 /* MobileVLC-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MobileVLC-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		9447FF8312D87EEB00FC66E3 /* MobileMediaLibraryKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MobileMediaLibraryKit.xcodeproj; path = ../../iphone/MobileVLC/ImportedSources/MediaLibraryKit/MobileMediaLibraryKit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		9447FFA912D87FBE00FC66E3 /* MobileVLCKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MobileVLCKit.xcodeproj; path = ../../iphone/MobileVLC/ImportedSources/vlc/projects/macosx/framework/MobileVLCKit.xcodeproj; sourceTree = SOURCE_ROOT; };
+		9447FFCD12D881FD00FC66E3 /* JailbreakMediaLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JailbreakMediaLibrary.h; sourceTree = "<group>"; };
+		9447FFCE12D881FD00FC66E3 /* JailbreakMediaLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JailbreakMediaLibrary.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +313,8 @@
 				7A3453A211E5FDA600A141F2 /* Controller */,
 				1D3623240D0F684500981E51 /* MobileVLCAppDelegate.h */,
 				1D3623250D0F684500981E51 /* MobileVLCAppDelegate.m */,
+				9447FFCD12D881FD00FC66E3 /* JailbreakMediaLibrary.h */,
+				9447FFCE12D881FD00FC66E3 /* JailbreakMediaLibrary.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -728,6 +734,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9447FFE512D883B000FC66E3 /* MediaLibrary.xcdatamodel in Resources */,
 				7A4BA20311EB73F30056579C /* AQGridSelection.png in Resources */,
 				7A4BA20411EB73F30056579C /* AQGridSelectionGray.png in Resources */,
 				7A4BA20511EB73F30056579C /* AQGridSelectionGrayBlue.png in Resources */,
@@ -816,6 +823,7 @@
 				7A79E096122C11FC00845971 /* MVLCNoMediaViewController.m in Sources */,
 				7AF81730122E651400DAE803 /* MLFile+HD.m in Sources */,
 				7A03822D1249F1B300A4F404 /* MVLCMovieTableViewCell.m in Sources */,
+				9447FFCF12D881FD00FC66E3 /* JailbreakMediaLibrary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

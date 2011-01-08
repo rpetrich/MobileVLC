@@ -12,6 +12,7 @@
 #import "MVLCMovieTableViewCell.h"
 #import <CoreData/CoreData.h>
 #import <MediaLibraryKit/MLMediaLibrary.h>
+#import "JailbreakMediaLibrary.h"
 #import "MVLCAboutViewController.h"
 
 #define MVLC_MOVIE_LIST_ANIMATION_DURATION 0.30f
@@ -117,7 +118,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 }
 
 - (void)reloadMedia {
-    [[MLMediaLibrary sharedMediaLibrary] updateDatabase];
+    [[JailbreakMediaLibrary sharedMediaLibrary] updateDatabase];
 
 	[_allMedia release];
 	_allMedia = [[NSMutableArray arrayWithArray:[MLFile allFiles]] retain];
@@ -179,12 +180,12 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    [[MLMediaLibrary sharedMediaLibrary] libraryDidDisappear];
+    [[JailbreakMediaLibrary sharedMediaLibrary] libraryDidDisappear];
     [super viewDidAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-	[[MLMediaLibrary sharedMediaLibrary] libraryDidAppear];
+	[[JailbreakMediaLibrary sharedMediaLibrary] libraryDidAppear];
 
     if (! animated) {
         // Let's start the "zoom-out" animation

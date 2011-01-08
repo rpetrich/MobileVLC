@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">800</int>
-		<string key="IBDocument.SystemVersion">10F569</string>
-		<string key="IBDocument.InterfaceBuilderVersion">804</string>
-		<string key="IBDocument.AppKitVersion">1038.29</string>
-		<string key="IBDocument.HIToolboxVersion">461.00</string>
+		<string key="IBDocument.SystemVersion">10J567</string>
+		<string key="IBDocument.InterfaceBuilderVersion">823</string>
+		<string key="IBDocument.AppKitVersion">1038.35</string>
+		<string key="IBDocument.HIToolboxVersion">462.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">123</string>
+			<string key="NS.object.0">132</string>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -69,7 +69,7 @@
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Connect to iTunes</string>
+						<string key="IBUIText">No Videos</string>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Helvetica-Bold</string>
 							<double key="NSSize">18</double>
@@ -100,11 +100,10 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string type="base64-UTF8" key="IBUIText">WW91IGN1cnJlbnRseSBkb27igJl0IGhhdmUgYW55IHZpZGVvIGluIHlvdXIgVkxDIGxpYnJhcnkuIFRv
-IGFkZCBzb21lIHZpZGVvcyBmb3IgcGxheWJhY2sgOg0NICAtIENvbm5lY3QgeW91ciBpUGFkIHRvIHlv
-dXIgY29tcHV0ZXIuDSAgLSBJbiBpVHVuZXMsIHNlbGVjdCB5b3VyIGlQYWQsIGFuZCB0aGVuIGNsaWNr
-IHRoZSBBcHBzIHRhYi4NICAtIEJlbG93IEZpbGUgU2hhcmluZywgc2VsZWN0IOKAnFZMQ+KAnSBmcm9t
-IHRoZSBsaXN0LCBhbmQgdGhlbiBjbGljayBBZGQuDSAgLSBJbiB0aGUgd2luZG93IHRoYXQgYXBwZWFy
-cywgc2VsZWN0IGEgZmlsZSB0byB0cmFuc2ZlciwgYW5kIHRoZW4gY2xpY2sgQ2hvb3NlLg</string>
+IGFkZCBzb21lIHZpZGVvcyBmb3IgcGxheWJhY2sgOg0NICAtIEluc3RhbGwgT3BlblNTSCB2aWEgQ3lk
+aWENICAtIENvbm5lY3QgdXNpbmcgeW91ciBmYXZvcml0ZSBTRlRQIGNsaWVudA0gIC0gQnJvd3NlIHRv
+IC92YXIvbW9iaWxlL0RvY3VtZW50cw0gIC0gVXBsb2FkIHlvdXIgdmlkZW9zDSAgLSBDbG9zZSBhbmQg
+cmVvcGVuIFZMQw</string>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Helvetica</string>
 							<double key="NSSize">14</double>
@@ -255,7 +254,7 @@ cywgc2VsZWN0IGEgZmlsZSB0byB0cmFuc2ZlciwgYW5kIHRoZW4gY2xpY2sgQ2hvb3NlLg</string>
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>MVLCNoMediaViewController</string>
 					<string>UIResponder</string>
-					<string>{{430, 412}, {320, 480}}</string>
+					<string>{{430, 376}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -601,6 +600,6 @@ cywgc2VsZWN0IGEgZmlsZSB0byB0cmFuc2ZlciwgYW5kIHRoZW4gY2xpY2sgQ2hvb3NlLg</string>
 			<string key="NS.key.0">MVLCNoMediaImage.png</string>
 			<string key="NS.object.0">{262, 196}</string>
 		</object>
-		<string key="IBCocoaTouchPluginVersion">123</string>
+		<string key="IBCocoaTouchPluginVersion">132</string>
 	</data>
 </archive>

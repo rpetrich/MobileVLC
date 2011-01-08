@@ -13,7 +13,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MVLCBackgroundPattern.png"]];
-	_explanationLabel.text = [@"You currently don’t have any video in your VLC library. To add some videos for playback :\n  - Connect your __MVLC_DEVICE__ to your computer.\n  - In iTunes, select your __MVLC_DEVICE__, and then click the Apps tab.\n  - Below File Sharing, select \"VLC\" from the list, and then click Add.\n  - In the window that appears, select a file to transfer, and then click Choose." stringByReplacingOccurrencesOfString:@"__MVLC_DEVICE__" withString:[UIDevice currentDevice].model];
+	//_explanationLabel.text = [@"You currently don’t have any video in your VLC library. To add some videos for playback :\n  - Connect your __MVLC_DEVICE__ to your computer.\n  - In iTunes, select your __MVLC_DEVICE__, and then click the Apps tab.\n  - Below File Sharing, select \"VLC\" from the list, and then click Add.\n  - In the window that appears, select a file to transfer, and then click Choose." stringByReplacingOccurrencesOfString:@"__MVLC_DEVICE__" withString:[UIDevice currentDevice].model];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {

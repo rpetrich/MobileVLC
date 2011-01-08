@@ -1,0 +1,11 @@
+Package: com.rpetrich.vlc
+Priority: optional
+Section: Entertainment
+Architecture: iphoneos-arm
+Version: 1.1.0
+Description: It plays everything!
+Name: VLC media player
+Depends: firmware (>= 3.0)
+Author: VideoLAN project
+Maintainer: Ryan Petrich <rpetrich@gmail.com>
+Icon: file:///Applications/VLC.app/Icon.png
