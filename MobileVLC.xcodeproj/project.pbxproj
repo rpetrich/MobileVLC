@@ -14,7 +14,6 @@
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		631866CD11EE4D5100AB038D /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 631866CC11EE4D5100AB038D /* libxml2.dylib */; };
 		631866D111EE4D5B00AB038D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631866D011EE4D5B00AB038D /* CoreData.framework */; };
-		6320373211F77236002861C2 /* libMobileMediaLibraryKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6320373111F77236002861C2 /* libMobileMediaLibraryKit.a */; };
 		636E9D8411ED3E29002FE8A9 /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 636E9D8311ED3E29002FE8A9 /* libbz2.dylib */; };
 		6376443F1205C33C00E48F8B /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6376443E1205C33C00E48F8B /* CoreText.framework */; };
 		63C092EF11F77D0A00A824BC /* MediaLibrary.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 63C092EE11F77D0A00A824BC /* MediaLibrary.xcdatamodel */; };
@@ -72,7 +71,6 @@
 		7A5ECA1D11DE783500F66AF3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECA1C11DE783500F66AF3 /* AudioToolbox.framework */; };
 		7A5ECA2111DE783F00F66AF3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECA2011DE783F00F66AF3 /* QuartzCore.framework */; };
 		7A5ECA2511DE784D00F66AF3 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECA2411DE784D00F66AF3 /* libiconv.dylib */; };
-		7A5ECB8011DE96CB00F66AF3 /* libMobileVLCKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECB7F11DE96C400F66AF3 /* libMobileVLCKit.a */; };
 		7A5ECBC011DE994500F66AF3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECBBF11DE994500F66AF3 /* libz.dylib */; };
 		7A5ECC1511DE9C6900F66AF3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECC1411DE9C6900F66AF3 /* libsqlite3.dylib */; };
 		7A69488112510C2800EF1627 /* MVLCNoMediaView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A69488012510C2800EF1627 /* MVLCNoMediaView_iPad.xib */; };
@@ -102,7 +100,40 @@
 		7AEE2AF8124F65110067F0ED /* MVLCDocumentIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AEE2AF7124F65110067F0ED /* MVLCDocumentIcon.png */; };
 		7AF81730122E651400DAE803 /* MLFile+HD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF8172F122E651400DAE803 /* MLFile+HD.m */; };
 		7AF81764122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF81763122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png */; };
+		9447FFA312D87F6600FC66E3 /* libMobileMediaLibraryKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9447FF8B12D87EEB00FC66E3 /* libMobileMediaLibraryKit.a */; };
+		9447FFB712D87FDF00FC66E3 /* libMobileVLCKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9447FFB212D87FBE00FC66E3 /* libMobileVLCKit.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9447FF8A12D87EEB00FC66E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9447FF8312D87EEB00FC66E3 /* MobileMediaLibraryKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libMobileMediaLibraryKit.a */;
+			remoteInfo = MobileMediaLibraryKit;
+		};
+		9447FF8C12D87EFA00FC66E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9447FF8312D87EEB00FC66E3 /* MobileMediaLibraryKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D /* MobileMediaLibraryKit */;
+			remoteInfo = MobileMediaLibraryKit;
+		};
+		9447FFB112D87FBE00FC66E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9447FFA912D87FBE00FC66E3 /* MobileVLCKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libMobileVLCKit.a */;
+			remoteInfo = MobileVLCKit;
+		};
+		9447FFB512D87FD500FC66E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9447FFA912D87FBE00FC66E3 /* MobileVLCKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D /* MobileVLCKit */;
+			remoteInfo = MobileVLCKit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -115,7 +146,6 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		631866CC11EE4D5100AB038D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		631866D011EE4D5B00AB038D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		6320373111F77236002861C2 /* libMobileMediaLibraryKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobileMediaLibraryKit.a; sourceTree = "<group>"; };
 		636E9D8311ED3E29002FE8A9 /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = usr/lib/libbz2.dylib; sourceTree = SDKROOT; };
 		6376443E1205C33C00E48F8B /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		63C0923911F7783100A824BC /* MLFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLFile.h; sourceTree = "<group>"; };
@@ -196,7 +226,6 @@
 		7A5ECA1C11DE783500F66AF3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		7A5ECA2011DE783F00F66AF3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7A5ECA2411DE784D00F66AF3 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
-		7A5ECB7F11DE96C400F66AF3 /* libMobileVLCKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobileVLCKit.a; sourceTree = "<group>"; };
 		7A5ECB9511DE973100F66AF3 /* VLCAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLCAudio.h; sourceTree = "<group>"; };
 		7A5ECB9611DE973100F66AF3 /* VLCLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLCLibrary.h; sourceTree = "<group>"; };
 		7A5ECB9711DE973100F66AF3 /* VLCMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLCMedia.h; sourceTree = "<group>"; };
@@ -239,6 +268,8 @@
 		7AF8172F122E651400DAE803 /* MLFile+HD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MLFile+HD.m"; sourceTree = "<group>"; };
 		7AF81763122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieGridViewCellHDBanner.png; path = Resources/MVLCMovieGridViewCellHDBanner.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MobileVLC-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MobileVLC-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		9447FF8312D87EEB00FC66E3 /* MobileMediaLibraryKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MobileMediaLibraryKit.xcodeproj; path = ../../iphone/MobileVLC/ImportedSources/MediaLibraryKit/MobileMediaLibraryKit.xcodeproj; sourceTree = SOURCE_ROOT; };
+		9447FFA912D87FBE00FC66E3 /* MobileVLCKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MobileVLCKit.xcodeproj; path = ../../iphone/MobileVLC/ImportedSources/vlc/projects/macosx/framework/MobileVLCKit.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,7 +277,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A5ECB8011DE96CB00F66AF3 /* libMobileVLCKit.a in Frameworks */,
+				9447FFA312D87F6600FC66E3 /* libMobileMediaLibraryKit.a in Frameworks */,
+				9447FFB712D87FDF00FC66E3 /* libMobileVLCKit.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
@@ -260,7 +292,6 @@
 				636E9D8411ED3E29002FE8A9 /* libbz2.dylib in Frameworks */,
 				631866CD11EE4D5100AB038D /* libxml2.dylib in Frameworks */,
 				631866D111EE4D5B00AB038D /* CoreData.framework in Frameworks */,
-				6320373211F77236002861C2 /* libMobileMediaLibraryKit.a in Frameworks */,
 				6376443F1205C33C00E48F8B /* CoreText.framework in Frameworks */,
 				7A79DF11122BBF8700845971 /* MediaPlayer.framework in Frameworks */,
 			);
@@ -348,9 +379,9 @@
 		6320372A11F77236002861C2 /* MediaLibraryKit */ = {
 			isa = PBXGroup;
 			children = (
+				9447FF8312D87EEB00FC66E3 /* MobileMediaLibraryKit.xcodeproj */,
 				63C092EE11F77D0A00A824BC /* MediaLibrary.xcdatamodel */,
 				63C0923711F7783100A824BC /* include */,
-				6320373111F77236002861C2 /* libMobileMediaLibraryKit.a */,
 			);
 			path = MediaLibraryKit;
 			sourceTree = "<group>";
@@ -515,8 +546,8 @@
 		7A5ECB7711DE96C400F66AF3 /* MobileVLCKit */ = {
 			isa = PBXGroup;
 			children = (
+				9447FFA912D87FBE00FC66E3 /* MobileVLCKit.xcodeproj */,
 				7A5ECB9311DE973100F66AF3 /* include */,
-				7A5ECB7F11DE96C400F66AF3 /* libMobileVLCKit.a */,
 			);
 			path = MobileVLCKit;
 			sourceTree = "<group>";
@@ -602,6 +633,22 @@
 			name = Pictures;
 			sourceTree = "<group>";
 		};
+		9447FF8412D87EEB00FC66E3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9447FF8B12D87EEB00FC66E3 /* libMobileMediaLibraryKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9447FFAA12D87FBE00FC66E3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9447FFB212D87FBE00FC66E3 /* libMobileVLCKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -616,6 +663,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				9447FF8D12D87EFA00FC66E3 /* PBXTargetDependency */,
+				9447FFB612D87FD500FC66E3 /* PBXTargetDependency */,
 			);
 			name = MobileVLC;
 			productName = MobileVLC;
@@ -640,12 +689,39 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9447FF8412D87EEB00FC66E3 /* Products */;
+					ProjectRef = 9447FF8312D87EEB00FC66E3 /* MobileMediaLibraryKit.xcodeproj */;
+				},
+				{
+					ProductGroup = 9447FFAA12D87FBE00FC66E3 /* Products */;
+					ProjectRef = 9447FFA912D87FBE00FC66E3 /* MobileVLCKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* MobileVLC */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9447FF8B12D87EEB00FC66E3 /* libMobileMediaLibraryKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMobileMediaLibraryKit.a;
+			remoteRef = 9447FF8A12D87EEB00FC66E3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9447FFB212D87FBE00FC66E3 /* libMobileVLCKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMobileVLCKit.a;
+			remoteRef = 9447FFB112D87FBE00FC66E3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
@@ -744,6 +820,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9447FF8D12D87EFA00FC66E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MobileMediaLibraryKit;
+			targetProxy = 9447FF8C12D87EFA00FC66E3 /* PBXContainerItemProxy */;
+		};
+		9447FFB612D87FD500FC66E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MobileVLCKit;
+			targetProxy = 9447FFB512D87FD500FC66E3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
