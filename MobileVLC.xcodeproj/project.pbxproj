@@ -123,7 +123,7 @@
 		63C0923B11F7783100A824BC /* MLMediaLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLMediaLibrary.h; sourceTree = "<group>"; };
 		63C0923C11F7783100A824BC /* MLShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLShow.h; sourceTree = "<group>"; };
 		63C0923D11F7783100A824BC /* MLShowEpisode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLShowEpisode.h; sourceTree = "<group>"; };
-		63C092EE11F77D0A00A824BC /* MediaLibrary.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = MediaLibrary.xcdatamodel; path = ../MediaLibraryKit/MediaLibrary.xcdatamodel; sourceTree = SOURCE_ROOT; };
+		63C092EE11F77D0A00A824BC /* MediaLibrary.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = MediaLibrary.xcdatamodel; path = ImportedSources/MediaLibraryKit/MediaLibrary.xcdatamodel; sourceTree = SOURCE_ROOT; };
 		7A03822B1249F1B300A4F404 /* MVLCMovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLCMovieTableViewCell.h; sourceTree = "<group>"; };
 		7A03822C1249F1B300A4F404 /* MVLCMovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLCMovieTableViewCell.m; sourceTree = "<group>"; };
 		7A038290124A021200A4F404 /* MVLCMovieTableViewCellBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieTableViewCellBackground.png; path = Resources/MVLCMovieTableViewCellBackground.png; sourceTree = "<group>"; };
