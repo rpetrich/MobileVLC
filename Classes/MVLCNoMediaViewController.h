@@ -10,6 +10,8 @@
 
 @interface MVLCNoMediaViewController : UIViewController {
 	UILabel * _explanationLabel;
+	UILabel * _titleLabel;
 }
 @property (nonatomic, retain) IBOutlet UILabel * explanationLabel;
+@property (nonatomic, retain) IBOutlet UILabel * titleLabel;
 @end

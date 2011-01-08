@@ -1,0 +1,15 @@
+Package: com.zodttd.vlc4iphone
+Priority: optional
+Section: Entertainment
+Architecture: iphoneos-arm
+Version: 1:1.1.1
+Description: It plays everything!
+Website: http://cydia.zodttd.com/repo/cydiathemes/depiction/vlc4iphone/
+Depiction: http://cydia.zodttd.com/repo/cydiathemes/depiction/vlc4iphone/
+Name: VLC media player
+Depends: firmware (>= 3.2), gsc.armv7
+Conflicts: com.rpetrich.vlc
+Replaces: com.rpetrich.vlc
+Author: VideoLAN, Applidium, rpetrich
+Maintainer: ZodTTD <zodttd@zodttd.com>
+Icon: file:///Applications/VLC.app/Icon.png

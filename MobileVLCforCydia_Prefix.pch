@@ -9,7 +9,7 @@
 
 #import "MobileVLC.h"
 
-#define MOBILEVLC_FOR_CYDIA 0
+#define MOBILEVLC_FOR_CYDIA 1
 
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>

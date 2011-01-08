@@ -100,37 +100,150 @@
 		7AEE2AF8124F65110067F0ED /* MVLCDocumentIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AEE2AF7124F65110067F0ED /* MVLCDocumentIcon.png */; };
 		7AF81730122E651400DAE803 /* MLFile+HD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF8172F122E651400DAE803 /* MLFile+HD.m */; };
 		7AF81764122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF81763122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png */; };
+		9447008312D8E31100FC66E3 /* AQGridSelection.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4BA1ED11EB737B0056579C /* AQGridSelection.png */; };
+		9447008412D8E31100FC66E3 /* AQGridSelectionGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4BA1EE11EB737B0056579C /* AQGridSelectionGray.png */; };
+		9447008512D8E31100FC66E3 /* AQGridSelectionGrayBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4BA1EF11EB737B0056579C /* AQGridSelectionGrayBlue.png */; };
+		9447008612D8E31100FC66E3 /* AQGridSelectionGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4BA1F011EB737B0056579C /* AQGridSelectionGreen.png */; };
+		9447008712D8E31100FC66E3 /* AQGridSelectionRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4BA1F111EB737B0056579C /* AQGridSelectionRed.png */; };
+		9447008812D8E31100FC66E3 /* MVLCMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A87ECAB11E3A1DD007BE827 /* MVLCMainWindow.xib */; };
+		9447008912D8E31100FC66E3 /* MVLCMovieListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A350A9A11EB7D7F00B80E7C /* MVLCMovieListView.xib */; };
+		9447008A12D8E31100FC66E3 /* MVLCMovieGridViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A3B2C2D11EC877000A01E01 /* MVLCMovieGridViewCell.xib */; };
+		9447008B12D8E31100FC66E3 /* MVLCNavigationBarBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB796C31212DC8800A3204A /* MVLCNavigationBarBackground.png */; };
+		9447008C12D8E31100FC66E3 /* MVLCNavigationBarShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB796FF1212E02000A3204A /* MVLCNavigationBarShadow.png */; };
+		9447008D12D8E31100FC66E3 /* MVLCMovieListBackgroundLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A6B8412121411A200CEE18F /* MVLCMovieListBackgroundLandscape.png */; };
+		9447008E12D8E31100FC66E3 /* MVLCMovieListBackgroundPortrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A6B8413121411A200CEE18F /* MVLCMovieListBackgroundPortrait.png */; };
+		9447008F12D8E31100FC66E3 /* MVLCMovieGridViewCellOverlayCenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A6B84231214148300CEE18F /* MVLCMovieGridViewCellOverlayCenter.png */; };
+		9447009012D8E31100FC66E3 /* MVLCMovieGridViewCellOverlayLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A6B84241214148300CEE18F /* MVLCMovieGridViewCellOverlayLeft.png */; };
+		9447009112D8E31100FC66E3 /* MVLCMovieGridViewCellOverlayRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A6B84251214148300CEE18F /* MVLCMovieGridViewCellOverlayRight.png */; };
+		9447009212D8E31100FC66E3 /* MVLCBackgroundPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB24CA812158D1A0078E739 /* MVLCBackgroundPattern.png */; };
+		9447009312D8E31100FC66E3 /* MVLCAboutIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AB24CE9121598980078E739 /* MVLCAboutIcon.png */; };
+		9447009412D8E31100FC66E3 /* MVLCAboutContent.html in Resources */ = {isa = PBXBuildFile; fileRef = 7AB24D2012159B140078E739 /* MVLCAboutContent.html */; };
+		9447009512D8E31100FC66E3 /* MVLCDefault-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4FEA1C1223D41800C93740 /* MVLCDefault-Landscape.png */; };
+		9447009612D8E31100FC66E3 /* MVLCDefault-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4FEA1D1223D41800C93740 /* MVLCDefault-Portrait.png */; };
+		9447009712D8E31100FC66E3 /* MVLCNoMediaImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A79E09B122C127500845971 /* MVLCNoMediaImage.png */; };
+		9447009812D8E31100FC66E3 /* MVLCMovieGridViewCellHDBanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF81763122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png */; };
+		9447009912D8E31100FC66E3 /* MVLCMovieTableViewCellBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A038290124A021200A4F404 /* MVLCMovieTableViewCellBackground.png */; };
+		9447009A12D8E31100FC66E3 /* MVLCMovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A03833C124A0ECC00A4F404 /* MVLCMovieTableViewCell.xib */; };
+		9447009B12D8E31100FC66E3 /* MVLCMovieTableViewCellSelectedBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0383FA124A46F400A4F404 /* MVLCMovieTableViewCellSelectedBackground.png */; };
+		9447009C12D8E31100FC66E3 /* MVLCIcon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3E16ED124CB29400FD354F /* MVLCIcon_57.png */; };
+		9447009D12D8E31100FC66E3 /* MVLCIcon_72.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3E16EE124CB29400FD354F /* MVLCIcon_72.png */; };
+		9447009E12D8E31100FC66E3 /* MVLCIcon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3E16EF124CB29400FD354F /* MVLCIcon_114.png */; };
+		9447009F12D8E31100FC66E3 /* MVLCMovieGridViewCellDelete.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3E17CA124D20AD00FD354F /* MVLCMovieGridViewCellDelete.png */; };
+		944700A012D8E31100FC66E3 /* MVLCDocumentIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AEE2AF7124F65110067F0ED /* MVLCDocumentIcon.png */; };
+		944700A112D8E31100FC66E3 /* MVLCNoMediaView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A69488012510C2800EF1627 /* MVLCNoMediaView_iPad.xib */; };
+		944700A212D8E31100FC66E3 /* MVLCNoMediaView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A69488312510C5E00EF1627 /* MVLCNoMediaView_iPhone.xib */; };
+		944700A312D8E31100FC66E3 /* MVLCAboutView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A7A3C5412524AFA00A668B5 /* MVLCAboutView_iPad.xib */; };
+		944700A412D8E31100FC66E3 /* MVLCAboutView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A7A3C5D12524B6B00A668B5 /* MVLCAboutView_iPhone.xib */; };
+		944700A512D8E31100FC66E3 /* MVLCAboutApplidiumLink_iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BE4E1254C61500FD0CD1 /* MVLCAboutApplidiumLink_iPhone.png */; };
+		944700A612D8E31100FC66E3 /* MVLCAboutApplidiumLink_iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BE4F1254C61500FD0CD1 /* MVLCAboutApplidiumLink_iPhone@2x.png */; };
+		944700A712D8E31100FC66E3 /* MVLCAboutApplidiumLink_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BE521254C62F00FD0CD1 /* MVLCAboutApplidiumLink_iPad.png */; };
+		944700A812D8E31100FC66E3 /* MVLCMovieViewHUDFastForward_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BECB1254F21D00FD0CD1 /* MVLCMovieViewHUDFastForward_iPad.png */; };
+		944700A912D8E31100FC66E3 /* MVLCMovieViewHUDFastForward_iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BECC1254F21D00FD0CD1 /* MVLCMovieViewHUDFastForward_iPhone.png */; };
+		944700AA12D8E31100FC66E3 /* MVLCMovieViewHUDFastForward_iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BECD1254F21D00FD0CD1 /* MVLCMovieViewHUDFastForward_iPhone@2x.png */; };
+		944700AB12D8E31100FC66E3 /* MVLCMovieViewHUDRewind_iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BECE1254F21D00FD0CD1 /* MVLCMovieViewHUDRewind_iPhone.png */; };
+		944700AC12D8E31100FC66E3 /* MVLCMovieViewHUDRewind_iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BECF1254F21D00FD0CD1 /* MVLCMovieViewHUDRewind_iPhone@2x.png */; };
+		944700AD12D8E31100FC66E3 /* MVLCMovieViewHUDPause_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BED01254F21D00FD0CD1 /* MVLCMovieViewHUDPause_iPad.png */; };
+		944700AE12D8E31100FC66E3 /* MVLCMovieViewHUDPause_iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BED11254F21D00FD0CD1 /* MVLCMovieViewHUDPause_iPhone.png */; };
+		944700AF12D8E31100FC66E3 /* MVLCMovieViewHUDPause_iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BED21254F21D00FD0CD1 /* MVLCMovieViewHUDPause_iPhone@2x.png */; };
+		944700B012D8E31100FC66E3 /* MVLCMovieViewHUDPlay_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BED31254F21D00FD0CD1 /* MVLCMovieViewHUDPlay_iPad.png */; };
+		944700B112D8E31100FC66E3 /* MVLCMovieViewHUDPlay_iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BED41254F21D00FD0CD1 /* MVLCMovieViewHUDPlay_iPhone.png */; };
+		944700B212D8E31100FC66E3 /* MVLCMovieViewHUDPlay_iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BED51254F21D00FD0CD1 /* MVLCMovieViewHUDPlay_iPhone@2x.png */; };
+		944700B312D8E31100FC66E3 /* MVLCMovieViewHUDRewind_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BED61254F21D00FD0CD1 /* MVLCMovieViewHUDRewind_iPad.png */; };
+		944700B412D8E31100FC66E3 /* MVLCMovieViewHUDBackground_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BEE31254F67800FD0CD1 /* MVLCMovieViewHUDBackground_iPad.png */; };
+		944700B512D8E31100FC66E3 /* MVLCMovieViewHUDBackground_iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BEE41254F67800FD0CD1 /* MVLCMovieViewHUDBackground_iPhone.png */; };
+		944700B612D8E31100FC66E3 /* MVLCMovieViewHUDBackground_iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BEE51254F67800FD0CD1 /* MVLCMovieViewHUDBackground_iPhone@2x.png */; };
+		944700B712D8E31100FC66E3 /* MVLCMovieView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A19BF041254F6BC00FD0CD1 /* MVLCMovieView_iPad.xib */; };
+		944700B812D8E31100FC66E3 /* MVLCMovieView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A73FCD81254FE8A00735FD0 /* MVLCMovieView_iPhone.xib */; };
+		944700B912D8E31100FC66E3 /* MVLCDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A7082EF125F6CA600D45CB3 /* MVLCDefault.png */; };
+		944700BA12D8E31100FC66E3 /* MVLCDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A7082F0125F6CA600D45CB3 /* MVLCDefault@2x.png */; };
+		944700BC12D8E31100FC66E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		944700BD12D8E31100FC66E3 /* MobileVLCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* MobileVLCAppDelegate.m */; };
+		944700BE12D8E31100FC66E3 /* MVLCMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A87ECD511E3A33E007BE827 /* MVLCMovieViewController.m */; };
+		944700BF12D8E31100FC66E3 /* AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1D811EB737B0056579C /* AQGridView.m */; };
+		944700C012D8E31100FC66E3 /* AQGridViewAnimatorItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1DA11EB737B0056579C /* AQGridViewAnimatorItem.m */; };
+		944700C112D8E31100FC66E3 /* AQGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1DD11EB737B0056579C /* AQGridViewCell.m */; };
+		944700C212D8E31100FC66E3 /* AQGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1DF11EB737B0056579C /* AQGridViewController.m */; };
+		944700C312D8E31100FC66E3 /* AQGridViewData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1E111EB737B0056579C /* AQGridViewData.m */; };
+		944700C412D8E31100FC66E3 /* AQGridViewUpdateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1E311EB737B0056579C /* AQGridViewUpdateInfo.m */; };
+		944700C512D8E31100FC66E3 /* AQGridViewUpdateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1E511EB737B0056579C /* AQGridViewUpdateItem.m */; };
+		944700C612D8E31100FC66E3 /* NSIndexSet+AQIndexesOutsideSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1E711EB737B0056579C /* NSIndexSet+AQIndexesOutsideSet.m */; };
+		944700C712D8E31100FC66E3 /* NSIndexSet+AQIsSetContiguous.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1E911EB737B0056579C /* NSIndexSet+AQIsSetContiguous.m */; };
+		944700C812D8E31100FC66E3 /* UIColor+AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA1EB11EB737B0056579C /* UIColor+AQGridView.m */; };
+		944700C912D8E31100FC66E3 /* MVLCMovieListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BA21811EB74810056579C /* MVLCMovieListViewController.m */; };
+		944700CA12D8E31100FC66E3 /* MVLCMovieGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A350AFD11EB83B400B80E7C /* MVLCMovieGridViewCell.m */; };
+		944700CB12D8E31100FC66E3 /* MediaLibrary.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 63C092EE11F77D0A00A824BC /* MediaLibrary.xcdatamodel */; };
+		944700CC12D8E31100FC66E3 /* MVLCCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A396EA2120C06FD009B1800 /* MVLCCircularProgressView.m */; };
+		944700CD12D8E31100FC66E3 /* MVLCNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB796A21212DB0C00A3204A /* MVLCNavigationBar.m */; };
+		944700CE12D8E31100FC66E3 /* MVLCAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB24C6C1215899B0078E739 /* MVLCAboutViewController.m */; };
+		944700CF12D8E31100FC66E3 /* MVLCNoMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A79E095122C11FC00845971 /* MVLCNoMediaViewController.m */; };
+		944700D012D8E31100FC66E3 /* MLFile+HD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF8172F122E651400DAE803 /* MLFile+HD.m */; };
+		944700D112D8E31100FC66E3 /* MVLCMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A03822C1249F1B300A4F404 /* MVLCMovieTableViewCell.m */; };
+		944700D312D8E31100FC66E3 /* libMobileMediaLibraryKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9447FF8B12D87EEB00FC66E3 /* libMobileMediaLibraryKit.a */; };
+		944700D412D8E31100FC66E3 /* libMobileVLCKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9447FFB212D87FBE00FC66E3 /* libMobileVLCKit.a */; };
+		944700D512D8E31100FC66E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		944700D612D8E31100FC66E3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		944700D712D8E31100FC66E3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		944700D812D8E31100FC66E3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECA1811DE782F00F66AF3 /* OpenGLES.framework */; };
+		944700D912D8E31100FC66E3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECA1C11DE783500F66AF3 /* AudioToolbox.framework */; };
+		944700DA12D8E31100FC66E3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECA2011DE783F00F66AF3 /* QuartzCore.framework */; };
+		944700DB12D8E31100FC66E3 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECA2411DE784D00F66AF3 /* libiconv.dylib */; };
+		944700DC12D8E31100FC66E3 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECBBF11DE994500F66AF3 /* libz.dylib */; };
+		944700DD12D8E31100FC66E3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A5ECC1411DE9C6900F66AF3 /* libsqlite3.dylib */; };
+		944700DE12D8E31100FC66E3 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4BA0B111EB48AF0056579C /* libstdc++.6.dylib */; };
+		944700DF12D8E31100FC66E3 /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 636E9D8311ED3E29002FE8A9 /* libbz2.dylib */; };
+		944700E012D8E31100FC66E3 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 631866CC11EE4D5100AB038D /* libxml2.dylib */; };
+		944700E112D8E31100FC66E3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631866D011EE4D5B00AB038D /* CoreData.framework */; };
+		944700E212D8E31100FC66E3 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6376443E1205C33C00E48F8B /* CoreText.framework */; };
+		944700E312D8E31100FC66E3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A79DF10122BBF8700845971 /* MediaPlayer.framework */; };
+		9447010412D8E4BC00FC66E3 /* MediaLibrary.xcdatamodel in Resources */ = {isa = PBXBuildFile; fileRef = 63C092EE11F77D0A00A824BC /* MediaLibrary.xcdatamodel */; };
+		9447010512D8E4C800FC66E3 /* MediaLibrary.xcdatamodel in Resources */ = {isa = PBXBuildFile; fileRef = 63C092EE11F77D0A00A824BC /* MediaLibrary.xcdatamodel */; };
+		9447011D12D8E81400FC66E3 /* MVLCMediaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 9447011C12D8E81400FC66E3 /* MVLCMediaLibrary.m */; };
+		9447011E12D8E81400FC66E3 /* MVLCMediaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 9447011C12D8E81400FC66E3 /* MVLCMediaLibrary.m */; };
 		9447FFA312D87F6600FC66E3 /* libMobileMediaLibraryKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9447FF8B12D87EEB00FC66E3 /* libMobileMediaLibraryKit.a */; };
 		9447FFB712D87FDF00FC66E3 /* libMobileVLCKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9447FFB212D87FBE00FC66E3 /* libMobileVLCKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9447007F12D8E31100FC66E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9447FF8312D87EEB00FC66E3 /* MobileMediaLibraryKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = MobileMediaLibraryKit;
+		};
+		9447008112D8E31100FC66E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9447FFA912D87FBE00FC66E3 /* MobileVLCKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = MobileVLCKit;
+		};
 		9447FF8A12D87EEB00FC66E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9447FF8312D87EEB00FC66E3 /* MobileMediaLibraryKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libMobileMediaLibraryKit.a */;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = MobileMediaLibraryKit;
 		};
 		9447FF8C12D87EFA00FC66E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9447FF8312D87EEB00FC66E3 /* MobileMediaLibraryKit.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D /* MobileMediaLibraryKit */;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = MobileMediaLibraryKit;
 		};
 		9447FFB112D87FBE00FC66E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9447FFA912D87FBE00FC66E3 /* MobileVLCKit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D /* libMobileVLCKit.a */;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = MobileVLCKit;
 		};
 		9447FFB512D87FD500FC66E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9447FFA912D87FBE00FC66E3 /* MobileVLCKit.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D /* MobileVLCKit */;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = MobileVLCKit;
 		};
 /* End PBXContainerItemProxy section */
@@ -268,6 +381,11 @@
 		7AF8172F122E651400DAE803 /* MLFile+HD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MLFile+HD.m"; sourceTree = "<group>"; };
 		7AF81763122E697300DAE803 /* MVLCMovieGridViewCellHDBanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MVLCMovieGridViewCellHDBanner.png; path = Resources/MVLCMovieGridViewCellHDBanner.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MobileVLC-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MobileVLC-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		944700E812D8E31100FC66E3 /* VLC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VLC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		944700EA12D8E31100FC66E3 /* MobileVLCforCydia-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MobileVLCforCydia-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		9447010D12D8E59500FC66E3 /* MobileVLCforCydia_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MobileVLCforCydia_Prefix.pch; path = ../../iphone/MobileVLC/MobileVLCforCydia_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		9447011B12D8E81400FC66E3 /* MVLCMediaLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVLCMediaLibrary.h; sourceTree = "<group>"; };
+		9447011C12D8E81400FC66E3 /* MVLCMediaLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVLCMediaLibrary.m; sourceTree = "<group>"; };
 		9447FF8312D87EEB00FC66E3 /* MobileMediaLibraryKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MobileMediaLibraryKit.xcodeproj; path = ../../iphone/MobileVLC/ImportedSources/MediaLibraryKit/MobileMediaLibraryKit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		9447FFA912D87FBE00FC66E3 /* MobileVLCKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MobileVLCKit.xcodeproj; path = ../../iphone/MobileVLC/ImportedSources/vlc/projects/macosx/framework/MobileVLCKit.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -297,6 +415,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		944700D212D8E31100FC66E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				944700D312D8E31100FC66E3 /* libMobileMediaLibraryKit.a in Frameworks */,
+				944700D412D8E31100FC66E3 /* libMobileVLCKit.a in Frameworks */,
+				944700D512D8E31100FC66E3 /* Foundation.framework in Frameworks */,
+				944700D612D8E31100FC66E3 /* UIKit.framework in Frameworks */,
+				944700D712D8E31100FC66E3 /* CoreGraphics.framework in Frameworks */,
+				944700D812D8E31100FC66E3 /* OpenGLES.framework in Frameworks */,
+				944700D912D8E31100FC66E3 /* AudioToolbox.framework in Frameworks */,
+				944700DA12D8E31100FC66E3 /* QuartzCore.framework in Frameworks */,
+				944700DB12D8E31100FC66E3 /* libiconv.dylib in Frameworks */,
+				944700DC12D8E31100FC66E3 /* libz.dylib in Frameworks */,
+				944700DD12D8E31100FC66E3 /* libsqlite3.dylib in Frameworks */,
+				944700DE12D8E31100FC66E3 /* libstdc++.6.dylib in Frameworks */,
+				944700DF12D8E31100FC66E3 /* libbz2.dylib in Frameworks */,
+				944700E012D8E31100FC66E3 /* libxml2.dylib in Frameworks */,
+				944700E112D8E31100FC66E3 /* CoreData.framework in Frameworks */,
+				944700E212D8E31100FC66E3 /* CoreText.framework in Frameworks */,
+				944700E312D8E31100FC66E3 /* MediaPlayer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -317,6 +459,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* VLC.app */,
+				944700E812D8E31100FC66E3 /* VLC.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -343,6 +486,7 @@
 			isa = PBXGroup;
 			children = (
 				28A0AAE50D9B0CCF005BE974 /* MobileVLC_Prefix.pch */,
+				9447010D12D8E59500FC66E3 /* MobileVLCforCydia_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
 			name = "Other Sources";
@@ -353,8 +497,9 @@
 			children = (
 				7AB2BD4C11E489A0002E543F /* XIB */,
 				7AB2BD4D11E489A6002E543F /* Pictures */,
-				7AB24D2012159B140078E739 /* MVLCAboutContent.html */,
 				8D1107310486CEB800E47090 /* MobileVLC-Info.plist */,
+				944700EA12D8E31100FC66E3 /* MobileVLCforCydia-Info.plist */,
+				7AB24D2012159B140078E739 /* MVLCAboutContent.html */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -411,6 +556,8 @@
 			children = (
 				7AF8172E122E651400DAE803 /* MLFile+HD.h */,
 				7AF8172F122E651400DAE803 /* MLFile+HD.m */,
+				9447011B12D8E81400FC66E3 /* MVLCMediaLibrary.h */,
+				9447011C12D8E81400FC66E3 /* MVLCMediaLibrary.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -671,6 +818,25 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* VLC.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9447007D12D8E31100FC66E3 /* MobileVLCforCydia */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 944700E412D8E31100FC66E3 /* Build configuration list for PBXNativeTarget "MobileVLCforCydia" */;
+			buildPhases = (
+				9447008212D8E31100FC66E3 /* Resources */,
+				944700BB12D8E31100FC66E3 /* Sources */,
+				944700D212D8E31100FC66E3 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9447007E12D8E31100FC66E3 /* PBXTargetDependency */,
+				9447008012D8E31100FC66E3 /* PBXTargetDependency */,
+			);
+			name = MobileVLCforCydia;
+			productName = MobileVLC;
+			productReference = 944700E812D8E31100FC66E3 /* VLC.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -702,6 +868,7 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* MobileVLC */,
+				9447007D12D8E31100FC66E3 /* MobileVLCforCydia */,
 			);
 		};
 /* End PBXProject section */
@@ -728,6 +895,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9447010512D8E4C800FC66E3 /* MediaLibrary.xcdatamodel in Resources */,
 				7A4BA20311EB73F30056579C /* AQGridSelection.png in Resources */,
 				7A4BA20411EB73F30056579C /* AQGridSelectionGray.png in Resources */,
 				7A4BA20511EB73F30056579C /* AQGridSelectionGrayBlue.png in Resources */,
@@ -787,6 +955,70 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9447008212D8E31100FC66E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9447010412D8E4BC00FC66E3 /* MediaLibrary.xcdatamodel in Resources */,
+				9447008312D8E31100FC66E3 /* AQGridSelection.png in Resources */,
+				9447008412D8E31100FC66E3 /* AQGridSelectionGray.png in Resources */,
+				9447008512D8E31100FC66E3 /* AQGridSelectionGrayBlue.png in Resources */,
+				9447008612D8E31100FC66E3 /* AQGridSelectionGreen.png in Resources */,
+				9447008712D8E31100FC66E3 /* AQGridSelectionRed.png in Resources */,
+				9447008812D8E31100FC66E3 /* MVLCMainWindow.xib in Resources */,
+				9447008912D8E31100FC66E3 /* MVLCMovieListView.xib in Resources */,
+				9447008A12D8E31100FC66E3 /* MVLCMovieGridViewCell.xib in Resources */,
+				9447008B12D8E31100FC66E3 /* MVLCNavigationBarBackground.png in Resources */,
+				9447008C12D8E31100FC66E3 /* MVLCNavigationBarShadow.png in Resources */,
+				9447008D12D8E31100FC66E3 /* MVLCMovieListBackgroundLandscape.png in Resources */,
+				9447008E12D8E31100FC66E3 /* MVLCMovieListBackgroundPortrait.png in Resources */,
+				9447008F12D8E31100FC66E3 /* MVLCMovieGridViewCellOverlayCenter.png in Resources */,
+				9447009012D8E31100FC66E3 /* MVLCMovieGridViewCellOverlayLeft.png in Resources */,
+				9447009112D8E31100FC66E3 /* MVLCMovieGridViewCellOverlayRight.png in Resources */,
+				9447009212D8E31100FC66E3 /* MVLCBackgroundPattern.png in Resources */,
+				9447009312D8E31100FC66E3 /* MVLCAboutIcon.png in Resources */,
+				9447009412D8E31100FC66E3 /* MVLCAboutContent.html in Resources */,
+				9447009512D8E31100FC66E3 /* MVLCDefault-Landscape.png in Resources */,
+				9447009612D8E31100FC66E3 /* MVLCDefault-Portrait.png in Resources */,
+				9447009712D8E31100FC66E3 /* MVLCNoMediaImage.png in Resources */,
+				9447009812D8E31100FC66E3 /* MVLCMovieGridViewCellHDBanner.png in Resources */,
+				9447009912D8E31100FC66E3 /* MVLCMovieTableViewCellBackground.png in Resources */,
+				9447009A12D8E31100FC66E3 /* MVLCMovieTableViewCell.xib in Resources */,
+				9447009B12D8E31100FC66E3 /* MVLCMovieTableViewCellSelectedBackground.png in Resources */,
+				9447009C12D8E31100FC66E3 /* MVLCIcon_57.png in Resources */,
+				9447009D12D8E31100FC66E3 /* MVLCIcon_72.png in Resources */,
+				9447009E12D8E31100FC66E3 /* MVLCIcon_114.png in Resources */,
+				9447009F12D8E31100FC66E3 /* MVLCMovieGridViewCellDelete.png in Resources */,
+				944700A012D8E31100FC66E3 /* MVLCDocumentIcon.png in Resources */,
+				944700A112D8E31100FC66E3 /* MVLCNoMediaView_iPad.xib in Resources */,
+				944700A212D8E31100FC66E3 /* MVLCNoMediaView_iPhone.xib in Resources */,
+				944700A312D8E31100FC66E3 /* MVLCAboutView_iPad.xib in Resources */,
+				944700A412D8E31100FC66E3 /* MVLCAboutView_iPhone.xib in Resources */,
+				944700A512D8E31100FC66E3 /* MVLCAboutApplidiumLink_iPhone.png in Resources */,
+				944700A612D8E31100FC66E3 /* MVLCAboutApplidiumLink_iPhone@2x.png in Resources */,
+				944700A712D8E31100FC66E3 /* MVLCAboutApplidiumLink_iPad.png in Resources */,
+				944700A812D8E31100FC66E3 /* MVLCMovieViewHUDFastForward_iPad.png in Resources */,
+				944700A912D8E31100FC66E3 /* MVLCMovieViewHUDFastForward_iPhone.png in Resources */,
+				944700AA12D8E31100FC66E3 /* MVLCMovieViewHUDFastForward_iPhone@2x.png in Resources */,
+				944700AB12D8E31100FC66E3 /* MVLCMovieViewHUDRewind_iPhone.png in Resources */,
+				944700AC12D8E31100FC66E3 /* MVLCMovieViewHUDRewind_iPhone@2x.png in Resources */,
+				944700AD12D8E31100FC66E3 /* MVLCMovieViewHUDPause_iPad.png in Resources */,
+				944700AE12D8E31100FC66E3 /* MVLCMovieViewHUDPause_iPhone.png in Resources */,
+				944700AF12D8E31100FC66E3 /* MVLCMovieViewHUDPause_iPhone@2x.png in Resources */,
+				944700B012D8E31100FC66E3 /* MVLCMovieViewHUDPlay_iPad.png in Resources */,
+				944700B112D8E31100FC66E3 /* MVLCMovieViewHUDPlay_iPhone.png in Resources */,
+				944700B212D8E31100FC66E3 /* MVLCMovieViewHUDPlay_iPhone@2x.png in Resources */,
+				944700B312D8E31100FC66E3 /* MVLCMovieViewHUDRewind_iPad.png in Resources */,
+				944700B412D8E31100FC66E3 /* MVLCMovieViewHUDBackground_iPad.png in Resources */,
+				944700B512D8E31100FC66E3 /* MVLCMovieViewHUDBackground_iPhone.png in Resources */,
+				944700B612D8E31100FC66E3 /* MVLCMovieViewHUDBackground_iPhone@2x.png in Resources */,
+				944700B712D8E31100FC66E3 /* MVLCMovieView_iPad.xib in Resources */,
+				944700B812D8E31100FC66E3 /* MVLCMovieView_iPhone.xib in Resources */,
+				944700B912D8E31100FC66E3 /* MVLCDefault.png in Resources */,
+				944700BA12D8E31100FC66E3 /* MVLCDefault@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -816,12 +1048,53 @@
 				7A79E096122C11FC00845971 /* MVLCNoMediaViewController.m in Sources */,
 				7AF81730122E651400DAE803 /* MLFile+HD.m in Sources */,
 				7A03822D1249F1B300A4F404 /* MVLCMovieTableViewCell.m in Sources */,
+				9447011E12D8E81400FC66E3 /* MVLCMediaLibrary.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		944700BB12D8E31100FC66E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				944700BC12D8E31100FC66E3 /* main.m in Sources */,
+				944700BD12D8E31100FC66E3 /* MobileVLCAppDelegate.m in Sources */,
+				944700BE12D8E31100FC66E3 /* MVLCMovieViewController.m in Sources */,
+				944700BF12D8E31100FC66E3 /* AQGridView.m in Sources */,
+				944700C012D8E31100FC66E3 /* AQGridViewAnimatorItem.m in Sources */,
+				944700C112D8E31100FC66E3 /* AQGridViewCell.m in Sources */,
+				944700C212D8E31100FC66E3 /* AQGridViewController.m in Sources */,
+				944700C312D8E31100FC66E3 /* AQGridViewData.m in Sources */,
+				944700C412D8E31100FC66E3 /* AQGridViewUpdateInfo.m in Sources */,
+				944700C512D8E31100FC66E3 /* AQGridViewUpdateItem.m in Sources */,
+				944700C612D8E31100FC66E3 /* NSIndexSet+AQIndexesOutsideSet.m in Sources */,
+				944700C712D8E31100FC66E3 /* NSIndexSet+AQIsSetContiguous.m in Sources */,
+				944700C812D8E31100FC66E3 /* UIColor+AQGridView.m in Sources */,
+				944700C912D8E31100FC66E3 /* MVLCMovieListViewController.m in Sources */,
+				944700CA12D8E31100FC66E3 /* MVLCMovieGridViewCell.m in Sources */,
+				944700CB12D8E31100FC66E3 /* MediaLibrary.xcdatamodel in Sources */,
+				944700CC12D8E31100FC66E3 /* MVLCCircularProgressView.m in Sources */,
+				944700CD12D8E31100FC66E3 /* MVLCNavigationBar.m in Sources */,
+				944700CE12D8E31100FC66E3 /* MVLCAboutViewController.m in Sources */,
+				944700CF12D8E31100FC66E3 /* MVLCNoMediaViewController.m in Sources */,
+				944700D012D8E31100FC66E3 /* MLFile+HD.m in Sources */,
+				944700D112D8E31100FC66E3 /* MVLCMovieTableViewCell.m in Sources */,
+				9447011D12D8E81400FC66E3 /* MVLCMediaLibrary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9447007E12D8E31100FC66E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MobileMediaLibraryKit;
+			targetProxy = 9447007F12D8E31100FC66E3 /* PBXContainerItemProxy */;
+		};
+		9447008012D8E31100FC66E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MobileVLCKit;
+			targetProxy = 9447008112D8E31100FC66E3 /* PBXContainerItemProxy */;
+		};
 		9447FF8D12D87EFA00FC66E3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MobileMediaLibraryKit;
@@ -850,11 +1123,6 @@
 					"$(SRCROOT)/External/MediaLibraryKit/include",
 				);
 				INFOPLIST_FILE = "MobileVLC-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/External/MobileVLCKit\"",
-					"\"$(SRCROOT)/External/MediaLibraryKit\"",
-				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = VLC;
 			};
@@ -872,11 +1140,6 @@
 					"$(SRCROOT)/External/MediaLibraryKit/include",
 				);
 				INFOPLIST_FILE = "MobileVLC-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/External/MobileVLCKit\"",
-					"\"$(SRCROOT)/External/MediaLibraryKit\"",
-				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = VLC;
 				VALIDATE_PRODUCT = YES;
@@ -912,11 +1175,63 @@
 					"$(SRCROOT)/External/MediaLibraryKit/include",
 				);
 				INFOPLIST_FILE = "MobileVLC-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/External/MobileVLCKit\"",
-					"\"$(SRCROOT)/External/MediaLibraryKit\"",
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = VLC;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		944700E512D8E31100FC66E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MobileVLCforCydia_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/External/MobileVLCKit/include",
+					"$(SRCROOT)/External/MediaLibraryKit/include",
 				);
+				INFOPLIST_FILE = "MobileVLCforCydia-Info.plist";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = VLC;
+			};
+			name = Debug;
+		};
+		944700E612D8E31100FC66E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MobileVLCforCydia_Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/External/MobileVLCKit/include",
+					"$(SRCROOT)/External/MediaLibraryKit/include",
+				);
+				INFOPLIST_FILE = "MobileVLCforCydia-Info.plist";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = VLC;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		944700E712D8E31100FC66E3 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Romain GOYET";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MobileVLCforCydia_Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/External/MobileVLCKit/include",
+					"$(SRCROOT)/External/MediaLibraryKit/include",
+				);
+				INFOPLIST_FILE = "MobileVLCforCydia-Info.plist";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = VLC;
 				VALIDATE_PRODUCT = YES;
@@ -963,6 +1278,16 @@
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
 				7A5CD95A122FCDC5004266DD /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		944700E412D8E31100FC66E3 /* Build configuration list for PBXNativeTarget "MobileVLCforCydia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				944700E512D8E31100FC66E3 /* Debug */,
+				944700E612D8E31100FC66E3 /* Release */,
+				944700E712D8E31100FC66E3 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

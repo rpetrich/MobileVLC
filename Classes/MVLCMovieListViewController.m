@@ -11,7 +11,7 @@
 #import "MVLCMovieGridViewCell.h"
 #import "MVLCMovieTableViewCell.h"
 #import <CoreData/CoreData.h>
-#import <MediaLibraryKit/MLMediaLibrary.h>
+#import "MVLCMediaLibrary.h"
 #import "MVLCAboutViewController.h"
 
 #define MVLC_MOVIE_LIST_ANIMATION_DURATION 0.30f
@@ -117,7 +117,7 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 }
 
 - (void)reloadMedia {
-    [[MLMediaLibrary sharedMediaLibrary] updateDatabase];
+    [[MVLCMediaLibrary sharedMediaLibrary] updateDatabase];
 
 	[_allMedia release];
 	_allMedia = [[NSMutableArray arrayWithArray:[MLFile allFiles]] retain];
@@ -179,12 +179,12 @@ static NSString * MVLCMovieListViewControllerMovieSelectionAnimation = @"MVLCMov
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    [[MLMediaLibrary sharedMediaLibrary] libraryDidDisappear];
+    [[MVLCMediaLibrary sharedMediaLibrary] libraryDidDisappear];
     [super viewDidAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-	[[MLMediaLibrary sharedMediaLibrary] libraryDidAppear];
+	[[MVLCMediaLibrary sharedMediaLibrary] libraryDidAppear];
 
     if (! animated) {
         // Let's start the "zoom-out" animation

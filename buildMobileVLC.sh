@@ -5,6 +5,7 @@ set -e
 PLATFORM=OS
 SDK=iphoneos3.2
 VERBOSE=no
+TARGET=MobileVLC
 
 usage()
 {
@@ -15,6 +16,7 @@ OPTIONS
    -k       Specify which sdk to use (see 'xcodebuild -showsdks', current: ${SDK})
    -v       Be more verbose
    -s       Build for simulator
+   -t       Specify which target to build
 EOF
 }
 
@@ -55,7 +57,7 @@ buildxcodeproj()
                -configuration "Release" ${extra} > ${out}
 }
 
-while getopts "hvsk:" OPTION
+while getopts "hvskt:" OPTION
 do
      case $OPTION in
          h)
@@ -71,6 +73,9 @@ do
              ;;
          k)
              SDK=$OPTARG
+             ;;
+         t)
+             TARGET=$OPTARG
              ;;
          ?)
              usage
@@ -161,6 +166,6 @@ spopd # ImportedSources
 
 
 # Build Mobile VLC now
-buildxcodeproj MobileVLC
+buildxcodeproj MobileVLC "$TARGET"
 
 info "Build completed"

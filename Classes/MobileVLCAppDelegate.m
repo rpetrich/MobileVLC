@@ -8,7 +8,7 @@
 
 #import "MobileVLCAppDelegate.h"
 #import "MLMediaLibrary.h"
-#import <MobileVLCKit/MobileVLCKit.h>
+#import "MVLCMediaLibrary.h"
 #import "MVLCMovieViewController.h"
 
 @interface MobileVLCAppDelegate (Private)
@@ -24,7 +24,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // This will mark crashy files
-    [[MLMediaLibrary sharedMediaLibrary] applicationWillStart];
+    [[MVLCMediaLibrary sharedMediaLibrary] applicationWillStart];
 
     [_window addSubview:self.navigationController.view];
     [_window makeKeyAndVisible];
@@ -48,7 +48,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [[MLMediaLibrary sharedMediaLibrary] applicationWillExit];
+    [[MVLCMediaLibrary sharedMediaLibrary] applicationWillExit];
 }
 
 #pragma mark -
@@ -68,8 +68,12 @@
 #if TARGET_IPHONE_SIMULATOR && PIERRE_LE_GROS_CRADE
     NSString *directoryPath = @"/Users/steg/Movies";
 #else
+#if MOBILEVLC_FOR_CYDIA
+	NSString *directoryPath = @"/var/mobile/Media";
+#else
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *directoryPath = [paths objectAtIndex:0];
+#endif
 #endif
     MVLCLog(@"Scanning %@", directoryPath);
     NSArray *fileNames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directoryPath error:nil];
